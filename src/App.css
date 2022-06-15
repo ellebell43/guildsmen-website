@@ -40,6 +40,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
+    padding-bottom: 20px;
 }
 
 header {
@@ -97,6 +98,7 @@ button {
     font-family: inherit;
     font-weight: inherit;
     letter-spacing: 3px;
+    border-bottom: 1px solid var(--text-color);
 }
 
 button:focus {
@@ -147,15 +149,15 @@ main {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    background-color: var(--background-color);
 }
 
 .contents {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--nav-color);
     width: calc(100vw - 80px);
-    height: calc(100vh - 80px);
     margin: 20px;
     padding: 20px;
     display: none;
@@ -176,4 +178,10 @@ main {
 .contentsHeader p {
     margin: 0;
     font-size: 24px;
+}
+
+li a {
+    color: inherit;
+    font-size: 20px;
+    text-decoration: none;
 }

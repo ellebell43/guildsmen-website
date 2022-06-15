@@ -7,8 +7,8 @@ import Lore from './Tabs/Lore';
 import './App.css';
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') === 'light' ? 'light' : 'dark')
-  useEffect(() => { localStorage.setItem('theme', theme) })
+  const [theme, setTheme] = useState(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
+  useEffect(() => { localStorage.setItem('theme', theme) });
 
   const [tab, setTab] = useState(Home);
 
@@ -53,6 +53,7 @@ const App = () => {
       default:
         setTab(Home);
     }
+    toggleMenu();
   }
 
   return (
@@ -67,6 +68,7 @@ const App = () => {
           <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
           <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
           <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
+          <button type='button' className='navButton' onClick={tabClick} id='CS'>CHARACTER<br/>SHEET</button>
         </nav>
       </header>
       {tab}
