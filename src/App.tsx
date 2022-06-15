@@ -1,58 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Home from './Tabs/Home';
+import Rules from './Tabs/Rules';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') === 'light' ? 'light' : 'dark')
+  useEffect(() => { localStorage.setItem('theme', theme) })
+
+  const [tab, setTab] = useState(Rules);
+
+  let themeIcon = theme === 'dark' ? './images/icon-sun.svg' : './images/icon-moon.svg';
+
+  const themeChange = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+    console.log('theme changed');
+  }
+
+  const toggleMenu = () => {
+    console.log('menu toggled');
+    const menu = document.getElementById('nav');
+    if(menu !== null) {
+      if(!menu.classList.contains('visible')) {
+        menu.classList.add('visible');
+      } else {
+        menu.classList.remove('visible');
+      }
+    }
+    const menuIcon = document.getElementById('menuIcon');
+    if(menuIcon !== null) {
+      if(!menuIcon.classList.contains('menuAnimation')) {
+        menuIcon.classList.remove('menuAnimationReverse');
+        menuIcon.classList.add('menuAnimation');
+      } else {
+        menuIcon.classList.remove('menuAnimation');
+        menuIcon.classList.add('menuAnimationReverse');
+      }
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+    <div className='app' data-theme={theme}>
+      <header>
+        <p className='logo'>GUILDSMEN</p>
+        <div>
+          <img alt='Theme switch' src={themeIcon} onClick={themeChange} className='themeIcon' />
+          <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} id='menuIcon' />
+        </div>
+        <nav id='nav'>
+          <button type='button' className='navButton'>HOME</button>
+          <button type='button' className='navButton'>RULES</button>
+          <button type='button' className='navButton'>LORE</button>
+        </nav>
       </header>
+      {tab}
+      <footer>
+
+      </footer>
     </div>
-  );
+  )
 }
 
 export default App;

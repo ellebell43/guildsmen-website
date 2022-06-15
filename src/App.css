@@ -1,39 +1,178 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap");
+
+html {
+    font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-family: "Gentium Plus", serif;
+    font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+[data-theme=dark] {
+    --text-color: hsl(0, 0%, 80%);
+    --background-color: hsl(0, 0%, 15%);
+    --header-color: hsl(0, 0%, 17%);
+    --header-shadow: hsl(0, 0%, 12%);
+    --nav-color: hsl(0, 0%, 20%);
+    --nav-text: white;
+    --content-button-border: hsl(0, 0%, 80%);
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+[data-theme=light] {
+    --text-color: hsl(0, 0%, 15%);
+    --background-color: hsl(0, 0%, 80%);
+    --header-color: hsl(0, 0%, 75%);
+    --header-shadow: hsl(0, 0%, 65%);
+    --nav-color: hsl(0, 0%, 65%);
+    --nav-text: black;
+    --content-button-border: hsl(0, 0%, 15%);
+    ;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.app {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: var(--header-color);
+    box-shadow: 0 1px 3px var(--header-shadow);
+    width: calc(100vw - 30px);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.themeIcon {
+    margin-right: 15px;
+}
+
+.themeIcon:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+nav {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    background-color: var(--nav-color);
+    box-shadow: 0 1px 3px var(--header-shadow);
+    color: var(--nav-text);
+}
+
+.visible {
+    display: flex;
+}
+
+button {
+    background-color: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: 3px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.menuAnimation {
+    animation-name: rotate;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.menuAnimationReverse {
+    animation-name: unrotate;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes unrotate {
+    0% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+main {
+    padding: 0 15px;
+    padding-top: 60px;
+    position: relative;
+}
+
+.contentsButton {
+    border: 1px solid var(--content-button-border);
+    border-radius: 5px;
+    padding: 3px 8px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--nav-color);
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
+    margin: 20px;
+    padding: 20px;
+    z-index: 1;
+    display: none;
+}
+
+.contentsVisible {
+    display: block;
+}
+
+.contentsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentsHeader p {
+    margin: 0;
+    font-size: 20px;
 }
