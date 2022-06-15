@@ -127,6 +127,7 @@ button:focus {
     0% {
         transform: rotate(90deg);
     }
+
     100% {
         transform: rotate(0deg);
     }
@@ -141,6 +142,31 @@ main {
     padding-top: 60px;
     position: relative;
 }
+
+.singleColumnTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    margin: 10px auto;
+}
+
+.singleColumnTable .tableTitle {
+    margin: 0;
+    font-weight: 700;
+}
+
+.singleColumnTable .tableItem {
+    margin: 0;
+    padding: 2px 0;
+    border: 1px solid var(--text-color);
+    width: 100%; 
+    text-align: center;
+}
+
+/* -------------------- Rules Tab -------------------- */
+
 
 .contentsButton {
     border: 1px solid var(--content-button-border);
@@ -183,7 +209,6 @@ main {
 li a {
     color: inherit;
     font-size: 20px;
-    text-decoration: none;
 }
 
 h4 {
@@ -191,4 +216,32 @@ h4 {
     border-bottom: 1px solid var(--text-color);
     width: 75%;
     margin: auto;
+}
+
+.raceStatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+    width: 10rem;
+    margin: 20px auto 40px auto;
+}
+
+.raceStatContainer p {
+    margin: 0;
+}
+
+/* -------------------- Lore Tab -------------------- */
+.imageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 90%;
+    height: auto;
 }

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import RaceStats from './components/RaceStats';
 
 const Rules = () => {
     const toggleContents = () => {
@@ -25,17 +26,17 @@ const Rules = () => {
                     <FontAwesomeIcon icon={faXmark} size='2x' onClick={closeContents} id='xMark' />
                 </div>
                 <ul>
-                    <li><a href='#intro'>Introduction</a></li>
-                    <li><a href='#CC'>Character Creation</a></li>
-                    <li><a href='#skills'>Skills</a></li>
-                    <li><a href='#combat'>Combat</a></li>
-                    <li><a href='#myth'>Myth</a></li>
-                    <li><a href='#craft'>Crafting</a></li>
-                    <li><a href='#invent'>Invention</a></li>
-                    <li><a href='#market'>The Market</a></li>
-                    <li><a href='#est'>Establishments</a></li>
-                    <li><a href='#creatures'>Creatures</a></li>
-                    <li><a href='#GM'>For the GM</a></li>
+                    <li><a onClick={closeContents} href='#intro'>Introduction</a></li>
+                    <li><a onClick={closeContents} href='#CC'>Character Creation</a></li>
+                    <li><a onClick={closeContents} href='#skills'>Skills</a></li>
+                    <li><a onClick={closeContents} href='#combat'>Combat</a></li>
+                    <li><a onClick={closeContents} href='#myth'>Myth</a></li>
+                    <li><a onClick={closeContents} href='#craft'>Crafting</a></li>
+                    <li><a onClick={closeContents} href='#invent'>Invention</a></li>
+                    <li><a onClick={closeContents} href='#market'>The Market</a></li>
+                    <li><a onClick={closeContents} href='#est'>Establishments</a></li>
+                    <li><a onClick={closeContents} href='#creatures'>Creatures</a></li>
+                    <li><a onClick={closeContents} href='#GM'>For the GM</a></li>
                 </ul>
             </div>
             <h1>Core TTRPG Rules</h1>
@@ -108,11 +109,59 @@ const Rules = () => {
             <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles filled in, the better you will be when you try to do something related to that task (see the Skills chapter for details). When you pick a race, you are given a modifier next to each stat. Fill in the bubbles on your character sheet to match the modifiers given.</p>
 
             <h4><em>Locess</em></h4>
+            <p>Locess are bug like creatures. They have 4 arms, and their entire body is covered in a carapace. They have multifaceted eyes, antennae on top of angular heads. They culture focuses on agriculture and protecting nature.</p>
+            <RaceStats nimble='+2' tough='-1' competence='+1' constitution='+0' />
+
             <h4><em>Mausca</em></h4>
+            <p>Mausca are small, thin creatures with plant-like features. Their hair is made of moss and vines, their skin looks like tree bark, and their eyes look like sea pearls. Their culture is tribalistic, revering the water and the life it brings them and all creatures. They build their homes in swampy wetlands from mud, leaves, and branches.</p>
+            <RaceStats nimble='+2' tough='-1' competence='+0' constitution='+1' />
+
             <h4><em>Orcs</em></h4>
+            <p>Orcs are large, burly creatures with small tusks protruding from their mouths and small horns protruding from the tops of their heads. Their culture is one of tribes that war to show strength. They build their small towns in the coldest regions of the world, and they are known best for their luxurious northern pelts and their excellent prowess in battle.</p>
+            <RaceStats nimble='-1' tough='+2' competence='+0' constitution='+1' />
+
             <h4><em>Sentari</em></h4>
+            <p>Sentari are the tallest of the races, with blunt features. Their skin is a marbling of red and brown and they have no hair on their bodies at all. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what they grow into. Their communities are close-knit.</p>
+            <RaceStats nimble='-1' tough='+1' competence='+1' constitution='+1' />
+
             <h4><em>Slated</em></h4>
+            <p>The Slated are a desert people. Their skin is thick and the color of sandstone. They have plates that protrude from their backs that interlock when they crouch down, offering protection against sandstorms and making them appear like boulders to camouflage the from predators. Ther culture is centered around engineering and inention.</p>
+            <RaceStats nimble='-1' tough='+0' competence='+2' constitution='+1' />
+
             <h4><em>Ungal</em></h4>
+            <p>Ungal are a humanoid fungus people. They appear as fleshy and not quite smooth as mushrooms with dark moss growing on their bodies. They are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p>
+            <RaceStats nimble='+1' tough='+0' competence='+1' constitution='+0' />
+
+            <h3>Who Were You?</h3>
+            <p>All characters need a past that defines them. This will help you understand how your character would act in the game. On the back of the character sheet are four large boxes labeled Goals & Motives, Personal Morals, Flaws & Weaknesses, and Important Connections.</p>
+
+            <p>These four boxes are what defines how your character behaves. In each box, jot down one or two brief sentences that you want for your character. If you can’t think of anything right away, that’s okay. You can slowly fill these out during play. As situations arise, try to decide why your character would do what you want them to do. Then see if that reason would fall under one of these four categories. If it does, then jot down a quick note so you remember in the future.</p>
+
+            <p>Try to keep these somewhat general. Trying to be too specific can make it much harder to find things to put here.</p>
+
+            <p><strong>Goals & Motives</strong> are what drives your character. Perhaps they want to be the greatest thief that ever lived, or perhaps their family is motivating them to go out and make some money to send back to them. Perhaps they’re seeking revenge on someone, or they want to open up a small business and settle down. The world is your oyster here and anything you think of can work.</p>
+
+            <p><strong>Personal Morals</strong> are your character’s personal code of ethics. Perhaps they are completely against all violence. Or maybe they think killing a person they don’t know is completely okay. Maybe their okay with stealing, or maybe they’re very rigid about following the law.</p>
+
+            <p><strong>Flaws & Weaknesses</strong> are the things that your character struggles with. Perhaps they’re a kleptomaniac (impulsively steals things), or maybe they’re terrified of fire. Perhaps they will always do what an attractive person wants them to do, or they’re easily distracted.</p>
+
+            <p><strong>Important Connections</strong> are connections from your past. These can be tutors, trainers, parents, professors, criminal contacts, and other important connections your character could have made in their past. This is primarily useful for the Game Master so that they can tie connections from the past into the game.</p>
+
+            <p>Once you’ve got some things put in each box, consider writing out a full backstory if you’re feeling ambitious. This is where you describe their life and what they’ve gone through up to the point when the game starts. This is where you can give specific reasons for what you put in those 4 boxes.</p>
+
+            <p>From here, you need to give your character some skills. On the skills chart, fill in four skills up to the +0 mark. If you’ve made a backstory, try to consider what skills would make sense for your backstory. If you haven’t made a backstory, feel free to pick whatever skills you think would work for your character.</p>
+
+            <p>Finally, you need to select a wealth adjective. This describes how wealthy your character is on average. If you wrote a back story, go with whatever makes the most sense for your back story. If not, you should probably go with Moderate.</p>
+
+            <div className='singleColumnTable'>
+                <p className='tableTitle'>Wealth Adjectives</p>
+                <p className='tableItem'>Destitute</p>
+                <p className='tableItem'>Poor</p>
+                <p className='tableItem'>Moderate</p>
+                <p className='tableItem'>Wealthy</p>
+                <p className='tableItem'>Exquisite</p>
+            </div>
+
             {/* --------------------Skills-------------------- */}
             <h2 id='skills'>Skills</h2>
             {/* --------------------Combat-------------------- */}

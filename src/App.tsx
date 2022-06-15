@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSun, faMoon, faDownload } from '@fortawesome/free-solid-svg-icons';
 import Home from './Tabs/Home';
 import Rules from './Tabs/Rules';
 import Lore from './Tabs/Lore';
@@ -12,15 +12,11 @@ const App = () => {
 
   const [tab, setTab] = useState(Home);
 
-  let themeIcon = theme === 'dark' ? './images/icon-sun.svg' : './images/icon-moon.svg';
-
   const themeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
-    console.log('theme changed');
   }
 
   const toggleMenu = () => {
-    console.log('menu toggled');
     const menu = document.getElementById('nav');
     if(menu !== null) {
       if(!menu.classList.contains('visible')) {
@@ -61,14 +57,16 @@ const App = () => {
       <header>
         <p className='logo'>GUILDSMEN</p>
         <div>
-          <img alt='Theme switch' src={themeIcon} onClick={themeChange} className='themeIcon' />
+          <FontAwesomeIcon icon={theme == 'dark' ? faSun : faMoon} size='2x' onClick={themeChange} className='themeIcon' />
           <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} id='menuIcon' />
         </div>
         <nav id='nav'>
           <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
           <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
           <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
-          <button type='button' className='navButton' onClick={tabClick} id='CS'>CHARACTER<br/>SHEET</button>
+          <button type='button' className='navButton' onClick={tabClick} id='CS'>
+            CHARACTER<br/>SHEET <FontAwesomeIcon icon={faDownload} />
+            </button>
         </nav>
       </header>
       {tab}
