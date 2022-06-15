@@ -76,15 +76,60 @@ const Rules = () => {
             <p>At the end of the book is a chapter titled <em>For the Game Master</em>. This chapter teaches you how to govern the game as well as how to create your own stories.</p>
 
             <p>So now, flip the page and get ready to enter <em>the world of Guildsmen!</em></p>
+
+            {/* --------------------Character Creation-------------------- */}
             <h2 id='CC'>Character Creation</h2>
+            <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, you’ll need a character sheet and a pencil. Keep in mind that you will act as this character throughout the duration of the game.</p>
+
+            <p>The character sheet is the very last page in this book. You can also find a PDF version at guildsmen.com.</p>
+
+            <h3>Who are You?</h3>
+            <p>At the top-right of your character sheet are 4 fields: name, race, physique, and demeanor.</p>
+
+            <p><strong>Name</strong> is your character’s name. All people need a name. This is what other players will refer to you as during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
+
+            <p><strong>Race</strong> is your character’s race. In this book, we’ve outlined the major, classical-fantasy races as well as a few original races. If you have something else in mind, feel free to create your own unique race. See the list of races for details.</p>
+
+            <p><strong>Demeanor</strong> is how your character holds them self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would. </p>
+
+            <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help the Game Master know what Non-Player Characters in the world would see at a glance.</p>
+
+            <p>You can put the bottom four fields together, to create a brief description for you character. For example: A fat, jovial dwarf named Bob.</p>
+
+            <h3>The Races</h3>
+            <p>When selecting or creating a race, your stats will be decided. Your stats are three terms located at the top-right of your character sheet: Nimble, Tough, and Competence.</p>
+
+            <p><strong>Nimble</strong> defines how much physical finesse your character has. Nimble is used to move quickly, jump over objects, dodge, and other actions that require more finesse.</p>
+
+            <p><strong>Tough</strong> defines how much physical strength your character has. Tough is used to lift and move heavy objects, wrestle other creatures, and other actions that require more strength.</p>
+
+            <p><strong>Compentence</strong> defines your ability to act under pressure and read situations. It is used to instinctually understand situations and see things that other people wouldn’t. In moments of pressure and crisis, it will be used.</p>
+
+            <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles filled in, the better you will be when you try to do something related to that task (see the Skills chapter for details). When you pick a race, you are given a modifier next to each stat. Fill in the bubbles on your character sheet to match the modifiers given.</p>
+
+            <h4><em>Locess</em></h4>
+            <h4><em>Mausca</em></h4>
+            <h4><em>Orcs</em></h4>
+            <h4><em>Sentari</em></h4>
+            <h4><em>Slated</em></h4>
+            <h4><em>Ungal</em></h4>
+            {/* --------------------Skills-------------------- */}
             <h2 id='skills'>Skills</h2>
+            {/* --------------------Combat-------------------- */}
             <h2 id='combat'>Combat</h2>
+            {/* --------------------Myth-------------------- */}
             <h2 id='myth'>Myth</h2>
+            {/* --------------------Crafing-------------------- */}
             <h2 id='craft'>Crafting</h2>
+            {/* --------------------Invention-------------------- */}
             <h2 id='invent'>Invention</h2>
+            {/* --------------------The Market-------------------- */}
             <h2 id='market'>The Market</h2>
+            {/* --------------------Establishments-------------------- */}
             <h2 id='est'>Establishments</h2>
+            {/* --------------------Creatures-------------------- */}
             <h2 id='creatures'>Creatures</h2>
+            {/* --------------------For the Game Master-------------------- */}
             <h2 id='GM'>For the Game Master</h2>
             <button type='button' className='contentsButton' onClick={toggleContents}>CONTENTS</button>
         </main>

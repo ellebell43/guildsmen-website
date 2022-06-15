@@ -185,3 +185,10 @@ li a {
     font-size: 20px;
     text-decoration: none;
 }
+
+h4 {
+    text-align: center;
+    border-bottom: 1px solid var(--text-color);
+    width: 75%;
+    margin: auto;
+}
