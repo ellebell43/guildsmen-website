@@ -143,18 +143,23 @@ main {
     position: relative;
 }
 
-.singleColumnTable {
+.table {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 10rem;
-    margin: 10px auto;
+    margin: 0px auto 10px auto;
 }
 
-.singleColumnTable .tableTitle {
+.tableTitle {
     margin: 0;
     font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.singleColumnTable {
+    width: 10rem;
+    flex-direction: column;
 }
 
 .singleColumnTable .tableItem {
@@ -162,6 +167,23 @@ main {
     padding: 2px 0;
     border: 1px solid var(--text-color);
     width: 100%; 
+    text-align: center;
+}
+
+.twoColumnTable {
+    border: 1px solid var(--text-color);
+    width: 10rem;
+}
+
+.twoColumnTable div {
+    width: 50%;
+}
+
+.colItem {
+    margin: 0;
+    padding: 2px 0;
+    border-bottom: 1px solid var(--text-color);
+    width: 100%;
     text-align: center;
 }
 
@@ -230,6 +252,22 @@ h4 {
 
 .raceStatContainer p {
     margin: 0;
+}
+
+.luckTable {
+    width: 7rem;
+}
+
+.guildSkills {
+    margin-bottom: 50px;
+    border: 1px solid var(--text-color);
+}
+
+.guildSkill {
+    margin: 0;
+    padding: 2px 0;
+    width: 100%; 
+    text-align: center;
 }
 
 /* -------------------- Lore Tab -------------------- */

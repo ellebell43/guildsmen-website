@@ -5,7 +5,7 @@ import RaceStats from './components/RaceStats';
 const Rules = () => {
     const toggleContents = () => {
         const contents = document.getElementById('contents');
-        if(contents !== null) {
+        if (contents !== null) {
             contents.classList.add('contentsVisible');
         }
     }
@@ -13,7 +13,7 @@ const Rules = () => {
     const closeContents = () => {
         console.log('close clicked');
         const contents = document.getElementById('contents');
-        if(contents !== null) {
+        if (contents !== null) {
             contents.classList.remove('contentsVisible');
         }
     }
@@ -153,14 +153,113 @@ const Rules = () => {
 
             <p>Finally, you need to select a wealth adjective. This describes how wealthy your character is on average. If you wrote a back story, go with whatever makes the most sense for your back story. If not, you should probably go with Moderate.</p>
 
-            <div className='singleColumnTable'>
-                <p className='tableTitle'>Wealth Adjectives</p>
+            <p className='tableTitle'>Wealth Adjectives</p>
+            <div className='singleColumnTable table'>
                 <p className='tableItem'>Destitute</p>
                 <p className='tableItem'>Poor</p>
                 <p className='tableItem'>Moderate</p>
                 <p className='tableItem'>Wealthy</p>
                 <p className='tableItem'>Exquisite</p>
             </div>
+
+            <p>Pick an adjective and fill in the corresponding bubble in the Wealth box.</p>
+
+            <p>While you’re on your adventure, you may end up buying more items than your character generally carries around. When this happens, your Wealth may go down. More details on this in <em>The Market</em> chapter.</p>
+
+            <p>After that, you will need to determine how lucky your character is. Roll 1d6 (1, 6-sided die) and consult the table. Fill in the corresponding bubble in the Luck box on your character sheet.</p>
+
+
+            <p className='tableTitle'>Luck</p>
+            <div className='twoColumnTable table luckTable'>
+                <div className='col1'>
+                    <p className='colItem'>1</p>
+                    <p className='colItem'>2</p>
+                    <p className='colItem'>3</p>
+                    <p className='colItem'>4</p>
+                    <p className='colItem'>5</p>
+                    <p className='colItem'>6</p>
+                </div>
+                <div className='col2'>
+                    <p className='colItem'>-3</p>
+                    <p className='colItem'>-2</p>
+                    <p className='colItem'>-1</p>
+                    <p className='colItem'>+1</p>
+                    <p className='colItem'>+2</p>
+                    <p className='colItem'>+3</p>
+                </div>
+            </div>
+
+            <p>Whenever you do something or want something to happen that would rely on luck, you will roll 2d6 (2, 6-sided dice) and add the number that is in your luck box. The higher the total number, the better the outcome.</p>
+
+            <p>This same principle is how skills work (see the <em>Skills</em> chapter for details).</p>
+
+            <h3>Where are You Going?</h3>
+            <p>This final part of character creation should be done with all players present, because this decision will affect everyone.</p>
+
+            <p>You now need to decide where your characters are going. They all are joining a guild, and from here the grand adventures the Game Master has in store for you will begin. There are six common guilds, each will train your players in a specific set of skills.</p>
+
+            <p>Once you choose a guild, all players will increase the skills listed to +1.</p>
+
+            <h4>Assassins Guild</h4>
+            <p>Assassins are those that believe anyone is worthy of death… for the right price. Assassins lurk in the dark and strike when least expected. They are efficient killers and know how to get in, spill blood, and get out as quickly as possible.</p>
+            <p className='tableTitle'>Guild Skills</p>
+            <div className='singleColumnTable table guildSkills'>
+                <p className='guildSkill'><em>Investigate</em></p>
+                <p className='guildSkill'><em>Sneaky</em></p>
+                <p className='guildSkill'><em>Sneaky</em></p>
+                <p className='guildSkill'><em>Throwdown</em></p>
+            </div>
+
+            <h4>Mythic Hunters Guild</h4>
+            <p>Mythic Hunters are those that thrill in hunting the most dangerous beasts of the wilds. Their main goal is to kill Mythic creatures, harvest Navidus Crystals, and bring them back to the guild. Occasionally, they will get hired to kill Mythic creatures that are causing a nuisance, or to help defend smaller towns from Mythic creature attacks.</p>
+            <p className='tableTitle'>Guild Skills</p>
+            <div className='singleColumnTable table guildSkills'>
+                <p className='guildSkill'><em>Invent</em></p>
+                <p className='guildSkill'><em>Medic</em></p>
+                <p className='guildSkill'><em>Nature</em></p>
+                <p className='guildSkill'><em>Throwdown</em></p>
+            </div>
+
+            <h4>Explorers Guild</h4>
+            <p>Explorers desire to bring the unknown world into the light. They go beyond the borders of the map to discover lands that no race has ever experienced. They know that the wonders of the world are beyond the borders of current maps.</p>
+            <p className='tableTitle'>Guild Skills</p>
+            <div className='singleColumnTable table guildSkills'>
+                <p className='guildSkill'><em>Investigate</em></p>
+                <p className='guildSkill'><em>Lead</em></p>
+                <p className='guildSkill'><em>Medic</em></p>
+                <p className='guildSkill'><em>Nature</em></p>
+            </div>
+
+            <h4>Mercenaries Guild</h4>
+            <p>Mercenaries are those who use their strength to make a profit. They are loyal defenders – if they get paid. They are masters of martial skills and make formidable opponents.</p>
+            <p className='tableTitle'>Guild Skills</p>
+            <div className='singleColumnTable table guildSkills'>
+                <p className='guildSkill'><em>Craft</em></p>
+                <p className='guildSkill'><em>Investigate</em></p>
+                <p className='guildSkill'><em>Medic</em></p>
+                <p className='guildSkill'><em>Throwdown</em></p>
+            </div>
+
+            <h4>Thieves Guild</h4>
+            <p>Thieves understand the concept of value. They know that a fortune can only be made when working outside the law. Nothing is beyond their grasp and no place is prohibited to them – if they can be sneaky enough.</p>
+            <p className='tableTitle'>Guild Skillss</p>
+            <div className='singleColumnTable table guildSkills'>
+                <p className='guildSkill'>Investigate</p>
+                <p className='guildSkill'>Sneaky</p>
+                <p className='guildSkill'>Social</p>
+                <p className='guildSkill'>Throwdown</p>
+            </div>
+
+            <h3>Going Forward</h3>
+            <p>Now that you have a character, give your character whatever items make sense due to your skills, background, and guild. Next, go on to the next chapter to learn about skills, what they are, what they can do, and how to increase them.</p>
+
+            <p>We suggest you read the rest of the book in its entirety as well to get a good grasp of the game and its mechanics. It’s not necessary but it might be good to see what can be accomplished.</p>
+
+            <p>There’s so much you can do with the mechanics we’ve created for you, and we think you’ll really enjoy using them. And if you don’t care about the mechanics but want some good world lore to read, go through the Mythos in the Appendices of the book.</p>
+
+            <p>As you move forward through the game, we hope that you find a love for roleplay and enjoy the systems of the game as much as we do.</p>
+
+            <p><em>Good luck!</em></p>
 
             {/* --------------------Skills-------------------- */}
             <h2 id='skills'>Skills</h2>
