@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Home from './Tabs/Home';
 import Rules from './Tabs/Rules';
+import Lore from './Tabs/Lore';
 import './App.css';
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') === 'light' ? 'light' : 'dark')
   useEffect(() => { localStorage.setItem('theme', theme) })
 
-  const [tab, setTab] = useState(Rules);
+  const [tab, setTab] = useState(Home);
 
   let themeIcon = theme === 'dark' ? './images/icon-sun.svg' : './images/icon-moon.svg';
 
@@ -40,6 +41,20 @@ const App = () => {
     }
   }
 
+  const tabClick = (e: any) => {
+    const selected = e.target.id;
+    switch(selected) {
+      case 'rules':
+        setTab(Rules);
+        break;
+      case 'lore':
+        setTab(Lore);
+        break;
+      default:
+        setTab(Home);
+    }
+  }
+
   return (
     <div className='app' data-theme={theme}>
       <header>
@@ -49,9 +64,9 @@ const App = () => {
           <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} id='menuIcon' />
         </div>
         <nav id='nav'>
-          <button type='button' className='navButton'>HOME</button>
-          <button type='button' className='navButton'>RULES</button>
-          <button type='button' className='navButton'>LORE</button>
+          <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
+          <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
+          <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
         </nav>
       </header>
       {tab}
