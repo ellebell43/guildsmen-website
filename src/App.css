@@ -40,7 +40,6 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding-bottom: 20px;
 }
 
 /* -------------------- Header -------------------- */
@@ -181,6 +180,20 @@ button:hover {
     }
 }
 
+/* -------------------- Footer ------------------- */
+footer {
+    background-color: var(--header-color);
+    margin-bottom: 0;
+    padding: 15px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: inherit;
+}
 /* -------------------- Global Main ------------------- */
 
 main {
@@ -189,6 +202,7 @@ main {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
+    min-height: 75vh;
 }
 
 .table {

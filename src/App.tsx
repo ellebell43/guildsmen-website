@@ -55,7 +55,13 @@ const App = () => {
       default:
     }
     toggleMenu();
+    goToTop();
   }
+
+  const goToTop = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
   return (
     <div className='app' data-theme={theme}>
@@ -76,7 +82,11 @@ const App = () => {
       </header>
       {tab}
       <footer>
-
+        <p>&copy; Aaron Rutherford</p>
+        <p>License - MIT</p>
+        <p>Created by Aaron Rutherford and Harmony Brooks</p>
+        <p>Coded by Aaron Rutherford</p>
+        <a href='https://github.com/Hazipan/guildsmen-website'>See the code!</a>
       </footer>
     </div>
   )
