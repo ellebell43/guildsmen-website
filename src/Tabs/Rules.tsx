@@ -12,9 +12,12 @@ import Market from './chapters/Market';
 import Est from './chapters/Est';
 import Creatures from './chapters/Creatures';
 import GM from './chapters/GM';
+import './tab-styles/Rules.css';
 
 const Rules = (props: any) => {
+    const pageArr = [Intro, CharacterCreation, Skills, Combat, Myth, Craft, Invent, Market, Est, Creatures, GM];
     let [page, setPage] = useState(Intro);
+    let [index, setIndex] = useState(0);
 
     const toggleContents = () => {
         const contents = document.getElementById('contents');
@@ -30,47 +33,57 @@ const Rules = (props: any) => {
         }
 
         const page = e.target.id;
-        console.log(page);
         if (page !== null) {
             switch (page) {
                 case 'intro':
                     setPage(Intro);
-                    console.log('page set to Introduction');
+                    setIndex(0);
                     break;
                 case 'CC':
                     setPage(CharacterCreation);
-                    console.log('page set to Character Creation');
+                    setIndex(1);
                     break;
                 case 'skills':
                     setPage(Skills);
+                    setIndex(2);
                     break;
                 case 'combat':
                     setPage(Combat);
+                    setIndex(3);
                     break;
                 case 'myth':
                     setPage(Myth);
+                    setIndex(4);
                     break;
                 case 'craft':
                     setPage(Craft);
+                    setIndex(5);
                     break;
                 case 'invent':
                     setPage(Invent);
+                    setIndex(6);
                     break;
                 case 'market':
                     setPage(Market);
+                    setIndex(7);
                     break;
                 case 'est':
                     setPage(Est);
+                    setIndex(8);
                     break;
                 case 'creatures':
                     setPage(Creatures);
+                    setIndex(9);
                     break;
                 case 'GM':
                     setPage(GM);
+                    setIndex(10);
                     break;
                 default:
             }
         }
+        toggleCollapse();
+        goToTop();
     }
 
     const toggleCollapse = () => {
@@ -91,13 +104,42 @@ const Rules = (props: any) => {
         }
     }
 
+    const nextPage = () => {
+        const warning = document.getElementById('warning');
+        if (index !== pageArr.length - 1) {
+            setIndex(index + 1);
+            setPage(pageArr[index + 1]);
+            warning?.classList.remove('warningShow')
+            goToTop();
+        } else {
+            warning?.classList.add('warningShow')
+        }
+    }
+
+    const prevPage = () => {
+        const warning = document.getElementById('warning');
+        if (index !== 0) {
+            setIndex(index - 1);
+            setPage(pageArr[index - 1]);
+            warning?.classList.remove('warningShow')
+            goToTop();
+        } else {
+            warning?.classList.add('warningShow')
+        }
+    }
+
+    const goToTop = () => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
     return (
         <main className='rules'>
             <div className="contents" id='contents'>
                 <div className='contentsHeader'>
                     <p>Table of Contents</p>
-                    <FontAwesomeIcon icon={faXmark} size='2x' onClick={closeContents} id='xMark' className='xMark' />
                     <div className='collapseContainer'>
+                        <FontAwesomeIcon icon={faXmark} size='2x' onClick={closeContents} id='xMark' className='xMark' />
                         <FontAwesomeIcon icon={faAngleUp} size='2x' onClick={toggleCollapse} id='collapse' className='collapse' />
                     </div>
                 </div>
@@ -108,7 +150,7 @@ const Rules = (props: any) => {
                     <li><a onClick={closeContents} href='#combat' id='combat' >Combat</a></li>
                     <li><a onClick={closeContents} href='#myth' id='myth' >Myth</a></li>
                     <li><a onClick={closeContents} href='#craft' id='craft' >Crafting</a></li>
-                    <li><a onClick={closeContents} href='#invent'id='invent' >Invention</a></li>
+                    <li><a onClick={closeContents} href='#invent' id='invent' >Invention</a></li>
                     <li><a onClick={closeContents} href='#market' id='market' >The Market</a></li>
                     <li><a onClick={closeContents} href='#est' id='est' >Establishments</a></li>
                     <li><a onClick={closeContents} href='#creatures' id='creatures' >Creatures</a></li>
@@ -120,8 +162,11 @@ const Rules = (props: any) => {
                 {page}
             </div>
             <button type='button' className='contentsButton' onClick={toggleContents}>CONTENTS</button>
-            <button type='button' className='navButton'>Prev</button>
-            <button type='button' className='navButton'>Next</button>
+            <div className='rulesNavContainer'>
+                <button type='button' className='rulesNav' onClick={prevPage}>Prev</button>
+                <button type='button' className='rulesNav' onClick={nextPage}>Next</button>
+            </div>
+            <p className='warning' id='warning'>There isn't anything off that way.<br />Turn back before it's too late!</p>
         </main>
     )
 }

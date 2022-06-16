@@ -1,0 +1,234 @@
+.rules h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.contentsButton {
+    border: 1px solid var(--content-button-border);
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--header-color);
+    color: inherit;
+}
+
+.contents {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--nav-color);
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
+    margin: 20px;
+    padding: 20px;
+    display: none;
+    z-index: 0;
+}
+
+.contentsVisible {
+    display: block;
+    z-index: 5;
+}
+
+.collapse {
+    display: none;
+}
+
+.contentsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contentsHeader p {
+    margin: 0;
+    font-size: 24px;
+}
+
+li a {
+    color: inherit;
+    font-size: 20px;
+}
+
+h4 {
+    text-align: center;
+    border-bottom: 1px solid var(--text-color);
+    width: 75%;
+    margin: auto;
+}
+
+.raceStatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+    width: 10rem;
+    margin: 20px auto 40px auto;
+}
+
+.raceStatContainer p {
+    margin: 0;
+}
+
+.luckTable {
+    width: 7rem;
+}
+
+.guildSkills {
+    margin-bottom: 50px;
+    border: 1px solid var(--text-color);
+}
+
+.guildSkill {
+    margin: 0;
+    padding: 2px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.rulesNavContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.rulesNav {
+    font-size: inherit;
+    background-color: var(--header-color);
+    border: 1px solid var(--text-color);
+    color: inherit;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.rulesNav:focus {
+    outline: none;
+}
+
+.rulesNav:hover {
+    cursor: pointer;
+}
+
+.warning {
+    opacity: 0;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.warningShow {
+    opacity: 1;
+}
+
+@media (min-width: 992px) {
+    .contentsButton {
+        display: none;
+    }
+
+    .contents {
+        display: block;
+        z-index: 0;
+        margin: 0;
+        top: 65px;
+        width: 25%;
+        left: -23%;
+        height: 100vh;
+        background-color: transparent;
+    }
+
+    .xMark {
+        display: none;
+    }
+
+    .collapse {
+        display: block;
+        transform: rotate(90deg);
+    }
+
+    .collapseContainer {
+        background-color: var(--nav-color);
+        padding: 10px 10px;
+    }
+
+    .sinkContents {
+        animation-name: sink-contents, background-fade;
+        animation-duration: .2s;
+        animation-fill-mode: forwards; 
+    }
+    @keyframes sink-contents {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: -23%;
+        }
+    }
+
+    @keyframes background-fade {
+        0% {
+            background-color: var(--nav-color);
+        }
+        100% {
+            background-color: transparent;
+        }
+    }
+
+    .unsinkContents {
+        animation-name: unsink-contents, background-show;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes unsink-contents {
+        0% {
+            left: -23%;
+        }
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes background-show {
+        0% {
+            background-color: transparent;
+        }
+        100% {
+            background-color: var(--nav-color);
+        }
+    }
+
+    .rotateCollapseIcon {
+        animation-name: rotate-collapse-icon;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes rotate-collapse-icon {
+        0% {
+            transform: rotate(90deg);
+        }
+        100% {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .unrotateCollapseIcon {
+        animation: unrotate-collapse-icon;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes unrotate-collapse-icon {
+        0% {
+            transform: rotate(-90deg);
+        }
+        100% {
+            transform: rotate(90deg);
+        }
+    }
+}
