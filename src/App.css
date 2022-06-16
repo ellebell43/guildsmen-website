@@ -69,6 +69,10 @@ header div {
     letter-spacing: 3px;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .themeIcon {
     margin-right: 15px;
 }
@@ -216,7 +220,6 @@ main {
 
 .twoColumnTable {
     border: 1px solid var(--text-color);
-    width: 10rem;
 }
 
 .twoColumnTable div {

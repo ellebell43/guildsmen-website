@@ -49,6 +49,9 @@ const App = () => {
       case 'home':
         setTab(<Home />);
         break;
+      case 'logo':
+        setTab(<Home />);
+        break;
       default:
     }
     toggleMenu();
@@ -57,7 +60,7 @@ const App = () => {
   return (
     <div className='app' data-theme={theme}>
       <header>
-        <p className='logo'>GUILDSMEN</p>
+        <p className='logo' id='logo' onClick={tabClick}>GUILDSMEN</p>
         <div>
           <nav id='nav'>
             <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
