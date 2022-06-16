@@ -10,7 +10,7 @@ const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
   useEffect(() => { localStorage.setItem('theme', theme) });
 
-  const [tab, setTab] = useState(Home);
+  const [tab, setTab] = useState(<Home />);
 
   const themeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -18,16 +18,16 @@ const App = () => {
 
   const toggleMenu = () => {
     const menu = document.getElementById('nav');
-    if(menu !== null) {
-      if(!menu.classList.contains('visible')) {
+    if (menu !== null) {
+      if (!menu.classList.contains('visible')) {
         menu.classList.add('visible');
       } else {
         menu.classList.remove('visible');
       }
     }
     const menuIcon = document.getElementById('menuIcon');
-    if(menuIcon !== null) {
-      if(!menuIcon.classList.contains('menuAnimation')) {
+    if (menuIcon !== null) {
+      if (!menuIcon.classList.contains('menuAnimation')) {
         menuIcon.classList.remove('menuAnimationReverse');
         menuIcon.classList.add('menuAnimation');
       } else {
@@ -39,15 +39,17 @@ const App = () => {
 
   const tabClick = (e: any) => {
     const selected = e.target.id;
-    switch(selected) {
+    switch (selected) {
       case 'rules':
-        setTab(Rules);
+        setTab(<Rules />);
         break;
       case 'lore':
-        setTab(Lore);
+        setTab(<Lore />);
+        break;
+      case 'home':
+        setTab(<Home />);
         break;
       default:
-        setTab(Home);
     }
     toggleMenu();
   }
@@ -57,17 +59,17 @@ const App = () => {
       <header>
         <p className='logo'>GUILDSMEN</p>
         <div>
-          <FontAwesomeIcon icon={theme == 'dark' ? faSun : faMoon} size='2x' onClick={themeChange} className='themeIcon' />
-          <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} id='menuIcon' />
-        </div>
-        <nav id='nav'>
-          <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
-          <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
-          <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
-          <button type='button' className='navButton' onClick={tabClick} id='CS'>
-            CHARACTER<br/>SHEET <FontAwesomeIcon icon={faDownload} />
+          <nav id='nav'>
+            <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
+            <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
+            <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
+            <button type='button' className='navButton cs' onClick={tabClick} id='CS'>
+              CHARACTER<br />SHEET <FontAwesomeIcon icon={faDownload} />
             </button>
-        </nav>
+          </nav>
+          <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} size='2x' onClick={themeChange} className='themeIcon' />
+          <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} className='menuIcon' id='menuIcon' />
+        </div>
       </header>
       {tab}
       <footer>
