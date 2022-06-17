@@ -84,6 +84,28 @@ const Combat = () => {
             <p>Conditions could happen outside of combat as well. When this happens, the condition can last multiple in-game minutes, or even hours, if what caused the condition is powerful enough.</p>
 
             <p>Some conditions, such as the <em className="underline">Burning</em> condition will usually be ongoing. That means that the condition continues to affect your character until something specific happens (in the case of <em className="underline">Burning</em>, you must put out the fire to end the effect).</p>
+
+            <p>If a condition lasts for multiple rounds, you may be able to end the condition early. Every round you may spend your action to attempt to end the condition early. Each condition will specify how to end it early, if applicable.</p>
+
+            <p>As a player, you can cause any of these conditions to another creature so long as you have the means.</p>
+
+            <ul>
+                <li><strong>Blinded</strong>: You are unable to see for a length of time. When blinded, any skill checks that rely on vision are done with disadvantage. This cannot be ended early.</li>
+                <li><strong>Burning</strong>: You are on fire. Take 1 harm every combat round until the fire is put out.</li>
+                <li><strong>Calmed</strong>: You can do nothing violent for a length of time. A Competence check of 12 or more may end the condition early.</li>
+                <li><strong>Charmed</strong>: You cannot attempt to harm the charmer in any way, and you must be friendly toward the charmer for a time. A Competence score of 12 or more may end the condition early.</li>
+                <li><strong>Entangled</strong>: You are bound and cannot move for a length of time. A Tough stat check of 10 or more may end the condition early.</li>
+                <li><strong>Exhausted</strong>: You have disadvantage to all skill and stat checks that require physical movement for a length of time. Resting may end the condition early.</li>
+                <li><strong>Frenzied</strong>: You will uncontrollably attack all creatures nearby for a length of time. A Competence check of 12 or more may end the condition early.</li>
+                <li><strong>Frightened</strong>: You have disadvantage to all skill and stat checks that require mental exertion for a length of time. A Competence check of 10 or more may end the effect early.</li>
+                <li><strong>Frozen</strong>: All physical movement is done with disadvantage for a length of time. A Tough check of 12 or more may end the condition early.</li>
+                <li><strong>Grappled</strong>: Both the victim and the attacker can no longer move. The victim may attempt to end the grapple via an opposed Tough check. On the next turn, if the grapple is still in effect, the attacker may knock the victim down or back, disarm the victim, make an attack with a small weapon such as a knife, or continue the grapple to prevent the victim from being able to move.</li>
+                <li><strong>Knocked Back</strong>: you are pushed backward a distance specified by the Game Master. A Tough check of 10 or more may half the effect (done as a reaction).</li>
+                <li><strong>Knocked Down</strong>: you are pushed to the ground and now have disadvantage to all reactions until you get up.</li>
+                <li><strong>Poisoned</strong>: you take an amount of Harm specified by the Game Master every combat round (for quick poisons) or every in-game hour (for slow poisons) until cured. You may make a Tough check of 10 or more every combat round or hour to prevent the damage from happening for that round or hour. Whiteroot (see the <em>Market</em> chapter) may cure poison.</li>
+                <li><strong>Stunned</strong>: you are unable to move or act for a length of time. A Competence check of 12 or more may remove the effect early.</li>
+                <li><strong>Weakened</strong>: All physical attack effects are halved for a length of time. A Tough check of 12 or more may end the condition early.</li>
+            </ul>
         </div>
     )
 }

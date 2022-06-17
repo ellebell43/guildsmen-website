@@ -79,7 +79,7 @@ const App = () => {
             <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
             <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
             <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
-            <a className='navButton cs' onClick={tabClick} id='CS' href='./CS 10.2.pdf' download>
+            <a className='navButton cs' onClick={tabClick} id='CS' href='./files/CS 10.2.pdf' download>
               CHARACTER<br />SHEET <FontAwesomeIcon icon={faDownload} />
             </a>
           </nav>

@@ -129,6 +129,9 @@ button:focus {
 .cs {
     color: inherit;
     text-align: center;
+    text-decoration: none;
+    font-size: inherit;
+    border-bottom: 1px solid var(--text-color);
 }
 
 @keyframes rotate {
