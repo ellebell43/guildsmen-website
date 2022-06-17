@@ -7,10 +7,17 @@ import Lore from './Tabs/Lore';
 import './App.css';
 
 const App = () => {
+  const tabArr = [<Home/>, <Rules/>, <Lore/>]
   const [theme, setTheme] = useState(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
   useEffect(() => { localStorage.setItem('theme', theme) });
 
-  const [tab, setTab] = useState(<Home />);
+  const [tabIndex, setTabIndex] = useState(
+    sessionStorage.getItem('tabIndex') === null ? 0 : Number(sessionStorage.getItem('tabIndex'))
+  )
+  let tab = tabArr[tabIndex];
+  useEffect(() => {
+    sessionStorage.setItem('tabIndex', tabIndex.toString());
+  })
 
   const themeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -41,16 +48,16 @@ const App = () => {
     const selected = e.target.id;
     switch (selected) {
       case 'rules':
-        setTab(<Rules />);
+        setTabIndex(1);
         break;
       case 'lore':
-        setTab(<Lore />);
+        setTabIndex(2);
         break;
       case 'home':
-        setTab(<Home />);
+        setTabIndex(0);
         break;
       case 'logo':
-        setTab(<Home />);
+        setTabIndex(0);
         break;
       default:
     }
@@ -72,9 +79,9 @@ const App = () => {
             <button type='button' className='navButton' onClick={tabClick} id='home'>HOME</button>
             <button type='button' className='navButton' onClick={tabClick} id='rules'>RULES</button>
             <button type='button' className='navButton' onClick={tabClick} id='lore'>LORE</button>
-            <button type='button' className='navButton cs' onClick={tabClick} id='CS'>
+            <a className='navButton cs' onClick={tabClick} id='CS' href='./CS 10.2.pdf' download>
               CHARACTER<br />SHEET <FontAwesomeIcon icon={faDownload} />
-            </button>
+            </a>
           </nav>
           <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} size='2x' onClick={themeChange} className='themeIcon' />
           <FontAwesomeIcon icon={faBars} size='2x' onClick={toggleMenu} className='menuIcon' id='menuIcon' />

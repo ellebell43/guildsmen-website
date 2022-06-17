@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faAngleUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import Intro from './chapters/Intro';
@@ -16,8 +16,12 @@ import './tab-styles/Rules.css';
 
 const Rules = (props: any) => {
     const pageArr = [Intro, CharacterCreation, Skills, Combat, Myth, Craft, Invent, Market, Est, Creatures, GM];
-    let [page, setPage] = useState(Intro);
-    let [index, setIndex] = useState(0);
+    let [index, setIndex] = useState(
+        sessionStorage.getItem('index') === null ? 0 : Number(sessionStorage.getItem('index'))
+    );
+    let [page, setPage] = useState(pageArr[index]);
+
+    useEffect(() => {sessionStorage.setItem('index', index.toString())});
 
     const toggleContents = () => {
         const contents = document.getElementById('contents');
