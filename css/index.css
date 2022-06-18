@@ -74,7 +74,8 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 10px;
+    padding: 15px;
+    padding-top: 10px;
     background-color: var(--nav-color);
     box-shadow: 0 1px 3px var(--header-shadow);
     color: var(--nav-text);
@@ -90,6 +91,7 @@ nav a {
     text-decoration: none;
     letter-spacing: 3px;
     text-align: center;
+    margin: 0;
     border-bottom: 1px solid var(--text-color);
 }
  
@@ -161,7 +163,7 @@ nav a {
         background-color: inherit;
         align-items: flex-end;
         box-shadow: none;
-        padding: 20px;
+        padding: none;
         margin-right: 15px;
     }
 
