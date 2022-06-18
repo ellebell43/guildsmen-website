@@ -203,3 +203,8 @@ footer a {
 footer p {
     margin: 0;
 }
+.filter {
+    filter: var(--filter);
+    width: 15px;
+    height: auto;
+}

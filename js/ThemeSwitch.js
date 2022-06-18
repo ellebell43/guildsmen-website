@@ -1,6 +1,5 @@
 const ThemeSwitch = () => {
     const themeSwitch = document.getElementById('themeSwitchImg');
-    console.log(themeSwitch.src);
     const body = document.getElementById('body');
 
     if(/moon/.test(themeSwitch.src)) {

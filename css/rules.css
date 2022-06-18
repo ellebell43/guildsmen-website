@@ -1,0 +1,29 @@
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contents a {
+    color: var(--text-color);
+    font-size: 20px;
+    letter-spacing: 2spx;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contents a img {
+    margin-right: 10px;
+}
