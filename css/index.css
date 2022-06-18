@@ -110,8 +110,8 @@ nav a {
 }
 
 .menuButton img, .themeSwitch img {
-    width: 20px;
-    height: auto;
+    height: 20px;
+    width: auto;
     filter: var(--filter);
 }
 
@@ -205,6 +205,6 @@ footer p {
 }
 .filter {
     filter: var(--filter);
-    width: 15px;
-    height: auto;
+    height: 15px;
+    width: auto;
 }
