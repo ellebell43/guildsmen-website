@@ -3,7 +3,7 @@ const ThemeSwitch = () => {
     console.log(themeSwitch.src);
     const body = document.getElementById('body');
 
-    if(themeSwitch.src === '/images/moon-solid.svg') {
+    if(/moon/.test(themeSwitch.src)) {
         body.setAttribute("data-theme", "dark");
         themeSwitch.src = '/images/sun-solid.svg';
     } else {

@@ -161,7 +161,7 @@ nav a {
         background-color: inherit;
         align-items: flex-end;
         box-shadow: none;
-        padding: none;
+        padding: 20px;
         margin-right: 15px;
     }
 
