@@ -8,6 +8,7 @@
     --nav-color: hsl(0, 0%, 20%);
     --nav-text: white;
     --content-button-border: hsl(0, 0%, 80%);
+    --filter: invert(91%) sepia(0%) saturate(0%) hue-rotate(255deg) brightness(91%) contrast(91%);
 }
 
 [data-theme=light] {
@@ -18,7 +19,7 @@
     --nav-color: hsl(0, 0%, 65%);
     --nav-text: black;
     --content-button-border: hsl(0, 0%, 15%);
-    ;
+    --filter: invert(9%) sepia(0%) saturate(1516%) hue-rotate(174deg) brightness(88%) contrast(84%);
 }
 
 html {
@@ -111,7 +112,7 @@ nav a {
 .menuButton img, .themeSwitch img {
     width: 20px;
     height: auto;
-    color: var(--text-color)
+    filter: var(--filter);
 }
 
 .menuAnimation {
@@ -188,4 +189,17 @@ main {
 h1 {
     width: 100%;
     text-align: center;
+}
+
+footer {
+    background-color: var(--header-color);
+    padding: 10px;
+}
+
+footer a {
+    color: var(--text-color);
+}
+
+footer p {
+    margin: 0;
 }
