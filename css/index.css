@@ -79,28 +79,10 @@ nav {
     box-shadow: 0 1px 3px var(--header-shadow);
     color: var(--nav-text);
 }
- 
-.visible {
-    display: flex;
-}
-
-.menuButton {
-    background-color: inherit;
-    border: none;
-}
-
-.menuButton:focus {
-    outline: none
-}
-
-.menuButton img {
-    width: 20px;
-    height: auto;
-}
 
 nav a {
     background-color: inherit;
-    font-size: inherit;
+    font-size: 20px;
     color: inherit;
     border: none;
     font-family: inherit;
@@ -109,6 +91,25 @@ nav a {
     letter-spacing: 3px;
     text-align: center;
     border-bottom: 1px solid var(--text-color);
+}
+ 
+.visible {
+    display: flex;
+}
+
+.menuButton, .themeSwitch {
+    background-color: inherit;
+    border: none;
+}
+
+.menuButton:focus, .themeSwitch:focus {
+    outline: none
+}
+
+.menuButton img, .themeSwitch img {
+    width: 20px;
+    height: auto;
+    color: var(--text-color)
 }
 
 .menuAnimation {
@@ -164,12 +165,12 @@ nav a {
         margin-right: 15px;
     }
 
-    nav a {
-        width: 33%;
+    .menuButton {
+        display: none;
     }
 
-    .themeIcon {
-        align-self: center;
+    .themeSwitch {
+        margin-right: 20px;
     }
 }
 

@@ -9,16 +9,18 @@
   <title>Guildsmen</title>
 </head>
 
-<body data-theme="light">
+<body data-theme="light" id="body">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <header>
     <a class="logo" href="https://guildsmen-ttrpg.com">GUILDSMEN</a>
-    <div>
+    <div className="navContainer">
       <nav id="nav">
         <a href="/rules.html">Rules</a>
         <a href="/lore.html">Lore</a>
         <a href="">Bestiary</a> 
       </nav>
+      <script src="/js/ThemeSwitch.js"></script>
+      <button type="button" class="themeSwitch" id="themeSwitch" onClick="ThemeSwitch()"><img id="themeSwitchImg" src="/images/moon-solid.svg" alt="theme switch" /></button>
       <script src="/js/MenuButtonClick.tsx"></script>
       <button type="button" class="menuButton" id="menuButton" onClick="MenuButtonClick()"><img src='/images/bars-solid.svg' alt="menu" /></button>
     </div>
