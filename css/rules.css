@@ -1,9 +1,3 @@
-h2 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0;
-}
-
 .contents {
     display: flex;
     flex-direction: column;
@@ -25,10 +19,92 @@ h2 {
     text-decoration: none;
 }
 
-.contents a:hover {
+.contents a:hover,
+.csDownload:hover {
     background-color: var(--nav-color);
 }
 
 .contents a img {
     margin-right: 10px;
+}
+
+.csDownloadContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.csDownload {
+    color: var(--text-color);
+    text-align: center;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tableTitle {
+    font-weight: 700;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.raceStat {
+    padding: 10px;
+    margin: 0 auto;
+    width: 120px;
+    border: 1px solid var(--text-color);
+    margin-bottom: 50px;
+}
+
+.raceStat p {
+    margin: 0;
+    text-align: center;
+}
+
+.table1Col {
+    border: 1px solid var(--text-color);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.table1Col p {
+    margin: 0;
+    border-bottom: 1px solid var(--text-color);
+    width: 100%;
+    text-align: center;
+}
+
+.lastItem {
+    border: none;
+}
+
+.table2Col {
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+    border: 1px solid var(--text-color);
+}
+
+.table2Col div {
+    width: 50%;
+}
+
+.table2Col div p {
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.wealthTable {
+    width: 150px;
+}
+
+.luckTable {
+    width: 100px;
 }
