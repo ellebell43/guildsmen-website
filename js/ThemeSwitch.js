@@ -1,12 +1,22 @@
-const ThemeSwitch = () => {
-    const themeSwitch = document.getElementById('themeSwitchImg');
-    const body = document.getElementById('body');
+const themeSwitch = document.getElementById('themeSwitch');
+const icon = document.getElementById('themeSwitchImg')
 
-    if(/moon/.test(themeSwitch.src)) {
-        body.setAttribute("data-theme", "dark");
-        themeSwitch.src = '/images/sun-solid.svg';
+themeSwitch.addEventListener('click', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.setAttribute('data-theme', 'light');
+        icon.src = '/images/moon-solid.svg';
+        localStorage.setItem('theme', 'light');
     } else {
-        body.setAttribute("data-theme", "light");
-        themeSwitch.src = '/images/moon-solid.svg';
+        document.body.setAttribute('data-theme', 'dark');
+        icon.src = '/images/sun-solid.svg';
+        localStorage.setItem('theme', 'dark');
     }
+});
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    icon.src = '/images/sun-solid.svg';
+} else {
+    document.body.setAttribute('data-theme', 'light');
+    icon.src = '/images/moon-solid.svg';
 }

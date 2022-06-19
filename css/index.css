@@ -211,6 +211,27 @@ main {
     min-height: 75vh;
 }
 
+.rulesButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.rulesButton {
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 10px;
+    width: 50px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.rulesButton:hover {
+    background-color: var(--nav-color);
+}
+
 footer {
     background-color: var(--header-color);
     padding: 10px;
