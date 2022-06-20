@@ -129,6 +129,7 @@ nav a {
 .menuButton, .themeSwitch {
     background-color: inherit;
     border: none;
+    padding-top: 5px;
 }
 
 .menuButton:focus, .themeSwitch:focus {
