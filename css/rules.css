@@ -125,6 +125,10 @@
     padding-right: 10px;
 }
 
+.matVWealthTable {
+    width: 200px;
+}
+
 .colL p {
     text-align: left;
     padding-left: 10px;
