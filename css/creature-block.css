@@ -54,6 +54,15 @@
     font-weight: 700;
 }
 
+.or {
+    font-size: 8px;
+    margin: 0;
+}
+
+.noMargin {
+    margin: 0;
+}
+
 @media (min-width: 992px) {
     .creatureBlock {
         grid-template-areas:
