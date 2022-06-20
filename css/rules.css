@@ -134,6 +134,31 @@
     padding-left: 10px;
 }
 
+.mechStats {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.mechStats p {
+    margin: 0;
+    padding: 3px;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.mechStats .start {
+    border-left: 1px solid var(--text-color);
+    padding-left: 5px;
+}
+.mechStats .mid {
+    text-align: center;
+}
+.mechStats .end {
+    text-align: center;
+    border-right: 1px solid var(--text-color);
+}
+
+
 .navButtonContainer {
     display: flex;
     justify-content: center;
