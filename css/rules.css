@@ -36,6 +36,12 @@
     padding: 20px 0;
 }
 
+.download {
+    width: 15px;
+    height: auto;
+    filter: var(--filter)
+}
+
 .csDownload {
     color: var(--text-color);
     text-align: center;
