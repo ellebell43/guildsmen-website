@@ -44,7 +44,11 @@
 .actions, .description, .stats {
     border: 1px solid var(--text-color);
     margin: 0;
-    padding: 10px;
+    padding: 5px;
+}
+
+.actions, .description {
+    padding: 10px
 }
 
 .actionHead {
@@ -66,9 +70,9 @@
 @media (min-width: 992px) {
     .creatureBlock {
         grid-template-areas:
-            'title title'
-            'stats actions'
-            'description actions';
+            'title title title'
+            'stats actions actions'
+            'description actions actions';
         width: initial;
         margin: none;
     }
