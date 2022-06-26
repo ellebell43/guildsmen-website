@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Wip from './routes/wip';
 import Rules from './routes/rules';
 import CharacterCreation from "./routes/rules/characterCreation";
+import Skills from "./routes/rules/skills";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -31,6 +32,13 @@ root.render(
         <div>
           <App />
           <CharacterCreation />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/skills' element={
+        <div>
+          <App />
+          <Skills />
           <Footer />
         </div>
       } />

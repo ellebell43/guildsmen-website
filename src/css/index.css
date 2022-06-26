@@ -87,7 +87,7 @@ thead tr th {
 
 tbody tr td {
     text-align: center;
-    padding: 2.5px;
+    padding: 2.5px 5px;
     font-size: 14px;
 }
 
@@ -105,6 +105,14 @@ tbody tr td {
 
 .right {
     border-right: 1px solid var(--text-color);
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+.alignRight {
+    text-align: right;
 }
 
 .filter {
