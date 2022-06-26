@@ -63,6 +63,7 @@ p {
 
 a {
     color: var(--text-color);
+    text-decoration: none;
 }
 
 header {
@@ -92,7 +93,7 @@ header div {
     text-decoration: none;
 }
 
-nav {
+.navMenu {
     display: none;
     position: absolute;
     right: 10px;
@@ -108,7 +109,7 @@ nav {
     color: var(--nav-text);
 }
 
-nav a {
+.navMenu a {
     background-color: inherit;
     font-size: 20px;
     color: inherit;
