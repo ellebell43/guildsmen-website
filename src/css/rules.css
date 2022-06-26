@@ -1,175 +1,20 @@
-.csDownload:hover {
-    background-color: var(--nav-color);
-}
-
-.contents a img {
-    margin-right: 10px;
-}
-
-.csDownloadContainer {
-    width: 100%;
+.tableOfContents {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    padding: 20px 0;
+    align-items: center;
+    gap: 10px;
 }
 
-.download {
-    width: 15px;
-    height: auto;
-    filter: var(--filter)
-}
-
-.csDownload {
-    color: var(--text-color);
+.contentLink {
     text-align: center;
     border: 1px solid var(--text-color);
     border-radius: 5px;
-    padding: 10px;
+    font-size: 20px;
+    padding: 5px;
+    width: 350px;
 }
 
-.tableTitle {
-    font-weight: 700;
-    font-size: 18px;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.raceStat {
-    padding: 10px;
-    margin: 0 auto;
-    width: 120px;
-    border: 1px solid var(--text-color);
-    margin-bottom: 50px;
-}
-
-.raceStat p {
-    margin: 0;
-    text-align: center;
-}
-
-.table1Col {
-    border: 1px solid var(--text-color);
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 200px;
-}
-
-.table1Col p {
-    margin: 0;
-    border-bottom: 1px solid var(--text-color);
-    width: 100%;
-    text-align: center;
-}
-
-.lastItem {
-    border: none;
-}
-
-.table2Col {
-    display: flex;
-    margin: 0 auto;
-    width: 200px;
-    border: 1px solid var(--text-color);
-}
-
-.col1, .col2 {
-    width: 50%;
-}
-
-.col1 p, .col2 p {
-    text-align: center;
-}
-
-.table2Col div p {
-    margin: 0;
-    border-bottom: 1px solid var(--text-color);
-}
-
-.wealthTable {
-    width: 150px;
-}
-
-.luckTable {
-    width: 100px;
-}
-
-.colL {
-    width: 75%
-}
-
-.colS {
-    width: 25%;
-}
-
-.colS p {
-    text-align: right;
-    padding-right: 10px;
-}
-
-.matVWealthTable {
-    width: 200px;
-}
-
-.colL p {
-    text-align: left;
-    padding-left: 10px;
-}
-
-.mechStats {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    gap: 0;
-}
-
-.mechStats p {
-    margin: 0;
-    padding: 3px;
-    border-bottom: 1px solid var(--text-color);
-}
-
-.mechStats .start {
-    border-left: 1px solid var(--text-color);
-    padding-left: 5px;
-}
-.mechStats .mid {
-    text-align: center;
-}
-.mechStats .end {
-    text-align: center;
-    border-right: 1px solid var(--text-color);
-}
-
-
-.navButtonContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 50px;
-}
-
-.navButton {
-    background-color: var(--nav-color);
-    border: 1px solid var(--text-color);
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px;
-    margin: 0;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-}
-
-.arrow {
-    width: 15px;
-    height: auto;
-    margin: none;
+.contentLink img {
+    margin-right: 20px;
 }

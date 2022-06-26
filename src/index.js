@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from './routes/home';
 import Wip from './routes/wip';
+import Rules from './routes/rules';
 import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,13 @@ root.render(
         <div>
           <App />
           <Home />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules' element={
+        <div>
+          <App />
+          <Rules />
           <Footer />
         </div>
       } />
