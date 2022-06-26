@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import toTop from '../../js/toTop';
+import BackToContents from '../../components/backToContents';
 import downloadIcon from '../../images/download-solid.svg';
 import csSheet from '../../files/CS 10.2.pdf';
 import '../../css/character-creation.css';
@@ -16,7 +17,7 @@ const CharacterCreation = () => {
             <div className="csDownloadContainer">
                 <a className="csDownload" href={csSheet} download='guildsmen-character-sheet'>
                     Download the character sheet
-                    <img src={downloadIcon} alt="" class="filter" />
+                    <img src={downloadIcon} alt="" className="filter" />
                 </a>
             </div>
 
@@ -471,7 +472,6 @@ const CharacterCreation = () => {
             <h3>Thieves Guild</h3>
             <p>Thieves understand the concept of value. They know that a fortune can only be made when working outside the
                 law. Nothing is beyond their grasp and no place is prohibited to them – if they can be sneaky enough.</p>
-            <p class="tableTitle">Guild Skills</p>
 
             <table className='raceStatTable'>
                 <thead>
@@ -511,6 +511,7 @@ const CharacterCreation = () => {
 
             <p><em>Good luck!</em></p>
             <Outlet />
+            <BackToContents />
         </main>
     )
 }

@@ -11,6 +11,7 @@
     border: 1px solid var(--text-color);
     border-radius: 5px;
     text-align: center;
+    text-decoration: none;
 }
 
 .csDownload img {

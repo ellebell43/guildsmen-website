@@ -33,22 +33,22 @@ const Home = () => {
             <p>The world of Guildsmen is known as Thelius. This is a world of many races, wild places, and great invention. However, the story you weave can take place in any world you want. But there are a few rules that must remain constant in order for the rules in this book to work.</p>
 
             <ol>
-                <li>Mythical creatures exist and have Navidus Crystals inside of them (see the <a href="./rules/creatures.html"><em>Creatures chapter</em></a>).</li>
-                <li>The world is steampunk, but Navidus Crystals are also used to power devices (see the <a href="./rules/invention.html"><em>Invention chapter</em></a> for details).</li>
+                <li>Mythical creatures exist and have Navidus Crystals inside of them (see the <Link onClick={toTop} to="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
+                <li>The world is steampunk, but Navidus Crystals are also used to power devices (see the <Link onClick={toTop} to="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
                 <li>Guilds are common establishments throughout the world.</li>
-                <li>Magic exists and is performed through a drug known as Myth (see the <a href="/rules/myth.html"><em>Myth chapter</em></a>).</li>
+                <li>Magic exists and is performed through a drug known as Myth (see the <Link onClick={toTop} to="/rules/myth"><em>Myth chapter</em></Link>).</li>
             </ol>
 
-            <p>Beyond these 4 simple rules, the time era and world you set your game in is completely up to you. If you don’t know where to start, feel free to use the <a href="/lore.html"><em>world of Thelius</em></a> as your world of play.</p>
+            <p>Beyond these 4 simple rules, the time era and world you set your game in is completely up to you. If you don’t know where to start, feel free to use the <Link onClick={toTop} to="/lore"><em>world of Thelius</em></Link> as your world of play.</p>
 
             <h2>Using This Website</h2>
-            <p>This website is separated into 5 pages: Rules, Lore, Bestiary, Resources, and Community. <a href="/rules.html"><em>Rules</em></a> outlines all the core rules of the TTRPG and is organized into chapters. <a href="/lore.html"><em>Lore</em></a> is where all the information for the world of Thelius is. Thelius is the core world of Guildsmen. <a href="/bestiary.html"><em>Bestiary</em></a> is where you go to learn about all the fantastic creatures we have to offer. <a href="/resources.html"><em>Resources</em></a> is where you can find all the resources of the game for download, such as the character sheet and a quick reference guide. <a href="/community.html"><em>Community</em></a> has links to all our social areas and information on contributing to this game.</p>
+            <p>This website is separated into 5 pages: Rules, Lore, Bestiary, Resources, and Community. <Link onClick={toTop} to="/rules"><em>Rules</em></Link> outlines all the core rules of the TTRPG and is organized into chapters. <Link onClick={toTop} to="/lore"><em>Lore</em></Link> is where all the information for the world of Thelius is. Thelius is the core world of Guildsmen. <Link onClick={toTop} to="/bestiary"><em>Bestiary</em></Link> is where you go to learn about all the fantastic creatures we have to offer. <Link onClick={toTop} to="/resources"><em>Resources</em></Link> is where you can find all the resources of the game for download, such as the character sheet and a quick reference guide. <Link onClick={toTop} to="/community.html"><em>Community</em></Link> has links to all our social areas and information on contributing to this game.</p>
 
             <p>Your next step from here should be to go to the Rules page.</p>
 
             <p>The first part of the rules outlines how to build a character. This part is for all the players. Then, we will explain how the game works and what mechanics are at the players disposal. If you are the Game Master, you need to read through all of the rules so that you can guide your players through the game. Players only need to read the Character Creation and Skills chapters as well as whatever seems relevant to their character.</p>
 
-            <p>At the end of the rules is a chapter titled <a href="/rules/for-the-gm.html"><em>For the Game Master</em></a>. This chapter teaches you how to govern the game as well as how to create your own stories.</p>
+            <p>At the end of the rules is a chapter titled <Link onClick={toTop} to="/rules/for-the-gm"><em>For the Game Master</em></Link>. This chapter teaches you how to govern the game as well as how to create your own stories.</p>
 
             <p>So now, go to the rules section and enter <em>the world of Guildsmen!</em></p>
 
