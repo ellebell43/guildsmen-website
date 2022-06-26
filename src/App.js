@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import './css/index.css';
+import './css/header.css';
 import sun from './images/sun-solid.svg';
 import moon from './images/moon-solid.svg';
 import menu from './images/bars-solid.svg';
@@ -47,6 +48,7 @@ const App = () => {
           <nav className='navMenu' id='nav'>
             <Link to="/rules" onClick={menuClick}>Rules</Link>
             <Link to="/lore" onClick={menuClick}>Lore</Link>
+            <Link to='/bestiary' onClick={menuClick}>Bestiary</Link>
             <Link to="/resources" onClick={menuClick}>Resources</Link>
             <Link to='/community' onClick={menuClick}>Community</Link>
           </nav>
