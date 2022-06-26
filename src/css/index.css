@@ -184,7 +184,7 @@ header div {
         display: none;
     }
 
-    nav {
+    .navMenu {
         display: flex;
         flex-direction: row;
         position: initial;
