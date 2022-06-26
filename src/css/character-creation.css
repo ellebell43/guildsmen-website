@@ -1,0 +1,22 @@
+.csDownloadContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.csDownload {
+    font-size: 18px;
+    padding: 5px;
+    width: 300px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.csDownload img {
+    margin-left: 10px;
+}
+
+.raceStatTable tr td {
+    padding: 2.5px 15px;
+}

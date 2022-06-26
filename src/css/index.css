@@ -63,10 +63,7 @@ p {
 
 a {
     color: var(--text-color);
-    text-decoration: none;
 }
-
-
 
 main {
     padding: 60px 15px;
@@ -74,6 +71,40 @@ main {
     max-width: 600px;
     margin: 0 auto;
     min-height: 75vh;
+}
+
+table {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    border-spacing: 0;
+}
+
+thead tr th {
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 3px double var(--text-color);
+}
+
+tbody tr td {
+    text-align: center;
+    padding: 2.5px;
+    font-size: 14px;
+}
+
+.bottom {
+    border-bottom: 1px solid var(--text-color);
+}
+
+.top {
+    border-top: 1px solid var(--text-color);
+}
+
+.left {
+    border-left: 1px solid var(--text-color);;
+}
+
+.right {
+    border-right: 1px solid var(--text-color);
 }
 
 .filter {

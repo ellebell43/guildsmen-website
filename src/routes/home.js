@@ -1,3 +1,5 @@
+import { Link, Outlet } from 'react-router-dom';
+import toTop from '../js/toTop';
 import '../css/home.css';
 
 const Home = () => {
@@ -51,7 +53,8 @@ const Home = () => {
             <p>So now, go to the rules section and enter <em>the world of Guildsmen!</em></p>
 
             <div className="rulesButtonContainer">
-                <a href="./rules.html" className="rulesButton">Rules</a>
+                <Link to="/rules" onClick={toTop} className="rulesButton">Rules</Link>
+                <Outlet />
             </div>
         </main>
     )

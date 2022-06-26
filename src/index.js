@@ -2,9 +2,10 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from './routes/home';
+import Footer from './components/Footer';
 import Wip from './routes/wip';
 import Rules from './routes/rules';
-import Footer from './components/Footer';
+import CharacterCreation from "./routes/rules/characterCreation";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -23,6 +24,13 @@ root.render(
         <div>
           <App />
           <Rules />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/character-creation' element={
+        <div>
+          <App />
+          <CharacterCreation />
           <Footer />
         </div>
       } />
