@@ -4,6 +4,7 @@ import './css/header.css';
 import sun from './images/sun-solid.svg';
 import moon from './images/moon-solid.svg';
 import menu from './images/bars-solid.svg';
+import toTop from './js/toTop';
 
 const App = () => {
   const themeSwitch = (e) => {
@@ -40,17 +41,22 @@ const App = () => {
     }
   }
 
+  const linkClick = () => {
+    toTop();
+    menuClick();
+  }
+
   return (
     <div>
       <header>
-        <Link to='/' className='logo'>Guildsmen</Link>
+        <Link to='/' onClick={toTop} className='logo'>Guildsmen</Link>
         <div className='navContainer'>
           <nav className='navMenu' id='nav'>
-            <Link to="/rules" onClick={menuClick}>Rules</Link>
-            <Link to="/lore" onClick={menuClick}>Lore</Link>
-            <Link to='/bestiary' onClick={menuClick}>Bestiary</Link>
-            <Link to="/resources" onClick={menuClick}>Resources</Link>
-            <Link to='/community' onClick={menuClick}>Community</Link>
+            <Link to="/rules" onClick={linkClick}>Rules</Link>
+            <Link to="/lore" onClick={linkClick}>Lore</Link>
+            <Link to='/bestiary' onClick={linkClick}>Bestiary</Link>
+            <Link to="/resources" onClick={linkClick}>Resources</Link>
+            <Link to='/community' onClick={linkClick}>Community</Link>
           </nav>
           <button type="button" onClick={themeSwitch} className="themeSwitch" id="themeSwitch">
             <img id="themeSwitchImg" src={sun} alt="theme switch" />
