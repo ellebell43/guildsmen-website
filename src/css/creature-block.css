@@ -31,7 +31,7 @@
     margin: 0;
 }
 
-.description {
+.creatureDescription {
     grid-area: description;
     display: flex;
     align-items: center;
@@ -41,13 +41,13 @@
     grid-area: actions;
 }
 
-.actions, .description, .stats {
+.actions, .creatureDescription, .stats {
     border: 1px solid var(--text-color);
     margin: 0;
     padding: 5px;
 }
 
-.actions, .description {
+.actions, .creatureDescription {
     padding: 10px
 }
 

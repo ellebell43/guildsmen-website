@@ -13,6 +13,7 @@ import Crafting from './routes/rules/crafting';
 import Invention from "./routes/rules/invention";
 import Market from "./routes/rules/the-market";
 import Establishments from "./routes/rules/establishments";
+import Creatures from "./routes/rules/creatures";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -87,6 +88,13 @@ root.render(
         <div>
           <App />
           <Establishments />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/creatures' element={
+        <div>
+          <App />
+          <Creatures />
           <Footer />
         </div>
       } />

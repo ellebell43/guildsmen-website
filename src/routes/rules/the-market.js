@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import toTop from "../../js/toTop";
 import BackToContents from "../../components/backToContents";
 import '../../css/the-market.css';
