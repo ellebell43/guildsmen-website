@@ -80,7 +80,7 @@ const Myth = () => {
             <table>
                 <thead>
                     <tr>
-                        <th colSpan={1}>Common Types<br/>of Myth</th>
+                        <th colSpan={1}>Common Types<br />of Myth</th>
                     </tr>
                 </thead>
                 <tbody>

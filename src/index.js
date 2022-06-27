@@ -10,6 +10,8 @@ import Skills from "./routes/rules/skills";
 import Combat from "./routes/rules/combat";
 import Myth from "./routes/rules/myth";
 import Crafting from './routes/rules/crafting';
+import Invention from "./routes/rules/invention";
+import Market from "./routes/rules/the-market";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -63,6 +65,20 @@ root.render(
         <div>
           <App />
           <Crafting />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/invention' element={
+        <div>
+          <App />
+          <Invention />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/the-market' element={
+        <div>
+          <App />
+          <Market />
           <Footer />
         </div>
       } />
