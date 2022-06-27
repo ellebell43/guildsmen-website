@@ -46,7 +46,7 @@ const Rules = () => {
                     <img className='filter' src={marketIcon} alt='' />
                     The Market
                 </Link>
-                <Link onClick={toTop} to="/rules/establishemnts" className='contentLink'>
+                <Link onClick={toTop} to="/rules/establishments" className='contentLink'>
                     <img className='filter' src={estIcon} alt='' />
                     Establishemnts
                 </Link>
