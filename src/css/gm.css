@@ -1,0 +1,11 @@
+[data-theme=dark] {
+  --narration-color: hsl(220, 40%, 60%);
+}
+
+[data-theme=light] {
+  --narration-color: hsl(220, 60%, 35%);
+}
+
+.narration {
+  color: var(--narration-color);
+}
