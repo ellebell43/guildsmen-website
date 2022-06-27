@@ -73,6 +73,8 @@ const Myth = () => {
 
             <p>The following is an outline of the common types of Myth, each of which can be specialized in (see the <Link onClick={toTop} to="/rules/skills"><em>Skills Chapter</em></Link>). Myth can be used to manipulate it's element in any way you can think of, the only thing that changes is the difficulty of the skill check.</p>
 
+            <Outlet />
+
             <p>To determine what constitutes very easy versus very difficult, consider the quantity of the element being manipulated and the percision that it's being manipulated with. For example, creating a breeze to waft a smell in a particular direction would be very easy to do. It's not a very percise movement, and all it takes is a little push. But creating a vaccuum around an individual to suffocate them or creating an intense wind storm would be very difficult. The vaccuum is very percise and localized, and the wind storm would need to cover a very large area and require a lot of energy to have the effect of a full wind storm.</p>
 
             <table>

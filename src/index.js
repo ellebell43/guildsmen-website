@@ -9,6 +9,7 @@ import CharacterCreation from "./routes/rules/characterCreation";
 import Skills from "./routes/rules/skills";
 import Combat from "./routes/rules/combat";
 import Myth from "./routes/rules/myth";
+import Crafting from './routes/rules/crafting';
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -55,6 +56,13 @@ root.render(
         <div>
           <App />
           <Myth />
+          <Footer />
+        </div>
+      } />
+      <Route path='/rules/crafting' element={
+        <div>
+          <App />
+          <Crafting />
           <Footer />
         </div>
       } />
