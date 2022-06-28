@@ -10,7 +10,7 @@ const Skills = () => {
 
             <p>The character sheet outlines 11 distinct categories of skill, each with their own specialties. Specialties are special modifiers you gain through experience which are explained later.</p>
 
-            <h2>The Skills, Defined</h2>
+            <h2>Skill Categories, Defined</h2>
             <p><strong>Craft</strong> is your ability to take materials and then skillfully and artistically create items from them.</p>
 
             <p><strong>Invent</strong> is your ability to design contraptions and machines. This is the process of creating blueprints, then prototypes, then devices to create things that wouldn’t normally exist in the game world.</p>
@@ -122,11 +122,11 @@ const Skills = () => {
 
             <p>An <strong>Extreme Fail</strong> means you fail at your task, any negative consequences that should happen would happen, and some other negative thing happens because of your fail.</p>
 
-            <p>An <strong>Average Fail</strong> means you fail at your task and any negative consequence that should happen would happen.</p>
+            <p>A <strong>Fail</strong> means you fail at your task and any negative consequence that should happen would happen.</p>
 
             <p>A <strong>Mixed Success</strong> means you succeed at your task and any consequences that sould happen would happen, but something negative still happens.</p>
 
-            <p>An <strong>Average Success</strong> means you succeed at your task and any consequences that should happen would happen.</p>
+            <p>A <strong>Success</strong> means you succeed at your task and any consequences that should happen would happen.</p>
 
             <p>An <strong>Extreme Success</strong> means you succeed at your task, any consequences that should happen would happen, and some other positive thing happens because of your success.</p>
 

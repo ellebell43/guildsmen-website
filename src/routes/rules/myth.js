@@ -9,7 +9,7 @@ const Myth = () => {
             <p>Magic in Guildsmen is not conventional. In this game magic comes from a drug known as Myth – a liquid that is created by refining the blood of Mythical creatures – and it is highly addictive. It is administered by syringe and can be deadly for both the user and those around them.</p>
 
             <h2>The First Dose</h2>
-            <p>Upon first injecting yourself, you immediately get a taste of its seductive power. For the very first injection your character makes, you must raise your addiction level to the 1 mark on the addiction meter. This only happens on the very first injection your character ever does. If you chose the myth skill as a starting skill, you must start the game with level 1 addiction to Myth.</p>
+            <p>Upon first injecting yourself, you immediately get a taste of its seductive power. For the very first injection your character makes, you must raise your addiction level to the 1 mark on the addiction meter. This only happens on the very first injection your character ever does. If you choose the <em>myth</em> skill as a starting skill, you must begin the game with a level 1 addiction to Myth.</p>
 
             <h2>Myth Addiction</h2>
             <p>If your addiction meter is filled up to at least the 1 mark, then you are addicted to Myth. If you're addicted, any time you make a dice check of any kind your Need for more Myth grows. Starting from the right side of the addiction meter, fill in a bubble beneath the addiction meter every time you make a dice roll. Once the bubbles reach your addiction level, your Need is at its strongest and you <em>must</em> have more Myth.</p>
