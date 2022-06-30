@@ -30,9 +30,7 @@ const Assassin = () => {
           <p><strong>Choke Wire</strong> (+1) - The Assassin is equipped with choke wire and can use it to grapple their victim. Using choke wire gives them advantage to <Link to="/rules/combat#conditions" onClick={toTop}>Grapple</Link> their victim, and to hold the grapple.</p>
         </div>
       </div>
-      <div className='backLink'>
-        <Link to='/bestiary/people' onClick={toTop}>Back</Link>
-      </div>
+      <BackToContents to='/bestiary/people' />
     </main>
   )
 }

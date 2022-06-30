@@ -17,6 +17,10 @@
     text-decoration: none;
 }
 
+.contentLink:hover {
+    background-color: var(--nav-color);
+}
+
 .contentLink img {
     margin-right: 20px;
 }

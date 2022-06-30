@@ -1,13 +1,22 @@
 .backToContents {
-    font-size: 20px;
-    border: 1px solid var(--text-color);
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-    margin: 60px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .backToContents a {
+    text-align: center;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    width: 300px;
     text-decoration: none;
+}
+
+.backToContents a:hover {
+    background-color: var(--nav-color);
 }
