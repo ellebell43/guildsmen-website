@@ -4,6 +4,7 @@ import App from "./App";
 import Home from './routes/home';
 import Footer from './components/Footer';
 import Wip from './routes/wip';
+
 import Rules from './routes/rules';
 import CharacterCreation from "./routes/rules/characterCreation";
 import Skills from "./routes/rules/skills";
@@ -15,115 +16,40 @@ import Market from "./routes/rules/the-market";
 import Establishments from "./routes/rules/establishments";
 import Creatures from "./routes/rules/creatures";
 import ForTheGM from "./routes/rules/forTheGM";
+
 import Bestiary from "./routes/bestiary";
+import MythicalCreatures from "./routes/bestiary/mythical-creatures";
+import Beasts from "./routes/bestiary/beasts";
+import People from "./routes/bestiary/people";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 root.render(
   <HashRouter>
+    <App />
     <Routes>
-      <Route path="/" element={
-        <div>
-          <App />
-          <Home />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules' element={
-        <div>
-          <App />
-          <Rules />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/character-creation' element={
-        <div>
-          <App />
-          <CharacterCreation />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/skills' element={
-        <div>
-          <App />
-          <Skills />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/combat' element={
-        <div>
-          <App />
-          <Combat />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/myth' element={
-        <div>
-          <App />
-          <Myth />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/crafting' element={
-        <div>
-          <App />
-          <Crafting />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/invention' element={
-        <div>
-          <App />
-          <Invention />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/the-market' element={
-        <div>
-          <App />
-          <Market />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/establishments' element={
-        <div>
-          <App />
-          <Establishments />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/creatures' element={
-        <div>
-          <App />
-          <Creatures />
-          <Footer />
-        </div>
-      } />
-      <Route path='/rules/for-the-gm' element={
-        <div>
-          <App />
-          <ForTheGM />
-          <Footer />
-        </div>
-      } />
-      <Route path='/bestiary' element={
-        <div>
-          <App />
-          <Bestiary />
-          <Footer />
-        </div>
-      } />
-      <Route
-        path="*"
-        element={
-          <div>
-            <App />
-            <Wip />
-            <Footer />
-          </div>
-        }
-      />
+      <Route path="/" element={<Home />} />
+
+      <Route path='/rules' element={<Rules />} />
+      <Route path='/rules/character-creation' element={<CharacterCreation />} />
+      <Route path='/rules/skills' element={<Skills />} />
+      <Route path='/rules/combat' element={<Combat />} />
+      <Route path='/rules/myth' element={<Myth />} />
+      <Route path='/rules/crafting' element={<Crafting />} />
+      <Route path='/rules/invention' element={<Invention />} />
+      <Route path='/rules/the-market' element={<Market />} />
+      <Route path='/rules/establishments' element={<Establishments />} />
+      <Route path='/rules/creatures' element={<Creatures />} />
+      <Route path='/rules/for-the-gm' element={<ForTheGM />} />
+
+      <Route path='/bestiary' element={<Bestiary />} />
+      <Route path='/bestiary/people' element={<People />} />
+      <Route path='/bestiary/beasts' element={<Beasts />} />
+      <Route path='/bestiary/mythical-creatures' element={<MythicalCreatures />} />
+
+      <Route path="*" element={<Wip />} />
     </Routes>
+    <Footer />
   </HashRouter>
 );
