@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
+import Header from "./components/header";
 import Home from './routes/home';
 import Footer from './components/Footer';
 import Wip from './routes/wip';
@@ -27,7 +27,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <HashRouter>
-    <App />
+    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
 
