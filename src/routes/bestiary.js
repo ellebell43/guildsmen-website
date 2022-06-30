@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import toTop from "../js/toTop";
-import '../css/rules.css';
+import '../css/tableOfContents.css';
 import wandIcon from '../images/wand-magic-sparkles-solid.svg';
 import personIcon from '../images/person-solid.svg';
 import pawIcon from '../images/paw-solid.svg';
@@ -13,15 +13,15 @@ const Bestiary = () => {
 
       <p>People are.. well.. people. We include them here to give quick references to stats and abilities of common types of people you might end up in combat with. Beasts are normal everyday animals that would pose a danger to players. This includes bears, sharks, and wolves. Mythical creatures are special, magic creatures that pose a significant threat. All of them have magical abilities and have a Navidus Crystal somewhere inside of them. </p>
       <div className="tableOfContents">
-        <Link onClick={toTop} to="/bestiary/mythical-creatures" className="contentLink">
+        <Link onClick={toTop} to="mythical-creatures" className="contentLink">
           <img src={wandIcon} alt="" className="filter" />
           Mythical Creatures
         </Link>
-        <Link onClick={toTop} to="/bestiary/people" className="contentLink">
+        <Link onClick={toTop} to="people" className="contentLink">
           <img src={personIcon} alt="" className="filter" />
           People
         </Link>
-        <Link onClick={toTop} to="/bestiary/beasts" className="contentLink">
+        <Link onClick={toTop} to="beasts" className="contentLink">
           <img src={pawIcon} alt="" className="filter" />
           Beasts
         </Link>

@@ -10,7 +10,7 @@ import marketIcon from '../images/store-solid.svg';
 import estIcon from '../images/building-columns-solid.svg';
 import creaturesIcon from '../images/paw-solid.svg';
 import gmIcon from '../images/graduation-cap-solid.svg';
-import '../css/rules.css';
+import '../css/tableOfContents.css';
 
 const Rules = () => {
     return (
@@ -18,43 +18,43 @@ const Rules = () => {
             <h1>Guildsmen Core Rules</h1>
             <h2>Contents</h2>
             <div className='tableOfContents'>
-                <Link onClick={toTop} to="/rules/character-creation" className='contentLink'>
+                <Link onClick={toTop} to="character-creation" className='contentLink'>
                     <img className='filter' src={personIcon} alt='' />
                     Character Creation
                 </Link>
-                <Link onClick={toTop} to="/rules/skills" className='contentLink'>
+                <Link onClick={toTop} to="skills" className='contentLink'>
                     <img className='filter' src={skillsIcon} alt='' />
                     Skills
                 </Link>
-                <Link onClick={toTop} to="/rules/combat" className='contentLink'>
+                <Link onClick={toTop} to="combat" className='contentLink'>
                     <img className='filter' src={combatIcon} alt='' />
                     Combat
                 </Link>
-                <Link onClick={toTop} to="/rules/myth" className='contentLink'>
+                <Link onClick={toTop} to="myth" className='contentLink'>
                     <img className='filter' src={mythIcon} alt='' />
                     Myth
                 </Link>
-                <Link onClick={toTop} to="/rules/crafting" className='contentLink'>
+                <Link onClick={toTop} to="crafting" className='contentLink'>
                     <img className='filter' src={craftIcon} alt='' />
                     Crafting
                 </Link>
-                <Link onClick={toTop} to="/rules/invention" className='contentLink'>
+                <Link onClick={toTop} to="invention" className='contentLink'>
                     <img className='filter' src={inventIcon} alt='' />
                     Invention
                 </Link>
-                <Link onClick={toTop} to="/rules/the-market" className='contentLink'>
+                <Link onClick={toTop} to="the-market" className='contentLink'>
                     <img className='filter' src={marketIcon} alt='' />
                     The Market
                 </Link>
-                <Link onClick={toTop} to="/rules/establishments" className='contentLink'>
+                <Link onClick={toTop} to="establishments" className='contentLink'>
                     <img className='filter' src={estIcon} alt='' />
                     Establishemnts
                 </Link>
-                <Link onClick={toTop} to="/rules/creatures" className='contentLink'>
+                <Link onClick={toTop} to="creatures" className='contentLink'>
                     <img className='filter' src={creaturesIcon} alt='' />
                     Creatures
                 </Link>
-                <Link onClick={toTop} to="/rules/for-the-gm" className='contentLink'>
+                <Link onClick={toTop} to="for-the-gm" className='contentLink'>
                     <img className='filter' src={gmIcon} alt='' />
                     For the Game Master
                 </Link>
