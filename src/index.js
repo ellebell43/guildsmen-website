@@ -19,8 +19,11 @@ import ForTheGM from "./routes/rules/forTheGM";
 
 import Bestiary from "./routes/bestiary";
 import MythicalCreatures from "./routes/bestiary/mythical-creatures";
+
 import Beasts from "./routes/bestiary/beasts";
+
 import People from "./routes/bestiary/people";
+import Assassin from "./routes/bestiary/people/assassin";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -45,7 +48,10 @@ root.render(
 
       <Route path='/bestiary' element={<Bestiary />} />
       <Route path='/bestiary/people' element={<People />} />
+      <Route path='/bestiary/people/assassin' element={<Assassin />} />
+
       <Route path='/bestiary/beasts' element={<Beasts />} />
+
       <Route path='/bestiary/mythical-creatures' element={<MythicalCreatures />} />
 
       <Route path="*" element={<Wip />} />

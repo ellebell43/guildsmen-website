@@ -41,14 +41,18 @@
     grid-area: actions;
 }
 
-.actions, .creatureDescription, .stats {
+.actions,
+.creatureDescription,
+.stats {
     border: 1px solid var(--text-color);
     margin: 0;
     padding: 5px;
 }
 
-.actions, .creatureDescription {
-    padding: 10px
+.actions,
+.creatureDescription {
+    padding: 10px;
+    border-top: none;
 }
 
 .actionHead {
@@ -67,6 +71,20 @@
     margin: 0;
 }
 
+.backLink {
+    font-size: 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    margin: 60px auto 0 auto;
+}
+
+.backLink a {
+    text-decoration: none;
+}
+
 @media (min-width: 992px) {
     .creatureBlock {
         grid-template-areas:
@@ -75,5 +93,10 @@
             'description actions actions';
         width: initial;
         margin: none;
+    }
+
+    .actions {
+        border-top: 1px solid var(--text-color);
+        border-left: none;
     }
 }
