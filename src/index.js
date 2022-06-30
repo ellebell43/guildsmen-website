@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from './routes/home';
 import Footer from './components/Footer';
@@ -15,12 +15,13 @@ import Market from "./routes/rules/the-market";
 import Establishments from "./routes/rules/establishments";
 import Creatures from "./routes/rules/creatures";
 import ForTheGM from "./routes/rules/forTheGM";
+import Bestiary from "./routes/bestiary";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={
         <div>
@@ -106,6 +107,13 @@ root.render(
           <Footer />
         </div>
       } />
+      <Route path='/bestiary' element={
+        <div>
+          <App />
+          <Bestiary />
+          <Footer />
+        </div>
+      } />
       <Route
         path="*"
         element={
@@ -117,5 +125,5 @@ root.render(
         }
       />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
