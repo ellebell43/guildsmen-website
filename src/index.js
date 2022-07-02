@@ -24,6 +24,11 @@ import Beasts from "./routes/bestiary/beasts";
 
 import People from "./routes/bestiary/people";
 import Assassin from "./routes/bestiary/people/assassin";
+import Bandit from "./routes/bestiary/people/bandit";
+import PoliceOfficer from "./routes/bestiary/people/policeOfficer";
+import PoliceCaptain from "./routes/bestiary/people/policeCaptain";
+import HonorGuard from "./routes/bestiary/people/honorGuard";
+import Mercenary from "./routes/bestiary/people/mercenary";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -47,8 +52,14 @@ root.render(
       <Route path='/rules/for-the-gm' element={<ForTheGM />} />
 
       <Route path='/bestiary' element={<Bestiary />} />
+
       <Route path='/bestiary/people' element={<People />} />
       <Route path='/bestiary/people/assassin' element={<Assassin />} />
+      <Route path='/bestiary/people/bandit' element={<Bandit />} />
+      <Route path='/bestiary/people/police-officer' element={<PoliceOfficer />} />
+      <Route path='/bestiary/people/police-captain' element={<PoliceCaptain />} />
+      <Route path='/bestiary/people/honor-guard' element={<HonorGuard />} />
+      <Route path='/bestiary/people/mercenary' element={<Mercenary />} />
 
       <Route path='/bestiary/beasts' element={<Beasts />} />
 
