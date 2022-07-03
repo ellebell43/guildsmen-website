@@ -17,25 +17,25 @@ const Creatures = () => {
       <p>The creature block is how creatures’ stats, actions, and descriptions are outlined. They all appear like so:</p>
 
       <div className="creatureBlock">
-        <p className="title">Bear: Grizzly Bear (T5, +0)</p>
+        <p className="title">Grizzly Bear (Deadly, +0)</p>
         <div className="stats">
           <p>Tough +9 | Nimble +5</p>
           <p>Competence +0 | Constitution +4</p>
           <p>Harm 11 | Armor 2</p>
         </div>
-        <p className="creatureDescription">Grizzly bears are medium creatures weighing up to 1,500lbs and sizing up to 8.5ft tall. These creatures travel on their own. Grizzly Bears are extremely territorial and are generally active during the day.</p>
+        <p className="creatureDescription">Grizzly bears are large sized creatures weighing up to 1,500lbs and sizing up to 8.5ft tall. These creatures travel on their own. Grizzly Bears are extremely territorial, attacking anything the feel like a threat. They are also generally active during the day.</p>
         <div className="actions">
           <p className="actionHead">Actions</p>
-          <p><strong>Claw</strong> (+5) – The Grizzly Bear comes at you with its thick claws to maim your body.</p>
-          <p><strong>Bite</strong> (+4) – The Grizzly Bear goes to take a huge bite out of you.</p>
-          <p><strong>Maul</strong> (+7) – The Grizzly Bear furiously uses teeth and claws to decimate you.</p>
+          <p><strong>Claw</strong> (+6) – The Grizzly Bear comes at you with its thick claws to maim your body.</p>
+          <p><strong>Bite</strong> (+6) – The Grizzly Bear goes to take a huge bite out of you.</p>
+          <p><strong>Maul</strong> (+9) – The Grizzly Bear furiously uses teeth and claws to decimate you.</p>
           <p><strong>Roar</strong> – The Grizzly Bear bellows out a powerful roar, <Link onClick={toTop} to="/rules/combat">Frightening</Link> all creatures within 20ft for as long as they are in combat with it.</p>
         </div>
       </div>
 
-      <p>At the top of the creature block is the name, tier, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a tier five creature with a +0 modifier.</p>
+      <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
 
-      <p>A creature’s tier is an indicator of how dangerous the creature is. Regular people never go beyond tier three, so anything above tier three is very deadly to a person.</p>
+      <p>A creature’s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
 
       <p>A creature’s modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn’t add anything.</p>
 
@@ -54,49 +54,49 @@ const Creatures = () => {
 
       <p>You can (1) take a creature that is already made and use all its stats and actions for your custom creature, just changing the descriptions and titles for everything, or (2) use the charts below to create a creature from scratch.</p>
 
-      <p>When choosing the second option, you'll first need to decide on a tier for your custom creature. Tiers range from one to eight, and any creature beyond tier eight is considered Legendary. Legendary creatures are meant to be taken on by large groups of people or even entire armies. The following table outlines each tier with an example creature that would be that tier.</p>
+      <p>When choosing the second option, you'll first need to decide on a hazad word for your custom creature. These range from none to unsurvivable. Unsurvivable creatures are meant to be taken on by large groups of people or even entire armies. The following table outlines each hazard word with an example creature that would fall under that category.</p>
 
       <table>
         <thead>
           <tr>
-            <th colSpan={2}>Tier Examples</th>
+            <th colSpan={2}>Hazard Examples</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className='bottom left'>1</td>
+            <td className='bottom left alignLeft'>None</td>
             <td className='bottom right alignRight'>House Cat</td>
           </tr>
           <tr>
-            <td className='bottom left'>2</td>
+            <td className='bottom left alignLeft'>Mild</td>
             <td className='bottom right alignRight'>Common Person</td>
           </tr>
           <tr>
-            <td className='bottom left'>3</td>
+            <td className='bottom left alignLeft'>Moderate</td>
             <td className='bottom right alignRight'>Trained Fighter</td>
           </tr>
           <tr>
-            <td className='bottom left'>4</td>
+            <td className='bottom left alignLeft'>Severe</td>
             <td className='bottom right alignRight'>Wolf</td>
           </tr>
           <tr>
-            <td className='bottom left'>5</td>
+            <td className='bottom left alignLeft'>Deadly</td>
             <td className='bottom right alignRight'>Grizzly Bear</td>
           </tr>
           <tr>
-            <td className='bottom left'>6</td>
+            <td className='bottom left alignLeft'>Deadly</td>
             <td className='bottom right alignRight'>Hippo</td>
           </tr>
           <tr>
-            <td className='bottom left'>7</td>
+            <td className='bottom left alignLeft'>Unsurvivable</td>
             <td className='bottom right alignRight'>Maticore</td>
           </tr>
           <tr>
-            <td className='bottom left'>8</td>
+            <td className='bottom left alignLeft'>Unsurvivable</td>
             <td className='bottom right alignRight'>Cerberus</td>
           </tr>
           <tr>
-            <td className='bottom left'>Legendary</td>
+            <td className='bottom left alignLeft'>Unsurvivable</td>
             <td className='bottom right alignRight'>Dragon</td>
           </tr>
         </tbody>
@@ -112,78 +112,54 @@ const Creatures = () => {
         </thead>
         <tbody>
           <tr>
-            <td className='bottom left alignLeft'><strong>Tier</strong></td>
+            <td className='bottom left alignLeft'><strong>Hazard</strong></td>
             <td className='bottom'><strong>Max Stat</strong></td>
-            <td className='bottom'><strong>Max Bonus</strong></td>
+            <td className='bottom'><strong>Bonus</strong></td>
             <td className='bottom right'><strong>Max Harm</strong></td>
           </tr>
           <tr>
-            <td className='bottom left alignLeft'><em>Tier 1</em></td>
+            <td className='bottom left alignLeft'><em>Mild</em></td>
             <td className='bottom'>+1</td>
             <td className='bottom'>+0</td>
-            <td className='bottom right'>2</td>
-          </tr>
-          <tr>
-            <td className='bottom left alignLeft'><em>Tier 2</em></td>
-            <td className='bottom'>+2</td>
-            <td className='bottom'>+1</td>
-            <td className='bottom right'>4</td>
-          </tr>
-          <tr>
-            <td className='bottom left alignLeft'><em>Tier 3</em></td>
-            <td className='bottom'>+3</td>
-            <td className='bottom'>+2</td>
             <td className='bottom right'>7</td>
           </tr>
           <tr>
-            <td className='bottom left alignLeft'><em>Tier 4</em></td>
-            <td className='bottom'>+6</td>
-            <td className='bottom'>+4</td>
-            <td className='bottom right'>9</td>
+            <td className='bottom left alignLeft'><em>Moderate</em></td>
+            <td className='bottom'>+3</td>
+            <td className='bottom'>+1 to +3</td>
+            <td className='bottom right'>10</td>
           </tr>
           <tr>
-            <td className='bottom left alignLeft'><em>Tier 5</em></td>
-            <td className='bottom'>+9</td>
+            <td className='bottom left alignLeft'><em>Severe</em></td>
             <td className='bottom'>+6</td>
-            <td className='bottom right'>12</td>
-          </tr>
-          <tr>
-            <td className='bottom left alignLeft'><em>Tier 6</em></td>
-            <td className='bottom'>+12</td>
-            <td className='bottom'>+8</td>
+            <td className='bottom'>+3 to +6</td>
             <td className='bottom right'>15</td>
           </tr>
           <tr>
-            <td className='bottom left alignLeft'><em>Tier 7</em></td>
-            <td className='bottom'>+15</td>
-            <td className='bottom'>+10</td>
-            <td className='bottom right'>18</td>
+            <td className='bottom left alignLeft'><em>Deadly</em></td>
+            <td className='bottom'>+9</td>
+            <td className='bottom'>+6 to +9</td>
+            <td className='bottom right'>20</td>
           </tr>
           <tr>
-            <td className='bottom left alignLeft'><em>Tier 8</em></td>
-            <td className='bottom'>+18</td>
+            <td className='bottom left alignLeft'><em>Unsurvivalble</em></td>
             <td className='bottom'>+12</td>
-            <td className='bottom right'>21</td>
-          </tr>
-          <tr>
-            <td className='bottom left alignLeft'><em>Legendary</em></td>
-            <td className='bottom'>+20</td>
-            <td className='bottom'>+15</td>
+            <td className='bottom'>+9 or more</td>
             <td className='bottom right'>25</td>
           </tr>
         </tbody>
       </table>
 
-      <p>*Legendary stats are guidelines, not hard rules. They could go much higher if needed.</p>
+      <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. That does not mean they should be this high, only that they shouldn't be higher than what's listed. Bonus is the range that their Bonus should be when an attack is successful. Max Harm is the maximum amount of Harm that they can take before dying.</p>
 
-      <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. Max Bonus is how high their Bonus when attacking can be. Max Harm is the maximum amount of Harm that they can take before dying.</p>
+      <p>When deciding a creatures modifier, remember that the modifier generally shows an amount of overall skill and knowledge. After all, the creature would add that number to any skill roll or action roll that they make. Generally only people and other smart creatures will have more than a +0 modifier. However, keep in mind that this is the general number. If it makes logical sense, a creature may get up to a +5 on a skill check that makes sense for them. For example, a Grizzly Bear might get a +2 or +3 to an <em>investigate</em> skill check that relies on smell since bears have an excellent sense of smell. This is completely up to Game Master discretion.</p>
 
       <p>All creatures should also have a specific size. The following is a chart to help determine the size of a creature:</p>
 
       <table>
         <thead>
           <tr>
-            <th colSpan={2}>Tier Examples</th>
+            <th colSpan={2}>Size Reference</th>
           </tr>
         </thead>
         <tbody>

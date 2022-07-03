@@ -62,7 +62,7 @@ const Combat = () => {
 
             <p>This works the same when attacking as a group. The entire party rolls to attack and, if successful, adds their bonuses to the overall result to determine harm.</p>
 
-            <p>The amount of Harm you can take is represented by a set of 7 bubbles below your stats. If all 7 bubbles get filled in, then you die. If you fill in any red bubbles, then you are dying. When this happens, you will begin to take harm periodically, at Game Master discretion until you die unless you find a way to recover from your harm. Getting to the point of dying may also cause you to fall unconscious.</p>
+            <p>The amount of Harm you can take is represented by a set of 10 bubbles above your skills chart. If all 10 bubbles get filled in, then you die. When something traumatic happens and you take Harm because of it, you will be told to fill in the dying bubble. When this happens, you will begin to take harm periodically, at Game Master discretion, until you die - unless you find a way to recover from what is causing your dying condition. Getting to the point of dying may also cause you to fall unconscious.</p>
 
             <p>If you end up dealing more Harm than you intend to – for example, you wanted to frighten a bandit, but end up dealing enough Harm to kill – then let the Game Master know what you intended right away. At the discretion of the Game Master, you will either do what you intended, or your character accidently deals the full amount of Harm.</p>
 
