@@ -30,7 +30,7 @@ const Home = () => {
             <ol>
                 <li>Mythical creatures exist and have Navidus Crystals inside of them (see the <Link onClick={toTop} to="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
 
-                <li>The world is steampunk, but Navidus Crystals are also used to power devices (see the <Link onClick={toTop} to="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
+                <li>The world is somewhat technologically advanced, and Navidus Crystals are beginning to be used to power devices (see the <Link onClick={toTop} to="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
 
                 <li>Guilds are common establishments throughout the world.</li>
 

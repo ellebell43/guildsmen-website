@@ -88,7 +88,7 @@ const Skills = () => {
 
             <p>And this works for countless other encounters. Say you wanted to throw a rock to knock out the bandit instead. Then you would use a <em>throwdown</em> skill check against his Nimble stat check instead. So, look for a way to play to what Skills and Stats you have.</p>
 
-            <p>In addition to whether or not you succeed, the Game Master may also consider the degree of your success. This is determined by the difference between the number you rolled and the number you needed to roll or by how much higher your roll was than the target number or the other person’s roll.</p>
+            <p>In addition to whether or not you succeed, the Game Master may also consider the degree of your success. This is determined by the difference between the number you rolled and the number you needed to roll or by how much higher your roll was the other person’s roll.</p>
 
             <table>
                 <thead>
@@ -172,10 +172,8 @@ const Skills = () => {
 
             <p><strong>Wood</strong> – you specialize in crafting items using wood as the primary material. This includes bows, cabinets, chairs, simple toys, and other forms of woodworking</p>
 
-            <p><strong>Vehicles</strong> – you specialize in inventing vehicles such as gliders, powered carriages, air ships, trains, etc.</p>
-
             <h3>Investigate Specialties</h3>
-            <p><strong>Awareness</strong> – you specialize in investigation by passive observation. You are more aware od your surrounding than ithers and you take in information that is given by the environment you’re in.</p>
+            <p><strong>Awareness</strong> – you specialize in investigation by passive observation. You are more aware of your surrounding than others and you take in information that is given by the environment you’re in.</p>
 
             <p><strong>Searching</strong> – you specialize in investigation by intentional observation. You can find things easier than others when searching for something specifically.</p>
 
@@ -240,6 +238,8 @@ const Skills = () => {
             <p><strong>Large Devices</strong> – you specialize in inventing and using larger devices that cannot be easily carried by an individual. These devices are things like refrigerators, catapults, generators, etc.</p>
 
             <p><strong>Personal Devices</strong> – you specialize in inventing and using devices that can easily be held and carried by a person such as radios, pistols, audio recorders, drones, etc.</p>
+
+            <p><strong>Vehicles</strong> – you specialize in inventing vehicles such as gliders, powered carriages, air ships, trains, etc.</p>
 
             <h3>Throwdown Specialties</h3>
             <p><strong>Melee</strong> – You specialize in melee combat. You are skilled in hand-held weapons such as the sword, club, and knife.</p>
