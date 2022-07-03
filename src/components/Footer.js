@@ -6,7 +6,7 @@ const Footer = () => {
             <p>Created by Aaron Rutherford and Harmony Brooks</p>
             <p>Coded by <a href="https://github.com/hazipan">Aaron Rutherford</a></p>
             <p>&copy; 2022 Aaron Rutherford</p>
-            <p>License - MIT</p>
+            <p>License - GPL-3.0</p>
         </footer>
     )
 }
