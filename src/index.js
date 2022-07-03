@@ -18,9 +18,11 @@ import Creatures from "./routes/rules/creatures";
 import ForTheGM from "./routes/rules/forTheGM";
 
 import Bestiary from "./routes/bestiary";
+
 import MythicalCreatures from "./routes/bestiary/mythical-creatures";
 
 import Beasts from "./routes/bestiary/beasts";
+import Crocodile from "./routes/bestiary/beasts/crocodile";
 
 import People from "./routes/bestiary/people";
 import Assassin from "./routes/bestiary/people/assassin";
@@ -62,6 +64,7 @@ root.render(
       <Route path='/bestiary/people/mercenary' element={<Mercenary />} />
 
       <Route path='/bestiary/beasts' element={<Beasts />} />
+      <Route path='/bestiary/beasts/crocodile' element={<Crocodile />} />
 
       <Route path='/bestiary/mythical-creatures' element={<MythicalCreatures />} />
 
