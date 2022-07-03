@@ -7,7 +7,7 @@ const Mercenary = () => {
   return (
     <main>
       <div className="creatureBlock">
-        <h1 className="title">Mercenary (T2, +2)</h1>
+        <h1 className="title">Mercenary (Severe, +2)</h1>
         <div className="stats">
           <p>Tough +3 | Nimble +0 </p>
           <p>Competence +1 | Constitution +2</p>

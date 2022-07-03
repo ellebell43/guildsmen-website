@@ -7,7 +7,7 @@ const HonorGuard = () => {
   return (
     <main>
       <div className="creatureBlock">
-        <h1 className="title">Honor Guard (T3, +3)</h1>
+        <h1 className="title">Honor Guard (Deadly, +3)</h1>
         <div className="stats">
           <p>Tough +3 | Nimble +2 </p>
           <p>Competence +2 | Constitution +2</p>
@@ -17,11 +17,11 @@ const HonorGuard = () => {
         <div className="actions">
           <p className="actionHead">Actions</p>
 
-          <p><strong>Tempered Heavy Sword</strong> (+5) – The Honor Guard swings a mighty claymore to cleave you in half.</p>
+          <p><strong>Improved Heavy Sword</strong> (+5) – The Honor Guard swings a mighty claymore to cleave you in half.</p>
 
-          <p><strong>Tempered Heavy Rifle</strong> (+8) – The Honor Guard wields a specialized rifle.</p>
+          <p><strong>Improved Heavy Rifle</strong> (+8) – The Honor Guard wields a specialized rifle.</p>
 
-          <p><strong>Light Pistol</strong> (+3) – The Honor Guard fires at you with their pistol.</p>
+          <p><strong>Improved Light Pistol</strong> (+4) – The Honor Guard fires at you with their pistol.</p>
 
           <p><strong>Caltrops</strong> – The Honor Guard lays a set of caltrops on the ground. Any soft footed creatures that walk through them must roll a Nimble check 10+ or get <Link onClick={toTop} to="/rules/combat#conditions">Knocked Down</Link> and take 1 Harm.</p>
 

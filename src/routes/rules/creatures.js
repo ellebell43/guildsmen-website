@@ -154,6 +154,8 @@ const Creatures = () => {
 
       <p>When deciding a creatures modifier, remember that the modifier generally shows an amount of overall skill and knowledge. After all, the creature would add that number to any skill roll or action roll that they make. Generally only people and other smart creatures will have more than a +0 modifier. However, keep in mind that this is the general number. If it makes logical sense, a creature may get up to a +5 on a skill check that makes sense for them. For example, a Grizzly Bear might get a +2 or +3 to an <em>investigate</em> skill check that relies on smell since bears have an excellent sense of smell. This is completely up to Game Master discretion.</p>
 
+      <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get on a successful attack. That is because the modifier gets added to actions and if it's successful, the bonus gets added as well, so the numbers stack.</em></strong></p>
+
       <p>All creatures should also have a specific size. The following is a chart to help determine the size of a creature:</p>
 
       <table>

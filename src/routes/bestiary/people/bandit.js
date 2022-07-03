@@ -7,7 +7,7 @@ const Bandit = () => {
   return (
     <main>
       <div className="creatureBlock">
-        <h1 className="title">Bandit (T2, +1)</h1>
+        <h1 className="title">Bandit (Moderate, +1)</h1>
         <div className="stats">
           <p>Tough +2 | Nimble +1</p>
           <p>Competence +0 | Constitution +0</p>

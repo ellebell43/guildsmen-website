@@ -7,7 +7,7 @@ const Assassin = () => {
   return (
     <main>
       <div className="creatureBlock">
-        <h1 className="title">Assassin (T3, +3)</h1>
+        <h1 className="title">Assassin (Severe, +3)</h1>
         <div className="stats">
           <p>Tough +1 | Nimble +3</p>
           <p>Compentence +2 | Constitution +1</p>
@@ -19,7 +19,7 @@ const Assassin = () => {
         <div className="actions">
           <p className="actionHead">Actions</p>
 
-          <p><strong>Light Dagger</strong> (+1) - The Assassin attacks with a dagger. This weapon may be poisoned and <em>could</em> cause a <Link to="/rules/combat#conditions" onClick={toTop}>Slow Poison</Link> if scratched by it.</p>
+          <p><strong>Improved Light Dagger</strong> (+2) - The Assassin attacks with a dagger. This weapon may be poisoned and <em>could</em> cause a <Link to="/rules/combat#conditions" onClick={toTop}>Slow Poison</Link> if scratched by it.</p>
 
           <p><strong>Poison Darts</strong> (+0, fast poison) - A silent weapon fired from the shadows. The victim feels a slight prick as if being bitten by a bug. It causing a <Link to="/rules/combat#conditions" onClick={toTop}>Quick Poison</Link> that deals 1 Harm every combat round (10 seconds)</p>
 

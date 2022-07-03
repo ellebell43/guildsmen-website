@@ -109,13 +109,12 @@ const Crafting = () => {
 
             <p>On an <strong>Extreme Fail</strong>, your time and resources are completely wasted. The item that comes out is completely useless and your wealth goes down.</p>
 
-            <h2>Tempering</h2>
-            <p>You can toughen your weapons and armor through a process called Tempering. Tempering will increase the Bonus of your weapon or score of your armor by 1. Tempering can be done up to 3 times to an item and requires a wealth equal to the material it’s made of (i.e., a steel sword would require you to be Average to afford the common material of steel).</p>
+            <h2>Improvement</h2>
+            <p>You can toughen your weapons and armor through a process called Improvement. Imporvement will increase the Bonus of your weapon or score of your armor by 1. Imporvement can be done up to 3 times to an item and requires a wealth equal to the material it’s made of (i.e., a steel sword would require you to be Average to afford the common material of steel).</p>
 
-            <p>However, if you attempt to temper your item and you fail at the <em>craft</em> skill check, you ruin your
-                item and it becomes useless.</p>
+            <p>However, if you attempt to Improve your item and you fail at the <em>craft</em> skill check, you ruin your item and it becomes useless.</p>
 
-            <p>Tempering can also make common items stronger and more resistant.</p>
+            <p>Improvement can also make common items stronger, more resistant, and more effective.</p>
             <BackToContents />
         </main>
     )

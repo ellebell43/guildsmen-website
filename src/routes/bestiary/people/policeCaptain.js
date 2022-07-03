@@ -7,7 +7,7 @@ const PoliceCaptain = () => {
   return (
     <main>
       <div className="creatureBlock">
-        <h1 className="title">Police Captain (T3, +3)</h1>
+        <h1 className="title">Police Captain (Deadly, +3)</h1>
         <div className="stats">
           <p>Tough +3 | Nimble +2 </p>
           <p>Competence +2 | Constitution +2</p>
