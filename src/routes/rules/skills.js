@@ -13,15 +13,13 @@ const Skills = () => {
             <h2>Skill Categories, Defined</h2>
             <p><strong>Craft</strong> is your ability to take materials and then skillfully and artistically create items from them.</p>
 
-            <p><strong>Invent</strong> is your ability to design contraptions and machines. This is the process of creating blueprints, then prototypes, then devices to create things that wouldn’t normally exist in the game world.</p>
-
             <p><strong>Investigate</strong> is your ability to discover and examine hidden things in the world around you. This can be searching for hidden doors, looking for items, etc. It also allows you to survey the area around you and track creatures.</p>
 
-            <p><strong>Lead</strong> is your ability to guide groups or establishments and be a figure of authority. It is used primarily in Establishments (see the <Link onClick={toTop} to="/rules/establishments"><em>Establishments chapter</em></Link>), but can also be used to be an authority to NPCs (non-player characters)</p>
+            <p><strong>Leadership</strong> is your ability to guide groups or establishments and be a figure of authority. It is used primarily in Establishments (see the <Link onClick={toTop} to="/rules/establishments"><em>Establishments chapter</em></Link>), but can also be used to be an authority to NPCs (non-player characters)</p>
 
             <p><strong>Medic</strong> is your ability to heal and care for injured creatures. This is used to restore Harm and remove combat conditions (see the <Link onClick={toTop} to="/rules/combat"><em>Combat chapter</em></Link>).</p>
 
-            <p><strong>Myth</strong> is your ability to use and control the powers that come from Myth, an addictive drug refined from the blood of magical creatures (see the <Link onClick={toTop} to="/rules/myth"><em>Myth chapter</em></Link>).</p>
+            <p><strong>Myth</strong> is your ability to use and control the powers that come from Myth, an addictive drug refined from the blood of magical creatures. It is also used to refined raw mythical blood into Myth (see the <Link onClick={toTop} to="/rules/myth"><em>Myth chapter</em></Link>).</p>
 
             <p><strong>Nature</strong> is your knowledge of the natural world and ability to survive in the wild effectively. This can be used to track wild creatures, navigate through uncivilized areas, and to perform basic survival actions in the wild.</p>
 
@@ -30,6 +28,8 @@ const Skills = () => {
             <p><strong>Social</strong> is your ability to navigate social situations. Whenever you are interacting with a creature socially and attempting to get a specific reaction or outcome, the social skill would be used.</p>
 
             <p><strong>Sneaky</strong> is your ability to perform sneaky actions. This includes pickpocketing, lockpicking, hiding, and simple “magic” tricks.</p>
+
+            <p><strong>Tech</strong> is your ability to design contraptions and machines, as well as use them. This is used to invent things - creating blueprints, then prototypes, then devices to create things that wouldn’t normally exist in the game world.</p>
 
             <p><strong>Throwdown</strong> is your ability to fight. The higher this skill is, the more damage you can deal in one blow.</p>
 
@@ -172,13 +172,6 @@ const Skills = () => {
 
             <p><strong>Wood</strong> – you specialize in crafting items using wood as the primary material. This includes bows, cabinets, chairs, simple toys, and other forms of woodworking</p>
 
-            <h3>Invent Specialties</h3>
-            <p><strong>Biological Devices</strong> – you specialize in inventing devices that interface or incorporate biology. This includes devices like prosthetics and augmentations.</p>
-
-            <p><strong>Large Devices</strong> – you specialize in inventing larger devices that cannot be easily carried by an individual. These devices are things like refrigerators, catapults, generators, etc.</p>
-
-            <p><strong>Personal Devices</strong> – you specialize in inventing devices that can easily be held and carried by a person such as radios, pistols, audio recorders, drones, etc.</p>
-
             <p><strong>Vehicles</strong> – you specialize in inventing vehicles such as gliders, powered carriages, air ships, trains, etc.</p>
 
             <h3>Investigate Specialties</h3>
@@ -190,7 +183,7 @@ const Skills = () => {
 
             <p><strong>Tracking</strong> – you specialize in investigation by tracking. You can sleuth out where someone or something has gone by investigating the environment. This is also used to figure out what has happened in an area recently before you arrived.</p>
 
-            <h3>Lead Specialties</h3>
+            <h3>Leadership Specialties</h3>
             <p><strong>Business</strong> – you specialize in leading businesses. You have more skill making business decisions and guiding a business than others would.</p>
 
             <p><strong>Government</strong> – you specialize in leading governments and are politically skilled. You know how to make decisions that will be accepted by your people and move your government forward.</p>
@@ -240,6 +233,13 @@ const Skills = () => {
             <p><strong>Pocket-Picking</strong> – you specialize at picking pockets sneakily. You are skilled at pilfering items from peoples’ pockets to take their possessions.</p>
 
             <p><strong>Sleight-of-Hand</strong> – You specialize at sleight-of-hand tricks. You are skilled in simple tricks that are designed to both baffle and distract.</p>
+
+            <h3>Tech Specialties</h3>
+            <p><strong>Biological Devices</strong> – you specialize in inventing and using devices that interface or incorporate biology. This includes devices like prosthetics and augmentations.</p>
+
+            <p><strong>Large Devices</strong> – you specialize in inventing and using larger devices that cannot be easily carried by an individual. These devices are things like refrigerators, catapults, generators, etc.</p>
+
+            <p><strong>Personal Devices</strong> – you specialize in inventing and using devices that can easily be held and carried by a person such as radios, pistols, audio recorders, drones, etc.</p>
 
             <h3>Throwdown Specialties</h3>
             <p><strong>Melee</strong> – You specialize in melee combat. You are skilled in hand-held weapons such as the sword, club, and knife.</p>

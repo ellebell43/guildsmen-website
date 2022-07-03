@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 import toTop from '../../js/toTop';
 import BackToContents from '../../components/backToContents';
 import downloadIcon from '../../images/download-solid.svg';
-import csSheet from '../../files/CS 10.2.pdf';
+import csSheet from '../../files/character-sheet.pdf';
 import '../../css/character-creation.css';
 
 const CharacterCreation = () => {
@@ -212,9 +212,11 @@ const CharacterCreation = () => {
 
             <p>Once you’ve got some things put in each box, consider writing out a full backstory if you’re feeling ambitious. This is where you describe their life and what they’ve gone through up to the point when the game starts. This is where you can give specific reasons for what you put in those 4 boxes.</p>
 
-            <p>From here, you need to give your character some skills. On the skills chart, fill in four skills up to the +0 mark. If you’ve made a backstory, try to consider what skills would make sense for your backstory. If you haven’t made a backstory, feel free to pick whatever skills you think would work for your character.</p>
+            <p>From here, you need to give your character some skills. Fill in 4 bubbles on the skills chart. Each bubble represents your level of skill for that particular skill. All skills start at -1, meaning your character has no experience with that skill. Starting from the -1 mark, you my increase your skills 4 times. You can increase 4 skills once (up to +0), you can condense them into just a couple skills (2 skills at +1), or any combination of that kind, as long as you only increase your skills 4 times. However, you cannot increase any skill past +2 at this time.</p>
 
             <p><em>Do not start with the myth skill before reading through the <Link onClick={toTop} to="/rules/myth">Myth chapter</Link></em></p>
+
+            <p>If you’ve made a backstory, try to consider what skills would make sense for your backstory. If you haven’t made a backstory, feel free to pick whatever skills you think would work for your character.</p>
 
             <p>Finally, you need to select a wealth adjective. This describes how wealthy your character is on average. If you wrote a backstory, go with whatever makes the most sense for your backstory. If not, you should probably go with Moderate.</p>
 
