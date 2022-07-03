@@ -7,19 +7,15 @@ const Invention = () => {
         <main>
             <h1>Invention</h1>
 
-            <p>Invention is how complex machines and devices are designed. Everything from light bulbs, to guns, to
-                impressive architecture, to cannons, to flying vehicles and ground vehicles are all designed
-                through invention. </p>
+            <p>Invention is how complex machines and devices are designed. Everything from light bulbs, to guns, to impressive architecture, to cannons, to flying vehicles and ground vehicles are all designed through invention. </p>
 
             <h2>The Power of Invention</h2>
             <p>Invention is a multi-step process. First, you design the item you want to make, then you need to gather
                 the resources and manpower to create the item, and finally, you’ll actually create the item – first with a
                 prototype, then onward to a fully functioning version.</p>
 
-            <p>Designing an item takes a simple <em>invent</em> skill check. This skill check will vary in difficulty based
-                on how futuristic the invention is as well as how complex the invention is. You will then add a blueprint to
-                your gear. You cannot attempt to make the item without that blueprint. If this blueprint is lost, you must
-                remake the design and someone else may make your design if they find the lost blueprint.</p>
+            <p>Designing an item takes a simple <em>tech</em> skill check. This skill check will vary in difficulty based
+                on how futuristic the invention is as well as how complex the invention is. You will then add a blueprint to your gear. You cannot attempt to make the item without that blueprint. If this blueprint is lost, you must remake the design and someone else may make your design if they find the lost blueprint.</p>
 
             <p>After the design has been made, you must gather the proper resources and manpower to create the invention.
                 This will vary greatly depending on the thing you’re creating and will generally require a fair amount of
@@ -27,10 +23,7 @@ const Invention = () => {
 
             <Outlet />
 
-            <p>Once you’ve done all of that, you’ll need to craft a prototype. The harder the item is to create, the more
-                <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail
-                any of these skill checks, then your prototype fails, and you must restart the invention process, but you’ll
-                get to roll with advantage to create the new blueprint.
+            <p>Once you’ve done all of that, you’ll need to craft a prototype. The harder the item is to create, the more <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail any of these skill checks, then your prototype fails, and you must restart the invention process, but you’ll get to roll with advantage to create the new blueprint.
             </p>
 
             <table>
@@ -66,9 +59,7 @@ const Invention = () => {
             <p>If you want, you may also pay a craftsman to build your prototype for you if you want, but this will cause
                 your wealth to go down by two categories (from Wealthy to Poor, for example).</p>
 
-            <p>Once you have a working prototype, you can then craft a fully functioning version. You can do this by either
-                paying people to create it for you or by your own <em>craft</em> skill check of 10 or more with all the
-                necessary materials and equipment.</p>
+            <p>Once you have a working prototype, you can then craft a fully functioning version. You can do this by either paying people to create it for you or by your own <em>craft</em> skill check of 10 or more with all the necessary materials and equipment.</p>
 
             <p>If you want to reverse engineer an item, you will have to do the same process, just backwards.</p>
 
@@ -260,7 +251,7 @@ const Invention = () => {
                 some invented controller.</p>
 
             <h2>Prosthetics</h2>
-            <p>With the invent skill, you can create artificial limbs. You’ll need to go through the invention process if
+            <p>With the <em>tech</em> skill, you can create artificial limbs. You’ll need to go through the invention process if
                 prosthetics wouldn’t normally exist. Then you can simply attach it to the injured creature. However, it will
                 be similar to a peg leg when it comes to mobility and original functionality. But you can insert various
                 gadgets and devices into a prosthetic for functionality, convenience, and to easily hide them.</p>
