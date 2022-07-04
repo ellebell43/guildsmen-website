@@ -32,6 +32,8 @@ import PoliceCaptain from "./routes/bestiary/people/policeCaptain";
 import HonorGuard from "./routes/bestiary/people/honorGuard";
 import Mercenary from "./routes/bestiary/people/mercenary";
 
+import Resources from "./routes/resources";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
@@ -67,6 +69,8 @@ root.render(
       <Route path='/bestiary/beasts/crocodile' element={<Crocodile />} />
 
       <Route path='/bestiary/mythical-creatures' element={<MythicalCreatures />} />
+
+      <Route path='/resources' element={<Resources />} />
 
       <Route path="*" element={<Wip />} />
     </Routes>
