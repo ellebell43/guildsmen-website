@@ -2,4 +2,4 @@
 
 A website for a creative project of mine - A TTRPG called Guildsmen!
 
-Live site (https://guildsmen-ttrpg.com)[https://guildsmen-ttrpg.com]
+Live site: https://guildsmen-ttrpg.com
