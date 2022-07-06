@@ -6,9 +6,7 @@ if (localStorage.getItem('theme') !== null) {
 
 const element = document.getElementById('themeSwitchImg');
 if (localStorage.getItem('theme') === 'light' || localStorage.getItem('theme') === null) {
-  element.src = '/icons/sun-solid.svg';
+  element.src = '/static/icons/sun-solid.svg';
 } else {
-  element.src = '/icons/moon-solid.svg';
+  element.src = '/static/icons/moon-solid.svg';
 }
-
-console.log('Page loaded!!');

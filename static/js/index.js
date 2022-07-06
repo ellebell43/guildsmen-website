@@ -5,10 +5,10 @@ const themeClick = () => {
 
   if (currentTheme === null || currentTheme === 'light') {
     newTheme = 'dark';
-    icon.src = '/icons/moon-solid.svg';
+    icon.src = '/static/icons/moon-solid.svg';
   } else {
     newTheme = 'light';
-    icon.src = '/icons/sun-solid.svg';
+    icon.src = '/static/icons/sun-solid.svg';
   }
 
   localStorage.setItem('theme', newTheme);
@@ -21,11 +21,9 @@ const toggleMenu = () => {
 
   let menuIcon = document.getElementById('menuIcon');
   if (menuIcon.classList.contains('menuAnimation')) {
-    console.log('unrotating');
     menuIcon.classList.add('menuAnimationReverse');
     menuIcon.classList.remove('menuAnimation');
   } else {
-    console.log('rotating');
     menuIcon.classList.add('menuAnimation');
     menuIcon.classList.remove('menuAnimationReverse');
 
