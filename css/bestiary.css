@@ -1,0 +1,42 @@
+.bestiaryContents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 20px;
+    height: 400px;
+}
+
+.bestiaryLink {
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    width: 120px;
+    height: 120px;
+}
+
+.bestiaryLink img {
+    height: 30px;
+    width: auto;
+}
+
+.bestiaryLink br {
+    margin: 0;
+    padding: 0;
+}
+
+.linkRow {
+    display: flex;
+    gap: 20px;
+}
+
+.bestiaryLink:hover {
+    background-color: var(--nav-color);
+}
