@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" type="text/css" href="/static/css/index.css">
   <link rel="stylesheet" type="text/css" href="/static/css/wip.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/back-to-contents.css">
 
   <script src="/static/js/Header.js" type="text/javascript" defer></script>
   <script src="/static/js/index.js" type="text/javascript" defer></script>
@@ -18,10 +19,18 @@
   <header-component></header-component>
   <script src="/static/static/js/onPageLoad.js" type="text/javascript" defer></script>
   <main>
+    <h1>404</h1>
     <div class="wipImgContainer">
       <img src='/static/icons/person-digging-solid.svg' alt="" class="wipImg filter" />
     </div>
-    <h1>Work in progress.<br />Check back later!</h1>
+    <h2>Oh no, This page doesn't exist!</h2>
+    <p>That either means that we're still working on it, or something went wrong
+      somewhere. Judging by the angry god poking a mountain with a stick, we suggest returning to somewhere with
+      content. Check back later!</p>
+    <div class='backToContents'>
+      <a href="/index.html">This way to content <img src="/static/icons/arrow-right-solid.svg" alt=""
+          class="filter" /></a>
+    </div>
   </main>
   <footer-component></footer-component>
 </body>
