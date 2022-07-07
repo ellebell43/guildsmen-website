@@ -1,5 +1,5 @@
 # The Guildsmen Website
 
-A website for a creative project of mine - A TTRPG called Guildsmen!
+A website for a creative project - A table-top roleplay game (TTRPG) called Guildsmen!
 
 Live site: https://guildsmen-ttrpg.com
