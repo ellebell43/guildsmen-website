@@ -25,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
 
 .stats p {
@@ -39,6 +40,14 @@
 
 .actions {
     grid-area: actions;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions p {
+    margin: 0;
 }
 
 .actions,
@@ -46,20 +55,22 @@
 .stats {
     border: 1px solid var(--text-color);
     margin: 0;
-    padding: 5px;
 }
 
 .actions,
 .description {
-    padding: 10px;
     border-top: none;
+    padding: 10px;
 }
 
 .actionHead {
     width: 100%;
     text-align: center;
-    text-decoration: underline;
+    align-self: center;
     font-weight: 700;
+    margin-top: 0;
+    border-bottom: 1px solid var(--text-color);
+    width: 50%;
 }
 
 .or {
