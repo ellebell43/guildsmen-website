@@ -196,6 +196,11 @@ header div {
     padding-top: 5px;
 }
 
+.menuButton:hover,
+.themeSwitch:hover {
+    cursor: pointer;
+}
+
 .menuButton:focus,
 .themeSwitch:focus {
     outline: none
@@ -293,6 +298,14 @@ footer {
     height: auto;
 }
 
+.rightDiv p {
+    text-align: center;
+}
+
+.leftDiv p {
+    text-align: center;
+}
+
 footer a {
     color: var(--text-color);
 }
@@ -302,13 +315,42 @@ footer p {
 }
 
 @media (min-width: 992px) {
-    .footerInfo {
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 'left center right';
+    }
+
+    .break {
+        height: 0px;
+    }
+
+    .rightDiv {
+        grid-area: right;
         display: flex;
-        width: 100%;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .leftDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .rightDiv p {
         text-align: right;
+    }
+
+    .leftDiv p {
+        text-align: left;
+    }
+
+    .footerSocialLinks {
+        grid-area: center;
+    }
+
+    .leftDiv {
+        grid-area: left;
     }
 }

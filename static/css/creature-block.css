@@ -31,7 +31,7 @@
     margin: 0;
 }
 
-.creatureDescription {
+.description {
     grid-area: description;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
 }
 
 .actions,
-.creatureDescription,
+.description,
 .stats {
     border: 1px solid var(--text-color);
     margin: 0;
@@ -50,7 +50,7 @@
 }
 
 .actions,
-.creatureDescription {
+.description {
     padding: 10px;
     border-top: none;
 }
