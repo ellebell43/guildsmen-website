@@ -29,3 +29,22 @@ const toggleMenu = () => {
 
   }
 }
+
+const offsetAnchor = () => {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - 100);
+  }
+}
+
+document.querySelector("body").addEventListener('click', function (e) {
+  var anchor = e.target.closest('a');
+  if (anchor !== null) {
+    console.log('anchor click!');
+    window.setTimeout(function () {
+      offsetAnchor();
+    }, 0);
+  }
+}, false);
+
+// Set the offset when entering page with hash present in the url
+window.setTimeout(offsetAnchor, 0);
