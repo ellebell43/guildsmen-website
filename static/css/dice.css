@@ -1,0 +1,131 @@
+.dice {
+  height: 100px;
+  width: 100px;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px) rotateY(-45deg) rotateX(-45deg);
+  transition: transform 1s;
+  z-index: 10;
+}
+
+.diceContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  position: fixed;
+  bottom: 150px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 11px;
+  background-color: var(--background-color);
+}
+
+.side {
+  position: absolute;
+  background-color: var(--text-color);
+  border: 1px solid var(--background-color);
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  line-height: 100px;
+}
+
+.one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateX(-90deg) translateZ(50px);
+  z-index: 1;
+}
+
+.two {
+  display: flex;
+  justify-content: space-between;
+  transform: rotateY(180deg) translateZ(50px);
+  z-index: 2;
+}
+
+.two .dot:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+.three {
+  display: flex;
+  justify-content: space-between;
+  transform: rotateY(90deg) translateZ(50px);
+  z-index: 3;
+}
+
+.three .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+.three .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.four {
+  z-index: 4;
+  transform: rotateY(0deg) translateZ(50px);
+}
+
+.four,
+.six {
+  display: flex;
+  justify-content: space-between;
+}
+
+.four .kolona,
+.six .kolona {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.five {
+  display: flex;
+  justify-content: space-between;
+  transform: rotateY(-90deg) translateZ(50px);
+  z-index: 5;
+}
+
+.five .kolona {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.five .kolona:nth-of-type(2) {
+  justify-content: center;
+}
+
+.six {
+  transform: rotateX(90deg) translateZ(50px);
+  z-index: 6;
+}
+
+.hideDiceContainer {
+  position: fixed;
+  bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.hideDice {
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+  color: inherit;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: inherit;
+  z-index: 10;
+}

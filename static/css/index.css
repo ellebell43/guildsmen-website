@@ -127,6 +127,10 @@ tbody tr td {
     width: auto;
 }
 
+.hidden {
+    display: none;
+}
+
 /* ------------------------------ HEADER STYLES ------------------------------ */
 
 header {
