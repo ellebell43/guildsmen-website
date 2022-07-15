@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guildsmen TTRPG | Character Creator</title>
+  <meta name="description" content="Create a Guildsmen character with this easy-to-use, online application.">
+
+  <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/dice.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/character-creator.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/back-to-contents.css">
+
+  <script src="/static/js/Header.js" type="text/javascript" defer></script>
+  <script src="/static/js/index.js" type="text/javascript" defer></script>
+  <script src="/static/js/Footer.js" type="text/javascript" defer></script>
+  <script src="/static/js/dice.js" type="text/javascript" defer></script>
+  <script src="/static/js/createCharacter.js" type="text/javascript" defer></script>
+  <script src="/static/js/Back.js" type="text/javascript" defer></script>
+</head>
+
+<body data-theme="dark">
+  <header-component></header-component>
+  <script src="/static/js/onPageLoad.js" type="text/javascript" defer></script>
+  <main>
+    <!-- --------------------DICE-------------------- -->
+    <div class="diceContainer">
+      <div class="dice dice1 hidden" id="dice1">
+        <div class="side one">
+          <span class="dot"></span>
+        </div>
+        <div class="side two">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="side three">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="side four">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="side five">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="side six">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dice dice2 hidden" id="dice2">
+        <div class="side one">
+          <span class="dot"></span>
+        </div>
+        <div class="side two">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="side three">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="side four">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="side five">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="side six">
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="kolona">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hideDiceContainer">
+      <button type="button" class="hideDice hidden" id="resetDiceButton" onclick="resetDice()">Hide Dice</button>
+    </div>
+    <!-- -------------------- CREATION WALKTHROUGH -------------------- -->
+    <form id="form">
+      <!-- ---------- Character Section ---------- -->
+
+      <div class="character section" id="chracter">
+        <h2>Character</h2>
+        <p class="center">Please select a Name, Race, Demeanor, and Physique for your character.</p>
+        <label class="textInputLabel">Name:
+          <input class="textInput" type="text" placeholder="Character Name" id="name" required>
+        </label>
+        <label class="textInputLabel">Demeanor:
+          <input class="textInput" type="text" placeholder="Character Demeanor" id="demeanor">
+        </label>
+        <label class="textInputLabel">Physique:
+          <input class="textInput" type="text" placeholder="Character Physique" id="physique">
+        </label>
+      </div>
+
+      <!-- ---------- Race Section ---------- -->
+
+      <div class='section hidden' id="race">
+        <h2>Race</h2>
+        <p class='center'>Now, select your race.</p>
+        <div class="raceContent">
+          <div class="inputCol">
+            <label class='raceInput'>Locess
+              <input type="radio" name='race' value="Locess" required>
+            </label>
+            <label class='raceInput'>Mausca
+              <input type="radio" name='race' value="Mausca">
+            </label>
+            <label class='raceInput'>Orc
+              <input type="radio" name='race' value="Orc">
+            </label>
+            <label class='raceInput'>Sentari
+              <input type="radio" name='race' value="Sentari">
+            </label>
+            <label class='raceInput'>Slated
+              <input type="radio" name='race' value="Slated">
+            </label>
+            <label class='raceInput'>Ungal
+              <input type="radio" name='race' value="Ungal">
+            </label>
+          </div>
+
+          <div class="statCol">
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Locess Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>+2 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>-1 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Masuca Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>+2 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>-1 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Orc Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>+0 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+2 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Sentari Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>-1 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Slated Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>-1 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+0 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+2 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Ungal Stats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>+0 Nimble</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>-1 tough</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+1 Competence</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>+2 Constitution</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Details Section ---------- -->
+
+      <div class='section hidden detailsSection' id="details">
+        <h2>Details</h2>
+        <p class="center">Now, fill in some details about your character. If you're not sure what to do here yet, that's
+          okay. Just go
+          on to the next step.</p>
+
+        <label>What are your character's Goals and Motives?
+          <textarea name="goals" id="goals"
+            placeholder="Are they driven by revenge, family, or something else? What do they want out of life?"></textarea>
+        </label>
+
+        <label>What are your character's Personal Morals?
+          <textarea name="morals" id="morals"
+            placeholder="What do they believe in? Are they law abiding or do they believe that the law is something made by out-of-touch officials?"></textarea>
+        </label>
+
+        <label>What are your character's Flaws and Weaknesses?
+          <textarea name="weaknesses" id="weaknesses"
+            placeholder="What scares your character? What will make them do anything? Do they have any physical deformities?"></textarea>
+        </label>
+
+        <label>What are your character's Important Connections?
+          <textarea name="connections" id="connections"
+            placeholder="Who in their past was important to them?"></textarea>
+        </label>
+      </div>
+
+      <!-- ---------- Starting Skills Section ---------- -->
+
+      <div class='section hidden' id="startingSkills">
+        <h2>Starting Skills</h2>
+        <p class="center">Next, select 4 skills to start with. Select mulitple boxes to level the skill. Only select 4
+          boxes in total.</p>
+
+        <div class="skillsInput">
+          <label>Craft
+            <div>
+              <input type="checkbox" name="Craft" value="1">
+              <input type="checkbox" name="Craft" value="1">
+              <input type="checkbox" name="Craft" value="1">
+            </div>
+          </label>
+
+          <label>Investigate
+            <div>
+              <input type="checkbox" name="Investigate" value="1">
+              <input type="checkbox" name="Investigate" value="1">
+              <input type="checkbox" name="Investigate" value="1">
+            </div>
+          </label>
+
+          <label>Leadership
+            <div>
+              <input type="checkbox" name="Leadership" value="1">
+              <input type="checkbox" name="Leadership" value="1">
+              <input type="checkbox" name="Leadership" value="1">
+            </div>
+          </label>
+
+          <label>Medic
+            <div>
+              <input type="checkbox" name="Medic" value="1">
+              <input type="checkbox" name="Medic" value="1">
+              <input type="checkbox" name="Medic" value="1">
+            </div>
+          </label>
+
+          <label>Myth
+            <div>
+              <input type="checkbox" name="Myth" value="1">
+              <input type="checkbox" name="Myth" value="1">
+              <input type="checkbox" name="Myth" value="1">
+            </div>
+          </label>
+
+          <label>Nature
+            <div>
+              <input type="checkbox" name="Nature" value="1">
+              <input type="checkbox" name="Nature" value="1">
+              <input type="checkbox" name="Nature" value="1">
+            </div>
+          </label>
+
+          <label>Performance
+            <div>
+              <input type="checkbox" name="Performance" value="1">
+              <input type="checkbox" name="Performance" value="1">
+              <input type="checkbox" name="Performance" value="1">
+            </div>
+          </label>
+
+          <label>Sneaky
+            <div>
+              <input type="checkbox" name="Sneaky" value="1">
+              <input type="checkbox" name="Sneaky" value="1">
+              <input type="checkbox" name="Sneaky" value="1">
+            </div>
+          </label>
+
+          <label>Tech
+            <div>
+              <input type="checkbox" name="Tech" value="1">
+              <input type="checkbox" name="Tech" value="1">
+              <input type="checkbox" name="Tech" value="1">
+            </div>
+          </label>
+
+          <div></div>
+
+          <label>Throwdown
+            <div>
+              <input type="checkbox" name="Throwdown" value="1">
+              <input type="checkbox" name="Throwdown" value="1">
+              <input type="checkbox" name="Throwdown" value="1">
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- ---------- Weatlh Section ---------- -->
+
+      <div class='section hidden' id="wealth">
+        <h2>Wealth</h2>
+        <p class="center">Next, select your Wealth category. Base it off your chracter details. Otherwise, we suggest
+          Moderate.</p>
+
+        <div class="wealthInputContainer">
+          <label class="wealthInput">
+            <input type="radio" name="wealth" value="Destitute" required>Destitute
+          </label>
+          <label class="wealthInput">
+            <input type="radio" name="wealth" value="Poor">Poor
+          </label>
+          <label class="wealthInput">
+            <input type="radio" name="wealth" value="Moderate">Moderate
+          </label>
+          <label class="wealthInput">
+            <input type="radio" name="wealth" value="Wealthy">Wealthy
+          </label>
+          <label class="wealthInput">
+            <input type="radio" name="wealth" value="Exquisite">Exquisite
+          </label>
+        </div>
+      </div>
+
+      <!-- ---------- Luck Section ---------- -->
+
+      <div class='section hidden' id="luck">
+        <h2>Luck</h2>
+        <p class='center'>Now, roll 1d6 to determine your character's Luck.</p>
+        <div class="luckButtonContainer">
+          <button type="button" id='luckButton' class="luckButton" onclick="rollDie('luck')">Roll 1d6</button>
+        </div>
+        <div class="luckLabelContainer">
+          <label class="hidden luckLabel" id="luckLabel">Luck:
+            <input type="number" readonly required id="luckInput" name='luck'>
+          </label>
+        </div>
+      </div>
+
+      <!-- ---------- Guild Section ---------- -->
+
+      <div class='section hidden' id="guild">
+        <h2>Guild</h2>
+        <div class="raceContent">
+          <div class="inputCol">
+            <label class='guildInput'>Assassins Guild
+              <input type="radio" name='guild' value="assassins" required>
+            </label>
+            <label class='guildInput'>Mythic Hunters Guild
+              <input type="radio" name='guild' value="hunters">
+            </label>
+            <label class='guildInput'>Explorers Guild
+              <input type="radio" name='guild' value="explorers">
+            </label>
+            <label class='guildInput'>Mercenaries Guild
+              <input type="radio" name='guild' value="mercenaries">
+            </label>
+            <label class='guildInput'>Thieves Guild
+              <input type="radio" name='guild' value="thieves">
+            </label>
+          </div>
+
+          <div class="statCol">
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Guild Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>Investigate</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Sneaky</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Social</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Throwdown</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Guild Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>Investigate</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Medic</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Nature</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Throwdown</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Guild Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>Craft</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Investigate</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Medic</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Throwdown</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Guild Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>Craft</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Investigate</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Medic</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Throwdown</em></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class='raceStatTable'>
+              <thead>
+                <tr>
+                  <th colspan='1'>Guild Skills</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class='bottom left right'><em>Investigate</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Performace</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Sneaky</em></td>
+                </tr>
+                <tr>
+                  <td class='bottom left right'><em>Throwdown</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="hidden" id="done">
+      <h2>All done!</h2>
+      <p>Your new character is now available from the character list.</p>
+      <back-component></back-component>
+    </div>
+    <div class="navButtons">
+      <button type="button" id="prevBtn" class="hidden" onclick="nextPrev(-1)">Prev</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(+1)">Next</button>
+    </div>
+  </main>
+  <footer-component></footer-component>
+</body>
+
+</html>
