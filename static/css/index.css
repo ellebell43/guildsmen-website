@@ -5,6 +5,7 @@
 [data-theme=dark] {
     --text-color: hsl(0, 0%, 80%);
     --background-color: hsl(0, 0%, 15%);
+    --transparent-background-color: rgba(38, 38, 38, 0.7);
     --header-color: hsl(0, 0%, 17%);
     --header-shadow: hsl(0, 0%, 12%);
     --nav-color: hsl(0, 0%, 20%);
@@ -16,6 +17,7 @@
 [data-theme=light] {
     --text-color: hsl(0, 0%, 15%);
     --background-color: hsl(0, 0%, 80%);
+    --transparent-background-color: rgba(204, 204, 204, 0.8);
     --header-color: hsl(0, 0%, 75%);
     --header-shadow: hsl(0, 0%, 65%);
     --nav-color: hsl(0, 0%, 65%);
@@ -62,6 +64,10 @@ h3 {
     width: 250px;
 }
 
+.hidden {
+	display: none !important;
+}
+
 p {
     text-align: justify;
 }
@@ -82,6 +88,17 @@ table {
     margin: 0 auto;
     margin-bottom: 40px;
     border-spacing: 0;
+}
+
+button {
+    background-color: var(--background-color);
+    border-color: var(--text-color);
+    color: inherit;
+    font-family: inherit;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 thead tr th {

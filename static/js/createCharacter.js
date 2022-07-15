@@ -1,5 +1,5 @@
 class Character {
-  constructor(name, race, stats, wealth, luck, skills, details) {
+  constructor(name, race, stats, wealth, luck, skills, details, guild) {
     this.name = name;
     this.race = race;
     this.stats = stats;
@@ -7,28 +7,36 @@ class Character {
     this.luck = luck;
     this.skills = skills;
     this.details = details;
+    this.guild = guild;
+    this.harm = 0;
+    this.dying = false;
+    this.addiction = 0;
+    this.addictionProgress = 0;
+    this.experience = 0;
+    this.experienceProgress = 0;
+    this.gear = [];
   }
 }
 
 const defaultSkills = [
-  { name: 'craft', modifier: -1, spec1: null, spec2: null },
-  { name: 'investigate', modifier: -1, spec1: null, spec2: null },
-  { name: 'leadership', modifier: -1, spec1: null, spec2: null },
-  { name: 'medic', modifier: -1, spec1: null, spec2: null },
-  { name: 'myth', modifier: -1, spec1: null, spec2: null },
-  { name: 'nature', modifier: -1, spec1: null, spec2: null },
-  { name: 'performance', modifier: -1, spec1: null, spec2: null },
-  { name: 'social', modifier: -1, spec1: null, spec2: null },
-  { name: 'sneaky', modifier: -1, spec1: null, spec2: null },
-  { name: 'tech', modifier: -1, spec1: null, spec2: null },
-  { name: 'throwdown', modifier: -1, spec1: null, spec2: null }
+  { name: 'Craft', modifier: -1, spec1: null, spec2: null },
+  { name: 'Investigate', modifier: -1, spec1: null, spec2: null },
+  { name: 'Leadership', modifier: -1, spec1: null, spec2: null },
+  { name: 'Medic', modifier: -1, spec1: null, spec2: null },
+  { name: 'Myth', modifier: -1, spec1: null, spec2: null },
+  { name: 'Nature', modifier: -1, spec1: null, spec2: null },
+  { name: 'Performance', modifier: -1, spec1: null, spec2: null },
+  { name: 'Social', modifier: -1, spec1: null, spec2: null },
+  { name: 'Sneaky', modifier: -1, spec1: null, spec2: null },
+  { name: 'Tech', modifier: -1, spec1: null, spec2: null },
+  { name: 'Throwdown', modifier: -1, spec1: null, spec2: null }
 ]
 
 const defaultStats = [
-  { name: 'nimble', modifier: -1 },
-  { name: 'tough', modifier: -1 },
-  { name: 'competence', modifier: -1 },
-  { name: 'constitution', modifier: -1 },
+  { name: 'Nimble', modifier: -1 },
+  { name: 'Tough', modifier: -1 },
+  { name: 'Competence', modifier: -1 },
+  { name: 'Constitution', modifier: -1 },
 ]
 
 const defaultDetails = [
@@ -38,7 +46,7 @@ const defaultDetails = [
   { name: 'connections', content: '' }
 ]
 
-let newCharacter = new Character(null, null, defaultStats, null, null, defaultSkills, defaultDetails);
+let newCharacter = new Character(null, null, defaultStats, null, null, defaultSkills, defaultDetails, null);
 
 let characters;
 
@@ -144,52 +152,52 @@ const submitRace = () => {
   }
 
   switch (newCharacter.race) {
-    case 'locess':
+    case 'Locess':
       newCharacter.stats = [
-        { name: 'nimble', modifier: 2 },
-        { name: 'tough', modifier: -1 },
-        { name: 'competence', modifier: 1 },
-        { name: 'constitution', modifier: 0 },
+        { name: 'Nimble', modifier: 2 },
+        { name: 'Tough', modifier: -1 },
+        { name: 'Competence', modifier: 1 },
+        { name: 'Constitution', modifier: 0 },
       ];
       break;
-    case 'mausca':
+    case 'Mausca':
       newCharacter.stats = [
-        { name: 'nimble', modifier: 2 },
-        { name: 'tough', modifier: -1 },
-        { name: 'competence', modifier: 0 },
-        { name: 'constitution', modifier: 1 },
+        { name: 'Nimble', modifier: 2 },
+        { name: 'Tough', modifier: -1 },
+        { name: 'Competence', modifier: 0 },
+        { name: 'Constitution', modifier: 1 },
       ];
       break;
-    case 'orc':
+    case 'Orc':
       newCharacter.stats = [
-        { name: 'nimble', modifier: 0 },
-        { name: 'tough', modifier: 2 },
-        { name: 'competence', modifier: 0 },
-        { name: 'constitution', modifier: 0 },
+        { name: 'Nimble', modifier: 0 },
+        { name: 'Tough', modifier: 2 },
+        { name: 'Competence', modifier: 0 },
+        { name: 'Constitution', modifier: 0 },
       ];
       break;
-    case 'sentari':
+    case 'Sentari':
       newCharacter.stats = [
-        { name: 'nimble', modifier: 1 },
-        { name: 'tough', modifier: 1 },
-        { name: 'competence', modifier: 1 },
-        { name: 'constitution', modifier: 0 },
+        { name: 'Nimble', modifier: 1 },
+        { name: 'Tough', modifier: 1 },
+        { name: 'Competence', modifier: 1 },
+        { name: 'Constitution', modifier: 0 },
       ];
       break;
-    case 'slated':
+    case 'Slated':
       newCharacter.stats = [
-        { name: 'nimble', modifier: -1 },
-        { name: 'tough', modifier: 0 },
-        { name: 'competence', modifier: 2 },
-        { name: 'constitution', modifier: 1 },
+        { name: 'Nimble', modifier: -1 },
+        { name: 'Tough', modifier: 0 },
+        { name: 'Competence', modifier: 2 },
+        { name: 'Constitution', modifier: 1 },
       ];
       break;
-    case 'ungal':
+    case 'Ungal':
       newCharacter.stats = [
-        { name: 'nimble', modifier: 0 },
-        { name: 'tough', modifier: -1 },
-        { name: 'competence', modifier: 1 },
-        { name: 'constitution', modifier: 2 },
+        { name: 'Nimble', modifier: 0 },
+        { name: 'Tough', modifier: -1 },
+        { name: 'Competence', modifier: 1 },
+        { name: 'Constitution', modifier: 2 },
       ];
       break;
     default:
@@ -240,67 +248,67 @@ const submitSkills = () => {
 
   for (let i = 0; i < y.length; i++) {
     switch (y[i].name) {
-      case 'craft':
+      case 'Craft':
         if (y[i].checked) {
           craft++;
           checkCount++;
         }
         break;
-      case 'investigate':
+      case 'Investigate':
         if (y[i].checked) {
           investigate++;
           checkCount++;
         }
         break;
-      case 'leadership':
+      case 'Leadership':
         if (y[i].checked) {
           leadership++;
           checkCount++;
         }
         break;
-      case 'medic':
+      case 'Medic':
         if (y[i].checked) {
           medic++;
           checkCount++;
         }
         break;
-      case 'myth':
+      case 'Myth':
         if (y[i].checked) {
           myth++;
           checkCount++;
         }
         break;
-      case 'nature':
+      case 'Nature':
         if (y[i].checked) {
           nature++;
           checkCount++;
         }
         break;
-      case 'performance':
+      case 'Performance':
         if (y[i].checked) {
           performance++;
           checkCount++;
         }
         break;
-      case 'social':
+      case 'Social':
         if (y[i].checked) {
           social++;
           checkCount++;
         }
         break;
-      case 'sneaky':
+      case 'Sneaky':
         if (y[i].checked) {
           sneaky++;
           checkCount++;
         }
         break;
-      case 'tech':
+      case 'Tech':
         if (y[i].checked) {
           tech++;
           checkCount++;
         }
         break;
-      case 'throwdown':
+      case 'Throwdown':
         if (y[i].checked) {
           throwdown++;
           checkCount++;
@@ -312,17 +320,17 @@ const submitSkills = () => {
   }
 
   newCharacter.skills = [
-    { name: 'craft', modifier: craft, spec1: null, spec2: null },
-    { name: 'investigate', modifier: investigate, spec1: null, spec2: null },
-    { name: 'leadership', modifier: leadership, spec1: null, spec2: null },
-    { name: 'medic', modifier: medic, spec1: null, spec2: null },
-    { name: 'myth', modifier: myth, spec1: null, spec2: null },
-    { name: 'nature', modifier: nature, spec1: null, spec2: null },
-    { name: 'performance', modifier: performance, spec1: null, spec2: null },
-    { name: 'social', modifier: social, spec1: null, spec2: null },
-    { name: 'sneaky', modifier: sneaky, spec1: null, spec2: null },
-    { name: 'tech', modifier: tech, spec1: null, spec2: null },
-    { name: 'throwdown', modifier: throwdown, spec1: null, spec2: null }
+    { name: 'Craft', modifier: craft, spec1: null, spec2: null },
+    { name: 'Investigate', modifier: investigate, spec1: null, spec2: null },
+    { name: 'Leadership', modifier: leadership, spec1: null, spec2: null },
+    { name: 'Medic', modifier: medic, spec1: null, spec2: null },
+    { name: 'Myth', modifier: myth, spec1: null, spec2: null },
+    { name: 'Nature', modifier: nature, spec1: null, spec2: null },
+    { name: 'Performance', modifier: performance, spec1: null, spec2: null },
+    { name: 'Social', modifier: social, spec1: null, spec2: null },
+    { name: 'Sneaky', modifier: sneaky, spec1: null, spec2: null },
+    { name: 'Tech', modifier: tech, spec1: null, spec2: null },
+    { name: 'Throwdown', modifier: throwdown, spec1: null, spec2: null }
   ]
 }
 
@@ -346,19 +354,24 @@ const submitGuild = () => {
     if (y[i].checked) {
       switch (y[i].value) {
         case 'assassins':
-          guildSkills = ['investigate', 'sneaky', 'social', 'throwdown'];
+          newCharacter.guild = 'Assassins';
+          guildSkills = ['Investigate', 'Sneaky', 'Social', 'Throwdown'];
           break;
         case 'hunters':
-          guildSkills = ['investigate', 'medic', 'nature', 'throwdown'];
+          newCharacter.guild = 'Mythic Hunters';
+          guildSkills = ['Investigate', 'Medic', 'Nature', 'Throwdown'];
           break;
         case 'explorers':
-          guildSkills = ['craft', 'investigate', 'medic', 'throwdown'];
+          newCharacter.guild = 'Explorers';
+          guildSkills = ['Craft', 'Investigate', 'Medic', 'Throwdown'];
           break;
         case 'mercenaries':
-          guildSkills = ['craft', 'investigate', 'medic', 'throwdown'];
+          newCharacter.guild = 'Mercenaries';
+          guildSkills = ['Craft', 'Investigate', 'Medic', 'Throwdown'];
           break;
         case 'thieves':
-          guildSkills = ['investigate', 'performance', 'sneaky', 'throwdown'];
+          newCharacter.guild = 'Thieves';
+          guildSkills = ['Investigate', 'Performance', 'Sneaky', 'Throwdown'];
           break;
       }
     }
