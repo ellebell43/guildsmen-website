@@ -12,11 +12,11 @@ class Footer extends HTMLElement {
       </div>
 
       <div class='leftDiv'>
-        <p>Created by Aaron Rutherford<br class='break'>and Harmony Brooks</p>
+        <p>Conceptualized by Harmony Brooks<br class='break'>and written by Aaron Rutherford</p>
         <p>Coded by <a href="https://github.com/hazipan">Aaron Rutherford</a></p>
       </div>
       <div class='rightDiv'>
-        <p>&copy; 2022 Aaron Rutherford</p>
+        <p>&copy; 2022 Harmony Brooks and Aaron Rutherford</p>
         <p>License - <a href='https://opensource.org/licenses/GPL-3.0'>GPL-3.0</a></p>
       </div>
     </footer>
