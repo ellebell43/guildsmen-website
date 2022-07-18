@@ -15,6 +15,11 @@ class Character {
     this.experience = 0;
     this.experienceProgress = 0;
     this.gear = [];
+    this.mythUses = 0;
+    this.dead = false;
+    this.deathMsg = "You died...";
+    this.everAddicted = false;
+    this.need = 0;
   }
 }
 
