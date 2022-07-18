@@ -124,9 +124,11 @@ const resetDice = () => {
   dice1.style.transform = `translateZ(-100px) rotateY(-45deg) rotateX(-45deg)`;
   dice2.style.transform = `translateZ(-100px) rotateY(-45deg) rotateX(-45deg)`;
   resetButton.classList.add('hidden');
+  document.getElementById('diceContainer').classList.add('hidden');
 }
 
 const showDice = () => {
+  document.getElementById('diceContainer').classList.remove('hidden');
   dice1.classList.remove('hidden');
   dice2.classList.remove('hidden');
   resetButton.classList.remove('hidden')
@@ -134,6 +136,7 @@ const showDice = () => {
 }
 
 const showDie = () => {
+  document.getElementById('diceContainer').classList.remove('hidden');
   dice1.classList.remove('hidden');
   resetButton.classList.remove('hidden')
 }
