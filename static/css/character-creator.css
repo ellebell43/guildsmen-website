@@ -84,7 +84,7 @@ input {
 .textInputLabel {
   width: 290px;
   margin: 0 auto;
-  display: inline;
+  display: block;
   text-align: right;
   font-size: inherit;
 }

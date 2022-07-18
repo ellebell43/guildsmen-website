@@ -332,6 +332,11 @@ const submitSkills = () => {
     { name: 'Tech', modifier: tech, spec1: null, spec2: null },
     { name: 'Throwdown', modifier: throwdown, spec1: null, spec2: null }
   ]
+
+  if (myth > -1) {
+    newCharacter.addiction = 1;
+    newCharacter.addictionProgress = 3;
+  }
 }
 
 const submitWealth = () => {
@@ -385,7 +390,13 @@ const submitGuild = () => {
 }
 
 const submitNewCharacter = () => {
-  characters.push(newCharacter);
+  if (characters) {
+    characters.push(newCharacter);
+
+  } else {
+    characters = [];
+    characters.push(newCharacter);
+  }
   localStorage.setItem('guildsmenCharacters', JSON.stringify(characters));
   document.getElementById('form').reset()
 }
