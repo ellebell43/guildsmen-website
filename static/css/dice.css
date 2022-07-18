@@ -3,7 +3,6 @@
   width: 100px;
   transform-style: preserve-3d;
   transform: translateZ(-100px) rotateY(-45deg) rotateX(-45deg);
-  transition: transform 1s;
   z-index: 10;
 }
 
@@ -11,10 +10,16 @@
   display: flex;
   gap: 40px;
   justify-content: center;
+  align-items: center;
   position: fixed;
-  bottom: 150px;
-  width: 100%;
-  max-width: 600px;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--transparent-background-color);
+  border: 3px solid var(--transparent-background-color);
+  border: 10px;
+  z-index: 30;
 }
 
 .dot {
@@ -110,22 +115,42 @@
   z-index: 6;
 }
 
-.hideDiceContainer {
+.hideDice {
   position: fixed;
-  bottom: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
+  bottom: 100px;
+  left: calc(50vw - 62.5px);
+  width: 125px;
+  background-color: var(--nav-color);
+  border: 3px solid var(--text-color) !important;
+  color: inherit;
+  border-radius: 10px;
+  padding: 10px 20px !important;
+  font-size: inherit;
+  z-index: 31;
 }
 
-.hideDice {
-  background-color: var(--background-color);
-  border: 1px solid var(--text-color);
-  color: inherit;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: inherit;
-  z-index: 10;
+.message {
+  position: fixed;
+  background-color: var(--nav-color);
+  border: 3px solid var(--text-color);
+  width: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  top: 50px;
+  left: calc(50vw - 108px);
+  z-index: 31;
+}
+
+.message p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.messageTotal {
+  font-size: 24px;
+}
+
+.messageHead {
+  font-size: 20px;
 }
