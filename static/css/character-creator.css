@@ -84,7 +84,7 @@ input {
 .textInputLabel {
   width: 290px;
   margin: 0 auto;
-  display: block;
+  display: inline;
   text-align: right;
   font-size: inherit;
 }
@@ -115,7 +115,7 @@ input {
 .raceContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 10px;
 }
 
 
