@@ -3,7 +3,6 @@
   width: 100px;
   transform-style: preserve-3d;
   transform: translateZ(-100px) rotateY(-45deg) rotateX(-45deg);
-  transition: transform 1s;
   z-index: 10;
 }
 
