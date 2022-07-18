@@ -92,6 +92,7 @@ input {
 .textInput {
   border-bottom: 1px solid var(--text-color);
   margin-left: 5px;
+  width: 200px;
 }
 
 .navButtons {
