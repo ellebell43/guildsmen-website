@@ -396,6 +396,9 @@ const submitSkills = () => {
   if (myth > -1) {
     newCharacter.addiction = 1;
     newCharacter.addictionProgress = 3;
+  } else {
+    newCharacter.addiction = 0;
+    newCharacter.addictionProgress = 0;
   }
 
   if (checkCount !== 4) {
