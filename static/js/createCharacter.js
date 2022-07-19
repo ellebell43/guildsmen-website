@@ -433,9 +433,11 @@ const submitLuck = () => {
 
 const submitGuild = () => {
   let y = x[currentTab].getElementsByTagName("input");
+  console.log(y);
   let guildSkills;
   for (let i = 0; i < y.length; i++) {
     if (y[i].checked) {
+      console.log(y[i]);
       switch (y[i].value) {
         case 'assassins':
           newCharacter.guild = 'Assassins';
@@ -459,19 +461,19 @@ const submitGuild = () => {
           break;
       }
     }
-
-    if (newCharacter.guild) {
-      return true;
-    } else {
-      document.getElementById('guildWarning').classList.remove('hidden');
-      return false;
-    }
   }
 
   for (let i = 0; i < newCharacter.skills.length; i++) {
     if (guildSkills.indexOf(newCharacter.skills[i].name) !== -1 && newCharacter.skills[i].modifier < 1) {
       newCharacter.skills[i].modifier = 1;
     }
+  }
+
+  if (newCharacter.guild) {
+    return true;
+  } else {
+    document.getElementById('guildWarning').classList.remove('hidden');
+    return false;
   }
 }
 
