@@ -56,12 +56,9 @@ let newCharacter = new Character(null, null, defaultStats, null, null, defaultSk
 let characters;
 
 if (localStorage.getItem('guildsmenCharacters') === null) {
-  console.log('No characters')
   characters = [];
 } else {
   characters = JSON.parse(localStorage.getItem('guildsmenCharacters'));
-  console.log('some characters found');
-  console.log(characters);
 }
 
 const toTop = () => {
@@ -98,38 +95,57 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
-  // This function will figure out which tab to display
-  // Exit the function if any field in the current tab is invalid:
-  //if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].classList.add('hidden');
-  switch (currentTab) {
-    case 0:
-      submitCharacter();
-      break;
-    case 1:
-      submitRace();
-      break;
-    case 2:
-      submitDetails();
-      break;
-    case 3:
-      submitSkills();
-      break;
-    case 4:
-      submitWealth();
-      break;
-    case 5:
-      submitLuck();
-      break;
-    case 6:
-      submitGuild();
-      submitNewCharacter();
-      break;
-    default:
-      console.log('something went wrong');
+  hideWarnings();
+  if (n === -1) {
+    x[currentTab].classList.add('hidden');
+    tabChange(n);
+  } else {
+    switch (currentTab) {
+      case 0:
+        if (validateCharacter()) {
+          submitCharacter();
+          tabChange(n);
+        }
+        break;
+      case 1:
+        if (validateRace()) {
+          submitRace();
+          tabChange(n);
+        }
+        break;
+      case 2:
+        submitDetails();
+        tabChange(n);
+        break;
+      case 3:
+        if (submitSkills()) {
+          tabChange(n);
+        }
+        break;
+      case 4:
+        if (submitWealth()) {
+          tabChange(n);
+        }
+        break;
+      case 5:
+        if (submitLuck()) {
+          tabChange(n);
+        }
+        break;
+      case 6:
+        if (submitGuild()) {
+          submitNewCharacter();
+          tabChange(n);
+        }
+        break;
+      default:
+        console.log(`Tab ${n} does not exist!`);
+    }
   }
+}
 
+const tabChange = (n) => {
+  x[currentTab].classList.add('hidden');
   currentTab = currentTab + n;
 
   toTop();
@@ -137,15 +153,38 @@ function nextPrev(n) {
   showTab(currentTab);
 }
 
+const hideWarnings = () => {
+  let warnings = document.getElementsByClassName('warning');
+  for (let i = 0; i < warnings.length; i++) {
+    warnings[i].classList.add('hidden')
+  }
+}
+
 const submitCharacter = () => {
   const name = document.getElementById('name');
-  newCharacter.name = name.value;
-
   const demeanor = document.getElementById('demeanor');
-  newCharacter.demeanor = demeanor.value;
-
   const physique = document.getElementById('physique');
+
+  newCharacter.demeanor = demeanor.value;
+  newCharacter.name = name.value;
   newCharacter.physique = physique.value;
+}
+
+validateCharacter = () => {
+  const name = document.getElementById('name');
+  const demeanor = document.getElementById('demeanor');
+  const physique = document.getElementById('physique');
+
+  if (
+    name.value === '' ||
+    demeanor.value === '' ||
+    physique.value === ''
+  ) {
+    document.getElementById('characterWarning').classList.remove('hidden');
+    return false;
+  } else {
+    return true;
+  }
 }
 
 const submitRace = () => {
@@ -210,6 +249,22 @@ const submitRace = () => {
   }
 }
 
+const validateRace = () => {
+  let y = x[currentTab].getElementsByTagName("input");
+  for (let i = 0; i < y.length; i++) {
+    if (y[i].checked) {
+      newCharacter.race = y[i].value;
+    }
+  }
+
+  if (!newCharacter.race) {
+    document.getElementById('raceWarning').classList.remove('hidden')
+    return false;
+  } else {
+    return true;
+  }
+}
+
 const submitDetails = () => {
   const goals = document.getElementById('goals').value;
   const morals = document.getElementById('morals').value;
@@ -237,8 +292,8 @@ const submitDetails = () => {
 }
 
 const submitSkills = () => {
-  let y = x[currentTab].getElementsByTagName("input");
   let checkCount = 0;
+  let y = x[currentTab].getElementsByTagName("input");
   let craft = -1;
   let investigate = -1;
   let leadership = -1;
@@ -342,6 +397,13 @@ const submitSkills = () => {
     newCharacter.addiction = 1;
     newCharacter.addictionProgress = 3;
   }
+
+  if (checkCount !== 4) {
+    document.getElementById('skillsWarning').classList.remove('hidden');
+    return false;
+  } else {
+    return true;
+  }
 }
 
 const submitWealth = () => {
@@ -351,10 +413,22 @@ const submitWealth = () => {
       newCharacter.wealth = y[i].value;
     }
   }
+  if (newCharacter.wealth) {
+    return true;
+  } else {
+    document.getElementById('wealthWarning').classList.remove('hidden')
+    return false;
+  }
 }
 
 const submitLuck = () => {
   newCharacter.luck = document.getElementById('luckInput').value;
+  if (newCharacter.luck) {
+    return true;
+  } else {
+    document.getElementById('luckWarning').classList.remove("hidden");
+    return false
+  }
 }
 
 const submitGuild = () => {
@@ -384,6 +458,13 @@ const submitGuild = () => {
           guildSkills = ['Investigate', 'Performance', 'Sneaky', 'Throwdown'];
           break;
       }
+    }
+
+    if (newCharacter.guild) {
+      return true;
+    } else {
+      document.getElementById('guildWarning').classList.remove('hidden');
+      return false;
     }
   }
 

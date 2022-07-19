@@ -141,7 +141,8 @@
 
       <div class="character section" id="chracter">
         <h2>Character</h2>
-        <p class="center">Please select a Name, Race, Demeanor, and Physique for your character.</p>
+        <p>Please select a Name, Race, Demeanor, and Physique for your character. Choose wisely, these
+          cannot be changed after you complete this form.</p>
         <label class="textInputLabel">Name:
           <input class="textInput" type="text" placeholder="Character Name" id="name" required>
         </label>
@@ -151,13 +152,30 @@
         <label class="textInputLabel">Physique:
           <input class="textInput" type="text" placeholder="Character Physique" id="physique">
         </label>
+
+        <p><strong>Name</strong> is what other characters and players will refer to you as within the game. It can be
+          anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
+        <p><strong>Demeanor</strong> is how your character holds themself. Write in an adjective like cokcy, excitable,
+          confident, etc. This adjective is a tool to help you act as your character would.</p>
+        <p><strong>Physique</strong> is how your character is phyisically built. Write in an adjective like fat, thin,
+          lean, strong, etc. This adjective is a tool to help the Game Master know what Non-Player Characters in the
+          world would see at a glance.</p>
+
+        <div class="warning fadeIn hidden" id="characterWarning">
+          <button type="button" class="closeBtn" onclick="hideWarnings()">
+            <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+          </button>
+          <p>You must enter a name, physique, and demeanor before moving on!</p>
+        </div>
       </div>
 
       <!-- ---------- Race Section ---------- -->
 
       <div class='section hidden' id="race">
         <h2>Race</h2>
-        <p class='center'>Now, select your race.</p>
+        <p class='center'>Now, select your race. For descriptions of the races, see <a
+            href="/rules/character-creation.html#the-races" rel="noopener" target="_blank">Character Creation<img
+              src="/static/icons/arrow-up-right-from-square-solid.svg" alt="" class="filter"></a>.</p>
         <div class="raceContent">
           <div class="inputCol">
             <label class='raceInput'>Locess
@@ -314,6 +332,12 @@
             </table>
           </div>
         </div>
+        <div class="warning fadeIn hidden" id="raceWarning">
+          <button type="button" class="closeBtn" onclick="hideWarnings()">
+            <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+          </button>
+          <p>You must select a race before moving on!</p>
+        </div>
       </div>
 
       <!-- ---------- Details Section ---------- -->
@@ -349,8 +373,10 @@
 
       <div class='section hidden' id="startingSkills">
         <h2>Starting Skills</h2>
-        <p class="center">Next, select 4 skills to start with. Select mulitple boxes to level the skill. Only select 4
-          boxes in total.</p>
+        <p>Next, select 4 skills to start with. Select mulitple boxes to level the skill. Only select 4
+          boxes in total. Do not start with myth unless you read through <a href="/rules/myth.html" rel="noopener"
+            target="blank">Myth<img src="/static/icons/arrow-up-right-from-square-solid.svg" alt="" class="filter"></a>
+          first</p>
 
         <div class="skillsInput">
           <label>Craft
@@ -435,6 +461,12 @@
             </div>
           </label>
         </div>
+        <div class="warning fadeIn hidden" id="skillsWarning">
+          <button type="button" class="closeBtn" onclick="hideWarnings()">
+            <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+          </button>
+          <p>You must check exactly 4 boxes before moving on!</p>
+        </div>
       </div>
 
       <!-- ---------- Weatlh Section ---------- -->
@@ -461,13 +493,20 @@
             <input type="radio" name="wealth" value="5">Exquisite
           </label>
         </div>
+        <div class="warning fadeIn hidden" id="wealthWarning">
+          <button type="button" class="closeBtn" onclick="hideWarnings()">
+            <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+          </button>
+          <p>You must select a wealth adjective before moving on!</p>
+        </div>
       </div>
 
       <!-- ---------- Luck Section ---------- -->
 
       <div class='section hidden' id="luck">
         <h2>Luck</h2>
-        <p class='center'>Now, roll 1d6 to determine your character's Luck.</p>
+        <p>Now, roll 1d6 to determine your character's Luck. You're luck will be between -3 and +3 depending on the
+          number you roll.</p>
         <div class="luckButtonContainer">
           <button type="button" id='luckButton' class="luckButton" onclick="rollDie('luck')">Roll 1d6</button>
         </div>
@@ -476,12 +515,20 @@
             <input type="number" readonly required id="luckInput" name='luck'>
           </label>
         </div>
+        <div class="warning fadeIn hidden" id="luckWarning">
+          <button type="button" class="closeBtn" onclick="hideWarnings()">
+            <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+          </button>
+          <p>You must roll for luck before moving on!</p>
+        </div>
       </div>
 
       <!-- ---------- Guild Section ---------- -->
 
       <div class='section hidden' id="guild">
         <h2>Guild</h2>
+        <p>Finally, you need to join a guild! This guild will be where you start the game. The guild you join should be
+          agreed upon by all the other players before selecting.</p>
         <div class="raceContent">
           <div class="inputCol">
             <label class='guildInput'>Assassins Guild
@@ -611,6 +658,12 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div class="warning fadeIn hidden" id="guildWarning">
+            <button type="button" class="closeBtn" onclick="hideWarnings()">
+              <img src="/static/icons/xmark-solid.svg" alt="close" class="filter">
+            </button>
+            <p>You must join a guild before finishing!</p>
           </div>
         </div>
       </div>
