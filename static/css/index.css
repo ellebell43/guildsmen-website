@@ -15,14 +15,14 @@
 }
 
 [data-theme=light] {
-    --text-color: hsl(0, 0%, 15%);
-    --background-color: hsl(0, 0%, 80%);
+    --text-color: hsl(0, 0%, 0%);
+    --background-color: hsl(0, 0%, 100%);
     --transparent-background-color: rgba(204, 204, 204, 0.8);
-    --header-color: hsl(0, 0%, 75%);
-    --header-shadow: hsl(0, 0%, 65%);
-    --nav-color: hsl(0, 0%, 65%);
+    --header-color: hsl(0, 0%, 90%);
+    --header-shadow: hsl(0, 0%, 80%);
+    --nav-color: hsl(0, 0%, 80%);
     --nav-text: black;
-    --content-button-border: hsl(0, 0%, 15%);
+    --content-button-border: hsl(0, 0%, 0%);
     --filter: invert(9%) sepia(0%) saturate(1516%) hue-rotate(174deg) brightness(88%) contrast(84%);
 }
 
