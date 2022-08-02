@@ -14,6 +14,7 @@ class Footer extends HTMLElement {
       <div class='leftDiv'>
         <p>Conceptualized by Harmony Brooks<br class='break'>and written by Aaron Rutherford</p>
         <p>Coded by <a href="https://github.com/hazipan">Aaron Rutherford</a></p>
+        <p>Edited by Hyrum Blanchard</p>
       </div>
       <div class='rightDiv'>
         <p>&copy; 2022 Harmony Brooks and Aaron Rutherford</p>

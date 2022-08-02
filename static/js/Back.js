@@ -5,7 +5,7 @@ class Back extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <div class='backToContents'>
+    <div class='backToContents' id="backToContents">
       <a href="javascript:history.back()"><img src="/static/icons/arrow-left-solid.svg" alt="" class="filter" />Back</a>
     </div>
     `
