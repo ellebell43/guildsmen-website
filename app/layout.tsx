@@ -8,9 +8,6 @@ import Footer from './footer';
 // Import font "Gentium Plus" from google fonts
 const gentium = Gentium_Plus({ weight: "400", preload: true, subsets: ["latin"] })
 
-// Toggle dark mode via html element class list
-const toggleDarkMode = () => document.getElementById("html")?.classList.toggle("dark");
-
 export default function RootLayout({
   children,
 }: {
@@ -19,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className='transition-all' id="html">
       <body className={`${gentium.className} dark:bg-stone-700 dark:text-stone-100 transition-all`}>
-        <Nav toggleDarkMode={toggleDarkMode} />
+        <Nav />
         <main className='dark:bg-stone-700 dark:text-stone-100 transition-all pt-5'>
           {children}
         </main>

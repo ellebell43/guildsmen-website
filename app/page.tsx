@@ -55,7 +55,7 @@ export default function Home() {
 
       <p>So now, go to the rules section and enter <em>the world of Guildsmen!</em></p>
 
-      <div className="px-8 py-4 bg-stone-200 dark:bg-stone-600 dark:hover:bg-stone-500 shadow-md w-fit mx-auto text-xl font-bold hover:bg-stone-300 transition-all cursor-pointer rounded my-6">
+      <div className="px-10 py-4 bg-stone-200 dark:bg-stone-600 dark:hover:bg-stone-500 shadow-md w-fit mx-auto text-xl font-bold hover:bg-stone-300 transition-all cursor-pointer my-6 border-2 border-stone-400 dark:border-stone-400">
         <Link href="/rules">Rules</Link>
       </div>
     </>

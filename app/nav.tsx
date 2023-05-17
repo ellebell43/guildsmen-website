@@ -1,8 +1,19 @@
 import Link from "next/link"
 import { useState } from "react"
 
-export default function Nav(props: { toggleDarkMode: Function }) {
+export default function Nav() {
   const [menuVisible, setMenuVisible] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  const sunIcon = "/icons/sun-solid.svg"
+  const moonIcon = "/icons/moon-solid.svg"
+
+  // Toggle dark mode via html element class list
+  const toggleDarkMode = () => {
+    document.getElementById("html")?.classList.toggle("dark");
+    const isDark = !!(document.getElementById('html')?.classList.contains("dark"));
+    setIsDark(isDark);
+  }
 
   const navLinkClass = "hover:text-slate-600 transition-all hover:scale-110 relative no-underline not-italic tracking-widest lg:border-b border-b-stone-600 dark:border-b-stone-100"
 
@@ -18,12 +29,12 @@ export default function Nav(props: { toggleDarkMode: Function }) {
           <Link className={navLinkClass} href='/community'>Community</Link>
         </nav>
         {/* Theme Switch Button */}
-        <button type="button" onClick={e => props.toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6">
-          <img src="/icons/sun-solid.svg" alt="color theme switch" className="w-5 h-5 dark:filter dark:invert hover:invert-[35%] dark:hover:invert-[75%]" />
+        <button type="button" onClick={e => toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6">
+          <img src={isDark ? moonIcon : sunIcon} alt="" className="w-5 h-5 dark:filter dark:invert hover:invert-[35%] dark:hover:invert-[75%]" />
         </button>
         {/* Menu Toggle */}
         <button type="button" onClick={e => setMenuVisible(!menuVisible)} className="hover:scale-110 transition-all lg:hidden">
-          <img src="/icons/bars-solid.svg" alt="menu" id='menuIcon' className="w-5 h-5 dark:filter dark:invert hover:invert-[35%] dark:hover:invert-[75%]" />
+          <img src="/icons/bars-solid.svg" alt="" className="w-5 h-5 dark:filter dark:invert hover:invert-[35%] dark:hover:invert-[75%]" />
         </button>
       </div>
     </header >
