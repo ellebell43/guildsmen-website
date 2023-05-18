@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function Rules() {
   const iconClass = "h-4 w-4";
-  const linkClass = "no-underline not-italic flex px-10 py-2 items-center gap-4 w-[335px] transition-all button"
+  const linkClass = "px-10 py-2 w-[330px] transition-all button justify-start"
   return (
     <>
       <h1>Guildsmen Core Rules</h1>
       <h2 className="pt-10">Contents</h2>
       <div className='flex flex-col justify-center items-center gap-4 pt-4'>
-        <Link href="/rules/character-creation" className={linkClass}>
+        <Link href="/rules/character-creation" className={`${linkClass} text-sm py-3`}>
           <FontAwesomeIcon className={iconClass} icon={faBook} />
           Chapter 1: Character Creation
         </Link>
@@ -53,7 +53,7 @@ export default function Rules() {
           <FontAwesomeIcon className={iconClass} icon={faDragon} />
           Chapter 9: Creatures
         </Link>
-        <Link href="/rules/for-the-gm" className={linkClass}>
+        <Link href="/rules/for-the-gm" className={`${linkClass} text-sm py-3`}>
           <FontAwesomeIcon className={iconClass} icon={faGraduationCap} />
           Chapter 10: For the Game Master
         </Link>

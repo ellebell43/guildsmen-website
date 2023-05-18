@@ -62,9 +62,7 @@ export default function Home() {
 
       <p>So now, go to the rules section and enter <em>the world of Guildsmen!</em></p>
 
-      <div className="px-10 py-4 button w-fit mx-auto text-xl font-bold transition-all cursor-pointer my-6">
-        <Link href="/rules">Rules</Link>
-      </div>
+      <Link href="/rules" className="button block w-fit mx-auto py-2 px-8 text-2xl mt-8">Rules</Link>
     </>
   )
 }

@@ -83,11 +83,11 @@
   }
 
   a:hover {
-    @apply text-slate-600;
+    @apply text-stone-400;
   }
 
   .dark a:hover {
-    @apply text-slate-300;
+    @apply text-stone-300;
   }
 
   ol {
@@ -99,7 +99,7 @@
   }
 
   .button {
-    @apply border border-stone-400 bg-stone-200 shadow;
+    @apply border border-stone-400 bg-stone-200 shadow no-underline not-italic tracking-wider flex w-fit justify-center items-center mx-auto gap-4;
   }
 
   .button:hover {
@@ -112,5 +112,49 @@
 
   .dark .button:hover {
     @apply bg-stone-500 text-stone-100 border-stone-400
+  }
+
+  /* ---------- TABLE STYLES ---------- */
+  table {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    border-spacing: 0;
+  }
+
+  th {
+    @apply text-center;
+  }
+
+  .raceStatTable tr td {
+    padding: 2.5px 15px;
+  }
+
+  thead tr th {
+    font-size: 18px;
+    font-weight: 700;
+    @apply border-b-2 border-stone-400 border-double;
+  }
+
+  tbody tr td {
+    text-align: center;
+    padding: 2.5px 5px;
+    font-size: 14px;
+  }
+
+  .bottom {
+    @apply border-b border-stone-400;
+  }
+
+  .top {
+    @apply border-t border-stone-400;
+  }
+
+  .left {
+    @apply border-l border-stone-400;
+
+  }
+
+  .right {
+    @apply border-r border-stone-400;
   }
 }
