@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faMoon, faGripLines } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Nav() {
@@ -38,7 +38,7 @@ export default function Nav() {
         </button>
         {/* Menu Toggle */}
         <button type="button" onClick={e => setMenuVisible(!menuVisible)} className="hover:scale-110 transition-all lg:hidden">
-          <img src="/icons/bars-solid.svg" alt="" className="w-5 h-5 dark:filter dark:invert hover:invert-[35%] dark:hover:invert-[75%]" />
+          <FontAwesomeIcon icon={faGripLines} className="w-5 h-5" />
         </button>
       </div>
     </header >
