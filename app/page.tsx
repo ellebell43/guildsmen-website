@@ -1,4 +1,11 @@
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Guildsmen TTRPG | Home",
+  description: "A public, free and open source, steampunk, fantasy-esque, pen and paper, table-top roleplaying game.",
+  keywords: ["TTRPG", "table top", "roleplay", "rpg", "guildsmen", "game", "steampunk", "fantasy", "free", "open source"]
+}
 
 export default function Home() {
   return (
@@ -55,7 +62,7 @@ export default function Home() {
 
       <p>So now, go to the rules section and enter <em>the world of Guildsmen!</em></p>
 
-      <div className="px-10 py-4 bg-stone-200 dark:bg-stone-600 dark:hover:bg-stone-500 shadow-md w-fit mx-auto text-xl font-bold hover:bg-stone-300 transition-all cursor-pointer my-6 border-2 border-stone-400 dark:border-stone-400">
+      <div className="px-10 py-4 button w-fit mx-auto text-xl font-bold transition-all cursor-pointer my-6">
         <Link href="/rules">Rules</Link>
       </div>
     </>

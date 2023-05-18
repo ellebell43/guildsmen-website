@@ -97,4 +97,20 @@
   ul {
     @apply list-disc pl-4;
   }
+
+  .button {
+    @apply border border-stone-400 bg-stone-200 shadow;
+  }
+
+  .button:hover {
+    @apply bg-stone-300 text-stone-800;
+  }
+
+  .dark .button {
+    @apply bg-stone-600 border-stone-500
+  }
+
+  .dark .button:hover {
+    @apply bg-stone-500 text-stone-100 border-stone-400
+  }
 }

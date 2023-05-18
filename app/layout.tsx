@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='transition-all' id="html">
+    <html lang="en" className={`transition-all ${localStorage.getItem("isDark") == "true" ? "dark" : ""}`} id="html">
       <body className={`${gentium.className} dark:bg-stone-700 dark:text-stone-100 transition-all`}>
         <Nav />
         <main className='dark:bg-stone-700 dark:text-stone-100 transition-all pt-5'>
