@@ -141,20 +141,20 @@
     font-size: 14px;
   }
 
-  .bottom {
+  table .bottom {
     @apply border-b border-stone-400;
   }
 
-  .top {
+  table .top {
     @apply border-t border-stone-400;
   }
 
-  .left {
+  table .left {
     @apply border-l border-stone-400;
 
   }
 
-  .right {
+  table .right {
     @apply border-r border-stone-400;
   }
 }
