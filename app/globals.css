@@ -114,6 +114,14 @@
     @apply bg-stone-500 text-stone-100 border-stone-400
   }
 
+  .narration {
+    @apply text-sky-700;
+  }
+
+  .dark .narration {
+    @apply text-slate-400;
+  }
+
   /* ---------- TABLE STYLES ---------- */
   table {
     margin: 0 auto;
@@ -177,5 +185,82 @@
 
   .crystal {
     margin: 20px 0;
+  }
+
+  /* ----------- CREATURE BLOCK ---------- */
+  .creatureBlock {
+    @apply grid gap-0 border-none mt-5 mx-auto max-w-[700px];
+    grid-template-areas:
+      'title'
+      'stats'
+      'description'
+      'actions';
+  }
+
+  .title {
+    @apply m-0 border-none text-xl font-bold text-left;
+    grid-area: title;
+  }
+
+  .stats {
+    @apply flex flex-col justify-center items-center px-10;
+    grid-area: stats;
+  }
+
+  .stats p {
+    @apply m-0;
+  }
+
+  .creatureBlock .description {
+    grid-area: description;
+    @apply opacity-100 flex items-center;
+  }
+
+  .actions {
+    grid-area: actions;
+    @apply flex flex-col justify-center items-center gap-[10px] text-left;
+  }
+
+  .actions p {
+    @apply m-0 w-full;
+  }
+
+  .actions,
+  .description,
+  .stats {
+    @apply m-0 border border-stone-400
+  }
+
+  .actions,
+  .description {
+    @apply border-t-0 p-[10px] text-left;
+  }
+
+  .actionHead {
+    @apply max-w-[50%] text-center self-center font-bold mt-0 border-b border-b-stone-400;
+  }
+
+  .or {
+    font-size: 8px;
+    margin: 0;
+  }
+
+  .noMargin {
+    margin: 0;
+  }
+
+  @media (min-width: 992px) {
+    .creatureBlock {
+      grid-template-areas:
+        'title title title'
+        'stats actions actions'
+        'description actions actions';
+      width: initial;
+      margin: none;
+    }
+
+    .actions {
+      @apply border-t border-t-stone-400 border-l-0;
+    }
   }
 }

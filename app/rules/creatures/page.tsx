@@ -1,62 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+import Link from "next/link";
+import NextButton from "../next-button";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guildsmen TTRPG | Creatures</title>
-  <meta name="description"
-    content="Learn about Creatures and how to make your own in Guildsmen, a free and open source, table-top roleplay game.">
-
-  <link rel="stylesheet" type="text/css" href="/static/css/index.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/back-to-contents.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/creature-block.css">
-
-  <script src="/static/js/Header.js" type="text/javascript" defer></script>
-  <script src="/static/js/index.js" type="text/javascript" defer></script>
-  <script src="/static/js/Footer.js" type="text/javascript" defer></script>
-  <script src="/static/js/Back.js" type="text/javascript" defer></script>
-</head>
-
-<body data-theme="dark">
-  <header-component></header-component>
-  <script src="/static/js/onPageLoad.js" type="text/javascript" defer></script>
-  <main>
+export default function Creatures() {
+  return (
     <article>
       <h1>Creatures</h1>
-      <p>Creatures in this game are designed with the idea that people are fragile and easily killed. For example, if a
-        regular person ran at a bear, swinging a sword, trying to kill it, that person would most likely end up dead.
-        When fighting creatures, the idea is to constantly be avoiding the creatures’ attacks, and the moment you mess
-        up, you die. </p>
+      <p>Creatures in this game are designed with the idea that people are fragile and easily killed. For example, if a regular person ran at a bear, swinging a sword, trying to kill it, that person would most likely end up dead. When fighting creatures, the idea is to constantly be avoiding the creatures&apos; attacks, and the moment you mess up, you die. </p>
 
-      <p>When encountering creatures of any type, remember to use what skills and stats your character is best at and to
-        avoid ever going in alone. You can only take seven Harm before dying. Many creatures can deal that much Harm in
-        one blow.</p>
+      <p>When encountering creatures of any type, remember to use what skills and stats your character is best at and to avoid ever going in alone. You can only take ten Harm before dying. Many creatures can deal that much Harm in one blow.</p>
 
-      <p>For a comprehensive set of creatures, go to the <a href='/bestiary.html'>The Bestiary</a>.</p>
+      <p>For a comprehensive set of creatures, go to the <Link href='/bestiary'>The Bestiary</Link>.</p>
 
       <section id="understanding-the-creature-block">
         <h2>Understanding the Creature Block</h2>
-        <p>The creature block is how creatures’ stats, actions, and descriptions are outlined. They all appear like so:
-        </p>
+        <p>The creature block is how creatures’ stats, actions, and descriptions are outlined. They all appear like so:</p>
 
-        <div class="creatureBlock">
-          <p class="title">Grizzly Bear (Deadly, +0)</p>
-          <div class="stats">
+        <div className="creatureBlock">
+          <p className="title">Grizzly Bear (Deadly, +0)</p>
+          <div className="stats">
             <p>Tough +9 | Nimble +5</p>
             <p>Competence +0 | Constitution +4</p>
             <p>Harm 11 | Armor 2</p>
           </div>
-          <p class="description">Grizzly bears are large sized creatures weighing up to 1,500lbs and sizing
-            up to 8.5ft tall. These creatures travel on their own. Grizzly Bears are extremely territorial, attacking
-            anything the feel like a threat. They are also generally active during the day.</p>
-          <div class="actions">
-            <p class="actionHead">Actions</p>
+          <p className="description">Grizzly bears are large sized creatures weighing up to 1,500lbs and sizing
+            up to 8.5ft tall. These creatures travel on their own. Grizzly Bears are extremely territorial, attacking anything the feel like a threat. They are also generally active during the day.</p>
+          <div className="actions">
+            <p className="actionHead">Actions</p>
             <p><strong>Claw</strong> (+6) - The Grizzly Bear comes at you with its thick claws to maim your body.</p>
             <p><strong>Bite</strong> (+6) - The Grizzly Bear goes to take a huge bite out of you.</p>
             <p><strong>Maul</strong> (+9) - The Grizzly Bear furiously uses teeth and claws to decimate you.</p>
-            <p><strong>Roar</strong> - The Grizzly Bear bellows out a powerful roar,
-              <a href="/rules/combat.html#conditions">Frightening</a> all creatures within 20ft for as long as they
+            <p><strong>Roar</strong> - The Grizzly Bear bellows out a powerful roar, <Link href="/rules/combat#conditions">Frightening</Link> all creatures within 20ft for as long as they
               are in combat with it.
             </p>
           </div>
@@ -113,45 +86,45 @@
         <table>
           <thead>
             <tr>
-              <th colspan='2'>Hazard Examples</th>
+              <th colSpan={2}>Hazard Examples</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class='bottom left alignLeft'>None</td>
-              <td class='bottom right alignRight'>House Cat</td>
+              <td className='bottom left alignLeft'>None</td>
+              <td className='bottom right alignRight'>House Cat</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Mild</td>
-              <td class='bottom right alignRight'>Common Person</td>
+              <td className='bottom left alignLeft'>Mild</td>
+              <td className='bottom right alignRight'>Common Person</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Moderate</td>
-              <td class='bottom right alignRight'>Trained Fighter</td>
+              <td className='bottom left alignLeft'>Moderate</td>
+              <td className='bottom right alignRight'>Trained Fighter</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Severe</td>
-              <td class='bottom right alignRight'>Wolf</td>
+              <td className='bottom left alignLeft'>Severe</td>
+              <td className='bottom right alignRight'>Wolf</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Deadly</td>
-              <td class='bottom right alignRight'>Grizzly Bear</td>
+              <td className='bottom left alignLeft'>Deadly</td>
+              <td className='bottom right alignRight'>Grizzly Bear</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Deadly</td>
-              <td class='bottom right alignRight'>Hippo</td>
+              <td className='bottom left alignLeft'>Deadly</td>
+              <td className='bottom right alignRight'>Hippo</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Unsurvivable</td>
-              <td class='bottom right alignRight'>Maticore</td>
+              <td className='bottom left alignLeft'>Unsurvivable</td>
+              <td className='bottom right alignRight'>Maticore</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Unsurvivable</td>
-              <td class='bottom right alignRight'>Cerberus</td>
+              <td className='bottom left alignLeft'>Unsurvivable</td>
+              <td className='bottom right alignRight'>Cerberus</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Unsurvivable</td>
-              <td class='bottom right alignRight'>Dragon</td>
+              <td className='bottom left alignLeft'>Unsurvivable</td>
+              <td className='bottom right alignRight'>Dragon</td>
             </tr>
           </tbody>
         </table>
@@ -162,45 +135,45 @@
         <table>
           <thead>
             <tr>
-              <th colspan='4'>Custom Creature Stats</th>
+              <th colSpan={4}>Custom Creature Stats</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class='bottom left alignLeft'><strong>Hazard</strong></td>
-              <td class='bottom'><strong>Max Stat</strong></td>
-              <td class='bottom'><strong>Bonus</strong></td>
-              <td class='bottom right'><strong>Max Harm</strong></td>
+              <td className='bottom left alignLeft'><strong>Hazard</strong></td>
+              <td className='bottom'><strong>Max Stat</strong></td>
+              <td className='bottom'><strong>Bonus</strong></td>
+              <td className='bottom right'><strong>Max Harm</strong></td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'><em>Mild</em></td>
-              <td class='bottom'>+1</td>
-              <td class='bottom'>+0</td>
-              <td class='bottom right'>7</td>
+              <td className='bottom left alignLeft'><em>Mild</em></td>
+              <td className='bottom'>+1</td>
+              <td className='bottom'>+0</td>
+              <td className='bottom right'>7</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'><em>Moderate</em></td>
-              <td class='bottom'>+3</td>
-              <td class='bottom'>+1 to +3</td>
-              <td class='bottom right'>10</td>
+              <td className='bottom left alignLeft'><em>Moderate</em></td>
+              <td className='bottom'>+3</td>
+              <td className='bottom'>+1 to +3</td>
+              <td className='bottom right'>10</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'><em>Severe</em></td>
-              <td class='bottom'>+6</td>
-              <td class='bottom'>+3 to +6</td>
-              <td class='bottom right'>15</td>
+              <td className='bottom left alignLeft'><em>Severe</em></td>
+              <td className='bottom'>+6</td>
+              <td className='bottom'>+3 to +6</td>
+              <td className='bottom right'>15</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'><em>Deadly</em></td>
-              <td class='bottom'>+9</td>
-              <td class='bottom'>+6 to +9</td>
-              <td class='bottom right'>20</td>
+              <td className='bottom left alignLeft'><em>Deadly</em></td>
+              <td className='bottom'>+9</td>
+              <td className='bottom'>+6 to +9</td>
+              <td className='bottom right'>20</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'><em>Unsurvivalble</em></td>
-              <td class='bottom'>+12</td>
-              <td class='bottom'>+9 or more</td>
-              <td class='bottom right'>25</td>
+              <td className='bottom left alignLeft'><em>Unsurvivalble</em></td>
+              <td className='bottom'>+12</td>
+              <td className='bottom'>+9 or more</td>
+              <td className='bottom right'>25</td>
             </tr>
           </tbody>
         </table>
@@ -219,8 +192,8 @@
           discretion.</p>
 
         <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get
-              on a successful attack. That is because the modifier gets added to actions and if it's successful, the
-              bonus gets added as well, so the numbers stack.</em></strong></p>
+          on a successful attack. That is because the modifier gets added to actions and if it's successful, the
+          bonus gets added as well, so the numbers stack.</em></strong></p>
 
         <p>All creatures should also have a specific size. The following is a chart to help determine the size of a
           creature:</p>
@@ -228,49 +201,49 @@
         <table>
           <thead>
             <tr>
-              <th colspan='2'>Size Reference</th>
+              <th colSpan={2}>Size Reference</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class='bottom left alignLeft'>Tiny</td>
-              <td class='bottom right alignRight'>less than 5"</td>
+              <td className='bottom left alignLeft'>Tiny</td>
+              <td className='bottom right alignRight'>less than 5"</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Very Small</td>
-              <td class='bottom right alignRight'>5"-1'</td>
+              <td className='bottom left alignLeft'>Very Small</td>
+              <td className='bottom right alignRight'>5"-1'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Small</td>
-              <td class='bottom right alignRight'>1'-3'</td>
+              <td className='bottom left alignLeft'>Small</td>
+              <td className='bottom right alignRight'>1'-3'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Medium</td>
-              <td class='bottom right alignRight'>3'-7'</td>
+              <td className='bottom left alignLeft'>Medium</td>
+              <td className='bottom right alignRight'>3'-7'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Large</td>
-              <td class='bottom right alignRight'>7'-12'</td>
+              <td className='bottom left alignLeft'>Large</td>
+              <td className='bottom right alignRight'>7'-12'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Very Large</td>
-              <td class='bottom right alignRight'>12'-24'</td>
+              <td className='bottom left alignLeft'>Very Large</td>
+              <td className='bottom right alignRight'>12'-24'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Giant</td>
-              <td class='bottom right alignRight'>24'-50'</td>
+              <td className='bottom left alignLeft'>Giant</td>
+              <td className='bottom right alignRight'>24'-50'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Massive</td>
-              <td class='bottom right alignRight'>50'-100'</td>
+              <td className='bottom left alignLeft'>Massive</td>
+              <td className='bottom right alignRight'>50'-100'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Colossal</td>
-              <td class='bottom right alignRight'>100'-250'</td>
+              <td className='bottom left alignLeft'>Colossal</td>
+              <td className='bottom right alignRight'>100'-250'</td>
             </tr>
             <tr>
-              <td class='bottom left alignLeft'>Titanic</td>
-              <td class='bottom right alignRight'>250'-500'</td>
+              <td className='bottom left alignLeft'>Titanic</td>
+              <td className='bottom right alignRight'>250'-500'</td>
             </tr>
           </tbody>
         </table>
@@ -278,10 +251,7 @@
         <p>From here, outline your creature with specific stats using the charts above and preset creatures as
           guidelines. Be sure to give them a good description and unique actions.</p>
       </section>
+      <NextButton href="/rules/for-the-gm" />
     </article>
-    <back-component></back-component>
-  </main>
-  <footer-component></footer-component>
-</body>
-
-</html>
+  )
+}
