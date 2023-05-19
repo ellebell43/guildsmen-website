@@ -157,4 +157,25 @@
   table .right {
     @apply border-r border-stone-400;
   }
+
+  /* ---------- THE MARKET ---------- */
+  .item {
+    @apply flex justify-between border-b border-dotted border-stone-400;
+  }
+
+  .item p {
+    @apply m-0;
+  }
+
+  .itemName {
+    @apply font-bold text-lg;
+  }
+
+  .description {
+    @apply mt-0 opacity-50
+  }
+
+  .crystal {
+    margin: 20px 0;
+  }
 }

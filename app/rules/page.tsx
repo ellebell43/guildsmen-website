@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faPersonHiking, faUserNinja, faGem, faHammer, faScrewdriverWrench, faLandmark, faDragon, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faPersonHiking, faUserNinja, faGem, faHammer, faScrewdriverWrench, faLandmark, faDragon, faGraduationCap, faStore } from "@fortawesome/free-solid-svg-icons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,11 +38,11 @@ export default function Rules() {
           Chapter 5: Crafting
         </Link>
         <Link href="/rules/invention" className={linkClass}>
-          <FontAwesomeIcon className={iconClass} icon={faGem} />
+          <FontAwesomeIcon className={iconClass} icon={faScrewdriverWrench} />
           Chapter 6: Invention
         </Link>
         <Link href="/rules/the-market" className={linkClass}>
-          <FontAwesomeIcon className={iconClass} icon={faScrewdriverWrench} />
+          <FontAwesomeIcon className={iconClass} icon={faStore} />
           Chapter 7: The Market
         </Link>
         <Link href="/rules/establishments" className={linkClass}>
