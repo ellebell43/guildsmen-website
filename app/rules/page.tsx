@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Rules() {
   const iconClass = "h-4 w-4";
-  const linkClass = "px-10 py-2 w-[330px] transition-all button justify-start"
+  const linkClass = "px-10 py-2 w-[330px] button justify-start"
   return (
     <>
       <h1>Guildsmen Core Rules</h1>
