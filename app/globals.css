@@ -213,16 +213,16 @@
 
   .creatureBlock .description {
     grid-area: description;
-    @apply opacity-100 flex items-center;
+    @apply opacity-100 flex items-center text-justify;
   }
 
   .actions {
     grid-area: actions;
-    @apply flex flex-col justify-center items-center gap-[10px] text-left;
+    @apply flex flex-col justify-center items-center gap-[10px];
   }
 
   .actions p {
-    @apply m-0 w-full;
+    @apply m-0 w-full text-justify;
   }
 
   .actions,
