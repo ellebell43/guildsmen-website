@@ -17,7 +17,7 @@ export default function TheMarket() {
         <h2>Buying Items</h2>
         <p>Knowing what you can and cannot buy is easy. If it is within your wealth category, you can buy those items in some abundance. If it is one wealthy category above yours, you can buy those items sparingly. If it is below your wealth category, you can buy those items in great abundance.</p>
 
-        <p>What items are in what wealth category is entirely up to Game Master discretion. If the Game Master doesn't think your character should be able to buy the item, then your character cannot buy the item. The Game Master can also put items in the Exquisite+ category, which is one category above Exquisite.</p>
+        <p>What items are in what wealth category is entirely up to Game Master discretion. If the Game Master doesn&apos;t think your character should be able to buy the item, then your character cannot buy the item. The Game Master can also put items in the Exquisite+ category, which is one category above Exquisite.</p>
 
         <p>If you come to a situation where a specific item would be useful, maybe your character would reasonably have the item. If you can argue that they would reasonably have the item, and the Game Master agrees with your argument, then you would have the item.</p>
 
@@ -81,7 +81,7 @@ export default function TheMarket() {
           <p className="itemName">Beam Light</p>
           <p className="itemCost">Moderate</p>
         </div>
-        <p className="description">A device that magnifies the light from a 1” Navidus Crystal to create a beam of light to illuminate dark spaces. Doesn't run out of charge, since the light is just magnified from the Crystal</p>
+        <p className="description">A device that magnifies the light from a 1” Navidus Crystal to create a beam of light to illuminate dark spaces. Doesn&apos;t run out of charge, since the light is just magnified from the Crystal</p>
 
         <div className="item">
           <p className="itemName">Camera</p>
@@ -120,29 +120,29 @@ export default function TheMarket() {
         <p className="text-center">Navidus Crystlas are used to power tech devices.</p>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (1")</p>
+          <p className="itemName">Navidus Crystal (1&quot;)</p>
           <p className="itemCost">Moderate</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (2")</p>
+          <p className="itemName">Navidus Crystal (2&quot;)</p>
           <p className="itemCost">Wealthy</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (3")</p>
+          <p className="itemName">Navidus Crystal (3&quot;)</p>
           <p className="itemCost">Exquisite</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (4")</p>
+          <p className="itemName">Navidus Crystal (4&quot;)</p>
           <p className="itemCost">Exquisite+</p>
         </div>
       </section>
 
       <section>
         <h2>Weapons</h2>
-        <p className="text-center">Weapons are... well, used to kill things. Or maybe you're just eccentric.</p>
+        <p className="text-center">Weapons are... well, used to kill things. Or maybe you&apos;re just eccentric.</p>
 
         <div className="item">
           <p className="itemName">Fumation</p>
@@ -154,7 +154,7 @@ export default function TheMarket() {
           <p className="itemName">Shock Rod</p>
           <p className="itemCost">Exquisite</p>
         </div>
-        <p className="description">A light, melee weapon that also causes 3 Harm of electric damage upon a successful hit but drains a 1” Navidus Crystal. Also causes any affected creature to be stunned for 10 seconds (1 combat round). This can be used on conductive surfaces to stun for 10 seconds and deal 3 Harm to anything touching the conductive surface.</p>
+        <p className="description">A light, melee weapon that also causes 3 Harm of electric damage upon a successful hit but drains a 1&quot; Navidus Crystal. Also causes any affected creature to be stunned for 10 seconds (1 combat round). This can be used on conductive surfaces to stun for 10 seconds and deal 3 Harm to anything touching the conductive surface.</p>
       </section>
       <NextButton href="/rules/establishments" />
     </article>

@@ -35,7 +35,7 @@ export default function Skills() {
 
         <p><strong>Sneaky</strong> is your ability to perform sneaky actions. This includes pickpocketing, lockpicking, hiding, and simple “magic” tricks.</p>
 
-        <p><strong>Tech</strong> is your ability to design contraptions and machines, as well as use them. This is used to invent things - creating blueprints, then prototypes, then devices to create things that wouldn't normally exist in the game world.</p>
+        <p><strong>Tech</strong> is your ability to design contraptions and machines, as well as use them. This is used to invent things - creating blueprints, then prototypes, then devices to create things that wouldn&apos;t normally exist in the game world.</p>
 
         <p><strong>Throwdown</strong> is your ability to fight. The higher this skill is, the more damage you can deal in one blow.</p>
       </section>
@@ -47,13 +47,13 @@ export default function Skills() {
 
         <p>Next, you roll dice (2, 6-sided dice) and add your skill modifier to determine if you succeed. The bubbles that are filled in underneath the skill represent the modifier. So, if I have my bubbles filled in up to +2 in the <em>sneaky</em> skill, then I would add +2 to my dice roll.</p>
 
-        <p>If the total number is high enough, you succeed with what you're trying to do.</p>
+        <p>If the total number is high enough, you succeed with what you&apos;re trying to do.</p>
 
-        <p>When you perform a task that doesn't necessarily require skill, but does rely on your physical or mental capabilities, you'll use a <em>stat check</em> instead.</p>
+        <p>When you perform a task that doesn&apos;t necessarily require skill, but does rely on your physical or mental capabilities, you&apos;ll use a <em>stat check</em> instead.</p>
 
         <p><strong>Stat Checks</strong> work the same as skill checks. You determine if the task relies on Tough, Nimble, Competence, or Constitution, then roll dice and add the corresponding modifier.</p>
 
-        <p><strong>Luck Checks</strong> work on the exact same concept, except they don't rely on any skill or stat. They are used when the outcome should be very uncertain, and the result should be the product of complete chance.</p>
+        <p><strong>Luck Checks</strong> work on the exact same concept, except they don&apos;t rely on any skill or stat. They are used when the outcome should be very uncertain, and the result should be the product of complete chance.</p>
 
         <p>More often than not, a skill will require a roll of 8 or more in order to be successful. However, the Game Master can decide if a task will be more or less difficult than average. Each level of difficulty has its own target number to be rolled.</p>
 
@@ -65,24 +65,24 @@ export default function Skills() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left text-left'>Very Easy</td>
-              <td className='bottom right text-right'>4+</td>
+              <td className="bottom left text-left">Very Easy</td>
+              <td className="bottom right text-right">4+</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Easy</td>
-              <td className='bottom right text-right'>6+</td>
+              <td className="bottom left text-left">Easy</td>
+              <td className="bottom right text-right">6+</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Moderate</td>
-              <td className='bottom right text-right'>8+</td>
+              <td className="bottom left text-left">Moderate</td>
+              <td className="bottom right text-right">8+</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Difficult</td>
-              <td className='bottom right text-right'>10+</td>
+              <td className="bottom left text-left">Difficult</td>
+              <td className="bottom right text-right">10+</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Very Difficult</td>
-              <td className='bottom right text-right'>12+</td>
+              <td className="bottom left text-left">Very Difficult</td>
+              <td className="bottom right text-right">12+</td>
             </tr>
           </tbody>
         </table>
@@ -91,11 +91,11 @@ export default function Skills() {
 
         <p>When you and another player or NPC (Non-Player Character) are trying to do something at the same time that conflicts, an <strong>Opposed Check</strong> will happen. When two actions conflict, both participants roll for whatever they were trying to do. Whoever gets the highest number gets to do what they wanted. Ties are rerolled.</p>
 
-        <p><em>For example</em>: you want to tackle a bandit as he's trying to run away. You would make a Tough check to tackle them, and the bandit would make a Nimble check to run away. If the bandit gets the higher number, then he successfully runs away. But if you get the higher number, then you tackle the bandit to the ground.</p>
+        <p><em>For example</em>: you want to tackle a bandit as he&apos;s trying to run away. You would make a Tough check to tackle them, and the bandit would make a Nimble check to run away. If the bandit gets the higher number, then he successfully runs away. But if you get the higher number, then you tackle the bandit to the ground.</p>
 
         <p>And this works for countless other encounters. Say you wanted to throw a rock to knock out the bandit instead. Then you would use a <em>throwdown</em> skill check against his Nimble stat check instead. So, look for a way to play to what Skills and Stats you have.</p>
 
-        <p>In addition to whether or not you succeed, the Game Master may also consider the degree of your success. This is determined by the difference between the number you rolled and the number you needed to roll or by how much higher your roll was the other person's roll.</p>
+        <p>In addition to whether or not you succeed, the Game Master may also consider the degree of your success. This is determined by the difference between the number you rolled and the number you needed to roll or by how much higher your roll was the other person&apos;s roll.</p>
 
         <table>
           <thead>
@@ -105,24 +105,24 @@ export default function Skills() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left text-left'>Extreme Fail</td>
-              <td className='bottom right text-right'>-4</td>
+              <td className="bottom left text-left">Extreme Fail</td>
+              <td className="bottom right text-right">-4</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Fail</td>
-              <td className='bottom right text-right'>-2</td>
+              <td className="bottom left text-left">Fail</td>
+              <td className="bottom right text-right">-2</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Mixed Success</td>
-              <td className='bottom right text-right'>-1</td>
+              <td className="bottom left text-left">Mixed Success</td>
+              <td className="bottom right text-right">-1</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Success</td>
-              <td className='bottom right text-right'>0</td>
+              <td className="bottom left text-left">Success</td>
+              <td className="bottom right text-right">0</td>
             </tr>
             <tr>
-              <td className='bottom left text-left'>Extreme Success</td>
-              <td className='bottom right text-right'>+4</td>
+              <td className="bottom left text-left">Extreme Success</td>
+              <td className="bottom right text-right">+4</td>
             </tr>
           </tbody>
         </table>
@@ -141,17 +141,17 @@ export default function Skills() {
 
         <p>Normally, you would simply be able to notice any common clues, such as footprints. However, the goal was to roll an 8, but you managed to roll a 13. The Game Master decided to take the Degree of Success into account: 13 - 8 = 5. The difference between the rolled number and the goal is 5, making this an Extreme Success.</p>
 
-        <p>So, instead of just simply noticing footprints, maybe the Game Master will also let you know that there is a bystander that might know something or give you additional information on what you are trying to track that you wouldn't have gotten otherwise.</p>
+        <p>So, instead of just simply noticing footprints, maybe the Game Master will also let you know that there is a bystander that might know something or give you additional information on what you are trying to track that you wouldn&apos;t have gotten otherwise.</p>
 
-        <p><em>The Game Master doesn't have to consider the degree of success, it's completely optional.</em></p>
+        <p><em>The Game Master doesn&apos;t have to consider the degree of success, it&apos;s completely optional.</em></p>
       </section>
       <section id="advantage-and-disadvantage">
         <h2>Advantage & Disadvantage</h2>
-        <p>At times, you may find yourself in a situation where you are in a position to do something better than you normally would, due to circumstance. For example, you're trying to sneak past a guard but it's dark and the guard has their back to you, so it will be easier to sneak past than normal. In a situation like this, you would have Advantage.</p>
+        <p>At times, you may find yourself in a situation where you are in a position to do something better than you normally would, due to circumstance. For example, you&apos;re trying to sneak past a guard but it&apos;s dark and the guard has their back to you, so it will be easier to sneak past than normal. In a situation like this, you would have Advantage.</p>
 
         <p><strong>Advantage</strong> is when you have the upper hand in a situation. When this happens, you get to <em>Roll with Advantage</em>. This is where you make your dice check twice and use the higher result. </p>
 
-        <p>But on the other hand, there may be a situation where you would do worse instead. For example, you're trying to sneak past a guard but it's broad daylight and they're looking directly at where you plan to sneak through. In a situation like this, you would have disadvantage.</p>
+        <p>But on the other hand, there may be a situation where you would do worse instead. For example, you&apos;re trying to sneak past a guard but it&apos;s broad daylight and they&apos;re looking directly at where you plan to sneak through. In a situation like this, you would have disadvantage.</p>
 
         <p><strong>Disadvantage</strong> is where you have the lower hand in a situation. When this happens, you <em>Roll with Disadvantage</em>. This is where you make your dice check twice and use the lower result. </p>
       </section>
@@ -211,9 +211,9 @@ export default function Skills() {
         <h3>Nature Specialties</h3>
         <p><strong>Animals</strong> - You specialize in knowing the creatures that roam the wilds, how they behave, and how to find them. You are skilled at tracking animals, as well as interacting with them.</p>
 
-        <p><strong>Geography</strong> - You specialize in the land itself. You know how to find landmarks and how to navigate in a way that you won't get lost. You can navigate through the wilds easily and you know the general dangers.</p>
+        <p><strong>Geography</strong> - You specialize in the land itself. You know how to find landmarks and how to navigate in a way that you won&apos;t get lost. You can navigate through the wilds easily and you know the general dangers.</p>
 
-        <p><strong>Plants</strong> - You specialize in knowing the plants of the wild. You know which plants are safe and which ones aren't. You also know the various medicinal uses of plants.</p>
+        <p><strong>Plants</strong> - You specialize in knowing the plants of the wild. You know which plants are safe and which ones aren&apos;t. You also know the various medicinal uses of plants.</p>
 
         <p><strong>Survival</strong> - You specialize in surviving in the wild. You know how to find or build shelter, start fires with little to no tools, and how to find needed resources.</p>
 
@@ -224,7 +224,7 @@ export default function Skills() {
 
         <p><strong>Contortion</strong> - You specialize in contortion performance. You are skilled at manipulating your body in mesmerizing and unnatural ways. You can also cram your body into smaller spaces than other people would.</p>
 
-        <p><strong>Music</strong> - You specialize in musical performance. You know how to play one or more instruments and how to get peoples' attention with it.</p>
+        <p><strong>Music</strong> - You specialize in musical performance. You know how to play one or more instruments and how to get peoples&apos; attention with it.</p>
 
         <h3>Social Specialties</h3>
         <p><strong>Deception</strong> - You specialize in deception in social situations. You are skilled at lying and not getting caught in it. The things you say are always convincing and believable.</p>
@@ -238,7 +238,7 @@ export default function Skills() {
 
         <p><strong>Lock-Picking</strong> - You specialize in picking locks. You are skilled at opening doors that aren&apos;t meant to be opened. You know how locks work and how to make them stop working. </p>
 
-        <p><strong>Pocket-Picking</strong> - you specialize at picking pockets sneakily. You are skilled at pilfering items from peoples' pockets to take their possessions.</p>
+        <p><strong>Pocket-Picking</strong> - you specialize at picking pockets sneakily. You are skilled at pilfering items from peoples&apos; pockets to take their possessions.</p>
 
         <p><strong>Sleight-of-Hand</strong> - You specialize at sleight-of-hand tricks. You are skilled in simple tricks that are designed to both baffle and distract.</p>
 

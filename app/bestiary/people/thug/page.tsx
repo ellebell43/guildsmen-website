@@ -15,7 +15,7 @@ export default function Thug() {
         <p>Competence +0 | Constitution +0</p>
         <p>Harm 7 | Armor 2</p>
       </div>
-      <p className="description">Thugs are desperate people who have turned to theft, mugging, and killing to make money. These people could be hired, desperate, or unstable, so be wary. If you run into one, watch out - there's usually more than just one.</p>
+      <p className="description">Thugs are desperate people who have turned to theft, mugging, and killing to make money. These people could be hired, desperate, or unstable, so be wary. If you run into one, watch out - there&apos;s usually more than just one.</p>
       <div className="actions">
         <p className="actionHead">Actions</p>
 

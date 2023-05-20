@@ -16,7 +16,7 @@ export default function Rules() {
     <>
       <h1>Guildsmen Core Rules</h1>
       <h2 className="pt-10">Contents</h2>
-      <div className='flex flex-col justify-center items-center gap-4 pt-4'>
+      <div className="flex flex-col justify-center items-center gap-4 pt-4">
         <Link href="/rules/character-creation" className={`${linkClass} text-sm py-3`}>
           <FontAwesomeIcon className={iconClass} icon={faBook} />
           Chapter 1: Character Creation

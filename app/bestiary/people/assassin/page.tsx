@@ -17,7 +17,7 @@ export default function Assassin() {
           <p>Harm 7 | Armor 2</p>
         </div>
 
-        <p className="description">Assassins are killers for hire. You can hire them at a wealth category of Wealthy, but they can also be purchased at Exquisite and Exquisite+. The higher the wealth category they are hired at, the more successful the assassin will be. If one of these professional killers are after you, it's best to flee as far away as possible. They strike from the shadows and are never seen coming</p>
+        <p className="description">Assassins are killers for hire. You can hire them at a wealth category of Wealthy, but they can also be purchased at Exquisite and Exquisite+. The higher the wealth category they are hired at, the more successful the assassin will be. If one of these professional killers are after you, it&apos;s best to flee as far away as possible. They strike from the shadows and are never seen coming</p>
 
         <div className="actions">
           <p className="actionHead">Actions</p>

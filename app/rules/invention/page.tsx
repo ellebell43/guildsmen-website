@@ -16,13 +16,13 @@ export default function Invention() {
 
       <section id="the-power-of-invention">
         <h2>The Power of Invention</h2>
-        <p>Invention is a multi-step process. First, you design the item you want to make, then you need to gather the resources and manpower to create the item, and finally, you'll actually create the item - first with a prototype, then onward to a fully functioning version.</p>
+        <p>Invention is a multi-step process. First, you design the item you want to make, then you need to gather the resources and manpower to create the item, and finally, you&apos;ll actually create the item - first with a prototype, then onward to a fully functioning version.</p>
 
         <p>Designing an item takes a simple <em>tech</em> skill check. This skill check will vary in difficulty based on how futuristic the invention is as well as how complex the invention is. You will then add a blueprint to your gear. You cannot attempt to make the item without that blueprint. If this blueprint is lost, you must remake the design and someone else may make your design if they find the lost blueprint.</p>
 
-        <p>After the design has been made, you must gather the proper resources and manpower to create the invention. This will vary greatly depending on the thing you're creating and will generally require a fair amount of wealth and role play (see Sponsers in the <Link href="/rules/crafting"><em>Crafting chapter</em></Link>).</p>
+        <p>After the design has been made, you must gather the proper resources and manpower to create the invention. This will vary greatly depending on the thing you&apos;re creating and will generally require a fair amount of wealth and role play (see Sponsers in the <Link href="/rules/crafting"><em>Crafting chapter</em></Link>).</p>
 
-        <p>Once you've done all of that, you'll need to craft a prototype. The harder the item is to create, the more <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail any of these skill checks, then your prototype fails, and you must restart the invention process, but you'll get to roll with advantage to create the new blueprint.</p>
+        <p>Once you&apos;ve done all of that, you&apos;ll need to craft a prototype. The harder the item is to create, the more <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail any of these skill checks, then your prototype fails, and you must restart the invention process, but you&apos;ll get to roll with advantage to create the new blueprint.</p>
 
         <table>
           <thead>
@@ -32,24 +32,24 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>Very Easy</td>
-              <td className='bottom right alignRight'>1</td>
+              <td className="bottom left alignLeft">Very Easy</td>
+              <td className="bottom right alignRight">1</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Easy</td>
-              <td className='bottom right alignRight'>2</td>
+              <td className="bottom left alignLeft">Easy</td>
+              <td className="bottom right alignRight">2</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Moderate</td>
-              <td className='bottom right alignRight'>3</td>
+              <td className="bottom left alignLeft">Moderate</td>
+              <td className="bottom right alignRight">3</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Difficult</td>
-              <td className='bottom right alignRight'>4</td>
+              <td className="bottom left alignLeft">Difficult</td>
+              <td className="bottom right alignRight">4</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Difficult</td>
-              <td className='bottom right alignRight'>5</td>
+              <td className="bottom left alignLeft">Very Difficult</td>
+              <td className="bottom right alignRight">5</td>
             </tr>
           </tbody>
         </table>
@@ -79,28 +79,28 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>Tiny</td>
-              <td className='bottom right alignRight'>1"-2"</td>
+              <td className="bottom left alignLeft">Tiny</td>
+              <td className="bottom right alignRight">1&quot;-2&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Small</td>
-              <td className='bottom right alignRight'>2"-3"</td>
+              <td className="bottom left alignLeft">Very Small</td>
+              <td className="bottom right alignRight">2&quot;-3&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Small</td>
-              <td className='bottom right alignRight'>3"-4"</td>
+              <td className="bottom left alignLeft">Small</td>
+              <td className="bottom right alignRight">3&quot;-4&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Medium</td>
-              <td className='bottom right alignRight'>4"-5"</td>
+              <td className="bottom left alignLeft">Medium</td>
+              <td className="bottom right alignRight">4&quot;-5&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Large</td>
-              <td className='bottom right alignRight'>5"-6"</td>
+              <td className="bottom left alignLeft">Large</td>
+              <td className="bottom right alignRight">5&quot;-6&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Large</td>
-              <td className='bottom right alignRight'>6"-7"</td>
+              <td className="bottom left alignLeft">Very Large</td>
+              <td className="bottom right alignRight">6&quot;-7&quot;</td>
             </tr>
           </tbody>
         </table>
@@ -118,7 +118,7 @@ export default function Invention() {
 
       <section id="mechs">
         <h2>Mechs</h2>
-        <p>Mechs are semi-autonomous metal creations that serve singular purposes and are designed to automate very specific tasks so regular people don't have to do them. They are used as civil protectors, to perform extreme labor, or to serve their creators in whatever way they deem necessary.</p>
+        <p>Mechs are semi-autonomous metal creations that serve singular purposes and are designed to automate very specific tasks so regular people don&apos;t have to do them. They are used as civil protectors, to perform extreme labor, or to serve their creators in whatever way they deem necessary.</p>
 
         <p>Mechs are designed for any purpose their creator wishes and are generally designed with the form of a living creature in mind. Mechs can be created by anyone through the invention process as long as they have the right resources.</p>
 
@@ -132,46 +132,46 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'><strong>Class</strong></td>
-              <td className='bottom'><strong>Size</strong></td>
-              <td className='bottom'><strong>Tough</strong></td>
-              <td className='bottom'><strong>Nimble</strong></td>
-              <td className='bottom right'><strong>Harm</strong></td>
+              <td className="bottom left alignLeft"><strong>Class</strong></td>
+              <td className="bottom"><strong>Size</strong></td>
+              <td className="bottom"><strong>Tough</strong></td>
+              <td className="bottom"><strong>Nimble</strong></td>
+              <td className="bottom right"><strong>Harm</strong></td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Small</td>
-              <td className='bottom'>4"-1'</td>
-              <td className='bottom'>+0</td>
-              <td className='bottom'>+5</td>
-              <td className='bottom right'>5</td>
+              <td className="bottom left alignLeft">Very Small</td>
+              <td className="bottom">4&quot;-1&apos;</td>
+              <td className="bottom">+0</td>
+              <td className="bottom">+5</td>
+              <td className="bottom right">5</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Small</td>
-              <td className='bottom'>1'-3'</td>
-              <td className='bottom'>+5</td>
-              <td className='bottom'>+3</td>
-              <td className='bottom right'>10</td>
+              <td className="bottom left alignLeft">Small</td>
+              <td className="bottom">1&apos;-3&apos;</td>
+              <td className="bottom">+5</td>
+              <td className="bottom">+3</td>
+              <td className="bottom right">10</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Medium</td>
-              <td className='bottom'>3'-7'</td>
-              <td className='bottom'>+10</td>
-              <td className='bottom'>+1</td>
-              <td className='bottom right'>15</td>
+              <td className="bottom left alignLeft">Medium</td>
+              <td className="bottom">3&apos;-7&apos;</td>
+              <td className="bottom">+10</td>
+              <td className="bottom">+1</td>
+              <td className="bottom right">15</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Large</td>
-              <td className='bottom'>7'-12'</td>
-              <td className='bottom'>+15</td>
-              <td className='bottom'>-1</td>
-              <td className='bottom right'>20</td>
+              <td className="bottom left alignLeft">Large</td>
+              <td className="bottom">7&apos;-12&apos;</td>
+              <td className="bottom">+15</td>
+              <td className="bottom">-1</td>
+              <td className="bottom right">20</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Large</td>
-              <td className='bottom'>12'-20'</td>
-              <td className='bottom'>+20</td>
-              <td className='bottom'>-1</td>
-              <td className='bottom right'>25</td>
+              <td className="bottom left alignLeft">Very Large</td>
+              <td className="bottom">12&apos;-20&apos;</td>
+              <td className="bottom">+20</td>
+              <td className="bottom">-1</td>
+              <td className="bottom right">25</td>
             </tr>
           </tbody>
         </table>
@@ -188,28 +188,28 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>Tiny</td>
-              <td className='bottom right alignRight'>1"-2"</td>
+              <td className="bottom left alignLeft">Tiny</td>
+              <td className="bottom right alignRight">1&quot;-2&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Small</td>
-              <td className='bottom right alignRight'>2"-3"</td>
+              <td className="bottom left alignLeft">Very Small</td>
+              <td className="bottom right alignRight">2&quot;-3&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Small</td>
-              <td className='bottom right alignRight'>3"-4"</td>
+              <td className="bottom left alignLeft">Small</td>
+              <td className="bottom right alignRight">3&quot;-4&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Medium</td>
-              <td className='bottom right alignRight'>4"-5"</td>
+              <td className="bottom left alignLeft">Medium</td>
+              <td className="bottom right alignRight">4&quot;-5&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Large</td>
-              <td className='bottom right alignRight'>5"-6"</td>
+              <td className="bottom left alignLeft">Large</td>
+              <td className="bottom right alignRight">5&quot;-6&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Large</td>
-              <td className='bottom right alignRight'>6"-7"</td>
+              <td className="bottom left alignLeft">Very Large</td>
+              <td className="bottom right alignRight">6&quot;-7&quot;</td>
             </tr>
           </tbody>
         </table>
@@ -218,7 +218,7 @@ export default function Invention() {
 
         <p>Once a Mech takes its maximum amount of Harm, your Mech is no longer functional. Mechs cannot be healed through normal means. They must be repaired. A crafting check of 10 or more with the right materials can restore 2 Harm from the Mech. If a Mechs power source is damaged, it explodes violently.</p>
 
-        <p>You can add as many limbs and devices to your Mech as you deem necessary. However, if you are trying to add devices to your Mech that wouldn't normally exist, you must go through a separate invention process for each device that wouldn't normally exist.</p>
+        <p>You can add as many limbs and devices to your Mech as you deem necessary. However, if you are trying to add devices to your Mech that wouldn&apos;t normally exist, you must go through a separate invention process for each device that wouldn&apos;t normally exist.</p>
 
         <p>If your Mech is built for combat, its damage bonus will be however much its weapon would normally do as well as its Tough score. So, if you have a Large Mech that is wielding a heavy weapon, it will have a +17 Bonus in total (+2 for the heavy weapon and +15 for the Tough stat of the Mech).</p>
 
@@ -229,7 +229,7 @@ export default function Invention() {
 
       <section id="prosthetics">
         <h2>Prosthetics</h2>
-        <p>With the <em>tech</em> skill, you can create artificial limbs. You'll need to go through the invention process if prosthetics wouldn't normally exist. Then you can simply attach it to the injured creature. However, it will be similar to a peg leg when it comes to mobility and original functionality. But you can insert various gadgets and devices into a prosthetic for functionality, convenience, and to easily hide them.</p>
+        <p>With the <em>tech</em> skill, you can create artificial limbs. You&apos;ll need to go through the invention process if prosthetics wouldn&apos;t normally exist. Then you can simply attach it to the injured creature. However, it will be similar to a peg leg when it comes to mobility and original functionality. But you can insert various gadgets and devices into a prosthetic for functionality, convenience, and to easily hide them.</p>
       </section>
       <NextButton href="/rules/the-market" />
     </article>

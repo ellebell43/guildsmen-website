@@ -26,20 +26,20 @@ export default function Crafting() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>Common</td>
-              <td className='bottom right alignRight'>Moderate</td>
+              <td className="bottom left alignLeft">Common</td>
+              <td className="bottom right alignRight">Moderate</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Uncommon</td>
-              <td className='bottom right alignRight'>Wealthy</td>
+              <td className="bottom left alignLeft">Uncommon</td>
+              <td className="bottom right alignRight">Wealthy</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Rare</td>
-              <td className='bottom right alignRight'>Exquisite</td>
+              <td className="bottom left alignLeft">Rare</td>
+              <td className="bottom right alignRight">Exquisite</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Exotic</td>
-              <td className='bottom right alignRight'>Exquisite+</td>
+              <td className="bottom left alignLeft">Exotic</td>
+              <td className="bottom right alignRight">Exquisite+</td>
             </tr>
           </tbody>
         </table>
@@ -52,7 +52,7 @@ export default function Crafting() {
 
         <p>Wealth and the purchase of materials for crafting are supposed to be narrative tools that guide interactions with merchants.</p>
 
-        <p>When obtaining resources to craft with, you will generally only be able to afford small projects: crafting a clock, some clothing, or a childs toy. But to make something bigger - an engine, a ship, a building, etc. - you won't be able to afford the resources and manpower all on you own. You'll need a sponsor.</p>
+        <p>When obtaining resources to craft with, you will generally only be able to afford small projects: crafting a clock, some clothing, or a childs toy. But to make something bigger - an engine, a ship, a building, etc. - you won&apos;t be able to afford the resources and manpower all on you own. You&apos;ll need a sponsor.</p>
       </section>
 
       <section id="sponsors">
@@ -63,14 +63,14 @@ export default function Crafting() {
 
         <p>All sponsors will have conditions of their sponsorship. It will generally include what kind of items you may craft or invent, how much you can spend before you overreach, and if you or the sponsor gets to own the crafted items and inventions.</p>
 
-        <p>If you don't have any grand plans when it comes to crafting and invention, then you generally will not need a sponsor.</p>
+        <p>If you don&apos;t have any grand plans when it comes to crafting and invention, then you generally will not need a sponsor.</p>
       </section>
 
       <section id="crafting-items">
         <h2>Crafting Items</h2>
         <p>You can craft any item listed in the Market chapter and beyond if you have the means to do it. This is useful if you cannot afford to outright buy the item that you want. When you go to craft items, first consider what wealth category it is in. Crafting items allows you to roll a craft skill check to bring the price of the item down by one wealth category. So, if you were Poor, a sword (which requires a wealth of Wealthy) would be completely out of your budget. Attempting to craft the sword instead would bring its wealth requirement down to Moderate, which you could sparingly buy at, but there is some risk.</p>
 
-        <p>When crafting any item, the Guild Master will decide on a difficulty level based on what you're trying to craft. Then, they should take the Degree of Success into account and use the following guidelines.</p>
+        <p>When crafting any item, the Guild Master will decide on a difficulty level based on what you&apos;re trying to craft. Then, they should take the Degree of Success into account and use the following guidelines.</p>
 
         <p>On an <strong>Extreme Success</strong>, your item turns out far better than you anticipate. Your wealth remains the same, and the item you craft is so finely done that if you sell it, your wealth will go up (i.e., from moderate to wealthy).</p>
 
@@ -78,14 +78,14 @@ export default function Crafting() {
 
         <p>On a <strong>Mixed Success</strong>, you find that the item took more resources than anticipated. The item comes out just fine but if you do not sell it, your wealth will go down (i.e., from moderate to poor).</p>
 
-        <p>On a <strong>Fail</strong>, your item doesn't turn out at all and you produce nothing worthwhile.</p>
+        <p>On a <strong>Fail</strong>, your item doesn&apos;t turn out at all and you produce nothing worthwhile.</p>
 
         <p>On an <strong>Extreme Fail</strong>, your time and resources are completely wasted. The item that comes out is completely useless and your wealth goes down.</p>
       </section>
 
       <section id="improvement">
         <h2>Improvement</h2>
-        <p>You can toughen your weapons and armor through a process called Improvement. Imporvement will increase the Bonus of your weapon or score of your armor by 1. Imporvement can be done up to 3 times to an item and requires a wealth equal to the material it's made of (i.e., a steel sword would require you to be Average to afford the common material of steel).</p>
+        <p>You can toughen your weapons and armor through a process called Improvement. Imporvement will increase the Bonus of your weapon or score of your armor by 1. Imporvement can be done up to 3 times to an item and requires a wealth equal to the material it&apos;s made of (i.e., a steel sword would require you to be Average to afford the common material of steel).</p>
 
         <p>However, if you attempt to Improve your item and you fail at the <em>craft</em> skill check, you ruin your item and it becomes useless.</p>
 

@@ -15,11 +15,11 @@ export default function Creatures() {
 
       <p>When encountering creatures of any type, remember to use what skills and stats your character is best at and to avoid ever going in alone. You can only take ten Harm before dying. Many creatures can deal that much Harm in one blow.</p>
 
-      <p>For a comprehensive set of creatures, go to the <Link href='/bestiary'>The Bestiary</Link>.</p>
+      <p>For a comprehensive set of creatures, go to the <Link href="/bestiary">The Bestiary</Link>.</p>
 
       <section id="understanding-the-creature-block">
         <h2>Understanding the Creature Block</h2>
-        <p>The creature block is how creatures’ stats, actions, and descriptions are outlined. They all appear like so:</p>
+        <p>The creature block is how creatures&apos; stats, actions, and descriptions are outlined. They all appear like so:</p>
 
         <div className="creatureBlock">
           <p className="title">Grizzly Bear (Deadly, +0)</p>
@@ -43,11 +43,11 @@ export default function Creatures() {
 
         <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
 
-        <p>A creature's hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
+        <p>A creature&apos;s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
 
-        <p>A creature's modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn't add anything.</p>
+        <p>A creature&apos;s modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn&apos;t add anything.</p>
 
-        <p>The top-left box (top box on mobile screens) of the creature block outlines the creature's stats. The creature's Tough, Nimble, Competence, and Constitution are outlined here, as well as the amount of Harm they can take before dying and their Armor score.</p>
+        <p>The top-left box (top box on mobile screens) of the creature block outlines the creature&apos;s stats. The creature&apos;s Tough, Nimble, Competence, and Constitution are outlined here, as well as the amount of Harm they can take before dying and their Armor score.</p>
 
         <p>When a creature rolls a stat check, they will add their stat to the roll. So, if a character wanted to try and grapple a bear, both would roll 2d6. The character would get no more than a +3 to the roll, but the bear would get +14 to the roll, making it impossible to grapple the bear alone.</p>
 
@@ -65,7 +65,7 @@ export default function Creatures() {
 
         <p>You can (1) take a creature that is already made and use all its stats and actions for your custom creature, just changing the descriptions and titles for everything, or (2) use the charts below to create a creature from scratch.</p>
 
-        <p>When choosing the second option, you'll first need to decide on a hazad word for your custom creature. These range from none to unsurvivable. Unsurvivable creatures are meant to be taken on by large groups of people or even entire armies. The following table outlines each hazard word with an example creature that would fall under that category.</p>
+        <p>When choosing the second option, you&apos;ll first need to decide on a hazad word for your custom creature. These range from none to unsurvivable. Unsurvivable creatures are meant to be taken on by large groups of people or even entire armies. The following table outlines each hazard word with an example creature that would fall under that category.</p>
 
         <table>
           <thead>
@@ -75,40 +75,40 @@ export default function Creatures() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>None</td>
-              <td className='bottom right alignRight'>House Cat</td>
+              <td className="bottom left alignLeft">None</td>
+              <td className="bottom right alignRight">House Cat</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Mild</td>
-              <td className='bottom right alignRight'>Common Person</td>
+              <td className="bottom left alignLeft">Mild</td>
+              <td className="bottom right alignRight">Common Person</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Moderate</td>
-              <td className='bottom right alignRight'>Trained Fighter</td>
+              <td className="bottom left alignLeft">Moderate</td>
+              <td className="bottom right alignRight">Trained Fighter</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Severe</td>
-              <td className='bottom right alignRight'>Wolf</td>
+              <td className="bottom left alignLeft">Severe</td>
+              <td className="bottom right alignRight">Wolf</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Deadly</td>
-              <td className='bottom right alignRight'>Grizzly Bear</td>
+              <td className="bottom left alignLeft">Deadly</td>
+              <td className="bottom right alignRight">Grizzly Bear</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Deadly</td>
-              <td className='bottom right alignRight'>Hippo</td>
+              <td className="bottom left alignLeft">Deadly</td>
+              <td className="bottom right alignRight">Hippo</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Unsurvivable</td>
-              <td className='bottom right alignRight'>Maticore</td>
+              <td className="bottom left alignLeft">Unsurvivable</td>
+              <td className="bottom right alignRight">Maticore</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Unsurvivable</td>
-              <td className='bottom right alignRight'>Cerberus</td>
+              <td className="bottom left alignLeft">Unsurvivable</td>
+              <td className="bottom right alignRight">Cerberus</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Unsurvivable</td>
-              <td className='bottom right alignRight'>Dragon</td>
+              <td className="bottom left alignLeft">Unsurvivable</td>
+              <td className="bottom right alignRight">Dragon</td>
             </tr>
           </tbody>
         </table>
@@ -123,49 +123,49 @@ export default function Creatures() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'><strong>Hazard</strong></td>
-              <td className='bottom'><strong>Max Stat</strong></td>
-              <td className='bottom'><strong>Bonus</strong></td>
-              <td className='bottom right'><strong>Max Harm</strong></td>
+              <td className="bottom left alignLeft"><strong>Hazard</strong></td>
+              <td className="bottom"><strong>Max Stat</strong></td>
+              <td className="bottom"><strong>Bonus</strong></td>
+              <td className="bottom right"><strong>Max Harm</strong></td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'><em>Mild</em></td>
-              <td className='bottom'>+1</td>
-              <td className='bottom'>+0</td>
-              <td className='bottom right'>7</td>
+              <td className="bottom left alignLeft"><em>Mild</em></td>
+              <td className="bottom">+1</td>
+              <td className="bottom">+0</td>
+              <td className="bottom right">7</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'><em>Moderate</em></td>
-              <td className='bottom'>+3</td>
-              <td className='bottom'>+1 to +3</td>
-              <td className='bottom right'>10</td>
+              <td className="bottom left alignLeft"><em>Moderate</em></td>
+              <td className="bottom">+3</td>
+              <td className="bottom">+1 to +3</td>
+              <td className="bottom right">10</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'><em>Severe</em></td>
-              <td className='bottom'>+6</td>
-              <td className='bottom'>+3 to +6</td>
-              <td className='bottom right'>15</td>
+              <td className="bottom left alignLeft"><em>Severe</em></td>
+              <td className="bottom">+6</td>
+              <td className="bottom">+3 to +6</td>
+              <td className="bottom right">15</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'><em>Deadly</em></td>
-              <td className='bottom'>+9</td>
-              <td className='bottom'>+6 to +9</td>
-              <td className='bottom right'>20</td>
+              <td className="bottom left alignLeft"><em>Deadly</em></td>
+              <td className="bottom">+9</td>
+              <td className="bottom">+6 to +9</td>
+              <td className="bottom right">20</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'><em>Unsurvivalble</em></td>
-              <td className='bottom'>+12</td>
-              <td className='bottom'>+9 or more</td>
-              <td className='bottom right'>25</td>
+              <td className="bottom left alignLeft"><em>Unsurvivalble</em></td>
+              <td className="bottom">+12</td>
+              <td className="bottom">+9 or more</td>
+              <td className="bottom right">25</td>
             </tr>
           </tbody>
         </table>
 
-        <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. That does not mean they should be this high, only that they shouldn't be higher than what's listed. Bonus is the range that their Bonus should be when an attack is successful. Max Harm is the maximum amount of Harm that they can take before dying.</p>
+        <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. That does not mean they should be this high, only that they shouldn&apos;t be higher than what&apos;s listed. Bonus is the range that their Bonus should be when an attack is successful. Max Harm is the maximum amount of Harm that they can take before dying.</p>
 
         <p>When deciding a creatures modifier, remember that the modifier generally shows an amount of overall skill and knowledge. After all, the creature would add that number to any skill roll or action roll that they make. Generally only people and other smart creatures will have more than a +0 modifier. However, keep in mind that this is the general number. If it makes logical sense, a creature may get up to a +5 on a skill check that makes sense for them. For example, a Grizzly Bear might get a +2 or +3 to an <em>investigate</em> skill check  relies on smell since bears have an excellent sense of smell. This is completely up to Game Master discretion.</p>
 
-        <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get on a successful attack. That is because the modifier gets added to actions and if it's successful, the bonus gets added as well, so the numbers stack.</em></strong></p>
+        <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get on a successful attack. That is because the modifier gets added to actions and if it&apos;s successful, the bonus gets added as well, so the numbers stack.</em></strong></p>
 
         <p>All creatures should also have a specific size. The following is a chart to help determine the size of a creature:</p>
 
@@ -177,44 +177,44 @@ export default function Creatures() {
           </thead>
           <tbody>
             <tr>
-              <td className='bottom left alignLeft'>Tiny</td>
-              <td className='bottom right alignRight'>less than 5"</td>
+              <td className="bottom left alignLeft">Tiny</td>
+              <td className="bottom right alignRight">less than 5&quot;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Small</td>
-              <td className='bottom right alignRight'>5"-1'</td>
+              <td className="bottom left alignLeft">Very Small</td>
+              <td className="bottom right alignRight">5&quot;-1&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Small</td>
-              <td className='bottom right alignRight'>1'-3'</td>
+              <td className="bottom left alignLeft">Small</td>
+              <td className="bottom right alignRight">1&apos;-3&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Medium</td>
-              <td className='bottom right alignRight'>3'-7'</td>
+              <td className="bottom left alignLeft">Medium</td>
+              <td className="bottom right alignRight">3&apos;-7&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Large</td>
-              <td className='bottom right alignRight'>7'-12'</td>
+              <td className="bottom left alignLeft">Large</td>
+              <td className="bottom right alignRight">7&apos;-12&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Very Large</td>
-              <td className='bottom right alignRight'>12'-24'</td>
+              <td className="bottom left alignLeft">Very Large</td>
+              <td className="bottom right alignRight">12&apos;-24&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Giant</td>
-              <td className='bottom right alignRight'>24'-50'</td>
+              <td className="bottom left alignLeft">Giant</td>
+              <td className="bottom right alignRight">24&apos;-50&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Massive</td>
-              <td className='bottom right alignRight'>50'-100'</td>
+              <td className="bottom left alignLeft">Massive</td>
+              <td className="bottom right alignRight">50&apos;-100&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Colossal</td>
-              <td className='bottom right alignRight'>100'-250'</td>
+              <td className="bottom left alignLeft">Colossal</td>
+              <td className="bottom right alignRight">100&apos;-250&apos;</td>
             </tr>
             <tr>
-              <td className='bottom left alignLeft'>Titanic</td>
-              <td className='bottom right alignRight'>250'-500'</td>
+              <td className="bottom left alignLeft">Titanic</td>
+              <td className="bottom right alignRight">250&apos;-500&apos;</td>
             </tr>
           </tbody>
         </table>
