@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import NextButton from "../next-button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Character Creation",
+  description: "Learn how to create a character for Guildsmen TTRPG"
+}
 
 export default function CharacterCreation() {
   return (

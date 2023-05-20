@@ -1,5 +1,11 @@
 import Link from "next/link"
 import NextButton from "../next-button"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Skills",
+  description: "Learn about the various skills in Guildsmen TTRPG and how to use them"
+}
 
 export default function Skills() {
   return (

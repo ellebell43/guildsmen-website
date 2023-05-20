@@ -2,6 +2,12 @@ import Link from "next/link";
 import NextButton from "../next-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guidlsmen | Establishments",
+  description: "Learn how to start a buisness or take over the world by using Establishments in Guildsmen TTRPG"
+}
 
 export default function Establishments() {
   return (

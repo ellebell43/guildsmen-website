@@ -3,8 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Guildsmen TTRPG | Home",
-  description: "A public, free and open source, steampunk, fantasy-esque, pen and paper, table-top roleplaying game.",
-  keywords: ["TTRPG", "table top", "roleplay", "rpg", "guildsmen", "game", "steampunk", "fantasy", "free", "open source"]
+  description: "A public, free and open source, steampunk, fantasy-esque, pen and paper, table-top roleplaying game."
 }
 
 export default function Home() {

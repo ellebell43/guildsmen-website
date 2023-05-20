@@ -1,5 +1,11 @@
 import Link from "next/link";
 import NextButton from "../next-button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Invention",
+  description: "Learn how to create items that wouldn't normally exist in your game world for Guildsmen TTRPG"
+}
 
 export default function Invention() {
   return (
@@ -101,9 +107,13 @@ export default function Invention() {
 
         <p>For exact dimensions for device sizes, see the table for Mech stats lower down.</p>
 
-        <p>Since Navidus Crystals can be hunted down by anyone with the resources to kill a Mythic, black market devices are common, making a wide variety of odd and dangerous devices available to those that have the right connections.</p>
+        <p>Since Navidus Crystals can be hunted down by anyone with the resources to kill a mythical creature, black market devices are common, making a wide variety of odd and dangerous devices available to those that have the right connections.</p>
 
-        <p>Navidus Crystals crack and break as easily as hollow glass orbs and are fully charged when first harvested from a Mythical creature.</p>
+        <p>Navidus Crystals crack and break as easily as a glass jar and are fully charged when first harvested from a Mythical creature.</p>
+
+        <p>We understnad that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Navidus Crystals are a good way to regulate that, since they come with a certain amount of inherent danger.</p>
+
+        <p>If you want access to inventing devices that have alternate power sources, have a discussion with your Game Master. They get the last say when it comes to inventing items outside the energy source of a Navidus Crystal.</p>
       </section>
 
       <section id="mechs">
@@ -166,7 +176,7 @@ export default function Invention() {
           </tbody>
         </table>
 
-        <p>Harm represents how much Harm your mech can take before being broken or destroyed. A Mech will have a Competence and Constitution score of 0, meaning they cannot use those stats.</p>
+        <p>Harm represents how much Harm your mech can take before being broken or destroyed. A Mech will not have a Competence and Constitution score, meaning they cannot use those stats.</p>
 
         <p>All mechs are powered by Navidus Crystals. They will power a mech for 3 days before needing to be replaced.</p>
 

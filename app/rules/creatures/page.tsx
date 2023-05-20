@@ -1,5 +1,11 @@
 import Link from "next/link";
 import NextButton from "../next-button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Creatures",
+  description: "Learn how creatures work and how to create your own in Guildsmen TTRPG"
+}
 
 export default function Creatures() {
   return (
@@ -35,53 +41,31 @@ export default function Creatures() {
           </div>
         </div>
 
-        <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have
-          a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
+        <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
 
-        <p>A creature's hazard word is an indicator of how dangerous the creature is. Regular people never go beyond
-          moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a
-          person.</p>
+        <p>A creature's hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
 
-        <p>A creature's modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if
-          this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with
-          its nose, it wouldn't add anything.</p>
+        <p>A creature's modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn't add anything.</p>
 
-        <p>The top-left box (top box on mobile screens) of the creature block outlines the creature's stats. The
-          creature's Tough, Nimble, Competence, and Constitution are outlined here, as well as the amount of Harm they
-          can take before dying and their Armor score.</p>
+        <p>The top-left box (top box on mobile screens) of the creature block outlines the creature's stats. The creature's Tough, Nimble, Competence, and Constitution are outlined here, as well as the amount of Harm they can take before dying and their Armor score.</p>
 
-        <p>When a creature rolls a stat check, they will add their stat to the roll. So, if a character wanted to try
-          and grapple a bear, both would roll 2d6. The character would get no more than a +3 to the roll, but the bear
-          would get +14 to the roll, making it impossible to grapple the bear alone.</p>
+        <p>When a creature rolls a stat check, they will add their stat to the roll. So, if a character wanted to try and grapple a bear, both would roll 2d6. The character would get no more than a +3 to the roll, but the bear would get +14 to the roll, making it impossible to grapple the bear alone.</p>
 
-        <p>The bottom-left box (center box on mobile screens) on the creature block gives a description of the creature.
-          This generally outlines what the creature looks like, how it behaves, and other important information.</p>
+        <p>The bottom-left box (center box on mobile screens) on the creature block gives a description of the creature. This generally outlines what the creature looks like, how it behaves, and other important information.</p>
 
-        <p>The large, right box (bottom box on mobile screens) on the creature block outlines all the common actions
-          that the creature would use. After the title of the action is a number in parenthesis. This is the Bonus to
-          the attack that the creature has for that action. If the creature is successful when using the action, the
-          Bonus is then added to the dice roll to determine damage.</p>
+        <p>The large, right box (bottom box on mobile screens) on the creature block outlines all the common actions that the creature would use. After the title of the action is a number in parenthesis. This is the Bonus to the attack that the creature has for that action. If the creature is successful when using the action, the Bonus is then added to the dice roll to determine damage.</p>
 
-        <p>Creatures can perform actions outside of the listed actions. The actions outlined are all the regular,
-          combat-oriented actions that the creature would use so that the Game Master has clear rules for how much Harm
-          a creature could deal given a certain action.</p>
+        <p>Creatures can perform actions outside of the listed actions. The actions outlined are all the regular, combat-oriented actions that the creature would use so that the Game Master has clear rules for how much Harm a creature could deal given a certain action.</p>
       </section>
 
       <section id="creating-custom-creatures">
         <h2>Creating Custom Creatures</h2>
-        <p>The creatures outlined within in the Bestiary are just a sample of the wide variety of creatures that
-          <em>could</em> be encountered, but there are many, many more in the world. If you want to create creatures of
-          your own, there are two ways of doing it.
+        <p>The creatures outlined within in the Bestiary are just a sample of the wide variety of creatures that <em>could</em> be encountered, but there are many, many more in the world. If you want to create creatures of your own, there are two ways of doing it.
         </p>
 
-        <p>You can (1) take a creature that is already made and use all its stats and actions for your custom creature,
-          just changing the descriptions and titles for everything, or (2) use the charts below to create a creature
-          from scratch.</p>
+        <p>You can (1) take a creature that is already made and use all its stats and actions for your custom creature, just changing the descriptions and titles for everything, or (2) use the charts below to create a creature from scratch.</p>
 
-        <p>When choosing the second option, you'll first need to decide on a hazad word for your custom creature. These
-          range from none to unsurvivable. Unsurvivable creatures are meant to be taken on by large groups of people or
-          even entire armies. The following table outlines each hazard word with an example creature that would fall
-          under that category.</p>
+        <p>When choosing the second option, you'll first need to decide on a hazad word for your custom creature. These range from none to unsurvivable. Unsurvivable creatures are meant to be taken on by large groups of people or even entire armies. The following table outlines each hazard word with an example creature that would fall under that category.</p>
 
         <table>
           <thead>
@@ -129,8 +113,7 @@ export default function Creatures() {
           </tbody>
         </table>
 
-        <p>From here, you can determine their stats, their Bonus when attacking, and the Harm they can take using the
-          following chart.</p>
+        <p>From here, you can determine their stats, their Bonus when attacking, and the Harm they can take using the following chart.</p>
 
         <table>
           <thead>
@@ -178,25 +161,13 @@ export default function Creatures() {
           </tbody>
         </table>
 
-        <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. That does not mean they
-          should be this high, only that they shouldn't be higher than what's listed. Bonus is the range that their
-          Bonus should be when an attack is successful. Max Harm is the maximum amount of Harm that they can take before
-          dying.</p>
+        <p>Max stat is how high their Tough, Nimble, Competence, and Constitution stats can be. That does not mean they should be this high, only that they shouldn't be higher than what's listed. Bonus is the range that their Bonus should be when an attack is successful. Max Harm is the maximum amount of Harm that they can take before dying.</p>
 
-        <p>When deciding a creatures modifier, remember that the modifier generally shows an amount of overall skill and
-          knowledge. After all, the creature would add that number to any skill roll or action roll that they make.
-          Generally only people and other smart creatures will have more than a +0 modifier. However, keep in mind that
-          this is the general number. If it makes logical sense, a creature may get up to a +5 on a skill check that
-          makes sense for them. For example, a Grizzly Bear might get a +2 or +3 to an <em>investigate</em> skill check
-          that relies on smell since bears have an excellent sense of smell. This is completely up to Game Master
-          discretion.</p>
+        <p>When deciding a creatures modifier, remember that the modifier generally shows an amount of overall skill and knowledge. After all, the creature would add that number to any skill roll or action roll that they make. Generally only people and other smart creatures will have more than a +0 modifier. However, keep in mind that this is the general number. If it makes logical sense, a creature may get up to a +5 on a skill check that makes sense for them. For example, a Grizzly Bear might get a +2 or +3 to an <em>investigate</em> skill check  relies on smell since bears have an excellent sense of smell. This is completely up to Game Master discretion.</p>
 
-        <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get
-          on a successful attack. That is because the modifier gets added to actions and if it's successful, the
-          bonus gets added as well, so the numbers stack.</em></strong></p>
+        <p><strong><em>Note: The modifier a creature is given should subtract from the bonuses they would normally get on a successful attack. That is because the modifier gets added to actions and if it's successful, the bonus gets added as well, so the numbers stack.</em></strong></p>
 
-        <p>All creatures should also have a specific size. The following is a chart to help determine the size of a
-          creature:</p>
+        <p>All creatures should also have a specific size. The following is a chart to help determine the size of a creature:</p>
 
         <table>
           <thead>
@@ -248,8 +219,7 @@ export default function Creatures() {
           </tbody>
         </table>
 
-        <p>From here, outline your creature with specific stats using the charts above and preset creatures as
-          guidelines. Be sure to give them a good description and unique actions.</p>
+        <p>From here, outline your creature with specific stats using the charts above and preset creatures as guidelines. Be sure to give them a good description and unique actions.</p>
       </section>
       <NextButton href="/rules/for-the-gm" />
     </article>

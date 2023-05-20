@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import NextButton from "../next-button";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Crafting",
+  description: "Learn how crafting things works in Guildsmen TTRPG"
+}
 
 export default function Crafting() {
   return (

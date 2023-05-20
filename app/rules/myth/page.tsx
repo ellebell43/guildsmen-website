@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import NextButton from "../next-button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Guildsmen: Myth",
+  description: "Learn how magic works throug an addictive drug called Myth in Guildsmen TTRPG"
+}
 
 export default function Myth() {
   return (

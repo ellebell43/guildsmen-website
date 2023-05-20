@@ -1,5 +1,11 @@
 import Link from "next/link";
 import NextButton from "../next-button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | The Market",
+  description: "Learn how buying items works and see a list of possible world items in Guildsmen TTRPG"
+}
 
 export default function TheMarket() {
   return (

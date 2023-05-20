@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Guildsmen | For the Game Master",
+  description: "Learn how running a game session works and important concepts for playing Guildsmen TTRPG"
+}
 
 export default function ForTheGM() {
   return (
