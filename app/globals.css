@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text-color: hsl(0, 0%, 0%);
+  --background-color: hsl(0, 0%, 100%);
+  --transparent-background-color: rgba(204, 204, 204, 0.8);
+  --header-color: hsl(0, 0%, 90%);
+  --header-shadow: 0 1px 3px hsl(0, 0%, 80%);
+  --nav-color: hsl(0, 0%, 80%);
+  --nav-text: black;
+  --content-button-border: hsl(0, 0%, 0%);
+  --filter: invert(9%) sepia(0%) saturate(1516%) hue-rotate(174deg) brightness(88%) contrast(84%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: hsl(0, 0%, 80%);
+    --background-color: hsl(0, 0%, 15%);
+    --transparent-background-color: rgba(38, 38, 38, 0.7);
+    --header-color: hsl(0, 0%, 17%);
+    --header-shadow: 0 1px 3px hsl(0, 0%, 12%);
+    --nav-color: hsl(0, 0%, 20%);
+    --nav-text: white;
+    --content-button-border: hsl(0, 0%, 80%);
+    --filter: invert(91%) sepia(0%) saturate(0%) hue-rotate(255deg) brightness(91%) contrast(91%);
+  }
+}
+
+@layer components {
+  body {
+    @apply bg-stone-100 text-stone-800;
+  }
+
+  header,
+  nav {
+    @apply bg-stone-200 shadow-md;
+  }
+
+  footer {
+    grid-template-areas: "left center right"
+  }
+
+  footer .left {
+    grid-area: left
+  }
+
+  footer .center {
+    grid-area: center
+  }
+
+  footer .right {
+    grid-area: right
+  }
+
+  main {
+    @apply max-w-[1000px] min-h-[60vh] mx-auto px-4 text-justify mt-20;
+  }
+
+  h1 {
+    @apply text-4xl font-bold my-4 text-center;
+  }
+
+  h2 {
+    @apply text-3xl font-bold mt-4 text-center;
+  }
+
+  .dark h3 {
+    @apply border-b-stone-100
+  }
+
+  h3 {
+    @apply text-2xl mt-4 border-b border-b-stone-700 max-w-[400px] text-center mx-auto font-bold;
+  }
+
+  p {
+    @apply my-3;
+  }
+
+  a {
+    @apply underline italic transition-all;
+  }
+
+  a:hover {
+    @apply text-stone-400;
+  }
+
+  .dark a:hover {
+    @apply text-stone-300;
+  }
+
+  ol {
+    @apply list-decimal pl-4;
+  }
+
+  ul {
+    @apply list-disc pl-4;
+  }
+
+  .button {
+    @apply border border-stone-400 bg-stone-200 shadow no-underline not-italic tracking-wider flex w-fit justify-center items-center mx-auto gap-4;
+  }
+
+  .button:hover {
+    @apply bg-stone-300 text-stone-800;
+  }
+
+  .dark .button {
+    @apply bg-stone-600 border-stone-500
+  }
+
+  .dark .button:hover {
+    @apply bg-stone-500 text-stone-100 border-stone-400
+  }
+
+  .narration {
+    @apply text-sky-700;
+  }
+
+  .dark .narration {
+    @apply text-slate-400;
+  }
+
+  /* ---------- TABLE STYLES ---------- */
+  table {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    border-spacing: 0;
+  }
+
+  th {
+    @apply text-center;
+  }
+
+  .raceStatTable tr td {
+    padding: 2.5px 15px;
+  }
+
+  thead tr th {
+    font-size: 18px;
+    font-weight: 700;
+    @apply border-b-2 border-stone-400 border-double;
+  }
+
+  tbody tr td {
+    text-align: center;
+    padding: 2.5px 5px;
+    font-size: 14px;
+  }
+
+  table .bottom {
+    @apply border-b border-stone-400;
+  }
+
+  table .top {
+    @apply border-t border-stone-400;
+  }
+
+  table .left {
+    @apply border-l border-stone-400;
+
+  }
+
+  table .right {
+    @apply border-r border-stone-400;
+  }
+
+  /* ---------- THE MARKET ---------- */
+  .item {
+    @apply flex justify-between border-b border-dotted border-stone-400;
+  }
+
+  .item p {
+    @apply m-0;
+  }
+
+  .itemName {
+    @apply font-bold text-lg;
+  }
+
+  .description {
+    @apply mt-0 opacity-50
+  }
+
+  .crystal {
+    margin: 20px 0;
+  }
+
+  /* ----------- CREATURE BLOCK ---------- */
+  .creatureBlock {
+    @apply grid gap-0 border-none mt-5 mx-auto max-w-[700px];
+    grid-template-areas:
+      'title'
+      'stats'
+      'description'
+      'actions';
+  }
+
+  .title {
+    @apply m-0 border-none text-xl font-bold text-left;
+    grid-area: title;
+  }
+
+  .stats {
+    @apply flex flex-col justify-center items-center px-10;
+    grid-area: stats;
+  }
+
+  .stats p {
+    @apply m-0;
+  }
+
+  .creatureBlock .description {
+    grid-area: description;
+    @apply opacity-100 flex items-center text-justify;
+  }
+
+  .actions {
+    grid-area: actions;
+    @apply flex flex-col justify-center items-center gap-[10px];
+  }
+
+  .actions p {
+    @apply m-0 w-full text-justify;
+  }
+
+  .actions,
+  .description,
+  .stats {
+    @apply m-0 border border-stone-400
+  }
+
+  .actions,
+  .description {
+    @apply border-t-0 p-[10px] text-left;
+  }
+
+  .actionHead {
+    @apply max-w-[50%] text-center self-center font-bold mt-0 border-b border-b-stone-400;
+  }
+
+  .or {
+    font-size: 8px;
+    margin: 0;
+  }
+
+  .noMargin {
+    margin: 0;
+  }
+
+  @media (min-width: 992px) {
+    .creatureBlock {
+      grid-template-areas:
+        'title title title'
+        'stats actions actions'
+        'description actions actions';
+      width: initial;
+      margin: none;
+    }
+
+    .actions {
+      @apply border-t border-t-stone-400 border-l-0;
+    }
+  }
+}
