@@ -1,6 +1,10 @@
+'use client'
+
 import Link from "next/link"
 import { Metadata } from "next"
-import { linkClass } from "../page"
+import { linkClass } from "@/util/variables"
+import getCreatureList from "@/util/getCreatureList"
+import Spinner from "@/app/spinner"
 
 export const metadata: Metadata = {
   title: "Guildsmen Bestiary | People",
@@ -8,6 +12,8 @@ export const metadata: Metadata = {
 }
 
 export default function PeopleCreatures() {
+  const { data, isLoading, error } = getCreatureList("person");
+
   return (
     <>
       <h1>People</h1>
@@ -15,12 +21,14 @@ export default function PeopleCreatures() {
       </p>
 
       <div className="flex flex-col justify-center items-center gap-4 mt-8">
-        <Link className={linkClass} href="/bestiary/people/assassin">Assassin</Link>
-        <Link className={linkClass} href="/bestiary/people/elite-bodyguard">Elite Bodyguard</Link>
-        <Link className={linkClass} href="/bestiary/people/mercenary">Mercenary</Link>
-        <Link className={linkClass} href="/bestiary/people/police-captain">Police Captain</Link>
-        <Link className={linkClass} href="/bestiary/people/police-officer">Police Officer</Link>
-        <Link className={linkClass} href="/bestiary/people/thug">Thug</Link>
+        {isLoading ? <Spinner /> :
+          error ? <p>{error}</p> :
+            !data ? <p>Nothing here yet!</p> :
+              data.data.map((el: { _el: any, name: string }, i: number) => {
+                const parsedName = el.name.replace(/ /, "-")
+                return <Link key={i} className={linkClass} href={`/bestiary/${parsedName}`}>{el.name}</Link>
+              })
+        }
       </div>
     </>
   )

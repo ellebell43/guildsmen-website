@@ -2,13 +2,12 @@ import { faDragon, faGem, faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Metadata } from "next";
 import Link from "next/link";
+import { linkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Bestiary",
   description: "Explore the various creatures of Guildsmen TTRPG"
 }
-
-export const linkClass = "px-10 py-2 w-[330px] button"
 
 export default function Bestiary() {
   return (

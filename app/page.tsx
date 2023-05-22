@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Guildsmen TTRPG | Home",
+  title: "Guildsmen | Home",
   description: "A public, free and open source, steampunk, fantasy-esque, pen and paper, table-top roleplaying game."
 }
 
