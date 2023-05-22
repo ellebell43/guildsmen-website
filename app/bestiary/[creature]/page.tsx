@@ -5,12 +5,8 @@ import { Metadata } from "next";
 import getOfficialCreature from "@/util/getOfficialCreature";
 import Spinner from "@/app/spinner";
 
-export async function generateMetadata({ params }: { params: { creature: string } }): Promise<Metadata> {
-  const parsedSlug = params.creature.replace(/-/, " ");
-  return {
-    title: `Guildsmen Bestiary | ${parsedSlug}`,
-    description: `Creature block for the ${parsedSlug} in Guildsmen TTRPG`
-  }
+export const metadata: Metadata = {
+  title: "Guildsmen Creature Details"
 }
 
 export default function BestiaryCreature({ params }: { params: { creature: string } }) {
