@@ -122,6 +122,14 @@
     @apply text-slate-400;
   }
 
+  .border {
+    @apply border-stone-700
+  }
+
+  .dark .border {
+    @apply border-stone-100
+  }
+
   /* ---------- TABLE STYLES ---------- */
   table {
     margin: 0 auto;
