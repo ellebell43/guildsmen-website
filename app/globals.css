@@ -114,6 +114,19 @@
     @apply bg-stone-500 text-stone-100 border-stone-400
   }
 
+  .inactiveButton {
+    @apply border border-stone-400 bg-stone-300 text-stone-400 shadow tracking-wider flex w-fit justify-center items-center mx-auto gap-4;
+  }
+
+  .dark .inactiveButton {
+    @apply bg-stone-600 border-stone-700
+  }
+
+  .button a,
+  .inactiveButton a {
+    @apply no-underline not-italic;
+  }
+
   .narration {
     @apply text-sky-700;
   }
@@ -187,8 +200,8 @@
     @apply font-bold text-lg;
   }
 
-  .description {
-    @apply mt-0 opacity-50
+  .itemDescription {
+    @apply mt-0 p-0 opacity-50 border-none -z-10 relative
   }
 
   .crystal {

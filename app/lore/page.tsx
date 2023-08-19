@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { linkClass } from "@/util/variables";
+import { linkClass, inactiveLinkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
   title: "Guildsmen Lore",
@@ -19,20 +19,20 @@ export default function Lore() {
         <div>
           <h2>The World of Thelius</h2>
           <ul className={listClass}>
-            <li className={linkClass}>The Atlas of Thelius</li>
-            <li className={linkClass}>General World History</li>
+            <li className={inactiveLinkClass}>The Atlas of Thelius</li>
+            <li className={inactiveLinkClass}>General World History</li>
           </ul>
         </div>
 
         <div>
           <h2>Sophonts of Thelius</h2>
           <ul className={listClass}>
-            <li className={linkClass}>The Locess</li>
-            <li className={linkClass}>The Mausca</li>
-            <li className={linkClass}>The Orcs</li>
-            <li className={linkClass}>The Matari</li>
-            <li className={linkClass}>The Slated</li>
-            <li className={linkClass}>The Ungal</li>
+            <li className={inactiveLinkClass}>The Locess</li>
+            <li className={inactiveLinkClass}>The Mausca</li>
+            <li className={inactiveLinkClass}>The Orcs</li>
+            <li className={inactiveLinkClass}>The Matari</li>
+            <li className={inactiveLinkClass}>The Slated</li>
+            <li className={inactiveLinkClass}>The Ungal</li>
           </ul>
         </div>
 
@@ -40,23 +40,23 @@ export default function Lore() {
           <h2>The Ancestor City-States</h2>
           <ul className={listClass}>
             <li className={linkClass}><Link href="/lore/ancestor-cities/arbor">Arbor - City of the Locess</Link></li>
-            <li className={linkClass}>Aquina - City of the Mausca</li>
-            <li className={linkClass}>Corden - City of the Orcs</li>
-            <li className={linkClass}>Inidom - City of the Matari</li>
-            <li className={linkClass}>Kulasis - City of the Slated</li>
-            <li className={linkClass}>Galus - City of the Ungal</li>
+            <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
+            <li className={inactiveLinkClass}>Corden - City of the Orcs</li>
+            <li className={inactiveLinkClass}>Inidom - City of the Matari</li>
+            <li className={inactiveLinkClass}>Kulasis - City of the Slated</li>
+            <li className={inactiveLinkClass}>Galus - City of the Ungal</li>
           </ul>
         </div>
 
         <div>
           <h2>Mythical Creatures and Navidus</h2>
           <ul className={listClass}>
-            <li className={linkClass}>Mythical Biology</li>
-            <li className={linkClass}>Navidus</li>
-            <li className={linkClass}>Navidus Crystals</li>
-            <li className={linkClass}>Navidus Energy</li>
-            <li className={linkClass}>Myth</li>
-            <li className={linkClass}>Cetrifuge Technology</li>
+            <li className={inactiveLinkClass}>Mythical Biology</li>
+            <li className={inactiveLinkClass}>Navidus</li>
+            <li className={inactiveLinkClass}>Navidus Crystals</li>
+            <li className={inactiveLinkClass}>Navidus Energy</li>
+            <li className={inactiveLinkClass}>Myth</li>
+            <li className={inactiveLinkClass}>Cetrifuge Technology</li>
           </ul>
         </div>
       </div>
