@@ -143,6 +143,10 @@
     @apply border-stone-100
   }
 
+  .error {
+    @apply text-red-400 font-bold text-center
+  }
+
   /* ---------- TABLE STYLES ---------- */
   table {
     margin: 0 auto;
