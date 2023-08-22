@@ -13,7 +13,7 @@ export default function CharacterCreation() {
   return (
     <article>
       <h1>Character Creation</h1>
-      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, you can print out the character sheet below or use the <a href="/resources/characters">character sheet web app</a> in the resources tab.</p>
+      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter.</p>
 
       <div className="downloadContainer">
         <Link className="button py-2 px-8" href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
