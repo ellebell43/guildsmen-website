@@ -32,8 +32,8 @@ export default function Nav() {
           <Link className={navLinkClass} href="/rules" onClick={e => setMenuVisible(false)}>Rules</Link>
           <Link className={navLinkClass} href="/lore" onClick={e => setMenuVisible(false)}>Lore</Link>
           <Link className={navLinkClass} href="/bestiary" onClick={e => setMenuVisible(false)}>Bestiary</Link>
-          <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link>
-          <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link>
+          {/* <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link> */}
+          {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
         {/* Theme Switch Button */}
         <button type="button" onClick={e => toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6 flex items-center">
