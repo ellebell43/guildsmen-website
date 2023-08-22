@@ -20,12 +20,14 @@ export default function Footer() {
 
       <div className="left lg:text-left">
         <p>Conceptualized by Harmony Brooks<br className="break" />and written by Aaron Rutherford</p>
+        <p>&copy; 2022 Harmony Brooks and Aaron Rutherford</p>
         <p>Edited by Hyrum Blanchard</p>
       </div>
       <div className="right lg:text-right">
-        <p>&copy; 2022 Harmony Brooks and Aaron Rutherford</p>
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>
-        <p>Coded by <Link href="https://aaronrutherford.dev">Aaron Rutherford</Link></p>
+        <p>Site programming by <Link href="https://aaronrutherford.dev">Aaron Rutherford</Link></p>
+        <p><Link href="/changelog">Change log and road map</Link></p>
+        <p>v0.1.0</p>
       </div>
     </footer>
   )
