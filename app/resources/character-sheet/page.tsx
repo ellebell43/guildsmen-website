@@ -49,7 +49,7 @@ export default function CharacterSheet() {
             <h2 className={headerStyle}>Wealth</h2>
             {["Destitute", "Poor", "Moderate", "Wealthy", "Exquisite"].map((el, i) => {
               return (
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center" key={i}>
                   <Bubble filled={el === "Destitute"} />
                   <p className="m-0">{el}</p>
                 </div>
