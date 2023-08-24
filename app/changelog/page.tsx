@@ -25,7 +25,7 @@ export default function Changelog() {
 
           <h3 className={styles.h3}>Recreate the Character Sheet in JSX code</h3>
           <ul>
-            <RoadmapEntry text="Recreate the character sheet in JSX for easier editing, more precise creation, and to be able to use it when users can create characters on the site." completed={false} />
+            <RoadmapEntry text="Recreate the character sheet in JSX for easier editing, more precise creation, and to be able to use it when users can create characters on the site." completed={true} date="08/24/2023" />
           </ul>
 
           <h3 className={styles.h3}>Create Pages for Resources and Community</h3>
@@ -85,6 +85,15 @@ export default function Changelog() {
       <section>
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
+          <ChangelogEntry
+            date="08/24/2023"
+            version="v0.1.1"
+            entries={[
+              "Character sheet was recreated (and improved visually) by using JSX code instead of Microsoft Word",
+              "The PDF downloaded from Character Creation has been updated to this latest version",
+              "The character sheet can be previewed at the '/resources/character-sheet' URL. There are no actual links to this page, but it can be navigated to manually"
+            ]}
+          />
           <ChangelogEntry
             date="08/21/2023"
             version="v0.1.0"
