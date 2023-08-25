@@ -28,9 +28,9 @@ export default function CharacterCreation() {
 
         <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
 
-        <p><strong>Species</strong> is your character&apos;s Species. In this game, there are six unique races for you to choose from: Locess, Mausca, Orcs, Sentari, Slated, and Ungal. A list of these races with descriptions is further down.</p>
+        <p><strong>Species</strong> is your character&apos;s Species. In this game, there are six unique races for you to choose from: Locess, Mausca, Orcs, Matari, Slated, and Ungal. A list of these races with descriptions is further down.</p>
 
-        <p><strong>Demeanor</strong> is how your character presents themself in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
+        <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
 
         <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
 
@@ -46,14 +46,14 @@ export default function CharacterCreation() {
 
         <p><strong>Competence</strong> defines your character&apos;s ability to act under pressure, read situations, and see things that other people wouldn&apos;t. It will be used in moments of pressure and crisis.</p>
 
-        <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addication, to exert yourself for extended periods of time, and for any other actions that require resistence or endurace.</p>
+        <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addiction, to exert yourself for extended periods of time, and for any other actions that require resistance or endurance.</p>
 
         <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles you have filled in, the better you will be when you try to do something related to that task (see the <a href="/rules/skills"><em>Skills chapter</em></a> for details).</p>
 
         <p>When you pick a species, you are given a modifier next to each stat. Fill in the corresponding bubbles on your character sheet to match the modifiers given.</p>
 
         <h3>Locess</h3>
-        <p>Locess (lo-KESS) are bug like creatures. They have 4 arms and their entire body is covered in a carapace. They have multifaceted eyes and antennae on top of their angular heads. Thier culture is built around agriculture and reverence toward nature - especially plants. The Locess build their homes in the boughs of great World Trees.</p>
+        <p>Locess (lo-KESS) are bug like creatures. They have 4 arms and their entire body is covered in a carapace. They have multifaceted eyes and antennae on top of their angular heads. Their culture is built around agriculture and reverence toward nature - especially plants. The Locess build their homes in the boughs of great World Trees.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -103,7 +103,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Orcs</h3>
-        <p>Orcs are large, burly creatures with tusks protruding from their mouths and horns protruding from the tops of their heads. Their culture is one of clans. The Orcs build their small towns in grassy plains, and they are known best for their excelent skill in hunting Mythical creatures.</p>
+        <p>Orcs are large, burly creatures with tusks protruding from their mouths and horns protruding from the tops of their heads. Their culture is one of clans. The Orcs build their small towns in grassy plains, and they are known best for their excellent skill in hunting Mythical creatures.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -178,7 +178,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Ungal</h3>
-        <p>Ungal (OON-gaul) are a humanoid fungus people. They have a spongey, not-quite-smooth skin and dark, sickly moss that grows on their bodies. The Ungal are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p>
+        <p>Ungal (OON-gaul) are a humanoid fungus people. They have a spongy, not-quite-smooth skin and dark, sickly moss that grows on their bodies. The Ungal are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -231,7 +231,7 @@ export default function CharacterCreation() {
         <table className="raceStatTable">
           <thead>
             <tr>
-              <th colSpan={1}>Welath Adjectives</th>
+              <th colSpan={1}>Wealth Adjectives</th>
             </tr>
           </thead>
           <tbody>
@@ -419,7 +419,7 @@ export default function CharacterCreation() {
               <td className="bottom left right"><em>Investigate</em></td>
             </tr>
             <tr>
-              <td className="bottom left right"><em>Performace</em></td>
+              <td className="bottom left right"><em>Performance</em></td>
             </tr>
             <tr>
               <td className="bottom left right"><em>Sneaky</em></td>
@@ -438,7 +438,7 @@ export default function CharacterCreation() {
 
         <p>There&apos;s so much you can do with the mechanics we&apos;ve created for you, and we think you&apos;ll really enjoy using them. And if you don&apos;t care about the mechanics but want some good world lore to read, go through the <a href="/rules/lore"><em>Lore</em></a> section and the <a href="/bestiary"><em>Bestiary</em></a>.</p>
 
-        <p>As you move forward through the game, we hope that you find a love for roleplay and enjoy the systems of the game as much as we do.</p>
+        <p>As you move forward through the game, we hope that you find a love for role play and enjoy the systems of the game as much as we do.</p>
 
         <p><em>Good luck!</em></p>
       </section>
