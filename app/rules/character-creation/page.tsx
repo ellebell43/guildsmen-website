@@ -103,7 +103,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Orcs</h3>
-        {/* <p>Orcs are large, burly creatures with tusks protruding from their mouths and horns protruding from the tops of their heads. Their culture is one of clans. The Orcs build their small towns in grassy plains, and they are known best for their excellent skill in hunting Mythical creatures.</p> */}
+        <p>The Orcs originated in the frozen tundras of the north and are large, burly people that generally stand about 6 to 7 feet tall with skin tones that come in light blues and grays. They have small tusks protruding through their skin on their jaw bone and chin. Their ears are long, pointed, and seated higher on their heads than the other species. Their hair grows only from the very top of their head and is usual black, white, or gray. Tribal tattoos generally covers their bodies, telling stories of the individuals victories hunting great beasts or telling histories of the family and tribe they come from.</p>
 
         <table className="raceStatTable">
           <thead>
