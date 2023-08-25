@@ -53,7 +53,7 @@ export default function CharacterCreation() {
         <p>When you pick a species, you are given a modifier next to each stat. Fill in the corresponding bubbles on your character sheet to match the modifiers given.</p>
 
         <h3>Locess</h3>
-        <p>Locess (lo-KESS) are bug like creatures. They have 4 arms and their entire body is covered in a carapace. They have multifaceted eyes and antennae on top of their angular heads. Their culture is built around agriculture and reverence toward nature - especially plants. The Locess build their homes in the boughs of great World Trees.</p>
+        <p>The Locess (lo-KESS) are bug-like creatures that stand about 6 feet tall. They come from the World Forest, a forest of trees that are as large as mountains. The most prominent features of the Locess are their exoskeleton and extra arms. Their exoskeleton comes in a variety of vibrant greens, light browns, and de-saturated reds. Their exoskeleton is also tough and covers every inch of their body, making it difficult to discern emotions in their face. Their heads are very lizard-like, with wide, square jaws that comes to a point at the chin. The overall shape of the head is wide, with their eyes set far apart. Their eyes are very large, usually a dark, neutral color, and are multifaceted. They feature 4 arms and pseudo-wings that hang from their backs. These wings are non-functional and mostly give the impression of a cape and are usually a dusty-gray color.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -78,7 +78,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Mausca</h3>
-        <p>Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep, vertical creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and deeply set with a milky-white color and an opalescent sheen.</p>
+        <p>The Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep, vertical creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and deeply set with a milky-white color and an opalescent sheen.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -103,7 +103,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Orcs</h3>
-        <p>Orcs are large, burly creatures with tusks protruding from their mouths and horns protruding from the tops of their heads. Their culture is one of clans. The Orcs build their small towns in grassy plains, and they are known best for their excellent skill in hunting Mythical creatures.</p>
+        {/* <p>Orcs are large, burly creatures with tusks protruding from their mouths and horns protruding from the tops of their heads. Their culture is one of clans. The Orcs build their small towns in grassy plains, and they are known best for their excellent skill in hunting Mythical creatures.</p> */}
 
         <table className="raceStatTable">
           <thead>
@@ -128,7 +128,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Matari</h3>
-        <p>Matari (mah-TAR-ee) are the tallest of the species, with blunt features. Their skin is a marbling of red and brown and they have no hair on their bodies. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what social role they grow into. Matari communities are generally very close-knit.</p>
+        {/* <p>Matari (mah-TAR-ee) are the tallest of the species, with blunt features. Their skin is a marbling of red and brown and they have no hair on their bodies. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what social role they grow into. Matari communities are generally very close-knit.</p> */}
 
         <table className="raceStatTable">
           <thead>
@@ -153,7 +153,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Slated</h3>
-        <p>The Slated (SLAY-ted) are a desert people. Their thick skin is the color of sandstone. The plates that protrude from their backs interlock when they crouch down, offering protection against sandstorms and making them appear like boulders to camouflage them from predators. Slated culture is centered around invention and engineering. Among the Slated, failure is celebrated.</p>
+        {/* <p>The Slated (SLAY-ted) are a desert people. Their thick skin is the color of sandstone. The plates that protrude from their backs interlock when they crouch down, offering protection against sandstorms and making them appear like boulders to camouflage them from predators. Slated culture is centered around invention and engineering. Among the Slated, failure is celebrated.</p> */}
 
         <table className="raceStatTable">
           <thead>
@@ -178,7 +178,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Ungal</h3>
-        <p>Ungal (OON-gaul) are a humanoid fungus people. They have a spongy, not-quite-smooth skin and dark, sickly moss that grows on their bodies. The Ungal are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p>
+        {/* <p>Ungal (OON-gaul) are a humanoid fungus people. They have a spongy, not-quite-smooth skin and dark, sickly moss that grows on their bodies. The Ungal are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p> */}
 
         <table className="raceStatTable">
           <thead>
