@@ -78,7 +78,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Mausca</h3>
-        <p>Mausca (mah-SKAH) are small, thin creatures with plant-like features. Their hair is made of moss and vines, their skin looks like tree bark, and their eyes look like sea pearls. Their culture is tribalistic, revering the water and the life it brings them and all creatures. The Mausca build their homes in swampy wetlands from mud, leaves, and branches.</p>
+        <p>Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep, vertical creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and deeply set with a milky-white color and an opalescent sheen.</p>
 
         <table className="raceStatTable">
           <thead>
