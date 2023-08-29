@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faGripLines } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faMoon, faGripLines, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Nav() {
@@ -35,6 +35,9 @@ export default function Nav() {
           {/* <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link> */}
           {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
+        <Link href="/sign-in" className="border rounded-full w-8 h-8 flex justify-center items-center">
+          <FontAwesomeIcon icon={faUserAlt} className="w-5 h-5" />
+        </Link>
         {/* Theme Switch Button */}
         <button type="button" onClick={e => toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6 flex items-center">
           <FontAwesomeIcon icon={isDark ? faMoon : faSun} className="w-5 h-5" />
