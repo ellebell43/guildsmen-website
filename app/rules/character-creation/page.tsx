@@ -128,7 +128,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Matari</h3>
-        {/* <p>Matari (mah-TAR-ee) are the tallest of the species, with blunt features. Their skin is a marbling of red and brown and they have no hair on their bodies. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what social role they grow into. Matari communities are generally very close-knit.</p> */}
+        <p>The Matari (mah-TAR-ee) come from a massive cliff overlooking an ocean where they have a city carved into the cliff wall. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what social role they grow into. Matari communities are generally very close-knit. They are the tallest of the species, standing anywhere from 6 to 8 feet tall, and have very blunt and broad features. Their skin is a marbling of crimson and tan-brown with no hair at all.</p>
 
         <table className="raceStatTable">
           <thead>
