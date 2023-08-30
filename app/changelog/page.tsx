@@ -90,7 +90,8 @@ export default function Changelog() {
             version="v0.1.2"
             entries={[
               "Descriptions of all the species were overhauled in the Character Creation chapter to be significantly more descriptive.",
-              "Periods were added to previous changelog and roadmap entries because it was really bugging me."
+              "Periods were added to previous changelog and roadmap entries because it was really bugging me.",
+              "A reference and link to the character creator on the home page was removed since that feature does not exist yet."
             ]}
           />
           <ChangelogEntry
