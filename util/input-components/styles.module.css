@@ -1,0 +1,23 @@
+.inputField {
+  @apply bg-inherit border-b border-b-[var(--text-color)] w-60
+}
+
+.inputField:focus {
+  @apply outline-none
+}
+
+.lightInputField:focus {
+  @apply brightness-150
+}
+
+.darkInputField:focus {
+  @apply brightness-50
+}
+
+.label {
+  @apply absolute left-0 top-0 opacity-70 transition-all
+}
+
+.labelActive {
+  @apply -top-3 -left-2 text-[8px]
+}
