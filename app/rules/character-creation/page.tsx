@@ -154,6 +154,7 @@ export default function CharacterCreation() {
 
         <h3>Slated</h3>
         {/* <p>The Slated (SLAY-ted) are a desert people. Their thick skin is the color of sandstone. The plates that protrude from their backs interlock when they crouch down, offering protection against sandstorms and making them appear like boulders to camouflage them from predators. Slated culture is centered around invention and engineering. Among the Slated, failure is celebrated.</p> */}
+        <p>The Slated (SLAY-ted) are creatures of the endless desert, and their bodies are adapted to that harsh environment. Standing no more than 6 feet tall, they have a thick scales with a dull-gray color that cover their entire body. Along their back is a and on top of their head is a rounded shell. When crouching the down, the shell locks into a sphere shape that can keep sand out from impending sandstorms and is very durable against predators. Their eyes have two lids: a thin one for keeping out sand and a thick one for closing their eyes to light. Their culture is centered around invention and engineering. They celebrate failure and push the boundaries of what people think is possible.</p>
 
         <table className="raceStatTable">
           <thead>
