@@ -153,7 +153,6 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Slated</h3>
-        {/* <p>The Slated (SLAY-ted) are a desert people. Their thick skin is the color of sandstone. The plates that protrude from their backs interlock when they crouch down, offering protection against sandstorms and making them appear like boulders to camouflage them from predators. Slated culture is centered around invention and engineering. Among the Slated, failure is celebrated.</p> */}
         <p>The Slated (SLAY-ted) are creatures of the endless desert, and their bodies are adapted to that harsh environment. Standing no more than 6 feet tall, they have a thick scales with a dull-gray color that cover their entire body. Along their back is a and on top of their head is a rounded shell. When crouching the down, the shell locks into a sphere shape that can keep sand out from impending sandstorms and is very durable against predators. Their eyes have two lids: a thin one for keeping out sand and a thick one for closing their eyes to light. Their culture is centered around invention and engineering. They celebrate failure and push the boundaries of what people think is possible.</p>
 
         <table className="raceStatTable">
@@ -179,7 +178,9 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Ungal</h3>
-        {/* <p>Ungal (OON-gaul) are a humanoid fungus people. They have a spongy, not-quite-smooth skin and dark, sickly moss that grows on their bodies. The Ungal are known for building communities in the deepest and darkest forests and their culture reveres death and decay, as all life must someday end.</p> */}
+        <p>The Ungal (OON-gaul) are the most mysterious species. They come from deep within the World Forest, where light does not touch the forest floor. They stand no taller than 5 feet and are the least humanoid of the species. Their lower body is like the cap of an oyster mushroom flipped upside-down, the lip of which flows and ungulates to give them mobility. Their arms do not end in hands. Instead, they end in a tubular appendage that functions much like an elephants trunk to grab and manipulate objects. Their head has no face. Instead, they have a few optical stalks that register mostly heat but also some light that grow around the entire head, giving a 360 degree field of view. On the top of their head grows a crown of small oyster-mushroom-like growths, which are used as both a symbol of age and wisdom as well as sensory organs to pick up sounds within both the normal and infrasonic rages. And along their entire body are this small plate-like growths that are constantly in motion, and the underside of the plates glows with a phosphorescence. These plates are use to communicate using the sounds that they make as they move.</p>
+
+        <p>Due to their inability to speak with a mouth, they cannot make the same sounds as the other species and cannot verbalize any language other than their own. This sets them apart from the other species. This, coupled with their appearance, makes them something that most other individuals don't understand, which means the Ungal people are generally discriminated against and feared.</p>
 
         <table className="raceStatTable">
           <thead>
