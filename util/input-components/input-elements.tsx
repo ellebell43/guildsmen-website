@@ -6,6 +6,8 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string }) {
   let { label, required, id, setState, state } = props
 
+  const MAX_USERNAME_LENGTH = 12
+
   const [dark, setDark] = useState(false)
   const [active, setActive] = useState(false)
 
@@ -28,7 +30,22 @@ export function TextInput(props: { label: string, required: boolean, id: string,
         name={id}
         required={required}
         value={state}
-        onChange={e => onInputChange(e.target.value)}
+        onKeyDown={(e) => {
+          // If text field is username, only allow letters, numbers, and a couple symbols
+          // Also, max username length is 12 characters
+          if (id == "username") {
+            if (e.key === "Backspace" || e.key === "Tab") return
+            if (state.length >= MAX_USERNAME_LENGTH) e.preventDefault()
+            if (!e.key.match(/[a-zA-Z0-9_-]/)) e.preventDefault()
+          }
+        }}
+        onChange={e => {
+          if (e.target.value.length > MAX_USERNAME_LENGTH) {
+            setState("")
+            return
+          }
+          onInputChange(e.target.value)
+        }}
       />
     </div>
   )
