@@ -2,12 +2,13 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { PasswordInput, TextInput } from "@/util/input-components/input-elements"
+import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/input-elements"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPAsswordConfirm] = useState("")
+  const [email, setEmail] = useState("")
 
   return (
     <form action="/sign-up/api" method="POST" className="flex flex-col items-center justify-center">
@@ -18,6 +19,13 @@ export default function SignUp() {
         required={true}
         state={username}
         setState={setUsername}
+      />
+      <EmailInput
+        label="Email"
+        id="email"
+        required={true}
+        state={email}
+        setState={setEmail}
       />
       <PasswordInput
         label="Password"

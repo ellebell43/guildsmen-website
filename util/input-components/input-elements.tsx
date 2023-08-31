@@ -36,12 +36,12 @@ export function TextInput(props: { label: string, required: boolean, id: string,
 
 export function PasswordInput(props: { label: string, required: boolean, id: string, setState: Function, state: string }) {
   let { label, required, id, setState, state } = props
-  let dark = false
-
-  useEffect(() => { dark = localStorage.getItem("dark") == "true" }, [])
 
   const [active, setActive] = useState(false)
   const [type, setType] = useState<"password" | "text">("password")
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => { setDark(localStorage.getItem("isDark") == "true") }, [])
 
   let onInputChange = (value: string) => {
     if (value) setActive(true)
@@ -63,8 +63,39 @@ export function PasswordInput(props: { label: string, required: boolean, id: str
         onChange={e => onInputChange(e.target.value)}
       />
       <button onClick={() => setType(type == "text" ? "password" : "text")}>
-        {type == "text" ? <FontAwesomeIcon icon={faEyeSlash} className="absolute right-0 bottom-1" /> : <FontAwesomeIcon icon={faEye} className="absolute right-0 bottom-1" />}
+        {type == "text" ? <FontAwesomeIcon icon={faEyeSlash} className="absolute right-0 bottom-1 max-w-[20px]" /> : <FontAwesomeIcon icon={faEye} className="absolute right-0 bottom-1 max-w-[20px]" />}
       </button>
+    </div>
+  )
+}
+
+export function EmailInput(props: { label: string, required: boolean, id: string, setState: Function, state: string }) {
+  let { label, required, id, setState, state } = props
+
+  const [dark, setDark] = useState(false)
+  const [active, setActive] = useState(false)
+
+  useEffect(() => { setDark(localStorage.getItem("isDark") == "true") }, [])
+
+  let onInputChange = (value: string) => {
+    if (value) setActive(true)
+    else setActive(false)
+
+    setState(value)
+  }
+
+  return (
+    <div className={styles.inputContainer}>
+      <label htmlFor={id} className={`${styles.label}  ${active ? styles.labelActive : ""}`}>{label}</label>
+      <input
+        className={`${styles.inputField} ${dark ? styles.darkInputField : styles.lightInputField}`}
+        type="email"
+        id={id}
+        name={id}
+        required={required}
+        value={state}
+        onChange={e => onInputChange(e.target.value)}
+      />
     </div>
   )
 }
