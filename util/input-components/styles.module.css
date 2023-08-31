@@ -1,5 +1,17 @@
+.inputContainer {
+  @apply relative w-fit my-4
+}
+
 .inputField {
-  @apply bg-inherit border-b border-b-[var(--text-color)] w-60
+  @apply bg-inherit border-b border-b-[var(--text-color)] w-[240px] relative
+}
+
+.passInputField {
+  @apply bg-inherit border-b border-b-[var(--text-color)] w-[240px] pr-[20px] relative
+}
+
+.passInputField:focus {
+  @apply outline-none
 }
 
 .inputField:focus {
@@ -7,11 +19,11 @@
 }
 
 .lightInputField:focus {
-  @apply brightness-150
+  @apply brightness-50
 }
 
 .darkInputField:focus {
-  @apply brightness-50
+  @apply brightness-150
 }
 
 .label {

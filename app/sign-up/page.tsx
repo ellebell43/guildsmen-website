@@ -2,10 +2,12 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { TextInput } from "@/util/input-components/input-elements"
+import { PasswordInput, TextInput } from "@/util/input-components/input-elements"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirm, setPAsswordConfirm] = useState("")
 
   return (
     <form action="/sign-up/api" method="POST" className="flex flex-col items-center justify-center">
@@ -16,6 +18,20 @@ export default function SignUp() {
         required={true}
         state={username}
         setState={setUsername}
+      />
+      <PasswordInput
+        label="Password"
+        id="password"
+        required={true}
+        state={password}
+        setState={setPassword}
+      />
+      <PasswordInput
+        label="Confirm Password"
+        id="passwordConfirm"
+        required={true}
+        state={passwordConfirm}
+        setState={setPAsswordConfirm}
       />
       <p className="text-xs">Already have an account? <Link href="/sign-in">Sign in</Link>.</p>
     </form>
