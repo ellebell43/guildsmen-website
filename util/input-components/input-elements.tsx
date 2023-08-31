@@ -61,6 +61,10 @@ export function PasswordInput(props: { label: string, required: boolean, id: str
         required={required}
         value={state}
         onChange={e => onInputChange(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Backspace" || e.key === "Tab") return
+          if (!e.key.match(/[a-zA-Z0-9!@#$%^&*()_+.-]/)) e.preventDefault()
+        }}
       />
       <button onClick={() => setType(type == "text" ? "password" : "text")}>
         {type == "text" ? <FontAwesomeIcon icon={faEyeSlash} className="absolute right-0 bottom-1 max-w-[20px]" /> : <FontAwesomeIcon icon={faEye} className="absolute right-0 bottom-1 max-w-[20px]" />}
