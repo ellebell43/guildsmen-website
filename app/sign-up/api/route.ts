@@ -12,7 +12,6 @@ export async function POST(req: Request) {
   if (!(username && email && password)) {
     data.success = false
     data.message = "API POST failure. Some data was missing"
-    console.log(data)
     return NextResponse.json(data)
   }
 
@@ -20,13 +19,23 @@ export async function POST(req: Request) {
   try {
     const client = await dbClient()
     const users = client.collection("users");
-    users.insertOne({ username, email, password, created: new Date() })
+    const usernameMatch = await users.findOne({ username })
+    if (usernameMatch) {
+      data.success = false
+      data.message = "Username already in use"
+      return NextResponse.json(data)
+    }
+    const emailMatch = await users.findOne({ email })
+    if (emailMatch) {
+      data.success = false
+      data.message = "Email already in use"
+      return NextResponse.json(data)
+    }
+    await users.insertOne({ username, email, password, created: new Date() })
   } catch (err) {
     data.success = false
     data.message = String(err)
   }
-
-  console.log(data)
 
   return NextResponse.json(data)
 }
