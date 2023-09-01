@@ -6,6 +6,8 @@ import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/in
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import ErrorMessage from "../error-message"
+import crypto from "crypto"
+import Spinner from "../spinner"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
@@ -15,12 +17,14 @@ export default function SignUp() {
 
   const [showPassReq, setShowPassReq] = useState(false)
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (error) setTimeout(() => setError(""), 5000)
   }, [error])
 
   const submit = () => {
+    // validate the form
     if (!username || !password || !passwordConfirm || !email) {
       setError("Please fill out all fields")
       return
@@ -37,7 +41,22 @@ export default function SignUp() {
       setError("Your password does not match minimum requirements.")
       return
     }
+
+    setLoading(true)
     const form = document.getElementById("form")
+    // Hash the password before sending it to the API
+    let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) {
+          setError(data.message)
+        } else {
+          setError(data.message)
+          // router.push({ pathname: "/login", query: { message: "User created successfully", good: true } }, "/profile")
+        }
+      })
+    setLoading(false)
   }
 
   const checkPassword = () => {
@@ -110,7 +129,11 @@ export default function SignUp() {
           setState={setPAsswordConfirm}
         />
 
-        <button onClick={submit} className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500">Submit</button>
+        <button type="button" onClick={submit} className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500">
+          Submit
+          {loading ? <div className="absolute -right-10 bottom-4"><Spinner /></div> : <></>}
+        </button>
+
 
         <p className="text-xs">Already have an account? <Link href="/sign-in">Sign in</Link>.</p>
       </form>
