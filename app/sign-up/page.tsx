@@ -9,6 +9,7 @@ import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
 import { badWords } from "@/util/bad-words"
+import { useRouter } from "next/navigation"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
@@ -20,6 +21,8 @@ export default function SignUp() {
   const [showPassReq, setShowPassReq] = useState(false)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+
+  const router = useRouter();
 
   useEffect(() => {
     if (error) setTimeout(() => setError(""), 5000)
@@ -67,7 +70,7 @@ export default function SignUp() {
         if (!data.success) {
           setError(data.message)
         } else {
-          // setError(data.message)
+          router.push("/sign-in?new-user=true")
         }
       })
     setLoading(false)
@@ -85,7 +88,7 @@ export default function SignUp() {
 
   return (
     <>
-      <form action="/sign-up/api" id="form" method="POST" className="flex flex-col items-center justify-center w-fit mx-auto relative">
+      <form onSubmit={(e) => e.preventDefault()} id="form" className="flex flex-col items-center justify-center w-fit mx-auto relative">
         <h1>Sign Up</h1>
         <TextInput
           label="Username"
@@ -154,7 +157,7 @@ export default function SignUp() {
         {/* === SUBMIT BUTTON === */}
         <button type="button" onClick={submit} className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500">
           Submit
-          {loading ? <div className="absolute -right-10 bottom-4"><Spinner /></div> : <></>}
+          {loading ? <div className="absolute -right-10 bottom-3"><Spinner /></div> : <></>}
         </button>
 
 
