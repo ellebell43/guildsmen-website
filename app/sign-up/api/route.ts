@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       data.message = "Email already in use"
       return NextResponse.json(data)
     }
-    await users.insertOne({ username, email, password, created: new Date() })
+    await users.insertOne({ username, email, password, created: new Date(), policyAccept: true })
   } catch (err) {
     data.success = false
     data.message = String(err)

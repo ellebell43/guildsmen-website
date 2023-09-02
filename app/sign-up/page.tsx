@@ -14,6 +14,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPAsswordConfirm] = useState("")
   const [email, setEmail] = useState("")
+  const [termsAgree, setTermsAgree] = useState(false)
 
   const [showPassReq, setShowPassReq] = useState(false)
   const [error, setError] = useState("")
@@ -25,6 +26,10 @@ export default function SignUp() {
 
   const submit = () => {
     // validate the form
+    if (!termsAgree) {
+      setError("You must agree to the terms and conditions")
+      return
+    }
     if (!username || !password || !passwordConfirm || !email) {
       setError("Please fill out all fields")
       return
@@ -52,8 +57,7 @@ export default function SignUp() {
         if (!data.success) {
           setError(data.message)
         } else {
-          setError(data.message)
-          // router.push({ pathname: "/login", query: { message: "User created successfully", good: true } }, "/profile")
+          // setError(data.message)
         }
       })
     setLoading(false)
@@ -95,7 +99,7 @@ export default function SignUp() {
           onMouseLeave={e => setShowPassReq(false)}
           onTouchStart={e => setShowPassReq(true)}
           onTouchEnd={e => setShowPassReq(false)}
-          className="absolute -left-6 top-[203px]">
+          className="absolute left-0 top-[203px]">
           <FontAwesomeIcon icon={faCircleInfo} />
         </button>
 
@@ -129,6 +133,15 @@ export default function SignUp() {
           setState={setPAsswordConfirm}
         />
 
+        {/* === TERMS & CONDITIONS CHECK === */}
+        <div className="flex gap-2 justify-center items-center">
+          <button type="button" onClick={e => setTermsAgree(!termsAgree)} className="border w-5 h-5 flex justify-center items-center">
+            <div className={`w-4 h-4 transition-all ${termsAgree ? "bg-stone-400" : ""}`} />
+          </button>
+          <p className="text-sm">I have read and agree to the <Link href="/privacy-policy">Privacy Policy</Link>.</p>
+        </div>
+
+        {/* === SUBMIT BUTTON === */}
         <button type="button" onClick={submit} className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500">
           Submit
           {loading ? <div className="absolute -right-10 bottom-4"><Spinner /></div> : <></>}
