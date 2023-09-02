@@ -8,6 +8,7 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
+import { badWords } from "@/util/bad-words"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
@@ -30,18 +31,27 @@ export default function SignUp() {
       setError("You must agree to the terms and conditions")
       return
     }
+    // Check to see if all fields are have been filled
     if (!username || !password || !passwordConfirm || !email) {
       setError("Please fill out all fields")
       return
     }
+    // Check for profanity in username
+    if (badWords.test(username)) {
+      setError("Username contains prohibited language")
+      return
+    }
+    // Check for valid email
     if (!checkEmail()) {
       setError("Please provide a valid email")
       return
     }
+    // Make sure passwords match
     if (password !== passwordConfirm) {
       setError("Your passwords do not match.")
       return
     }
+    // Make sure password matches minimum requirements
     if (!checkPassword()) {
       setError("Your password does not match minimum requirements.")
       return
