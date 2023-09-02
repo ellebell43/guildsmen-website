@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
       <h1>Privacy Policy</h1>
       <p>Last updated 09/02/2023</p>
 
-      <p>This privacy notice for Guildsmen ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share("process") your information when you use our services ("Services"), such as when you:</p>
+      <p>This privacy notice for Guildsmen (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might collect, store, use, and/or share(&quot;process&quot;) your information when you use our services (&quot;Services&quot;), such as when you:</p>
 
       <ul>
         <li>Visit our website at <Link href="https://www.guildsmen-ttrp.com">https://www.guildsmen-ttrp.com</Link>, or any website of ours that links to this privacy notice</li>
@@ -129,11 +129,11 @@ export default function PrivacyPolicy() {
 
       <h2 id="controls-for-do-not-track-features">9. Controls For Do-Not-Track Features</h2>
 
-      <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
+      <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&quot;DNT&quot;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
 
       <h2 id="do-we-make-updates-to-this-notice">10. Do We Make Updates to This Notice?</h2>
 
-      <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
+      <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
 
       <h2 id="how-can-you-contact-us-about-this-notice">11. How Can You Contact Us About This Notice?</h2>
 
