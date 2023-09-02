@@ -18,16 +18,6 @@ export default function Changelog() {
         <div className="border-l-2 my-2 px-2 border-r-2">
           <p className="italic text-center">Features are listed in order of priority.</p>
 
-          <h3 className={styles.h3}>Revamp CC Descriptions of the Species</h3>
-          <ul>
-            <RoadmapEntry text="A complete overhaul of the descriptions of the species in the Character Creation chapter that are much more detailed with more imagery." completed={true} date="08/30/2023" />
-          </ul>
-
-          <h3 className={styles.h3}>Recreate the Character Sheet in JSX code</h3>
-          <ul>
-            <RoadmapEntry text="Recreate the character sheet in JSX for easier editing, more precise creation, and to be able to use it when users can create characters on the site." completed={true} date="08/24/2023" />
-          </ul>
-
           <h3 className={styles.h3}>Create Pages for Resources and Community</h3>
           <ul>
             <RoadmapEntry text="A Resource page where users can access the character sheet and establishment sheet. This will also be the home for user created content in the future." completed={false} />
@@ -37,8 +27,8 @@ export default function Changelog() {
 
           <h3 className={styles.h3}>User Accounts</h3>
           <ul>
-            <RoadmapEntry text="Users will be able to create an account via a sign up page by providing a username, email, and password." completed={false} />
-            <RoadmapEntry text="Users will need to check a box that says they have read the terms and conditions and privacy policy to create their account." completed={false} />
+            <RoadmapEntry text="Users will be able to create an account via a sign up page by providing a username, email, and password." completed={true} date="09/01/2023" />
+            <RoadmapEntry text="Users will need to check a box that says they have read the terms and conditions and privacy policy to create their account." completed={true} date="09/02/2023" />
             <RoadmapEntry text="Users will be able to log in to their accounts via a login page." completed={false} />
             <RoadmapEntry text="Login session will last 24 hours or indefinitely if the user selects 'keep me logged in'." completed={false} />
             <RoadmapEntry text="Users will be able to access a user page that shows their username and allows them to set a custom avatar, create a bio, and see their account age." completed={false} />
