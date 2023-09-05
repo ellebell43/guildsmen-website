@@ -12,8 +12,13 @@ export async function GET(req: Request) {
     try {
       const client = await dbClient()
       const users = client.collection("users")
-      const user = users.findOne({ token: cookies().get("token") })
-      return NextResponse.json({ success: true, user })
+      const user = await users.findOne({ token: cookies().get("token")?.value })
+      if (!user) {
+        return NextResponse.json({ success: false, user, message: "No user found with provided token" })
+      }
+      const res = NextResponse.json({ success: true, user, message: "Sign in success!" })
+      res.cookies.set({ name: "token", value: cookies().get("token")?.value || "", maxAge: 60 * 60 * 24 * 7 })
+      return res
     } catch (err) {
       return NextResponse.json({ success: false, message: String(err) })
     }
@@ -45,7 +50,7 @@ export async function GET(req: Request) {
       users.updateOne({ username: username }, { $set: { token: token } });
 
       const res = NextResponse.json(data)
-      res.cookies.set("token", token)
+      res.cookies.set({ name: "token", value: token, maxAge: 60 * 60 * 24 * 7 })
 
       return res
 

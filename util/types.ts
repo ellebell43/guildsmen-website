@@ -25,3 +25,11 @@ export type creature = {
   description: string,
   actions: action[]
 }
+
+export type user = {
+  username: string,
+  email: string,
+  password: string,
+  bio?: string,
+  avatarUrl?: string
+}
