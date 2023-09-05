@@ -69,11 +69,12 @@ export default function SignUp() {
       .then(data => {
         if (!data.success) {
           setError(data.message)
+          setLoading(false)
         } else {
           router.push("/sign-in?new-user=true")
+          setLoading(false)
         }
       })
-    setLoading(false)
   }
 
   const checkPassword = () => {
@@ -159,10 +160,12 @@ export default function SignUp() {
           type="button"
           onClick={submit}
           disabled={!(username && password && passwordConfirm && email && termsAgree)}
-          className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500 disabled:hover:shadow-lg disabled:hover:bg-stone-300 disabled:text-stone-300 disabled:hover:bg-inherit dark:disabled:hover:bg-inherit dark:disabled:text-stone-600 disabled:top-[5px]"
+          className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500 disabled:hover:shadow-lg disabled:text-stone-300 disabled:hover:bg-inherit dark:disabled:hover:bg-inherit dark:disabled:text-stone-600 disabled:top-[5px]"
         >
           Submit
-          {loading ? <div className="absolute -right-10 bottom-3"><Spinner /></div> : <></>}
+          <div className={`absolute -right-10 bottom-3 ${loading ? "" : "hidden"}`}>
+            <Spinner />
+          </div>
         </button>
 
 

@@ -8,6 +8,7 @@ import crypto from "crypto"
 import ErrorMessage from "../error-message"
 import Spinner from "../spinner"
 import { useRouter } from "next/navigation"
+import { mutate } from "swr"
 
 export default function SignIn() {
   let [username, setUsername] = useState("")
@@ -45,11 +46,15 @@ export default function SignIn() {
         if (!data.success) {
           // If sign in fails, display error from API
           setError(data.message)
+          setLoading(false)
         } else {
-          router.push("/profile")
+          mutate("/sign-in/api")
+          setTimeout(() => {
+            router.push("/profile")
+            setLoading(false)
+          }, 2000)
         }
       })
-    setLoading(false)
   }
 
   return (
@@ -78,10 +83,12 @@ export default function SignIn() {
         type="button"
         onClick={submit}
         disabled={!(username && password)}
-        className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500 disabled:hover:shadow-lg disabled:hover:bg-stone-300 disabled:text-stone-300 disabled:hover:bg-inherit dark:disabled:hover:bg-inherit dark:disabled:text-stone-600 disabled:top-[5px]"
+        className="border relative rounded shadow-lg px-8 py-2 text-lg transition-all top-0 hover:top-[5px] hover:shadow-none hover:bg-stone-300 dark:hover:bg-stone-500 disabled:hover:shadow-lg disabled:text-stone-300 disabled:hover:bg-inherit dark:disabled:hover:bg-inherit dark:disabled:text-stone-600 disabled:top-[5px]"
       >
         Submit
-        {loading ? <div className="absolute -right-10 bottom-3"><Spinner /></div> : <></>}
+        <div className={`absolute -right-10 bottom-3 ${loading ? "" : "hidden"}`}>
+          <Spinner />
+        </div>
       </button>
 
       {/* === SIGN UP LINK === */}
