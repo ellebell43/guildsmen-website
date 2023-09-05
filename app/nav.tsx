@@ -2,11 +2,14 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon, faGripLines, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import getUserByToken from "@/util/getUserByToken";
 
 
 export default function Nav() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
+
+  const { data, isLoading, error } = getUserByToken()
 
   useEffect(() => {
     if (!localStorage.getItem("isDark") || localStorage.getItem("isDark") != "true") {
@@ -35,7 +38,7 @@ export default function Nav() {
           {/* <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link> */}
           {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
-        <Link href="/sign-in" className="hover:scale-110 border rounded-full w-8 h-8 flex justify-center items-center">
+        <Link href={data?.user ? "/profile" : "/sign-in"} className="hover:scale-110 border rounded-full w-8 h-8 flex justify-center items-center">
           <FontAwesomeIcon icon={faUserAlt} className="w-5 h-5" />
         </Link>
         {/* Theme Switch Button */}
