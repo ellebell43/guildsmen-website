@@ -48,6 +48,7 @@ export default function SignIn() {
           setError(data.message)
           setLoading(false)
         } else {
+          // Otherwise, refresh the cached user data and navigate to the profile page
           mutate("/sign-in/api")
           setTimeout(() => {
             router.push("/profile")

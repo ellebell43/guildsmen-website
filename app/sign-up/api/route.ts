@@ -20,19 +20,23 @@ export async function POST(req: Request) {
     const client = await dbClient()
     const users = client.collection("users");
     const usernameMatch = await users.findOne({ username })
+    // If the username is already in use, return an error
     if (usernameMatch) {
       data.success = false
       data.message = "Username already in use"
       return NextResponse.json(data)
     }
+    // If the email is already in use, return an error
     const emailMatch = await users.findOne({ email })
     if (emailMatch) {
       data.success = false
       data.message = "Email already in use"
       return NextResponse.json(data)
     }
+    // Otherwise, post the new user to the database
     await users.insertOne({ username, email, password, created: new Date(), policyAccept: true })
   } catch (err) {
+    // If something goes wrong during database communications, return the error
     data.success = false
     data.message = String(err)
   }
