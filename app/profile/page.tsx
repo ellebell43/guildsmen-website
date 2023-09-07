@@ -2,18 +2,25 @@
 
 import getUserByToken from "@/util/getUserByToken"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Spinner from "../spinner"
 import { mutate } from "swr"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons"
-import { faGear, faPencil, faSignOut } from "@fortawesome/free-solid-svg-icons"
+import { faGear, faPencil, faSignOut, faX } from "@fortawesome/free-solid-svg-icons"
 import Image from "next/image"
+import avatarArray from "@/util/avatar-array"
+import ErrorMessage from "../error-message"
 
 export default function Profile() {
+  const [avatarMenu, setAvatarMenu] = useState(false)
   const { data, isLoading, error } = getUserByToken()
   const router = useRouter()
+
+  const [patchLoading, setPatchLoading] = useState(false)
+  const [patchError, setPatchError] = useState("")
+
 
   useEffect(() => {
     if (!isLoading && !data?.user) {
@@ -21,11 +28,34 @@ export default function Profile() {
     }
   }, [isLoading, data])
 
+  // Clear error every 5 seconds if error hasn't been cleared
+  useEffect(() => {
+    if (patchError) setTimeout(() => setPatchError(""), 5000)
+  }, [patchError])
+
   const formatDate = (date: Date): string => {
     var str = ""
     str += date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear()
     return str
   }
+
+  const changeAvatarUrl = (url: string) => {
+    let newUser = data?.user
+    if (newUser) {
+      setPatchLoading(true)
+      newUser.avatarUrl = url
+      fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url } })
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) {
+            setPatchError(data.message)
+          }
+          setPatchLoading(false)
+          setAvatarMenu(false)
+        })
+    }
+  }
+
   if (isLoading) return <Spinner />
   if (error) return <p>{String(error)}</p>
   return (
@@ -33,7 +63,7 @@ export default function Profile() {
       <div className="flex flex-col justify-center items-center">
         <div className="relative w-fit">
           {/* Avatar edit button */}
-          <button type="button">
+          <button type="button" onClick={e => setAvatarMenu(true)}>
             <FontAwesomeIcon icon={faPencil} className="absolute bottom-1 right-1 w-[15px] h-[15px] p-2 rounded-full shadow button" />
           </button>
           {/* === USER AVATAR === */}
@@ -57,6 +87,26 @@ export default function Profile() {
           Sign Out
         </button>
       </div>
+      {/* === AVATAR MENU === */}
+      {!avatarMenu ? <></> :
+        <div className="w-fit flex flex-col justify-center items-center mx-auto bg-stone-200 dark:bg-stone-800 border shadow-lg p-4 fixed top-10 left-[calc(50vw-173px)] z-50">
+          {patchLoading ? <div className="absolute z-50 bg-opacity-50 bg-stone-500 inset-0 flex justify-center items-center"><Spinner /></div> : <></>}
+          <button onClick={e => setAvatarMenu(false)} className="absolute top-1 right-2 text-sm">
+            <FontAwesomeIcon icon={faX} />
+          </button>
+          <p className="text-xl font-bold m-0 mb-2">Select a new avatar</p>
+          <div className="grid grid-cols-5 gap-4 w-fit">
+            {avatarArray.map((el, i) => {
+              return (
+                <button key={i} onClick={e => changeAvatarUrl(el)} className="shadow-lg rounded-full hover:saturate-100 hover:scale-105 saturate-50 transition-all">
+                  <Image src={el} width={50} height={50} alt="" />
+                </button>
+              )
+            })}
+          </div>
+        </div>}
+
+      <ErrorMessage message={patchError} />
     </>
   )
 }
