@@ -2,7 +2,10 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon, faGripLines, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import getUserByToken from "@/util/getUserByToken";
+import Image from "next/image";
+import Spinner from "./spinner";
 
 
 export default function Nav() {
@@ -38,8 +41,10 @@ export default function Nav() {
           {/* <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link> */}
           {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
-        <Link href={data?.user ? "/profile" : "/sign-in"} className="hover:scale-110 border rounded-full w-8 h-8 flex justify-center items-center">
-          <FontAwesomeIcon icon={faUserAlt} className="w-5 h-5" />
+        <Link href={data?.user ? "/profile" : "/sign-in"} className="hover:scale-110 flex justify-center items-center">
+          {isLoading ? <Spinner /> :
+            data?.user?.avatarUrl ? <Image width={24} height={24} src={data.user.avatarUrl} alt="" className="rounded-full" /> :
+              <FontAwesomeIcon icon={faUserCircle} className="w-[24px] h-[24px]" />}
         </Link>
         {/* Theme Switch Button */}
         <button type="button" onClick={e => toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6 flex items-center">
