@@ -5,11 +5,31 @@ import { NextResponse } from "next/server"
 export async function PATCH(req: Request) {
   const data = { success: true, message: "User updated successfully." }
   const token = cookies().get("token")?.value
+  // === UPDATE AVATAR URL ===
   if (req.headers.get("updateAvatar") == "true") {
     try {
       const client = await dbClient()
       const users = client.collection("users")
       const result = await users.updateOne({ token }, { "$set": { avatarUrl: req.headers.get("avatarUrl") } })
+
+      if (!result.matchedCount) {
+        data.success = false
+        data.message = "User could not be found in the database."
+        return NextResponse.json(data)
+      }
+    } catch (err) {
+      data.success = false
+      data.message = String(err)
+      return NextResponse.json(data)
+    }
+  }
+
+  // === UPDATE EMAIL ===
+  if (req.headers.get("updateEmail") == "true") {
+    try {
+      const client = await dbClient()
+      const users = client.collection("users")
+      const result = await users.updateOne({ token }, { "$set": { email: req.headers.get("email") } })
 
       if (!result.matchedCount) {
         data.success = false

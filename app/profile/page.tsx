@@ -12,15 +12,19 @@ import { faGear, faPencil, faSignOut, faX } from "@fortawesome/free-solid-svg-ic
 import Image from "next/image"
 import avatarArray from "@/util/avatar-array"
 import ErrorMessage from "../error-message"
+import { EmailInput, PasswordInput } from "@/util/input-components/input-elements"
+import { submitButton } from "@/util/variables"
+import crypto from "crypto"
 
 export default function Profile() {
   const [avatarMenu, setAvatarMenu] = useState(false)
-  const { data, isLoading, error } = getUserByToken()
-  const router = useRouter()
+  const [settingsMenu, setSettingsMenu] = useState(false)
 
   const [patchLoading, setPatchLoading] = useState(false)
   const [patchError, setPatchError] = useState("")
 
+  const { data, isLoading, error } = getUserByToken()
+  const router = useRouter()
 
   useEffect(() => {
     if (!isLoading && !data?.user) {
@@ -74,7 +78,9 @@ export default function Profile() {
         {data?.user?.bio ? <p className="mt-0 p-2 text-sm italic">{data.user.bio}</p> : <></>}
       </div>
       <div className="flex gap-4 justify-center items-center w-fit mx-auto">
-        <Link href="/profile/settings" className="button py-2 px-4 no-underline not-italic rounded"><FontAwesomeIcon icon={faGear} /> Settings</Link>
+        <button onClick={e => setSettingsMenu(true)} className="button py-2 px-4 no-underline not-italic rounded">
+          <FontAwesomeIcon icon={faGear} /> Settings
+        </button>
         <button
           type="button"
           className="button py-2 px-4 rounded"
@@ -87,9 +93,10 @@ export default function Profile() {
           Sign Out
         </button>
       </div>
+
       {/* === AVATAR MENU === */}
       {!avatarMenu ? <></> :
-        <div className="w-fit flex flex-col justify-center items-center mx-auto bg-stone-200 dark:bg-stone-800 border shadow-lg p-4 fixed top-10 left-[calc(50vw-173px)] z-50">
+        <div className="w-fit flex flex-col justify-center items-center mx-auto bg-stone-200 dark:bg-stone-800 border shadow-lg p-4 fixed top-10 left-[calc(50vw-173px)] z-50 rounded">
           {patchLoading ? <div className="absolute z-50 bg-opacity-50 bg-stone-500 inset-0 flex justify-center items-center"><Spinner /></div> : <></>}
           <button onClick={e => setAvatarMenu(false)} className="absolute top-1 right-2 text-sm">
             <FontAwesomeIcon icon={faX} />
@@ -106,7 +113,91 @@ export default function Profile() {
           </div>
         </div>}
 
+      <Settings show={settingsMenu} setShow={setSettingsMenu} error={patchError} setError={setPatchError} />
+
       <ErrorMessage message={patchError} />
     </>
+  )
+}
+
+function Settings(props: { show: boolean, setShow: Function, error: string, setError: Function }) {
+  const { data } = getUserByToken()
+  const [password, setPassword] = useState("")
+  const [passwordLoading, setPasswordLoading] = useState(false)
+  const [verified, setVerified] = useState(false)
+  const [email, setEmail] = useState("")
+  const [emailLoading, setEmailLoading] = useState(false)
+
+  const verify = () => {
+    let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    if (hashedPassword === data?.user?.password) {
+      setPassword("")
+      setVerified(true)
+    } else {
+      props.setError("Incorrect password.")
+    }
+  }
+
+  const updateUser = (field: "email" | "password") => {
+    let headers: { updateEmail?: string, email?: string, updatePassword?: string, } = {}
+    switch (field) {
+      case "email":
+        setEmailLoading(true)
+        headers.updateEmail = "true"
+        headers.email = email
+        break
+      case "password":
+        break
+    }
+
+    const clearInputs = () => {
+      setEmailLoading(false)
+      setEmail("")
+      setPasswordLoading(false)
+      setPassword("")
+    }
+
+    fetch("/profile/api", { method: "PATCH", headers })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) {
+          props.setError(data.message)
+        }
+        mutate("/sign-in/api")
+        clearInputs()
+      })
+  }
+
+  if (!props.show) return <></>
+  return (
+    <div className={`fixed inset-0 z-50 flex justify-center items-center bg-stone-100 bg-opacity-50`}>
+      <div className="bg-stone-100 dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
+
+        <h2>User Settings</h2>
+        <button type="button" onClick={e => { props.setShow(false); setVerified(false) }} className="absolute top-2 right-3" >
+          <FontAwesomeIcon icon={faX} className="text-xs" />
+        </button>
+        {!verified ?
+          // === PASSWORD PROMPT ===
+          <>
+            <p className="text-center m-0 text-sm italic">Please type in your password to continue.</p>
+            <PasswordInput label="Password" id="password" state={password} setState={setPassword} required={true} />
+            <button className={submitButton} disabled={!password} type="button" onClick={e => verify()}>Submit</button>
+          </> :
+          // === VERIFIED SETTINGS ===
+          <>
+            <div className="flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
+              {/* Change email */}
+              <h3 className="border-none">Email</h3>
+              <p className="mb-0">{data?.user?.email}</p>
+              <EmailInput label="New Email" id="email" state={email} setState={setEmail} required={false} />
+              <button className="button px-2 py-1 mb-4 relative" onClick={e => updateUser("email")}>
+                Change Email
+                {emailLoading ? <div className="absolute -right-10"><Spinner /></div> : <></>}
+              </button>
+            </div>
+          </>}
+      </div>
+    </div>
   )
 }
