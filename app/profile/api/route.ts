@@ -22,14 +22,17 @@ export async function PATCH(req: Request) {
       data.message = String(err)
       return NextResponse.json(data)
     }
-  }
-
-  // === UPDATE EMAIL ===
-  if (req.headers.get("updateEmail") == "true") {
+  } else {
+    // === UPDATE PROFILE EMAIL OR PASSWORD ===
     try {
       const client = await dbClient()
       const users = client.collection("users")
-      const result = await users.updateOne({ token }, { "$set": { email: req.headers.get("email") } })
+      let result: any
+      if (req.headers.get("updateEmail")) {
+        result = await users.updateOne({ token }, { "$set": { email: req.headers.get("email") } })
+      } else if (req.headers.get("updatePassword")) {
+        result = await users.updateOne({ token }, { "$set": { password: req.headers.get("password") } })
+      }
 
       if (!result.matchedCount) {
         data.success = false
@@ -41,7 +44,7 @@ export async function PATCH(req: Request) {
       data.message = String(err)
       return NextResponse.json(data)
     }
-  }
 
-  return NextResponse.json(data)
+    return NextResponse.json(data)
+  }
 }

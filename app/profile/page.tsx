@@ -8,13 +8,14 @@ import { mutate } from "swr"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons"
-import { faGear, faPencil, faSignOut, faX } from "@fortawesome/free-solid-svg-icons"
+import { faCheck, faGear, faPencil, faSignOut, faX } from "@fortawesome/free-solid-svg-icons"
 import Image from "next/image"
 import avatarArray from "@/util/avatar-array"
 import ErrorMessage from "../error-message"
 import { EmailInput, PasswordInput } from "@/util/input-components/input-elements"
-import { submitButton } from "@/util/variables"
+import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 
 export default function Profile() {
   const [avatarMenu, setAvatarMenu] = useState(false)
@@ -56,6 +57,7 @@ export default function Profile() {
           }
           setPatchLoading(false)
           setAvatarMenu(false)
+          mutate("/sign-in/api")
         })
     }
   }
@@ -122,11 +124,18 @@ export default function Profile() {
 
 function Settings(props: { show: boolean, setShow: Function, error: string, setError: Function }) {
   const { data } = getUserByToken()
+
   const [password, setPassword] = useState("")
+  const [passwordConfirm, setPasswordConfirm] = useState("")
   const [passwordLoading, setPasswordLoading] = useState(false)
-  const [verified, setVerified] = useState(false)
+  const [passwordSuccess, setPasswordSuccess] = useState(false)
+
   const [email, setEmail] = useState("")
   const [emailLoading, setEmailLoading] = useState(false)
+  const [emailSuccess, setEmailSuccess] = useState(false)
+
+  const [verified, setVerified] = useState(false)
+  const [showPassReq, setShowPassReq] = useState(false)
 
   const verify = () => {
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
@@ -139,7 +148,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
   }
 
   const updateUser = (field: "email" | "password") => {
-    let headers: { updateEmail?: string, email?: string, updatePassword?: string, } = {}
+    let headers: { updateEmail?: string, email?: string, updatePassword?: string, password?: string } = {}
     switch (field) {
       case "email":
         setEmailLoading(true)
@@ -147,14 +156,17 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
         headers.email = email
         break
       case "password":
-        break
-    }
-
-    const clearInputs = () => {
-      setEmailLoading(false)
-      setEmail("")
-      setPasswordLoading(false)
-      setPassword("")
+        if (password !== passwordConfirm) {
+          props.setError("Passwords do not match.")
+          return
+        } else if (!passwordTest.test(password)) {
+          props.setError("Password does not meet minimum requirements.")
+          return
+        } else {
+          setPasswordLoading(true)
+          headers.updatePassword = "true"
+          headers.password = crypto.createHash("sha256").update(password).digest("hex")
+        }
     }
 
     fetch("/profile/api", { method: "PATCH", headers })
@@ -162,10 +174,30 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
       .then(data => {
         if (!data.success) {
           props.setError(data.message)
+          console.log(data.message)
+        } else {
+          if (headers.password) {
+            setPasswordSuccess(true)
+          } else {
+            setEmailSuccess(true)
+          }
+          clearInputs(true)
+          mutate("/sign-in/api")
         }
-        mutate("/sign-in/api")
-        clearInputs()
       })
+
+  }
+
+  const clearInputs = (notChecks: boolean) => {
+    setEmailLoading(false)
+    setEmail("")
+    setPasswordLoading(false)
+    setPassword("")
+    setPasswordConfirm("")
+    if (!notChecks) {
+      setPasswordSuccess(false)
+      setEmailSuccess(false)
+    }
   }
 
   if (!props.show) return <></>
@@ -174,27 +206,80 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
       <div className="bg-stone-100 dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
 
         <h2>User Settings</h2>
-        <button type="button" onClick={e => { props.setShow(false); setVerified(false) }} className="absolute top-2 right-3" >
+        <button
+          type="button"
+          onClick={e => {
+            props.setShow(false)
+            clearInputs(false)
+          }}
+          className="absolute top-2 right-3"
+        >
           <FontAwesomeIcon icon={faX} className="text-xs" />
         </button>
         {!verified ?
+
           // === PASSWORD PROMPT ===
+
           <>
             <p className="text-center m-0 text-sm italic">Please type in your password to continue.</p>
             <PasswordInput label="Password" id="password" state={password} setState={setPassword} required={true} />
             <button className={submitButton} disabled={!password} type="button" onClick={e => verify()}>Submit</button>
           </> :
-          // === VERIFIED SETTINGS ===
+
+          // === SETTINGS CONTAINER ===
+
           <>
+
+            {/* === CHANGE EMAIL SECTION === */}
+
             <div className="flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
-              {/* Change email */}
               <h3 className="border-none">Email</h3>
               <p className="mb-0">{data?.user?.email}</p>
               <EmailInput label="New Email" id="email" state={email} setState={setEmail} required={false} />
               <button className="button px-2 py-1 mb-4 relative" onClick={e => updateUser("email")}>
                 Change Email
-                {emailLoading ? <div className="absolute -right-10"><Spinner /></div> : <></>}
+                {emailLoading ? <div className="absolute -right-10"><Spinner /></div> : emailSuccess ? <FontAwesomeIcon className="absolute -right-5" icon={faCheck} /> : <></>}
               </button>
+            </div>
+
+            {/* === CHANGE PASSWORD SECTION === */}
+
+            <div className="flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
+              <h2 className="border-none">Password</h2>
+              <div className="relative">
+                {/* === password requirement toggle === */}
+                <button
+                  onMouseEnter={e => setShowPassReq(true)}
+                  onMouseLeave={e => setShowPassReq(false)}
+                  onTouchStart={e => setShowPassReq(true)}
+                  onTouchEnd={e => setShowPassReq(false)}
+                  className="absolute -left-[35px] top-[17px]">
+                  <FontAwesomeIcon icon={faCircleInfo} />
+                </button>
+                {/* === password input === */}
+                <PasswordInput label="New Password" id="password" required={false} state={password} setState={setPassword} />
+              </div>
+              {/* === confirm password input === */}
+              <PasswordInput label="Confirm New Password" id="passwordConfirm" required={false} state={passwordConfirm} setState={setPasswordConfirm} />
+              <button className="button px-2 py-1 mb-4 relative" onClick={e => updateUser("password")}>
+                Change Password
+                {passwordLoading ? <div className="absolute -right-10"><Spinner /></div> : passwordSuccess ? <FontAwesomeIcon className="absolute -right-5" icon={faCheck} /> : <></>}
+              </button>
+            </div>
+
+            {/* === PASSWORD REQUIREMENT BOX === */}
+
+            <div className={`absolute lg:-left-64 top-48 min-w-fit p-2 rounded bg-stone-300 dark:bg-stone-600 border transition-all z-50 ${showPassReq ? "" : "hidden"}`}>
+              <p className="font-bold text-center underline mb-0">Password Requirements</p>
+              <ul>
+                <li>At least 6 characters long.</li>
+                <li>At least one uppercase letter</li>
+                <li>At least one lowercase letter</li>
+                <li>At least one digit (0-9)</li>
+                <li>
+                  At least one special character.</li>
+              </ul>
+              <p className="text-xs opacity-70 block mt-2 mb-0">Allowed special characters: !@#$%^&*()-_+.,=</p>
             </div>
           </>}
       </div>
