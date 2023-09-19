@@ -48,3 +48,33 @@ export async function PATCH(req: Request) {
     return NextResponse.json(data)
   }
 }
+
+// === DELETE METHOD ====
+
+export async function DELETE(req: Request) {
+  const data = { success: true, message: "User deleted successfully." }
+  try {
+    const token = cookies().get("token")?.value
+    if (!token) {
+      data.success = false
+      data.message = "No token found. Please contact support."
+      return NextResponse.json(data)
+    }
+    const client = await dbClient()
+    const users = client.collection("users")
+    const result = await users.deleteOne({ token })
+
+    if (!result.deletedCount) {
+      data.success = false
+      data.message = "No user found with provided token."
+      return NextResponse.json(data)
+    }
+
+    return NextResponse.json(data)
+
+  } catch (err) {
+    data.success = false
+    data.message = String(err)
+    return NextResponse.json(data)
+  }
+}

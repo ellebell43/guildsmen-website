@@ -156,6 +156,9 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
   const [verified, setVerified] = useState(false)
   const [showPassReq, setShowPassReq] = useState(false)
 
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false)
+  const [deleteLoading, setDeleteLoading] = useState(false)
+
   const verify = () => {
     // hash the password
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
@@ -233,7 +236,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
   if (!props.show) return <></>
   return (
     <div className={`fixed inset-0 z-50 flex justify-center items-center bg-stone-100 bg-opacity-50`}>
-      <div className="bg-stone-100 dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
+      <div className="bg-stone-100 max-h-[90vh] overflow-y-scroll dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
 
         <h2>User Settings</h2>
         <button
@@ -275,7 +278,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
             {/* === CHANGE PASSWORD SECTION === */}
 
             <div className="flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
-              <h2 className="border-none">Password</h2>
+              <h3 className="border-none">Password</h3>
               <div className="relative">
                 {/* === password requirement toggle === */}
                 <button
@@ -310,6 +313,54 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
                   At least one special character.</li>
               </ul>
               <p className="text-xs opacity-70 block mt-2 mb-0">Allowed special characters: !@#$%^&*()-_+.,=</p>
+            </div>
+
+            {/* === DELETE ACTION === */}
+
+            <div className="w-full flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
+              <button
+                onClick={e => setDeleteConfirmation(true)}
+                className="underline text-sm italic hover:text-red-400 my-4 opacity-50 hover:opacity-100 transition-all"
+              >
+                Delete my profile
+              </button>
+            </div>
+
+            {/* === DELETE CONFIRMATION === */}
+
+            <div className={`fixed inset-0 bg-stone-100 bg-opacity-70 z-50 flex justify-center items-center ${deleteConfirmation ? "" : "hidden"}`}>
+              <div className="bg-stone-100 max-w-[300px] overflow-y-scroll dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col items-center justify-center">
+                <p>Are you sure you want to delete your profile? This will permanently remove all user data including custom any custom made characters, creatures, and items associated with this profile. This cannot be undone.</p>
+                <div className="flex justify-center items-center gap-4 w-full mb-2">
+                  {/* Yes button */}
+                  <button
+                    onClick={e => {
+                      setDeleteLoading(true)
+                      fetch("/profile/api", { method: "DELETE" })
+                        .then(res => res.json())
+                        .then(data => {
+                          if (!data.success) {
+                            props.setError(data.message)
+                            setDeleteLoading(false)
+                          } else {
+                            mutate("/sign-in/api")
+                          }
+                        })
+                    }}
+                    className="button py-1 w-full opacity-60 hover:bg-red-300 hover:text-red-800 hover:opacity-100"
+                  >
+                    Yes
+                  </button>
+                  {/* No button */}
+                  <button
+                    onClick={e => setDeleteConfirmation(false)}
+                    className="button py-1 w-full"
+                  >
+                    No
+                  </button>
+                </div>
+                {deleteLoading ? <Spinner /> : <></>}
+              </div>
             </div>
           </>}
       </div>
