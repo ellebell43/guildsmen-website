@@ -29,10 +29,10 @@ export default function Changelog() {
           <ul>
             <RoadmapEntry text="Users will be able to create an account via a sign up page by providing a username, email, and password." completed={true} date="09/01/2023" />
             <RoadmapEntry text="Users will need to check a box that says they have read the terms and conditions and privacy policy to create their account." completed={true} date="09/02/2023" />
-            <RoadmapEntry text="Users will be able to log in to their accounts via a login page." completed={false} />
-            <RoadmapEntry text="Login session will last 24 hours or indefinitely if the user selects 'keep me logged in'." completed={false} />
+            <RoadmapEntry text="Users will be able to log in to their accounts via a login page." completed={true} date="09/03/2023" />
+            <RoadmapEntry text="Login session will last 24 hours or indefinitely if the user selects 'keep me logged in'." completed={true} date="09/10/20203" />
             <RoadmapEntry text="Users will be able to access a user page that shows their username and allows them to set a custom avatar, create a bio, and see their account age." completed={false} />
-            <RoadmapEntry text="From the user page, users will be able to change their password, logout, and delete their account. Both changing the password and deleting the account will require retyping in the password." completed={false} />
+            <RoadmapEntry text="From the user page, users will be able to change their password, logout, and delete their account. Both changing the password and deleting the account will require retyping in the password." completed={true} date="09/12/2023" />
             <RoadmapEntry text="Users can recover their password via the login screen, which directs them to email me personally as a temporary solution until I can afford buying a custom domain with a custom email to automate the process. Have this fact disclaimed when creating an account and when you go to recover your password." completed={false} />
           </ul>
 

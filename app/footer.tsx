@@ -27,7 +27,7 @@ export default function Footer() {
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>
         <p>Site programming by <Link href="https://aaronrutherford.dev">Aaron Rutherford</Link></p>
         <p><Link href="/changelog">Change log and road map</Link></p>
-        <p>v0.1.2</p>
+        <p>v0.2.0</p>
       </div>
     </footer>
   )
