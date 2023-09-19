@@ -27,6 +27,7 @@ export default function Profile() {
   const { data, isLoading, error } = getUserByToken()
   const router = useRouter()
 
+  // Make sure user is signed in. If not, reroute to sign-in page
   useEffect(() => {
     if (!isLoading && !data?.user) {
       router.push("/sign-in")
@@ -45,18 +46,25 @@ export default function Profile() {
   }
 
   const changeAvatarUrl = (url: string) => {
+    // set newUser to current user object for mutation
     let newUser = data?.user
+    // If the user exists, set the patchLoading to true to show a loading spinner for the user
     if (newUser) {
       setPatchLoading(true)
+      // Change the users avatar url
       newUser.avatarUrl = url
+      // Make a PATCH call to the profile API
       fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url } })
         .then(res => res.json())
         .then(data => {
+          // If API call wasn't successful, display the returned error message
           if (!data.success) {
             setPatchError(data.message)
           }
+          // hide the loading spinner and the avatar menu
           setPatchLoading(false)
           setAvatarMenu(false)
+          // Refresh the users data to quickly show the new avatar
           mutate("/sign-in/api")
         })
     }
@@ -72,17 +80,25 @@ export default function Profile() {
           <button type="button" onClick={e => setAvatarMenu(true)}>
             <FontAwesomeIcon icon={faPencil} className="absolute bottom-1 right-1 w-[15px] h-[15px] p-2 rounded-full shadow button" />
           </button>
+
           {/* === USER AVATAR === */}
+
           {data?.user?.avatarUrl ? <Image width={150} height={150} src={data.user.avatarUrl} alt="" className="rounded-full" /> : <FontAwesomeIcon icon={faUserCircle} className="w-[150px] h-[150px]" />}
         </div>
         <p className="text-2xl font-bold text-center mb-0">{String(data?.user?.username)}</p>
         <p className="mt-0 text-xs opacity-70 mb-2">User since {data?.user?.created ? formatDate(new Date(data.user.created)) : ""}</p>
         {data?.user?.bio ? <p className="mt-0 p-2 text-sm italic">{data.user.bio}</p> : <></>}
       </div>
+
+      {/* === SETTINGS BUTTON === */}
+
       <div className="flex gap-4 justify-center items-center w-fit mx-auto">
         <button onClick={e => setSettingsMenu(true)} className="button py-2 px-4 no-underline not-italic rounded">
           <FontAwesomeIcon icon={faGear} /> Settings
         </button>
+
+        {/* === SIGN OUT BUTTON === */}
+
         <button
           type="button"
           className="button py-2 px-4 rounded"
@@ -97,13 +113,16 @@ export default function Profile() {
       </div>
 
       {/* === AVATAR MENU === */}
+
       {!avatarMenu ? <></> :
         <div className="w-fit flex flex-col justify-center items-center mx-auto bg-stone-200 dark:bg-stone-800 border shadow-lg p-4 fixed top-10 left-[calc(50vw-173px)] z-50 rounded">
           {patchLoading ? <div className="absolute z-50 bg-opacity-50 bg-stone-500 inset-0 flex justify-center items-center"><Spinner /></div> : <></>}
+          {/* Exit button */}
           <button onClick={e => setAvatarMenu(false)} className="absolute top-1 right-2 text-sm">
             <FontAwesomeIcon icon={faX} />
           </button>
           <p className="text-xl font-bold m-0 mb-2">Select a new avatar</p>
+          {/* Avatar grid */}
           <div className="grid grid-cols-5 gap-4 w-fit">
             {avatarArray.map((el, i) => {
               return (
@@ -138,17 +157,21 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
   const [showPassReq, setShowPassReq] = useState(false)
 
   const verify = () => {
+    // hash the password
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    // Check to see if the passwords match. If so, clear the input and show the settings
     if (hashedPassword === data?.user?.password) {
       setPassword("")
       setVerified(true)
     } else {
+      // If password was incorrect, inform the user via error message
       props.setError("Incorrect password.")
     }
   }
 
   const updateUser = (field: "email" | "password") => {
     let headers: { updateEmail?: string, email?: string, updatePassword?: string, password?: string } = {}
+    // Check which field is being updated to customize headers and show the correct loading spinner
     switch (field) {
       case "email":
         setEmailLoading(true)
@@ -156,32 +179,39 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
         headers.email = email
         break
       case "password":
+        // Make sure the passwords match, or show an error
         if (password !== passwordConfirm) {
           props.setError("Passwords do not match.")
           return
+          // Make sure the passwords match the minimum requirements, or display and error
         } else if (!passwordTest.test(password)) {
           props.setError("Password does not meet minimum requirements.")
           return
         } else {
           setPasswordLoading(true)
           headers.updatePassword = "true"
+          // Hash the password 
           headers.password = crypto.createHash("sha256").update(password).digest("hex")
         }
     }
 
+    // API call to update the users
     fetch("/profile/api", { method: "PATCH", headers })
       .then(res => res.json())
       .then(data => {
+        // If the API call is unsuccessful, display the returned error
         if (!data.success) {
           props.setError(data.message)
-          console.log(data.message)
         } else {
+          // Otherwise display a checkmark for the field that was updated
           if (headers.password) {
             setPasswordSuccess(true)
           } else {
             setEmailSuccess(true)
           }
+          // Clear all input fields and loading spinners, but not check marks
           clearInputs(true)
+          // Refresh the users data
           mutate("/sign-in/api")
         }
       })
