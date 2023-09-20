@@ -93,7 +93,10 @@ export default function SignIn() {
       </button>
 
       {/* === SIGN UP LINK === */}
-      <p className="text-xs">Don&apos;t have an account? <Link href="/sign-up">Sign up</Link>.</p>
+      <div className="flex flex-col justify-center items-center gap-1 my-4 opacity-70">
+        <p className="text-xs m-0">Don&apos;t have an account? <Link href="/sign-up">Sign up</Link>.</p>
+        <p className="text-xs m-0">Forgot your password? <Link href="/recover">Recover it</Link>.</p>
+      </div>
 
       {/* === NEW USER CREATED MESSAGE === */}
       <p className={`text-green-800 border rounded border-green-800 bg-green-300 fixed p-4 shadow-lg bottom-4 transition-all -z-0 ${showNewUserMessage ? "opacity-100" : "opacity-0"}`}>User Created Successfully</p>
