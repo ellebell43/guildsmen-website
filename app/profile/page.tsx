@@ -16,6 +16,7 @@ import { EmailInput, PasswordInput } from "@/util/input-components/input-element
 import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
+import Passwords from "../passwords"
 
 export default function Profile() {
   const [avatarMenu, setAvatarMenu] = useState(false)
@@ -236,7 +237,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
   if (!props.show) return <></>
   return (
     <div className={`fixed inset-0 z-50 flex justify-center items-center bg-stone-100 bg-opacity-50`}>
-      <div className="bg-stone-100 max-h-[90vh] overflow-y-scroll dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
+      <div className="bg-stone-100 max-h-[90vh] dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
 
         <h2>User Settings</h2>
         <button
@@ -279,21 +280,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
             <div className="flex flex-col justify-center items-center border-y-2 border-stone-800 dark:border-stone-100">
               <h3 className="border-none">Password</h3>
-              <div className="relative">
-                {/* === password requirement toggle === */}
-                <button
-                  onMouseEnter={e => setShowPassReq(true)}
-                  onMouseLeave={e => setShowPassReq(false)}
-                  onTouchStart={e => setShowPassReq(true)}
-                  onTouchEnd={e => setShowPassReq(false)}
-                  className="absolute -left-[35px] top-[17px]">
-                  <FontAwesomeIcon icon={faCircleInfo} />
-                </button>
-                {/* === password input === */}
-                <PasswordInput label="New Password" id="password" required={false} state={password} setState={setPassword} />
-              </div>
-              {/* === confirm password input === */}
-              <PasswordInput label="Confirm New Password" id="passwordConfirm" required={false} state={passwordConfirm} setState={setPasswordConfirm} />
+              <Passwords password={password} setPassword={setPassword} setPasswordConfirm={setPasswordConfirm} passwordConfirm={passwordConfirm} />
               <button className="button px-2 py-1 mb-4 relative" onClick={e => updateUser("password")}>
                 Change Password
                 {passwordLoading ? <div className="absolute -right-10"><Spinner /></div> : passwordSuccess ? <FontAwesomeIcon className="absolute -right-5" icon={faCheck} /> : <></>}

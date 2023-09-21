@@ -10,6 +10,7 @@ import crypto from "crypto"
 import Spinner from "../spinner"
 import { badWords } from "@/util/bad-words"
 import { useRouter } from "next/navigation"
+import Passwords from "../passwords"
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
@@ -107,45 +108,8 @@ export default function SignUp() {
           setState={setEmail}
         />
 
-        {/* === PASSWORD REQUIREMENT TOGGLE === */}
-        <button
-          onMouseEnter={e => setShowPassReq(true)}
-          onMouseLeave={e => setShowPassReq(false)}
-          onTouchStart={e => setShowPassReq(true)}
-          onTouchEnd={e => setShowPassReq(false)}
-          className="absolute left-0 top-[203px]">
-          <FontAwesomeIcon icon={faCircleInfo} />
-        </button>
-
-        {/* === PASSWORD REQUIREMENT BOX === */}
-        <div className={`absolute lg:-left-64 top-28 min-w-fit p-2 rounded bg-stone-300 dark:bg-stone-600 border transition-all z-50 ${showPassReq ? "opacity-100" : "opacity-0"}`}>
-          <p className="font-bold text-center underline mb-0">Password Requirements</p>
-          <ul>
-            <li>At least 6 characters long.</li>
-            <li>At least one uppercase letter</li>
-            <li>At least one lowercase letter</li>
-            <li>At least one digit (0-9)</li>
-            <li>
-              At least one special character.</li>
-          </ul>
-          <p className="text-xs opacity-70 block mt-2 mb-0">Allowed special characters: !@#$%^&*()-_+.,=</p>
-        </div>
-
-        <PasswordInput
-          label="Password"
-          id="password"
-          required={true}
-          state={password}
-          setState={setPassword}
-        />
-
-        <PasswordInput
-          label="Confirm Password"
-          id="passwordConfirm"
-          required={true}
-          state={passwordConfirm}
-          setState={setPAsswordConfirm}
-        />
+        {/* === PASSWORDS === */}
+        <Passwords password={password} setPassword={setPassword} passwordConfirm={passwordConfirm} setPasswordConfirm={setPAsswordConfirm} />
 
         {/* === TERMS & CONDITIONS CHECK === */}
         <div className="flex gap-2 justify-center items-center">
