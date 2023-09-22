@@ -76,6 +76,18 @@ export default function Changelog() {
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
           <ChangelogEntry
+            date="09/22/2023"
+            version="v0.2.0"
+            entries={[
+              "User Account feature added.",
+              "Users can now create, edit, and delete profiles.",
+              "Users can select user avatars from a list to customize their profile.",
+              "Users can edit their email and password.",
+              "Users can reset their password via email.",
+              "Users can edit a bio to be featured on their profile page."
+            ]}
+          />
+          <ChangelogEntry
             date="08/30/2023"
             version="v0.1.2"
             entries={[
