@@ -80,7 +80,7 @@ export default function Recover() {
 
           {/* === UPDATE PASSWORD FORM === */}
 
-          <p>Let's get you a new password!</p>
+          <p>Let&apos;s get you a new password!</p>
           <Passwords password={password} passwordConfirm={passwordConfirm} setPassword={setPassword} setPasswordConfirm={setPasswordConfirm} />
           <button
             className={`${submitButton} flex gap-2 justify-center items-center`}
@@ -94,12 +94,12 @@ export default function Recover() {
 
           // === SUCCESS MESSAGE ===
 
-          <p>If an account is associated with that email, you'll find an email with reset instructions in your inbox.</p> :
+          <p>If an account is associated with that email, you&apos;ll find an email with reset instructions in your inbox.</p> :
 
           // === RECOVERY EMAIL FORM ===
 
           <>
-            <p className="text-center w-1/2">Forgot your password? That's okay! Please provide the email address associated with your account and we will send recovery instruction to your inbox.</p>
+            <p className="text-center w-1/2">Forgot your password? That&apos;s okay! Please provide the email address associated with your account and we will send recovery instruction to your inbox.</p>
 
             <EmailInput state={email} setState={setEmail} label="Email" id="email" required={true} />
             <button className={`flex gap-2 justify-center items-center ${submitButton}`} disabled={!email} onClick={emailUser}>Submit {loading ? <Spinner /> : <></>}</button>
