@@ -8,14 +8,13 @@ import { mutate } from "swr"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons"
-import { faCheck, faGear, faPencil, faSignOut, faX } from "@fortawesome/free-solid-svg-icons"
+import { faCheck, faGear, faPencil, faSignOut, faSpinner, faX } from "@fortawesome/free-solid-svg-icons"
 import Image from "next/image"
 import avatarArray from "@/util/avatar-array"
 import ErrorMessage from "../error-message"
 import { EmailInput, PasswordInput } from "@/util/input-components/input-elements"
 import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import Passwords from "../passwords"
 
 export default function Profile() {
@@ -24,6 +23,10 @@ export default function Profile() {
 
   const [patchLoading, setPatchLoading] = useState(false)
   const [patchError, setPatchError] = useState("")
+
+  const [bio, setBio] = useState("")
+  const [bioLoading, setBioLoading] = useState(false)
+  const [editBio, setEditBio] = useState(false)
 
   const { data, isLoading, error } = getUserByToken()
   const router = useRouter()
@@ -34,6 +37,11 @@ export default function Profile() {
       router.push("/sign-in")
     }
   }, [isLoading, data])
+
+  useEffect(() => {
+    const input = document.getElementById("bio-input")
+    if (input) input.focus()
+  }, [editBio])
 
   // Clear error every 5 seconds if error hasn't been cleared
   useEffect(() => {
@@ -71,6 +79,23 @@ export default function Profile() {
     }
   }
 
+  const updateBio = () => {
+    setBioLoading(true)
+    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) {
+          setBioLoading(false)
+          setEditBio(false)
+          setPatchError(data.message)
+        } else {
+          setBioLoading(false)
+          setEditBio(false)
+          mutate("/sign-in/api")
+        }
+      })
+  }
+
   if (isLoading) return <Spinner />
   if (error) return <p>{String(error)}</p>
   return (
@@ -88,7 +113,23 @@ export default function Profile() {
         </div>
         <p className="text-2xl font-bold text-center mb-0">{String(data?.user?.username)}</p>
         <p className="mt-0 text-xs opacity-70 mb-2">User since {data?.user?.created ? formatDate(new Date(data.user.created)) : ""}</p>
-        {data?.user?.bio ? <p className="mt-0 p-2 text-sm italic">{data.user.bio}</p> : <></>}
+        {/* Bio */}
+        <div className="p-2 rounded shadow border mb-6 relative min-h-[50px]">
+          <p className="text-xs absolute -top-6 left-4 bg-stone-100 dark:bg-stone-700 p-1">Bio</p>
+          {data?.user?.bio && editBio ?
+            <textarea value={bio} onChange={e => setBio(e.target.value)} className="w-[300px] h-[150px] bg-inherit text-sm mt-2" id="bio-input" /> :
+            data?.user?.bio ? <p className="text-sm italic w-[300px]">{data.user.bio}</p> : <></>}
+          <button type="button" onClick={e => {
+            if (!editBio) {
+              setEditBio(true);
+              setBio(data?.user?.bio ? data.user.bio : "")
+            } else {
+              updateBio()
+            }
+          }}>
+            <FontAwesomeIcon icon={bioLoading ? faSpinner : editBio ? faCheck : faPencil} className={`absolute -bottom-2 -right-2 w-[15px] h-[15px] p-2 rounded-full shadow button ${bioLoading ? "animate-spin" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {/* === SETTINGS BUTTON === */}
