@@ -77,6 +77,13 @@ export default function Changelog() {
         <ul>
           <ChangelogEntry
             date="09/22/2023"
+            version="v0.2.2"
+            entries={[
+              "Fixed missing and inconsistent metadata (page titles)."
+            ]}
+          />
+          <ChangelogEntry
+            date="09/22/2023"
             version="v0.2.1"
             entries={[
               "Fixed issue with users being unable to login due to missing environment variables.",

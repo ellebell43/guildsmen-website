@@ -9,6 +9,9 @@ import ErrorMessage from "../error-message"
 import Spinner from "../spinner"
 import { useRouter } from "next/navigation"
 import { mutate } from "swr"
+import { Metadata } from "next"
+
+export const metadata: Metadata = { title: "Guildsmen | Sign In" }
 
 export default function SignIn() {
   let [username, setUsername] = useState("")

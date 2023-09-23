@@ -16,6 +16,9 @@ import { EmailInput, PasswordInput } from "@/util/input-components/input-element
 import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
 import Passwords from "../passwords"
+import { Metadata } from "next"
+
+export const metadata: Metadata = { title: "Guildsmen | My Profile" }
 
 export default function Profile() {
   const [avatarMenu, setAvatarMenu] = useState(false)

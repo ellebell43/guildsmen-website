@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { linkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
-  title: "Guildsmen Lore",
+  title: "Guildsmen | Lore",
   description: "The starting point for exploring the lore of Thelius, the core world of Guildsmen"
 }
 
