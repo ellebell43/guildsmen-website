@@ -7,9 +7,8 @@ export const metadata: Metadata = {
   description: "The starting point for exploring the lore of Thelius, the core world of Guildsmen"
 }
 
-export const inactiveLinkClass = "px-10 py-2 w-[330px] border text-center line-through bg-stone-200 text-stone-400 border-stone-400 dark:bg-stone-500"
-
 export default function Lore() {
+  const inactiveLinkClass = "px-10 py-2 w-[330px] border text-center line-through bg-stone-200 text-stone-400 border-stone-400 dark:bg-stone-500"
   const listClass = "list-none flex flex-col justify-center items-center gap-4 my-4"
   return (
     <article>
