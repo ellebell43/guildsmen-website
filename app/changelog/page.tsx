@@ -77,6 +77,17 @@ export default function Changelog() {
         <ul>
           <ChangelogEntry
             date="09/22/2023"
+            version="v0.2.1"
+            entries={[
+              "Fixed issue with users being unable to login due to missing environment variables.",
+              "Removed 'muff' from the list of bad words.",
+              "Fixed bio card width on user profiles when the bio is empty.",
+              "Fixed the size of the default user avatar on the profile page.",
+              "Fixed the styling of links on the lore page."
+            ]}
+          />
+          <ChangelogEntry
+            date="09/22/2023"
             version="v0.2.0"
             entries={[
               "User Account feature added.",

@@ -104,17 +104,17 @@ export default function Profile() {
         <div className="relative w-fit">
           {/* Avatar edit button */}
           <button type="button" onClick={e => setAvatarMenu(true)}>
-            <FontAwesomeIcon icon={faPencil} className="absolute bottom-1 right-1 w-[15px] h-[15px] p-2 rounded-full shadow button" />
+            <FontAwesomeIcon icon={faPencil} className="absolute z-20 bottom-1 right-1 w-[15px] h-[15px] p-2 rounded-full shadow button" />
           </button>
 
           {/* === USER AVATAR === */}
 
-          {data?.user?.avatarUrl ? <Image width={150} height={150} src={data.user.avatarUrl} alt="" className="rounded-full" /> : <FontAwesomeIcon icon={faUserCircle} className="w-[150px] h-[150px]" />}
+          {data?.user?.avatarUrl ? <Image width={150} height={150} src={data.user.avatarUrl} alt="" className="rounded-full" /> : <Image src="/avatars/user.svg" className="dark:invert dark:filter" width={150} height={150} alt="" />}
         </div>
         <p className="text-2xl font-bold text-center mb-0">{String(data?.user?.username)}</p>
         <p className="mt-0 text-xs opacity-70 mb-2">User since {data?.user?.created ? formatDate(new Date(data.user.created)) : ""}</p>
         {/* Bio */}
-        <div className="p-2 rounded shadow border mb-6 relative min-h-[50px]">
+        <div className="p-2 rounded shadow border mb-6 relative min-h-[50px] min-w-[300px]">
           <p className="text-xs absolute -top-6 left-4 bg-stone-100 dark:bg-stone-700 p-1">Bio</p>
           {data?.user?.bio && editBio ?
             <textarea value={bio} onChange={e => setBio(e.target.value)} className="w-[300px] h-[150px] bg-inherit text-sm mt-2" id="bio-input" /> :
