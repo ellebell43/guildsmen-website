@@ -5,7 +5,7 @@ import { faBook, faPersonHiking, faUserNinja, faGem, faHammer, faScrewdriverWren
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Guildsmen | Rules",
+  title: "Guildsmen TTRPG | Rules",
   description: "Table of contents for the various rule chapters of Guildsmen"
 }
 

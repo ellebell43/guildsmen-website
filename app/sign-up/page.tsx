@@ -2,19 +2,15 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { TextInput, EmailInput } from "@/util/input-components/input-elements"
+import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/input-elements"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
 import { badWords } from "@/util/bad-words"
 import { useRouter } from "next/navigation"
 import Passwords from "../passwords"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Guildsmen | Sign-up",
-  description: "Create an account to create custom creatures and characters and share your creations with the community."
-}
 
 export default function SignUp() {
   const [username, setUsername] = useState("")
