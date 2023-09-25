@@ -34,7 +34,7 @@ export default function ProfileClient() {
     if (!isLoading && !data?.user) {
       router.push("/sign-in")
     }
-  }, [isLoading, data])
+  }, [isLoading, data, router])
 
   useEffect(() => {
     const input = document.getElementById("bio-input")

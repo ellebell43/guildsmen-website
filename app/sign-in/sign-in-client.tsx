@@ -28,7 +28,7 @@ export default function SignInClient() {
       setShowNewUserMessage(true)
       setTimeout(() => setShowNewUserMessage(false), 5000)
     }
-  }, [])
+  }, [params])
 
   // Clear error every 5 seconds if error hasn't been cleared
   useEffect(() => {
