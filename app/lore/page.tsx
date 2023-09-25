@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { linkClass, inactiveLinkClass } from "@/util/variables";
+import { linkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
   title: "Guildsmen Lore",
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default function Lore() {
+  const inactiveLinkClass = "px-10 py-2 w-[330px] border text-center line-through bg-stone-200 text-stone-400 border-stone-400 dark:bg-stone-500"
   const listClass = "list-none flex flex-col justify-center items-center gap-4 my-4"
   return (
     <article>
@@ -39,7 +40,7 @@ export default function Lore() {
         <div>
           <h2>The Ancestor City-States</h2>
           <ul className={listClass}>
-            <li className={linkClass}><Link href="/lore/ancestor-cities/arbor">Arbor - City of the Locess</Link></li>
+            <li><Link href="/lore/ancestor-cities/arbor" className={linkClass}>Arbor - City of the Locess</Link></li>
             <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
             <li className={inactiveLinkClass}>Corden - City of the Orcs</li>
             <li className={inactiveLinkClass}>Inidom - City of the Matari</li>
