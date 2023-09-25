@@ -76,6 +76,14 @@ export default function Changelog() {
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
           <ChangelogEntry
+            date="09/25/2023"
+            version="v0.2.2"
+            entries={[
+              "Fixed an inconsistent page title in the metadata.",
+              "Added title metadata to pages that were missing it."
+            ]}
+          />
+          <ChangelogEntry
             date="09/22/2023"
             version="v0.2.1"
             entries={[
