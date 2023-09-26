@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en" id="html" className="dark">
       <body className={`${gentium.className} dark:bg-stone-700 dark:text-stone-100 transition-all`}>
         <Nav />
-        <main className="dark:bg-stone-700 dark:text-stone-100 transition-all pt-5">
+        <main className="dark:bg-stone-700 dark:text-stone-100 transition-all pt-5" id="main">
           {children}
         </main>
         <Footer />

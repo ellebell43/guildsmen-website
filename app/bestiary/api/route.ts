@@ -12,7 +12,7 @@ export async function GET(req: Request) {
     dataToReturn[0] ? success = true : success = false;
   } catch (err) {
     console.log(err);
-    dataToReturn = err;
+    dataToReturn = { success: false, data: err };
     success = false;
   }
 

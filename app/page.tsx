@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <h1>Welcome to Guildsmen!</h1>
-      <p>Welcome to Guildsmen! A steampunk, fantasy-esque, pen and paper, table-top roleplaying game. Here, you will create a character and interact with the fantastic world of Thelius. This game is a “theater of the mind” experience where one player (known as the Game Master) will create an adventure that the other players will play through as characters in that adventure. All you&apos;ll need to play this game is this website! Characters can be created and used through the <Link href="/resources/characters">character creator</Link> in the Resources tab</p>
+      <p>Welcome to Guildsmen! A steampunk, fantasy-esque, pen and paper, table-top roleplaying game. Here, you will create a character and interact with the fantastic world of Thelius. This game is a “theater of the mind” experience where one player (known as the Game Master) will create an adventure that the other players will play through as characters in that adventure. All you&apos;ll need to play this game is this website!</p>
 
       <p><em>If you&apos;ve never played a table-top roleplay game before, you&apos;re in for a treat! </em></p>
 

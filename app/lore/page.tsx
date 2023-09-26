@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 }
 
 export default function Lore() {
+  const inactiveLinkClass = "px-10 py-2 w-[330px] border text-center line-through bg-stone-200 text-stone-400 border-stone-400 dark:bg-stone-500"
+  const listClass = "list-none flex flex-col justify-center items-center gap-4 my-4"
   return (
     <article>
       <h1>Lore</h1>
@@ -16,45 +18,45 @@ export default function Lore() {
       <div className="md:grid md:grid-cols-2">
         <div>
           <h2>The World of Thelius</h2>
-          <ul className="listClass">
-            <li className="linkClass">The Atlas of Thelius</li>
-            <li className="linkClass">General World History</li>
+          <ul className={listClass}>
+            <li className={inactiveLinkClass}>The Atlas of Thelius</li>
+            <li className={inactiveLinkClass}>General World History</li>
           </ul>
         </div>
 
         <div>
           <h2>Sophonts of Thelius</h2>
-          <ul className="listClass">
-            <li className="linkClass">The Locess</li>
-            <li className="linkClass">The Mausca</li>
-            <li className="linkClass">The Orcs</li>
-            <li className="linkClass">The Matari</li>
-            <li className="linkClass">The Slated</li>
-            <li className="linkClass">The Ungal</li>
+          <ul className={listClass}>
+            <li className={inactiveLinkClass}>The Locess</li>
+            <li className={inactiveLinkClass}>The Mausca</li>
+            <li className={inactiveLinkClass}>The Orcs</li>
+            <li className={inactiveLinkClass}>The Matari</li>
+            <li className={inactiveLinkClass}>The Slated</li>
+            <li className={inactiveLinkClass}>The Ungal</li>
           </ul>
         </div>
 
         <div>
           <h2>The Ancestor City-States</h2>
-          <ul className="listClass">
-            <li className="linkClass"><Link href="/lore/ancestor-cities/arbor">Arbor - City of the Locess</Link></li>
-            <li className="linkClass">Aquina - City of the Mausca</li>
-            <li className="linkClass">Corden - City of the Orcs</li>
-            <li className="linkClass">Inidom - City of the Matari</li>
-            <li className="linkClass">Kulasis - City of the Slated</li>
-            <li className="linkClass">Galus - City of the Ungal</li>
+          <ul className={listClass}>
+            <li><Link href="/lore/ancestor-cities/arbor" className={linkClass}>Arbor - City of the Locess</Link></li>
+            <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
+            <li className={inactiveLinkClass}>Corden - City of the Orcs</li>
+            <li className={inactiveLinkClass}>Inidom - City of the Matari</li>
+            <li className={inactiveLinkClass}>Kulasis - City of the Slated</li>
+            <li className={inactiveLinkClass}>Galus - City of the Ungal</li>
           </ul>
         </div>
 
         <div>
           <h2>Mythical Creatures and Navidus</h2>
-          <ul className="listClass">
-            <li className="linkClass">Mythical Biology</li>
-            <li className="linkClass">Navidus</li>
-            <li className="linkClass">Navidus Crystals</li>
-            <li className="linkClass">Navidus Energy</li>
-            <li className="linkClass">Myth</li>
-            <li className="linkClass">Cetrifuge Technology</li>
+          <ul className={listClass}>
+            <li className={inactiveLinkClass}>Mythical Biology</li>
+            <li className={inactiveLinkClass}>Navidus</li>
+            <li className={inactiveLinkClass}>Navidus Crystals</li>
+            <li className={inactiveLinkClass}>Navidus Energy</li>
+            <li className={inactiveLinkClass}>Myth</li>
+            <li className={inactiveLinkClass}>Cetrifuge Technology</li>
           </ul>
         </div>
       </div>

@@ -123,6 +123,19 @@
     @apply bg-stone-500 text-stone-100 border-stone-400
   }
 
+  .inactiveButton {
+    @apply text-red-400
+  }
+
+  .dark .inactiveButton {
+    @apply bg-stone-500 text-stone-300 line-through border-stone-700 text-center
+  }
+
+  .button a,
+  .inactiveButton a {
+    @apply no-underline not-italic;
+  }
+
   .narration {
     @apply text-sky-700;
   }
@@ -137,6 +150,10 @@
 
   .dark .border {
     @apply border-stone-100
+  }
+
+  .error {
+    @apply text-red-400 font-bold text-center
   }
 
   /* ---------- TABLE STYLES ---------- */
@@ -196,8 +213,8 @@
     @apply font-bold text-lg;
   }
 
-  .description {
-    @apply mt-0 opacity-50
+  .itemDescription {
+    @apply mt-0 p-0 opacity-50 border-none -z-10 relative
   }
 
   .crystal {

@@ -1,0 +1,19 @@
+.h2 {
+  @apply border-b-2
+}
+
+.h3 {
+  @apply border-none text-left underline min-w-full
+}
+
+.strikeout {
+  @apply line-through opacity-60
+}
+
+.date {
+  @apply font-bold text-lg mb-0
+}
+
+.version {
+  @apply text-sm opacity-70 m-0
+}
