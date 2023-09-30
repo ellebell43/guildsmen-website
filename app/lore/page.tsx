@@ -21,7 +21,7 @@ export default function Lore() {
           <h2>The World of Thelius</h2>
           <ul className={listClass}>
             <li className={inactiveLinkClass}>The Atlas of Thelius</li>
-            <li className={inactiveLinkClass}>General World History</li>
+            <li><Link href="/lore/the-world-of-thelius/general-world-history" className={linkClass}>General World Histroy</Link></li>
           </ul>
         </div>
 
