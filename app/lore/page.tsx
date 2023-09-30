@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { linkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
-  title: "Guildsmen Lore",
+  title: "Guildsmen | Lore",
   description: "The starting point for exploring the lore of Thelius, the core world of Guildsmen"
 }
 
@@ -56,7 +57,16 @@ export default function Lore() {
             <li className={inactiveLinkClass}>Navidus Crystals</li>
             <li className={inactiveLinkClass}>Navidus Energy</li>
             <li className={inactiveLinkClass}>Myth</li>
-            <li className={inactiveLinkClass}>Cetrifuge Technology</li>
+            <li className={inactiveLinkClass}>Myth & Sophont Anatomy</li>
+            <li className={inactiveLinkClass}>Centrifuge Technology</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Types of Mythical Creatures</h2>
+          <ul className={listClass}>
+            <li><Link href="/lore/types-of-mythical-creatures/fictus-arboreus" className={linkClass}>Fictus Arboreus (Hunting Tree)</Link></li>
+
           </ul>
         </div>
       </div>
