@@ -21,6 +21,7 @@ export default function SignIn() {
   // get url query params
   const params = useSearchParams()
   const router = useRouter()
+  const returnTo = params.get("return")
 
   // if redirected from sign-up, show a success message
   useEffect(() => {
@@ -51,7 +52,11 @@ export default function SignIn() {
           // Otherwise, refresh the cached user data and navigate to the profile page
           mutate("/sign-in/api")
           setTimeout(() => {
-            router.push("/profile")
+            if (returnTo) {
+              router.push(returnTo)
+            } else {
+              router.push("/profile")
+            }
             setLoading(false)
           }, 2000)
         }
