@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import PrivateRoute from "@/util/components/private-route"
+import CharacterForm from "./character-form"
 
 export const metadata: Metadata = { title: "Guildsmen | Character Creator" }
 
@@ -8,7 +9,7 @@ export default function CharacterCreator() {
     <>
       <h1>Character Creator</h1>
       <PrivateRoute>
-        <p>test</p>
+        <CharacterForm />
       </PrivateRoute>
     </>
   )
