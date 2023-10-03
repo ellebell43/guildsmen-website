@@ -33,7 +33,7 @@ export default function CreatureBlock(props: { creature: creature }) {
         <h1 className="title">{creature.name} ({creature.hazardWord}, {getModifier(creature.modifier)})</h1>
         <div className="stats">
           <p>Tough {getModifier(creature.stats.tough)} | Nimble {getModifier(creature.stats.nimble)}</p>
-          <p>Compentence {getModifier(creature.stats.compentence)} | Constitution {getModifier(creature.stats.constitution)}</p>
+          <p>Competence {getModifier(creature.stats.competence)} | Constitution {getModifier(creature.stats.constitution)}</p>
           <p>Harm {creature.stats.harm} | Armor {creature.stats.armor}</p>
         </div>
 
