@@ -5,22 +5,6 @@ export const metadata: Metadata = {
   description: "The general world history of Thelius, the core world of Guildsmen"
 }
 export default function GeneralWorldHistory() {
-  {/* - Before the mythic crisis, the world was at it's renaissance period
-      - Most of the Species had made contact with each other by this time
-      - The world was widely settled with many cities, villages, etc.
-      - For most cultures, the history of this time period is fairly unknown due to the chaos of the Mythic Crisis
-      - The mythic crisis threw the world back hundreds of years in all areas of knowledge (tech, health, culture, etc)
-      - During the crisis, most people fled to cities, and overtime, as they realized their cities would not last, expeditionary groups were set out to find places with natural protections that they could survive in.
-        - This is how the Ancestor City-States were founded
-        - The successful city-states (of which, there are only the 6) were built in locations where a species specific adaptations were most advantageous.
-        - Because of this, over the first 100 years of building these cities, the bio-diversity of the population dropped completely until only 1 species was left.
-      - It's been about 500 years (10-15 generations) since the foundings of the Ancestor City-States, and knowledge of the other species has become legend
-      - Approx. 500 years after the original foundings of the city-states, the airship was invented in Kulasis, city of the Slated, allowing open and moderately safe exploration of the world once again.
-      - Over the next 50 years, the Slated began founding Avidal, City of Progress and as they rediscovered the other sentient species, they invited them to Avidal to create a hub of culture, science, and industry
-      - The current time period is another 50 years past this. So Avidal is now 100 years old, all the other ancestor cities are roughly 600 years old.
-        - Knowledge of the time before the crisis has been collected from the various species and they have a spotty understanding of the time before.
-        - Understanding of mythical biology, Navidus energy, and centrifuge technology is currently emerging as modern science along side the study of steam power, electricity, mechanics, and industry.
-        -  */}
   return (
     <article>
       <section>
@@ -50,6 +34,12 @@ export default function GeneralWorldHistory() {
 
       <section id="the-mythic-crisis">
         <h2>The Mythic Crisis</h2>
+        {/* 
+        - Navidus energy originates from one very specific plant in one very specific place
+        - Normally these plants are only eaten by dragons (the original, singular mythical creature )
+          - Dragons are migratory, small animals that only eat this one plant
+        - Displaced prey species ate these plants and become unnatural mythic creatures
+          - Mythic creatures must eat to maintain their body or the navidus crystal out-paces their body and kills them */}
       </section>
 
       <section>
@@ -58,10 +48,16 @@ export default function GeneralWorldHistory() {
 
       <section id="navidus-energy">
         <h2>Navidus Energy</h2>
+        {/* Most mythic creatures a very large since they can survive eating worse things for them that the Navidus energy parasite forces them to eat */}
       </section>
 
       <section id="the-use-of-myth">
         <h2>The Use of Myth</h2>
+        {/* 
+        - using unrefined myth causes an individual to become a mythic person
+          - Essentially a ravenous cannibal (they eat anything) with terrifying powers 
+          - Zombies but better
+          - Some sophonts should get sick from eating their own kind (or raw meats in general), and they die from illness */}
       </section>
 
       <section id="centrifuge-technology">
