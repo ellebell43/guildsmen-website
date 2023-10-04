@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
-export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string }) {
+export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined }) {
   let { label, required, id, setState, state } = props
 
   const MAX_USERNAME_LENGTH = 12
@@ -35,7 +35,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
           // Also, max username length is 12 characters
           if (id == "username") {
             if (e.key === "Backspace" || e.key === "Tab") return
-            if (state.length >= MAX_USERNAME_LENGTH) e.preventDefault()
+            if (state && state.length >= MAX_USERNAME_LENGTH) e.preventDefault()
             if (!e.key.match(/[a-zA-Z0-9_-]/)) e.preventDefault()
           }
         }}
