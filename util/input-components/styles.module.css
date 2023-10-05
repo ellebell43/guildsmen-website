@@ -33,3 +33,11 @@
 .labelActive {
   @apply -top-3 -left-2 text-[8px]
 }
+
+.placeholderText {
+  @apply text-gray-600
+}
+
+.darkPlaceholderText {
+  @apply text-gray-300
+}
