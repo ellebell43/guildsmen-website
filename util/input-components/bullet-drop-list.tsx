@@ -1,26 +1,32 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styles from "./styles.module.css"
 import { useEffect, useState } from "react"
-import { faPlay } from "@fortawesome/free-solid-svg-icons"
+import { faPlay, faInfoCircle, faX } from "@fortawesome/free-solid-svg-icons"
+import TextInputWithInfo from "./text-with-info"
 
-export default function BulletDropList(props: { entries: string[], state: string | undefined, setState: Function, placeholder: string }) {
+export default function BulletDropList(props: { entries: string[], state: string | undefined, setState: Function, placeholder: string, info?: React.ReactNode }) {
   const [dark, setDark] = useState(false)
   const [active, setActive] = useState(false)
+  const [showInfo, setShowInfo] = useState(false)
 
   useEffect(() => { setDark(localStorage.getItem("isDark") == "true") }, [])
 
   return (
-    <div
-      className="flex justify-center items-center flex-col relative transition-all"
-      style={{ marginBottom: active ? 42 * props.entries.length : 0 }}
-    >
-      <p
-        className={`${styles.inputField} ${dark ? styles.darkInputField : styles.lightInputField} ${props.state ? "" : dark ? styles.darkPlaceholderText : styles.placeholderText}`}
-        onClick={e => setActive(!active)}
-      >
-        {!props.state ? props.placeholder : props.state}
-        <FontAwesomeIcon icon={faPlay} className="absolute right-2 text-xs top-2 transition-all" style={{ rotate: active ? "-90deg" : "90deg" }} />
-      </p>
+    <div className="flex justify-center items-center flex-col relative transition-all">
+      <div className="relative w-fit mx-auto">
+        <button
+          onClick={e => setActive(!active)}
+          className="absolute right-2 text-xs top-2 transition-all hover:cursor-pointer w-10 h-10 z-20"
+          style={{ rotate: active ? "-90deg" : "90deg" }}
+        >
+          <FontAwesomeIcon icon={faPlay} />
+        </button>
+
+        <TextInputWithInfo label="Species*" id="species" required={true} state={props.state} setState={props.setState} readonly={true}>
+          {props.info}
+        </TextInputWithInfo>
+      </div>
+
       <div
         className={`flex flex-col transition-all gap-0 origin-top absolute`}
         style={{ width: 240, scale: active ? 1 : 0, transformOrigin: "top", top: 50 }}

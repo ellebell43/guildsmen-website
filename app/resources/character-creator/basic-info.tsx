@@ -195,33 +195,8 @@ export default function BasicInfo(props: props) {
   return (
     <>
       <h2>Basic Information</h2>
-      <Details>
-        <p>The first step for creating a character is to determine your name, demeanor, physique, and species.</p>
 
-        <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
-
-        <p><strong>Species</strong> is your character&apos;s Species. In this game, there are six unique races for you to choose from: Locess, Mausca, Orcs, Matari, Slated, and Ungal. A list of these races with descriptions is further down.</p>
-
-        <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
-
-        <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
-
-        <p>By combining these four fields, you can create a brief description of your character. For example: A fat, jovial Mausca named Bob.</p>
-
-        <p>Selecting a species will determine your stats. Your stats are four terms located at the top-right of your character sheet: Nimble, Tough, Competence, and Constitution.</p>
-
-        <p><strong>Nimble</strong> defines your character&apos;s agility. Nimble is used to move quickly, jump over objects, dodge, and for any other actions that require more finesse.</p>
-
-        <p><strong>Tough</strong> defines your character&apos;s physical strength. Tough is used to lift and move heavy objects, wrestle other creatures, and for any other actions that require more strength.</p>
-
-        <p><strong>Competence</strong> defines your character&apos;s ability to act under pressure, read situations, and see things that other people wouldn&apos;t. It will be used in moments of pressure and crisis.</p>
-
-        <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addiction, to exert yourself for extended periods of time, and for any other actions that require resistance or endurance.</p>
-
-        <p>When you pick a species, you are given a modifier next to each stat. Fill in the corresponding bubbles on your character sheet to match the modifiers given.</p>
-      </Details>
-
-      <TextInputWithInfo label="Name" id="name" required={true} state={props.name} setState={props.setName}>
+      <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
         <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
       </TextInputWithInfo>
 
@@ -233,7 +208,16 @@ export default function BasicInfo(props: props) {
         <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
       </TextInputWithInfo>
 
-      <BulletDropList entries={["Locess", "Mausca", "Orc", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species" />
+      <BulletDropList entries={["Locess", "Mausca", "Orc", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species*" info={<>
+        <p>Selecting a species will determine your stats. There are four stats: Nimble, Tough, Competence, and Constitution.</p>
+
+        <p><strong>Nimble</strong> defines your character&apos;s agility. Nimble is used to move quickly, jump over objects, dodge, and for any other actions that require more finesse.</p>
+
+        <p><strong>Tough</strong> defines your character&apos;s physical strength. Tough is used to lift and move heavy objects, wrestle other creatures, and for any other actions that require more strength.</p>
+
+        <p><strong>Competence</strong> defines your character&apos;s ability to act under pressure, read situations, and see things that other people wouldn&apos;t. It will be used in moments of pressure and crisis.</p>
+
+        <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addiction, to exert yourself for extended periods of time, and for any other actions that require resistance or endurance.</p></>} />
 
       {props.species ?
         <div className="border shadow-lg p-4 mx-auto">

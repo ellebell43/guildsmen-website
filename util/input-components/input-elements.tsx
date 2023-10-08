@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
-export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined }) {
+export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined, readonly?: boolean }) {
   let { label, required, id, setState, state } = props
 
   const MAX_USERNAME_LENGTH = 12
@@ -12,6 +12,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
   const [active, setActive] = useState(false)
 
   useEffect(() => { setDark(localStorage.getItem("isDark") == "true") }, [])
+  useEffect(() => { if (props.state) { setActive(true) } else { setActive(false) } }, [props.state])
 
   let onInputChange = (value: string) => {
     if (value) setActive(true)
@@ -31,6 +32,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
         required={required}
         value={state}
         onKeyDown={(e) => {
+          if (props.readonly === true) { e.preventDefault(); console.log(`readonly: ${props.readonly}`); return }
           // If text field is username, only allow letters, numbers, and a couple symbols
           // Also, max username length is 12 characters
           if (id == "username") {
@@ -40,6 +42,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
           }
         }}
         onChange={e => {
+          if (props.readonly) return
           if (e.target.value.length > MAX_USERNAME_LENGTH) {
             setState("")
             return
@@ -59,6 +62,7 @@ export function PasswordInput(props: { label: string, required: boolean, id: str
   const [dark, setDark] = useState(false)
 
   useEffect(() => { setDark(localStorage.getItem("isDark") == "true") }, [])
+  useEffect(() => { if (props.state) { setActive(true) } else { setActive(false) } }, [props.state])
 
   let onInputChange = (value: string) => {
     if (value) setActive(true)
