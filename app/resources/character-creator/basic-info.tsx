@@ -1,7 +1,6 @@
 import { species } from "@/util/types";
 import TextInputWithInfo from "@/util/input-components/text-with-info";
 import BulletDropList from "@/util/input-components/bullet-drop-list";
-import Details from "./details";
 
 type props = {
   name: string | undefined, setName: Function,
