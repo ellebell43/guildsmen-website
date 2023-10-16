@@ -1,13 +1,21 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Character, species, skills, stats, wealthRange, luckRange, guild } from "@/util/types";
+import ErrorMessage from "@/app/error-message";
 import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
 import BackgroundInfo from "./background-info";
 
 export default function CharacterForm() {
   const [page, setPage] = useState(1);
+  const [validationError, setValidationError] = useState("")
+  const PAGE_COUNT = 2
+
+  // Clear error every 5 seconds if error hasn't been cleared
+  useEffect(() => {
+    if (validationError) setTimeout(() => setValidationError(""), 5000)
+  }, [validationError])
 
   // new character state
   const [name, setName] = useState<string>()
@@ -54,9 +62,64 @@ export default function CharacterForm() {
     }
   }
 
+  const validate = () => {
+    switch (page) {
+      case 1:
+        if (!name || !species) {
+          setValidationError("Your character must have a name and species.")
+          return false
+        }
+        return true
+        break
+      default:
+        return false
+    }
+  }
+
+  const getProgressBar = () => {
+    let pages = []
+    for (let i = 1; i <= PAGE_COUNT; i++) {
+      pages.push(i)
+    }
+    return <div className="flex gap-1 justify-center my-2">
+      {pages.map((el, i) => {
+        return <div key={i} className={`border rounded-full w-4 h-4 ${el <= page ? "bg-stone-500 dark:bg-stone-300" : "bg-stone-300 dark:bg-stone-500"}`} />
+      })}
+    </div>
+  }
+
+  const submit = () => {
+    return
+  }
+
   return (
     <>
       {getPage()}
+      {/* === Navigation Buttons === */}
+      <div className="flex gap-4 justify-center items-center my-4">
+        {/* prev */}
+        <button
+          className={`button m-0 w-[100px] py-2 rounded ${page == 1 ? "hidden" : ""}`}
+          onClick={e => { setPage(page - 1) }}
+        >
+          Prev
+        </button>
+        {/* next */}
+        <button
+          className="button m-0 w-[100px] py-2 rounded"
+          onClick={e => {
+            if (page != PAGE_COUNT && validate()) {
+              setPage(page + 1)
+            } else {
+              submit()
+            }
+          }}
+        >
+          {page == PAGE_COUNT ? "Submit" : "Next"}
+        </button>
+      </div>
+      {getProgressBar()}
+      <ErrorMessage message={validationError} />
     </>
   )
 }
