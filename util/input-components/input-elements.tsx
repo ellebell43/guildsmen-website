@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
-export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined, readonly?: boolean }) {
+export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined, readOnly?: boolean }) {
   let { label, required, id, setState, state } = props
 
   const MAX_USERNAME_LENGTH = 12
@@ -32,7 +32,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
         required={required}
         value={state}
         onKeyDown={(e) => {
-          if (props.readonly === true) { e.preventDefault(); console.log(`readonly: ${props.readonly}`); return }
+          if (props.readOnly === true) e.preventDefault()
           // If text field is username, only allow letters, numbers, and a couple symbols
           // Also, max username length is 12 characters
           if (id == "username") {
@@ -42,7 +42,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
           }
         }}
         onChange={e => {
-          if (props.readonly) return
+          if (props.readOnly) return
           if (e.target.value.length > MAX_USERNAME_LENGTH) {
             setState("")
             return

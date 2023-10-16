@@ -22,7 +22,7 @@ export default function BulletDropList(props: { entries: string[], state: string
           <FontAwesomeIcon icon={faPlay} />
         </button>
 
-        <TextInputWithInfo label="Species*" id="species" required={true} state={props.state} setState={props.setState} readonly={true}>
+        <TextInputWithInfo label="Species*" id="species" required={true} state={props.state} setState={props.setState} readOnly={true}>
           {props.info}
         </TextInputWithInfo>
       </div>
