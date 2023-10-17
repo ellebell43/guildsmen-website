@@ -183,7 +183,7 @@ export function TextAreaWithInfo(props: { children: React.ReactNode, label: stri
 
 // ====== INFO ======
 
-function Info(props: { children: React.ReactNode, textArea?: boolean }) {
+export function Info(props: { children: React.ReactNode, textArea?: boolean }) {
   const [showInfo, setShowInfo] = useState(false)
   return (
     <>
