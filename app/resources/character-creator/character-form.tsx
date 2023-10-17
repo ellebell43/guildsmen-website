@@ -70,12 +70,15 @@ export default function CharacterForm() {
           return false
         }
         return true
-        break
+      case 2:
+        // No validation needed on this page as all fields are completely optional
+        return true
       default:
         return false
     }
   }
 
+  // Create a line of bubbles as long as the PAGE_COUNT
   const getProgressBar = () => {
     let pages = []
     for (let i = 1; i <= PAGE_COUNT; i++) {
@@ -83,7 +86,7 @@ export default function CharacterForm() {
     }
     return <div className="flex gap-1 justify-center my-2">
       {pages.map((el, i) => {
-        return <div key={i} className={`border rounded-full w-4 h-4 ${el <= page ? "bg-stone-500 dark:bg-stone-300" : "bg-stone-300 dark:bg-stone-500"}`} />
+        return <div key={i} className={`border rounded-full w-4 h-4 ${el <= page ? "bg-stone-400" : "bg-stone-200"}`} />
       })}
     </div>
   }
