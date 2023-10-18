@@ -195,6 +195,8 @@ export default function BasicInfo(props: props) {
     <>
       <h2>Basic Information</h2>
 
+      '<p>To begin making your character, let's decide on the most basic information: name, demeanor, physique, and species. Click the info buttons to learn more.</p>
+
       <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
         <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
       </TextInputWithInfo>

@@ -15,6 +15,11 @@ export default function BackgroundInfo(props: props) {
   return (
     <>
       <h2>Background Information</h2>
+
+      <p>All characters need a past that defines them. This will help you understand how your character would act in the game. In each box below, jot down one or two brief sentences that work for your character. If you can&apos;t think of anything right away, that&apos;s okay. You can slowly fill these out during play. As situations arise, try to decide why your character would do what you want them to do. Then see if that reason would fall under one of these four categories. If it does, then jot down a quick note so you remember in the future.</p>
+
+      <p>Try to keep these somewhat general. Trying to be too specific can make it much harder to find things to put here.</p>
+
       <div className="grid md:grid-cols-2 w-fit mx-auto gap-x-10 gap-y-4 mb-4 mt-6">
         <TextAreaWithInfo state={props.goalsAndMotives} setState={props.setGoalsAndMotives} required={false} id={"goalsAndMotives"} label="Goals & Motives">
           <p><strong>Goals & Motives</strong> are what drive your character. Perhaps they want to be the greatest thief that ever lived, or perhaps their family is motivating them to go out and make some money to send back to them. Perhaps they&apos;re seeking revenge on someone, or they want to open up a small business and settle down. The world is your oyster here and anything you think of can work.</p>
