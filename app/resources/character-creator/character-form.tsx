@@ -7,6 +7,7 @@ import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
 import BackgroundInfo from "./background-info";
 import StartingSkills from "./starting-skills";
+import LuckAndWealth from "./luck-and-wealth";
 
 // Initial variables for creating character skills and stats
 const initSkills: skills = {
@@ -27,7 +28,7 @@ const initStats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
 export default function CharacterForm() {
   const [page, setPage] = useState(1);
   const [validationError, setValidationError] = useState("")
-  const PAGE_COUNT = 4
+  const PAGE_COUNT = 5
 
   // Clear error every 5 seconds if error hasn't been cleared
   useEffect(() => {
@@ -62,6 +63,8 @@ export default function CharacterForm() {
         return <BackgroundInfo flawsAndWeaknesses={flawsAndWeaknesses} setFlawsAndWeaknesses={setFlawsAndWeaknesses} personalMorals={personalMorals} setPersonalMorals={setPersonalMorals} importantConnections={importantConnections} setImportantConnections={setImportantConnections} goalsAndMotives={goalsAndMotives} setGoalsAndMotives={setGoalsAndMotives} />
       case 3:
         return <StartingSkills skills={skills} setSkills={setSkills} setError={setValidationError} />
+      case 4:
+        return <LuckAndWealth luck={luck} setLuck={setLuck} wealth={wealth} setWealth={setWealth} />
     }
   }
 
@@ -85,6 +88,12 @@ export default function CharacterForm() {
         });
         if (total !== -7) {
           setValidationError("You must fill in a total of four bubbles to continue.")
+          return false
+        }
+        return true
+      case 4:
+        if (!luck || wealth == undefined) {
+          setValidationError("You must select your wealth and determine your luck to continue.")
           return false
         }
         return true
