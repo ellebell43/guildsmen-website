@@ -1,10 +1,11 @@
 import styles from "./styles.module.css"
 
-export function rollDie(id: string) {
-  const num = Math.floor(Math.random() * 6 + 1);
+export function rollDie(id: string, num?: 1 | 2 | 3 | 4 | 5 | 6) {
+  let number = 0
+  if (!num) { number = Math.floor(Math.random() * 6 + 1); } else { number = num }
   let x, y;
 
-  switch (num) {
+  switch (number) {
     case 1:
       x = 720;
       y = 810;
@@ -14,7 +15,7 @@ export function rollDie(id: string) {
       y = 990;
       break;
     default:
-      x = 720 + (6 - num) * 90;
+      x = 720 + (6 - number) * 90;
       y = 900;
       break;
   }
@@ -25,7 +26,7 @@ export function rollDie(id: string) {
   }
   el.style.transform = `translateZ(-100px) rotateY(${x}deg) rotateX(${y}deg)`;
 
-  return num
+  return number
 }
 
 export function resetDie(id: string) {
