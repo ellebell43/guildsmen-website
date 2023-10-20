@@ -39,7 +39,7 @@ export default function LuckAndWealth(props: { luck: luckRange | undefined, setL
     <>
       <h2>Luck & Wealth</h2>
 
-      <p>Next, you need to determine your character's luck and wealth. You're luck will determine a situations outcome when the result should rely on pure chance. Wealth describes how much money your character generally has to spend.</p>
+      <p>Next, you need to determine your character&apos;s luck and wealth. You&apos;re luck will determine a situations outcome when the result should rely on pure chance. Wealth describes how much money your character generally has to spend.</p>
 
       {!props.luck ?
         <div className="relative w-fit h-fit mx-auto flex justify-center items-center">
