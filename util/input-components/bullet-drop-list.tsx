@@ -28,7 +28,7 @@ export default function BulletDropList(props: { entries: string[], state: string
       </div>
 
       <div
-        className={`flex flex-col transition-all gap-0 origin-top absolute`}
+        className={`flex flex-col transition-all gap-0 origin-top absolute z-50`}
         style={{ width: 240, scale: active ? 1 : 0, transformOrigin: "top", top: 50 }}
       >
         {props.entries.map((el, i) => {
