@@ -8,6 +8,8 @@ import BasicInfo from "./basic-info";
 import BackgroundInfo from "./background-info";
 import StartingSkills from "./starting-skills";
 import LuckAndWealth from "./luck-and-wealth";
+import GuildSelect from "./guild-select";
+import GearList from "./gear-list";
 
 // Initial variables for creating character skills and stats
 const initSkills: skills = {
@@ -28,7 +30,7 @@ const initStats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
 export default function CharacterForm() {
   const [page, setPage] = useState(1);
   const [validationError, setValidationError] = useState("")
-  const PAGE_COUNT = 5
+  const PAGE_COUNT = 6
 
   // Clear error every 5 seconds if error hasn't been cleared
   useEffect(() => {
@@ -65,6 +67,10 @@ export default function CharacterForm() {
         return <StartingSkills skills={skills} setSkills={setSkills} setError={setValidationError} />
       case 4:
         return <LuckAndWealth luck={luck} setLuck={setLuck} wealth={wealth} setWealth={setWealth} />
+      case 5:
+        return <GuildSelect guild={guild} setGuild={setGuild} />
+      case 6:
+        return <GearList gear={gear} setGear={setGear} />
     }
   }
 
@@ -97,6 +103,12 @@ export default function CharacterForm() {
           return false
         }
         return true
+      case 5:
+        if (!guild) {
+          setValidationError("You must select a guild before continuing.")
+          return false
+        }
+        return true
       default:
         return false
     }
@@ -116,6 +128,11 @@ export default function CharacterForm() {
   }
 
   const submit = () => {
+    // TODO
+    //  [ ] - Update stats according to chosen species
+    //  [ ] - Update skills according to chosen guild
+    //  [ ] - If myth skill > -1, then myth addiction = 3
+
     return
   }
 

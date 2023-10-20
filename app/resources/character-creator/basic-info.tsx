@@ -197,17 +197,19 @@ export default function BasicInfo(props: props) {
 
       '<p>To begin making your character, let's decide on the most basic information: name, demeanor, physique, and species. Click the info buttons to learn more.</p>
 
-      <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
-        <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
-      </TextInputWithInfo>
+      <div className="flex flex-col justify-center items-center">
+        <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
+          <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
+        </TextInputWithInfo>
 
-      <TextInputWithInfo label="Demeanor" id="demeanor" required={true} state={props.demeanor} setState={props.setDemeanor}>
-        <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
-      </TextInputWithInfo>
+        <TextInputWithInfo label="Demeanor" id="demeanor" required={true} state={props.demeanor} setState={props.setDemeanor}>
+          <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
+        </TextInputWithInfo>
 
-      <TextInputWithInfo label="Physique" id="physique" required={true} state={props.physique} setState={props.setPhysique}>
-        <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
-      </TextInputWithInfo>
+        <TextInputWithInfo label="Physique" id="physique" required={true} state={props.physique} setState={props.setPhysique}>
+          <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
+        </TextInputWithInfo>
+      </div>
 
       <BulletDropList entries={["Locess", "Mausca", "Orc", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species*" info={<>
         <p>Selecting a species will determine your stats. There are four stats: Nimble, Tough, Competence, and Constitution.</p>

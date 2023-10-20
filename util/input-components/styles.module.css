@@ -1,5 +1,5 @@
 .inputContainer {
-  @apply relative w-fit my-4
+  @apply relative my-4
 }
 
 .inputField {

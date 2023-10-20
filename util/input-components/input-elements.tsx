@@ -45,7 +45,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
         }}
         onChange={e => {
           if (props.readOnly) return
-          if (e.target.value.length > MAX_USERNAME_LENGTH) {
+          if (e.target.value.length > MAX_USERNAME_LENGTH && props.id == "username") {
             setState("")
             return
           }
