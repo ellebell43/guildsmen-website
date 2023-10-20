@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange } from "@/util/types";
+import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange } from "@/util/types";
 import ErrorMessage from "@/app/error-message";
 import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
@@ -10,6 +10,8 @@ import StartingSkills from "./starting-skills";
 import LuckAndWealth from "./luck-and-wealth";
 import GuildSelect from "./guild-select";
 import GearList from "./gear-list";
+import Spinner from "@/app/spinner";
+import { useRouter } from "next/navigation";
 
 // Initial variables for creating character skills and stats
 const initSkills: skills = {
@@ -25,7 +27,6 @@ const initSkills: skills = {
   tech: -1,
   throwdown: -1
 }
-const initStats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
 
 export default function CharacterForm() {
   const [page, setPage] = useState(1);
@@ -46,7 +47,7 @@ export default function CharacterForm() {
   const [wealth, setWealth] = useState<wealthRange>()
   const [luck, setLuck] = useState<luckRange>()
   const [guild, setGuild] = useState<guild>()
-  const [addiction, setAddiction] = useState<number>()
+  const [addiction, setAddiction] = useState<addictionRange>(0)
   const [goalsAndMotives, setGoalsAndMotives] = useState<string>()
   const [flawsAndWeaknesses, setFlawsAndWeaknesses] = useState<string>()
   const [personalMorals, setPersonalMorals] = useState<string>()
@@ -54,8 +55,13 @@ export default function CharacterForm() {
   const [backstory, setBackstory] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
 
+  const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
+
   // get user data
   const { data, isLoading, error } = getUserByToken()
+
+  const [apiLoading, setApiLoading] = useState(false)
+  const router = useRouter();
 
   const getPage = () => {
     switch (page) {
@@ -109,6 +115,8 @@ export default function CharacterForm() {
           return false
         }
         return true
+      case 6:
+        return true
       default:
         return false
     }
@@ -127,13 +135,107 @@ export default function CharacterForm() {
     </div>
   }
 
-  const submit = () => {
-    // TODO
-    //  [ ] - Update stats according to chosen species
-    //  [ ] - Update skills according to chosen guild
-    //  [ ] - If myth skill > -1, then myth addiction = 3
+  const setStats = () => {
+    switch (species) {
+      case "Locess":
+        stats.nimble = 2
+        stats.tough = -1
+        stats.competence = 1
+        stats.constitution = 0
+        break;
+      case "Matari":
+        stats.nimble = -1
+        stats.tough = 1
+        stats.competence = 2
+        stats.constitution = 0
+        break;
+      case "Mausca":
+        stats.nimble = 2
+        stats.tough = -1
+        stats.competence = 0
+        stats.constitution = 1
+        break
+      case "Orc":
+        stats.nimble = 0
+        stats.tough = 2
+        stats.competence = 0
+        stats.constitution = 0
+        break
+      case "Slated":
+        stats.nimble = -1
+        stats.tough = 0
+        stats.competence = 2
+        stats.constitution = 1
+        break;
+      case "Ungal":
+        stats.nimble = 0
+        stats.tough = -1
+        stats.competence = 1
+        stats.constitution = 2
+        break
+    }
+  }
 
-    return
+  const updateSkills = () => {
+    let newSkills = { ...skills }
+    switch (guild) {
+      case "Assassins":
+        if (newSkills.investigate < 1) newSkills.investigate = 1
+        if (newSkills.sneaky < 1) newSkills.sneaky = 1
+        if (newSkills.social < 1) newSkills.social = 1
+        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+      case "Explorers":
+        if (newSkills.craft < 1) newSkills.craft = 1
+        if (newSkills.investigate < 1) newSkills.investigate = 1
+        if (newSkills.medic < 1) newSkills.medic = 1
+        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+      case "Mercenaries":
+        if (newSkills.craft < 1) newSkills.craft = 1
+        if (newSkills.investigate < 1) newSkills.investigate = 1
+        if (newSkills.medic < 1) newSkills.medic = 1
+        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+      case "Mythic Hunters":
+        if (newSkills.investigate < 1) newSkills.investigate = 1
+        if (newSkills.medic < 1) newSkills.medic = 1
+        if (newSkills.nature < 1) newSkills.nature = 1
+        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+      case "Thieves":
+        if (newSkills.investigate < 1) newSkills.investigate = 1
+        if (newSkills.performance < 1) newSkills.performance = 1
+        if (newSkills.sneaky < 1) newSkills.sneaky = 1
+        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+    }
+
+    setSkills(newSkills)
+  }
+
+  const submit = () => {
+    // update stats according to chosen species
+    setStats()
+    // update skills according to chosen guild
+    updateSkills()
+    // update myth addiction if chosen as a starting skill
+    if (skills.myth >= 0) setAddiction(3)
+    console.log("Character addiction: ", addiction)
+    if (name && species && wealth && luck && guild && data && data.user && data.user.username) {
+      let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, data.user.username)
+      console.log("Addiction submitted to db: ", newChar.addiction)
+      // console.log(JSON.stringify(newChar))
+      setApiLoading(true)
+      fetch("/resources/character-creator/api", { method: "POST", headers: { char: JSON.stringify(newChar) } })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setApiLoading(false)
+            router.push("/profile/characters?message=New character created successfully!")
+          } else {
+            setApiLoading(false)
+            setValidationError("Something went wrong uploading the character. Please contact us on Discord.")
+          }
+        })
+    } else {
+      setValidationError("Some went wrong during form validation! Please contact us via discord.")
+    }
   }
 
   return (
@@ -141,25 +243,26 @@ export default function CharacterForm() {
       {getPage()}
       {/* === Navigation Buttons === */}
       <div className="flex gap-4 justify-center items-center my-4">
-        {/* prev */}
+        {/* prev button */}
         <button
           className={`button m-0 w-[100px] py-2 rounded ${page == 1 ? "hidden" : ""}`}
           onClick={e => { setPage(page - 1) }}
         >
           Prev
         </button>
-        {/* next */}
+        {/* next button */}
         <button
-          className="button m-0 w-[100px] py-2 rounded"
+          className="button m-0 w-[100px] py-2 rounded relative"
           onClick={e => {
             if (page != PAGE_COUNT && validate()) {
               setPage(page + 1)
-            } else {
+            } else if (page == PAGE_COUNT && validate()) {
               submit()
             }
           }}
         >
           {page == PAGE_COUNT ? "Submit" : "Next"}
+          {apiLoading ? <div className="absolute -right-8"><Spinner /></div> : <></>}
         </button>
       </div>
       {getProgressBar()}
