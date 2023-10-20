@@ -101,7 +101,7 @@ export default function LuckAndWealth(props: { luck: luckRange | undefined, setL
       {/* ====== DIE WRAPPER ====== */}
       <div className={`fixed inset-0 bg-stone-100 bg-opacity-90 flex flex-col justify-center items-center ${showDie ? "" : "hidden"} z-30`}>
         <Die id="die" />
-        <p className="text-center">You have rolled a {dieRoll}, which make your luck {props.luck}</p>
+        <p className="text-center mt-4">You have rolled a {dieRoll}, which make your luck {props.luck}</p>
         <button onClick={e => setShowDie(false)} className="button rounded px-5 py-2">Close</button>
         {/* <button onClick={e => { resetDie("die"); props.setLuck(undefined); }}>Reset</button> // <- die reset button */}
       </div>
