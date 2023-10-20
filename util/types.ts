@@ -39,8 +39,35 @@ export type modRange = -1 | 0 | 1 | 2 | 3
 export type luckRange = -3 | -2 | -1 | 1 | 2 | 3
 export type wealthRange = 0 | 1 | 2 | 3 | 4
 export type harm = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+export type addictionRange = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24
 export type experienceProgress = 0 | 1 | 2 | 3 | 4
 export type species = "Locess" | "Mausca" | "Orc" | "Matari" | "Slated" | "Ungal"
+
+export type craftSpecialty = "Clay" | "Fabric" | "Metal" | "Stone" | "Wood"
+export type investigateSpecialty = "Awareness" | "Searching" | "Situational" | "Tracking"
+export type leadershipSpecialty = "Business" | "Government" | "Group"
+export type medicSpecialty = "Beasts" | "People"
+export type mythSpecialty = "Refinement" | "Air" | "Fire" | "Lightning" | "Metal" | "Stone" | "Water" | string
+export type natureSpecialty = "Animals" | "Geography" | "Plants" | "Survival"
+export type performanceSpecialty = "Acrobatics" | "Acting" | "Contortion" | "Music"
+export type socialSpecialty = "Deception" | "Intimidation" | "Persuasion"
+export type sneakySpecialty = "Hiding" | "Lock-Picking" | "Pocket-Picking" | "Sleight-of-Hand"
+export type throwdownSpecialty = "Melee" | "Personal" | "Ranged"
+export type techSpecialty = "Biological" | "Large" | "Personal" | "Vehicles"
+
+export type specialties = {
+  craft: { primary: craftSpecialty | undefined, secondary: craftSpecialty | undefined },
+  investigate: { primary: investigateSpecialty | undefined, secondary: investigateSpecialty | undefined },
+  leadership: { primary: leadershipSpecialty | undefined, secondary: leadershipSpecialty | undefined },
+  medic: { primary: medicSpecialty | undefined, secondary: medicSpecialty | undefined },
+  myth: { primary: mythSpecialty | undefined, secondary: mythSpecialty | undefined },
+  nature: { primary: natureSpecialty | undefined, secondary: natureSpecialty | undefined },
+  performance: { primary: performanceSpecialty | undefined, secondary: performanceSpecialty | undefined },
+  social: { primary: socialSpecialty | undefined, secondary: socialSpecialty | undefined },
+  sneaky: { primary: sneakySpecialty | undefined, secondary: sneakySpecialty | undefined },
+  throwdown: { primary: throwdownSpecialty | undefined, secondary: throwdownSpecialty | undefined },
+  tech: { primary: techSpecialty | undefined, secondary: techSpecialty | undefined },
+}
 
 export type skills = {
   craft: modRange,
@@ -73,6 +100,8 @@ export class Character {
   demeanor: string
   physique: string
   skills: skills
+  specialties: specialties
+  mythUses: number
   stats: stats
   wealth: wealthRange
   luck: luckRange
@@ -90,9 +119,8 @@ export class Character {
   experienceProgress: experienceProgress
   notes: string[]
   backstory: string
-  mythUses: number
 
-  constructor(name: string, species: species, demeanor: string, physique: string, skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
     this.name = name
     this.species = species
     this.demeanor = demeanor
@@ -116,6 +144,19 @@ export class Character {
     this.backstory = ""
     this.mythUses = 0
     this.owner = owner
+    this.specialties = {
+      craft: { primary: undefined, secondary: undefined },
+      leadership: { primary: undefined, secondary: undefined },
+      myth: { primary: undefined, secondary: undefined },
+      performance: { primary: undefined, secondary: undefined },
+      sneaky: { primary: undefined, secondary: undefined },
+      investigate: { primary: undefined, secondary: undefined },
+      medic: { primary: undefined, secondary: undefined },
+      nature: { primary: undefined, secondary: undefined },
+      social: { primary: undefined, secondary: undefined },
+      tech: { primary: undefined, secondary: undefined },
+      throwdown: { primary: undefined, secondary: undefined },
+    }
   }
 
   dieRoll() {
