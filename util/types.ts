@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb"
+
 export type action = {
   name: string,
   modifier?: number,
@@ -119,6 +121,7 @@ export class Character {
   experienceProgress: experienceProgress
   notes: string[]
   backstory: string
+  dateCreated: Date
 
   constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
     this.name = name
@@ -157,6 +160,7 @@ export class Character {
       tech: { primary: undefined, secondary: undefined },
       throwdown: { primary: undefined, secondary: undefined },
     }
+    this.dateCreated = new Date()
   }
 
   dieRoll() {
@@ -167,3 +171,8 @@ export class Character {
     return ({ num1: this.dieRoll(), num2: this.dieRoll() })
   }
 }
+
+export type projectedCharacter = { _id: ObjectId, name: string, demeanor?: string, physique?: string, species: species, dateCreated: Date }
+
+
+export type projectedCharacterList = projectedCharacter[]
