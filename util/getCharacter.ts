@@ -7,6 +7,6 @@ const fetcher = async (url: string, id: string) => {
 }
 
 export default function getCharacter(id: string) {
-  let { data, isLoading, error } = useSWR<{ success: boolean, message: string, character?: Character }>(`/resources/characters/api`, (url: string) => fetcher(url, id))
+  let { data, isLoading, error } = useSWR<{ success: boolean, message: string, character?: Character }>(`/resources/character-app/api`, (url: string) => fetcher(url, id))
   return { data, isLoading, error };
 }
