@@ -122,6 +122,7 @@ export class Character {
   notes: string[]
   backstory: string
   dateCreated: Date
+  public: boolean
 
   constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
     this.name = name
@@ -161,6 +162,7 @@ export class Character {
       throwdown: { primary: undefined, secondary: undefined },
     }
     this.dateCreated = new Date()
+    this.public = false
   }
 
   dieRoll() {
