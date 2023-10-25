@@ -35,7 +35,7 @@
 
   header,
   nav {
-    @apply bg-stone-200 shadow-md;
+    @apply bg-stone-200;
   }
 
   footer {
