@@ -14,7 +14,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
           <p>Info test</p>
         </TextInputWithInfo>
         <button
-          className="button px-5 py-1 text-sm rounded m-0"
+          className="button px-2 sm:mx-5 py-1 text-sm rounded m-0"
           onClick={e => {
             let arr = [...itemArr]
             if (newItem) arr.push(newItem.trim())
