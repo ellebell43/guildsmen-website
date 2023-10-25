@@ -6,7 +6,7 @@ export default function Characters() {
     <>
       <h1>My Characters</h1>
       <Message good={true} />
-      <CharacterList />
+      <CharacterList private={true} />
     </>
   )
 }
