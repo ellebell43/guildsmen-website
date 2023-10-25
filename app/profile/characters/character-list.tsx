@@ -61,11 +61,11 @@ export default function CharacterList(props: { private?: boolean }) {
       {data.list.map((el, i) => {
         return (
           <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
-            <Link href={`/resources/characters/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
-              <p className="text-xl font-bold m-0 overflow-clip">{el.name}</p>
-              <p className="m-0 text-sm opacity-60 overflow-clip">{getDescription(el)}</p>
-              <p className="m-0 text-sm opacity-60 overflow-clip">{el.guild} Guild</p>
-              <p className="m-0 text-xs opacity-40 overflow-clip">Created: {getDate(el)}</p>
+            <Link href={`/resources/character-app/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
+              <p className="text-xl font-bold m-0 overflow-clip whitespace-nowrap">{el.name}</p>
+              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{getDescription(el)}</p>
+              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{el.guild} Guild</p>
+              <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(el)}</p>
             </Link>
             {props.private ?
               <button
