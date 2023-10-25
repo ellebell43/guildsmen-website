@@ -20,7 +20,7 @@ export default function BackgroundInfo(props: props) {
 
       <p>Try to keep these somewhat general. Trying to be too specific can make it much harder to find things to put here.</p>
 
-      <div className="grid md:grid-cols-2 w-fit mx-auto gap-x-10 gap-y-4 mb-4 mt-6">
+      <div className="grid md:grid-cols-2 w-fit mx-auto gap-x-10 gap-y-8 mb-4 mt-6">
         <TextAreaWithInfo state={props.goalsAndMotives} setState={props.setGoalsAndMotives} required={false} id={"goalsAndMotives"} label="Goals & Motives">
           <p><strong>Goals & Motives</strong> are what drive your character. Perhaps they want to be the greatest thief that ever lived, or perhaps their family is motivating them to go out and make some money to send back to them. Perhaps they&apos;re seeking revenge on someone, or they want to open up a small business and settle down. The world is your oyster here and anything you think of can work.</p>
         </TextAreaWithInfo>

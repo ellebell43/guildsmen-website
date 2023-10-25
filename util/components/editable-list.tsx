@@ -9,12 +9,12 @@ export default function EditableList(props: { state: string[] | undefined, setSt
   const [itemArr, setItemArr] = useState<string[]>([])
   return (
     <div>
-      <div className="flex gap-4 items-center justify-center relative">
+      <div className="flex gap-4 items-center justify-center relative left-2 sm:left-0">
         <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={false} state={newItem} setState={setNewItem}>
           <p>Info test</p>
         </TextInputWithInfo>
         <button
-          className="button px-2 sm:mx-5 py-1 text-sm rounded m-0"
+          className="button px-2 sm:px-5 py-1 text-sm rounded m-0"
           onClick={e => {
             let arr = [...itemArr]
             if (newItem) arr.push(newItem.trim())
@@ -35,7 +35,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
             <Reorder.Item
               key={el}
               value={el}
-              className="relative border-b list-none"
+              className="relative border-b list-none left-2 sm:left-0 pt-2"
             >
               {el}
               <button
@@ -43,7 +43,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
                   let newArr = [...itemArr.slice(0, i), ...itemArr.slice(i + 1, itemArr.length)]
                   setItemArr(newArr)
                 }}
-                className="absolute -left-4 top-[7px] text-[10px] opacity-50"
+                className="absolute -left-6 top-[8px] text-[16px] opacity-50"
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
