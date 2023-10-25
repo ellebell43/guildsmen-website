@@ -172,7 +172,7 @@ export class Character {
   }
 }
 
-export type projectedCharacter = { _id: ObjectId, name: string, demeanor?: string, physique?: string, species: species, dateCreated: Date }
+export type projectedCharacter = { _id: ObjectId, name: string, demeanor?: string, physique?: string, species: species, dateCreated: Date, guild: guild }
 
 
 export type projectedCharacterList = projectedCharacter[]
