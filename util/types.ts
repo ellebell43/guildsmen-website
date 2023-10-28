@@ -123,8 +123,10 @@ export class Character {
   backstory: string
   dateCreated: Date
   public: boolean
+  _id: ObjectId
 
   constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
+    this._id = new ObjectId
     this.name = name
     this.species = species
     this.demeanor = demeanor
