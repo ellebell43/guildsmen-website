@@ -1,16 +1,55 @@
 "use client"
+import Banner from "./banner"
+import { useState, useEffect } from "react"
+import { Character } from "@/util/types"
+import ChangesPending from "./changes-pending"
 
-import { useRouter } from "next/router"
-import getCharacter from "@/util/getCharacter"
-import Spinner from "@/app/spinner"
+export default function CharacterApp(props: { character: Character }) {
+  let initCharacter = props.character
 
-export default function CharacterApp(props: { id: string }) {
-  const { data, isLoading, error } = getCharacter(props.id)
+  const [updating, setUpdating] = useState(false)
+  const [pendingChanges, setPendingChanges] = useState(false)
+  const [character, setCharacter] = useState<Character>(props.character)
 
-  if (isLoading) return <Spinner />
-  if (error) return <p>{String(error)}</p>
-  if (!data?.character) return <p>No character found with provided id.</p>
+  useEffect(() => {
+    if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
+  }, [character])
+
+  useEffect(() => {
+    if (pendingChanges) {
+      setPendingChanges(false)
+      updateCharacter()
+    }
+  }, [pendingChanges])
+
+  const updateCharacter = () => {
+    if (pendingChanges) {
+      setUpdating(true)
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
+        .then(res => res.json())
+        .then(data => {
+          setUpdating(false)
+          setPendingChanges(false)
+          initCharacter = character
+        })
+    }
+  }
+
   return (
-    <h1>{data.character.name}</h1>
+    /*
+     * == MOBILE DISPLAY ==
+     * - Banner with basic info across the top (name, description, guild, harm [x/10], and dying).
+     * - Banner stays the same across all views
+     * - If dying, have a red vignette around the screen and change harm text to bold and red
+     * - 5 pages: stats, wealth, and luck; skills, exp, and addiction; gear; character backstory; notes
+     * - == DESKTOP DISPLAY ==
+     * - 
+     */
+    <>
+      <Banner character={character} setCharacter={setCharacter} />
+      <div className="mt-12">
+      </div>
+      <ChangesPending pending={pendingChanges} updating={updating} />
+    </>
   )
 }

@@ -35,5 +35,13 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",
     "@types/nodemailer": "^6.4.10"
+  },
+  "browser": {
+    "child_process": false,
+    "fs": false,
+    "fs/promises": false,
+    "net": false,
+    "tls": false,
+    "dns": false
   }
 }
