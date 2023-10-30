@@ -55,7 +55,7 @@
   }
 
   main {
-    @apply max-w-[1000px] min-h-[60vh] mx-auto px-4 text-justify mt-20;
+    @apply max-w-[1000px] min-h-[calc(100vw-52px)] mx-auto px-4 text-justify mt-20;
   }
 
   h1 {

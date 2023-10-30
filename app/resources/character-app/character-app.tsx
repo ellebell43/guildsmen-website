@@ -37,6 +37,41 @@ export default function CharacterApp(props: { character: Character }) {
     }
   }
 
+  const getPage = () => {
+    switch (page) {
+      case "character":
+        return <>
+          <Banner character={character} setCharacter={setCharacter} />
+          <p>Character</p>
+        </>
+      case "details":
+        return <>
+          <Banner character={character} setCharacter={setCharacter} />
+          <p>Details</p>
+        </>
+      case "gear":
+        return <>
+          <Banner character={character} setCharacter={setCharacter} />
+          <p>Gear</p>
+        </>
+      case "notes":
+        return <>
+          <p>Notes</p>
+        </>
+      case "settings":
+        return <>
+          <p>Settings</p>
+        </>
+      case "skills":
+        return <>
+          <Banner character={character} setCharacter={setCharacter} />
+          <p>Skills</p>
+        </>
+      default:
+        return <></>
+    }
+  }
+
   return (
     /*
      * == MOBILE DISPLAY ==
@@ -47,9 +82,9 @@ export default function CharacterApp(props: { character: Character }) {
      * - == DESKTOP DISPLAY ==
      * - 
      */
-    <div className="relative bottom-[30px]">
-      <Banner character={character} setCharacter={setCharacter} />
+    <div className="relative bottom-[30px] h-[calc(100vh-2px)]">
       <ChangesPending pending={pendingChanges} updating={updating} />
+      {getPage()}
       <PageFooter active={page} setActive={setPage} />
     </div>
   )
