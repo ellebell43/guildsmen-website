@@ -3,6 +3,7 @@ import Banner from "./banner"
 import { useState, useEffect } from "react"
 import { Character } from "@/util/types"
 import ChangesPending from "./changes-pending"
+import PageFooter from "./page-footer"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -10,6 +11,7 @@ export default function CharacterApp(props: { character: Character }) {
   const [updating, setUpdating] = useState(false)
   const [pendingChanges, setPendingChanges] = useState(false)
   const [character, setCharacter] = useState<Character>(props.character)
+  const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
 
   useEffect(() => {
     if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
@@ -45,11 +47,10 @@ export default function CharacterApp(props: { character: Character }) {
      * - == DESKTOP DISPLAY ==
      * - 
      */
-    <>
+    <div className="relative bottom-[30px]">
       <Banner character={character} setCharacter={setCharacter} />
-      <div className="mt-12">
-      </div>
       <ChangesPending pending={pendingChanges} updating={updating} />
-    </>
+      <PageFooter active={page} setActive={setPage} />
+    </div>
   )
 }

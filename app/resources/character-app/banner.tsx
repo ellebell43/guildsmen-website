@@ -1,9 +1,6 @@
 "use client"
 
 import { Character } from "@/util/types";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,14 +14,8 @@ export default function Banner(props: { character: Character, setCharacter: Func
     return el.species
   }
 
-  const updateCharacter = () => {
-
-  }
-
-
   return (
-    <div className="fixed inset-x-0 top-[52px] shadow bg-stone-200 dark:bg-stone-600 p-4 z-[49] flex justify-between">
-
+    <div className="flex justify-between border-b-2 pb-4">
       <div>
         <p className="overflow-clip whitespace-nowrap m-0 text-xl font-bold">{character.name}</p>
         <p className="overflow-clip whitespace-nowrap m-0 text-xs opacity-75 italic">{getDescription(character)}</p>

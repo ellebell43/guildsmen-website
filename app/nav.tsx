@@ -6,13 +6,11 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import getUserByToken from "@/util/getUserByToken";
 import Image from "next/image";
 import Spinner from "./spinner";
-import { usePathname } from "next/navigation";
 
 
 export default function Nav() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  let path = usePathname()
 
   const { data, isLoading, error } = getUserByToken()
 
@@ -21,15 +19,6 @@ export default function Nav() {
       document.getElementById("html")?.classList.remove("dark");
     }
   }, [])
-
-  useEffect(() => {
-    let header = document.getElementsByTagName("header")[0]
-    if (/resources\/character-app/.test(path)) {
-      header.classList.remove("shadow-md")
-    } else {
-      header.classList.add("shadow-md")
-    }
-  }, [path])
 
   // Toggle dark mode via html element class list
   const toggleDarkMode = () => {
