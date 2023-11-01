@@ -5,7 +5,7 @@ export default function PageFooter(props: { active: "character" | "skills" | "ge
   const buttonClass = "border-stone-400 dark:border-stone-200 w-full py-2 hover:bg-stone-300 dark:hover:bg-stone-500 hover:cursor-pointer"
   const iconClass = "text-[18px]"
   return (
-    <div className="fixed inset-x-0 bottom-0 border-t bg-stone-200 dark:bg-stone-600 flex justify-evenly">
+    <div className="fixed inset-x-0 bottom-0 border-t border-stone-800 dark:border-stone-200 bg-stone-200 dark:bg-stone-600 flex justify-evenly transition-all">
       <button className={`${buttonClass}`} onClick={e => props.setActive("character")}>
         <FontAwesomeIcon className={iconClass} icon={faPerson} />
         <p className="m-0 text-xs text-center">Stats</p>

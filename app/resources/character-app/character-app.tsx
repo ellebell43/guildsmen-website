@@ -8,7 +8,7 @@ import { LabelAndLine, StatRow, Bubble, BubbleRow, MythBar, Skill, LineColumn, L
 import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper"
 import Die, { resetDie } from "@/util/components/dice/die"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faX } from "@fortawesome/free-solid-svg-icons"
+import { faX, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -33,6 +33,7 @@ export default function CharacterApp(props: { character: Character }) {
 
   const updateCharacter = () => {
     if (pendingChanges) {
+      console.log("updating character")
       setUpdating(true)
       fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
         .then(res => res.json())
@@ -52,14 +53,9 @@ export default function CharacterApp(props: { character: Character }) {
       case "character":
         return <div className="flex flex-col items-center justify-center gap-4">
           <Banner character={character} setCharacter={setCharacter} />
-          {/* === LUCK === */}
-          <div className={containerClass}>
-            <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-              <p className={headerClass}>Luck</p>
-            </DiceRollWrapper>
-            <Luck value={character.luck} />
-          </div>
-          {/* === STATS === */}
+
+          {/* ========== STATS ========== */}
+
           <div className={`${containerClass} flex flex-col justify-center items-end`}>
             <p className={`${headerClass} self-center`}>Stats</p>
             <DiceRollWrapper mod={character.stats.tough} modLabel="Tough" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
@@ -75,6 +71,60 @@ export default function CharacterApp(props: { character: Character }) {
               <StatRow stat="Constitution" top={true} value={character.stats.constitution} />
             </DiceRollWrapper>
           </div>
+          <div className="flex justify-center items-center gap-4">
+
+            {/* ========== LUCK ========== */}
+
+            <div className={containerClass}>
+              <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+                <p className={headerClass}>Luck</p>
+              </DiceRollWrapper>
+              <Luck value={character.luck} />
+            </div>
+
+            {/* ========== WEALTH ========== */}
+
+            <div className={`${containerClass} px-6`}>
+              <div className="flex justify-center items-center gap-2">
+                <button
+                  className="opacity-50"
+                  onClick={e => {
+                    if (character.wealth < 4) {
+                      let newCharacter = { ...character }
+                      newCharacter.wealth++
+                      // @ts-expect-error
+                      setCharacter(newCharacter)
+                    }
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPlus} />
+                </button>
+                <p className={headerClass}>Wealth</p>
+                <button
+                  className="opacity-50"
+                  onClick={e => {
+                    if (character.wealth > 0) {
+                      let newCharacter = { ...character }
+                      newCharacter.wealth--
+                      // @ts-expect-error
+                      setCharacter(newCharacter)
+                    }
+                  }}
+                >
+                  <FontAwesomeIcon icon={faMinus} />
+                </button>
+              </div>
+              {["Destitute", "Poor", "Moderate", "Wealthy", "Exquisite"].map((el, i) => {
+                return (
+                  <div className="flex gap-2 items-center" key={i}>
+                    <Bubble filled={i == character.wealth} />
+                    <p className="m-0">{el}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          {/* ========== ADDICTION ========== */}
         </div>
       case "details":
         return <>
