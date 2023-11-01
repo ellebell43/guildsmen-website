@@ -4,6 +4,11 @@ import { useState, useEffect } from "react"
 import { Character } from "@/util/types"
 import ChangesPending from "./changes-pending"
 import PageFooter from "./page-footer"
+import { LabelAndLine, StatRow, Bubble, BubbleRow, MythBar, Skill, LineColumn, Luck } from "@/util/components/character-sheet-components"
+import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper"
+import Die, { resetDie } from "@/util/components/dice/die"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faX } from "@fortawesome/free-solid-svg-icons"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -12,6 +17,8 @@ export default function CharacterApp(props: { character: Character }) {
   const [pendingChanges, setPendingChanges] = useState(false)
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
+  const [showDice, setShowDice] = useState(false)
+  const [rollMessage, setRollMessage] = useState<React.ReactNode>()
 
   useEffect(() => {
     if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
@@ -37,13 +44,38 @@ export default function CharacterApp(props: { character: Character }) {
     }
   }
 
+  const headerClass = "text-center text-xl m-0 font-bold"
+  const containerClass = "w-fit border p-2 rounded border-stone-400"
+
   const getPage = () => {
     switch (page) {
       case "character":
-        return <>
+        return <div className="flex flex-col items-center justify-center gap-4">
           <Banner character={character} setCharacter={setCharacter} />
-          <p>Character</p>
-        </>
+          {/* === LUCK === */}
+          <div className={containerClass}>
+            <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+              <p className={headerClass}>Luck</p>
+            </DiceRollWrapper>
+            <Luck value={character.luck} />
+          </div>
+          {/* === STATS === */}
+          <div className={`${containerClass} flex flex-col justify-center items-end`}>
+            <p className={`${headerClass} self-center`}>Stats</p>
+            <DiceRollWrapper mod={character.stats.tough} modLabel="Tough" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+              <StatRow stat="Tough" top={true} value={character.stats.tough} />
+            </DiceRollWrapper>
+            <DiceRollWrapper mod={character.stats.nimble} modLabel="Nimble" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+              <StatRow stat="Nimble" top={true} value={character.stats.nimble} />
+            </DiceRollWrapper>
+            <DiceRollWrapper mod={character.stats.competence} modLabel="Competence" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+              <StatRow stat="Competence" top={true} value={character.stats.competence} />
+            </DiceRollWrapper>
+            <DiceRollWrapper mod={character.stats.constitution} modLabel="Constitution" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+              <StatRow stat="Constitution" top={true} value={character.stats.constitution} />
+            </DiceRollWrapper>
+          </div>
+        </div>
       case "details":
         return <>
           <Banner character={character} setCharacter={setCharacter} />
@@ -85,6 +117,26 @@ export default function CharacterApp(props: { character: Character }) {
     <div className="relative bottom-[30px] h-[calc(100vh-2px)]">
       <ChangesPending pending={pendingChanges} updating={updating} />
       {getPage()}
+      {/* -- DICE CONTAINER --   */}
+      <div className={`fixed inset-0 bg-stone-500 bg-opacity-50 flex justify-center items-center ${showDice ? "" : "hidden"}`}>
+        <div className="bg-stone-100 dark:bg-stone-700 w-[325px] h-[300px] border rounded shadow-lg relative px-2">
+          <button
+            className=" button rounded-full border w-9 h-9 absolute -top-4 -right-4 shadow"
+            onClick={e => {
+              setShowDice(false)
+              resetDie("die1")
+              resetDie("die2")
+            }}
+          >
+            <FontAwesomeIcon icon={faX} />
+          </button>
+          <div className="flex justify-between px-10 mb-8 pt-12">
+            <Die id="die1" />
+            <Die id="die2" />
+          </div>
+          {rollMessage}
+        </div>
+      </div>
       <PageFooter active={page} setActive={setPage} />
     </div>
   )

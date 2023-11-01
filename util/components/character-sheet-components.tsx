@@ -18,7 +18,7 @@ export function LabelAndLine(props: { label: string }) {
 // -- BUBBLE COMPONENT --
 export function Bubble(props: { filled?: boolean, red?: boolean }) {
   return (
-    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-black"} ${props.filled ? "bg-black" : ""}`} />
+    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-black"} ${props.filled ? "bg-black dark:bg-stone-400" : ""}`} />
   )
 }
 
