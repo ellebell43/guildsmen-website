@@ -5,7 +5,7 @@ import { rollDie } from "./die";
 export default function DiceRollWrapper(props: { children: React.ReactNode, mod?: number, modLabel?: string, setShowDice: Function, die1ID: string, die2ID: string, setRollMessage: Function }) {
 
   const getModifier = () => {
-    if (props.mod) {
+    if (props.mod != undefined) {
       if (props.mod >= 0) return `+${props.mod}`
       return props.mod
     }
@@ -13,7 +13,7 @@ export default function DiceRollWrapper(props: { children: React.ReactNode, mod?
   }
 
   const getModifierString = () => {
-    if (props.mod) {
+    if (props.mod != undefined) {
       if (props.mod >= 0) return ` with a ${getModifier()}`
       return ` with a ${props.mod}`
     }
@@ -28,8 +28,9 @@ export default function DiceRollWrapper(props: { children: React.ReactNode, mod?
   }
 
   return (
-    <div className="flex justify-center items-center gap-2">
+    <div className="flex justify-center items-center gap-2 relative w-fit">
       <button
+        className="self-end relative bottom-[4px] opacity-50 hover:opacity-75 transition-all"
         onClick={e => {
           props.setShowDice(true)
           setTimeout(() => {
