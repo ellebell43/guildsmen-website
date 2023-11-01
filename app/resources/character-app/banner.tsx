@@ -24,16 +24,19 @@ export default function Banner(props: { character: Character, setCharacter: Func
       <div className="pr-4 relative">
         <p className="m-0 text-center border-b border-stone-800 dark:border-stone-300 w-fit mx-auto">Harm</p>
         <div className="flex justify-center items-center gap-2">
-          <button onClick={e => {
-            let newCharacter = { ...character }
-            newCharacter.harm++
-            props.setCharacter(newCharacter)
-          }}
+          <button
+            className="opacity-50"
+            onClick={e => {
+              let newCharacter = { ...character }
+              newCharacter.harm++
+              props.setCharacter(newCharacter)
+            }}
           >
             <FontAwesomeIcon icon={faPlus} />
           </button>
           <p className="m-0 text-center text-2xl">{character.harm}/10</p>
           <button
+            className="opacity-50"
             onClick={e => {
               let newCharacter = { ...character }
               newCharacter.harm--
