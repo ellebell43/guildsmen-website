@@ -27,9 +27,11 @@ export default function Banner(props: { character: Character, setCharacter: Func
           <button
             className="opacity-50"
             onClick={e => {
-              let newCharacter = { ...character }
-              newCharacter.harm++
-              props.setCharacter(newCharacter)
+              if (character.harm < 10) {
+                let newCharacter = { ...character }
+                newCharacter.harm++
+                props.setCharacter(newCharacter)
+              }
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -38,9 +40,11 @@ export default function Banner(props: { character: Character, setCharacter: Func
           <button
             className="opacity-50"
             onClick={e => {
-              let newCharacter = { ...character }
-              newCharacter.harm--
-              props.setCharacter(newCharacter)
+              if (character.harm > 0) {
+                let newCharacter = { ...character }
+                newCharacter.harm--
+                props.setCharacter(newCharacter)
+              }
             }}
           >
             <FontAwesomeIcon icon={faMinus} />

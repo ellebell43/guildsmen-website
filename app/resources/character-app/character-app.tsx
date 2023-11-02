@@ -8,7 +8,9 @@ import { LabelAndLine, StatRow, Bubble, BubbleRow, MythBar, Skill, LineColumn, L
 import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper"
 import Die, { resetDie } from "@/util/components/dice/die"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faX, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
+import { faX, faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons"
+import CharacterScreen from "./character-screen"
+import Message from "@/util/components/message"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -19,6 +21,8 @@ export default function CharacterApp(props: { character: Character }) {
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
   const [showDice, setShowDice] = useState(false)
   const [rollMessage, setRollMessage] = useState<React.ReactNode>()
+  const [message, setMessage] = useState<string>()
+  const [messageGood, setMessageGood] = useState(false)
 
   useEffect(() => {
     if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
@@ -31,9 +35,29 @@ export default function CharacterApp(props: { character: Character }) {
     }
   }, [pendingChanges])
 
+  useEffect(() => {
+    if (rollMessage && character.addiction >= 3) {
+      let maxNeed: number = 8 - Math.floor(character.addiction / 3) + 1
+      let newCharacter = { ...character }
+      if (!character.need) {
+        newCharacter.need = 1
+        //@ts-expect-error
+        setCharacter(newCharacter)
+      } else if (character.need < maxNeed) {
+        setMessage("Increasing addiction need.")
+        setMessageGood(false)
+        newCharacter.need++
+        // @ts-expect-error
+        setCharacter(newCharacter)
+      } else if (character.need >= maxNeed) {
+        setMessage("Maximum addiction need exceeded. Please see the Myth chapter for details.")
+        setMessageGood(false)
+      }
+    }
+  }, [rollMessage])
+
   const updateCharacter = () => {
     if (pendingChanges) {
-      console.log("updating character")
       setUpdating(true)
       fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
         .then(res => res.json())
@@ -51,81 +75,7 @@ export default function CharacterApp(props: { character: Character }) {
   const getPage = () => {
     switch (page) {
       case "character":
-        return <div className="flex flex-col items-center justify-center gap-4">
-          <Banner character={character} setCharacter={setCharacter} />
-
-          {/* ========== STATS ========== */}
-
-          <div className={`${containerClass} flex flex-col justify-center items-end`}>
-            <p className={`${headerClass} self-center`}>Stats</p>
-            <DiceRollWrapper mod={character.stats.tough} modLabel="Tough" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-              <StatRow stat="Tough" top={true} value={character.stats.tough} />
-            </DiceRollWrapper>
-            <DiceRollWrapper mod={character.stats.nimble} modLabel="Nimble" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-              <StatRow stat="Nimble" top={true} value={character.stats.nimble} />
-            </DiceRollWrapper>
-            <DiceRollWrapper mod={character.stats.competence} modLabel="Competence" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-              <StatRow stat="Competence" top={true} value={character.stats.competence} />
-            </DiceRollWrapper>
-            <DiceRollWrapper mod={character.stats.constitution} modLabel="Constitution" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-              <StatRow stat="Constitution" top={true} value={character.stats.constitution} />
-            </DiceRollWrapper>
-          </div>
-          <div className="flex justify-center items-center gap-4">
-
-            {/* ========== LUCK ========== */}
-
-            <div className={containerClass}>
-              <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-                <p className={headerClass}>Luck</p>
-              </DiceRollWrapper>
-              <Luck value={character.luck} />
-            </div>
-
-            {/* ========== WEALTH ========== */}
-
-            <div className={`${containerClass} px-6`}>
-              <div className="flex justify-center items-center gap-2">
-                <button
-                  className="opacity-50"
-                  onClick={e => {
-                    if (character.wealth < 4) {
-                      let newCharacter = { ...character }
-                      newCharacter.wealth++
-                      // @ts-expect-error
-                      setCharacter(newCharacter)
-                    }
-                  }}
-                >
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
-                <p className={headerClass}>Wealth</p>
-                <button
-                  className="opacity-50"
-                  onClick={e => {
-                    if (character.wealth > 0) {
-                      let newCharacter = { ...character }
-                      newCharacter.wealth--
-                      // @ts-expect-error
-                      setCharacter(newCharacter)
-                    }
-                  }}
-                >
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-              </div>
-              {["Destitute", "Poor", "Moderate", "Wealthy", "Exquisite"].map((el, i) => {
-                return (
-                  <div className="flex gap-2 items-center" key={i}>
-                    <Bubble filled={i == character.wealth} />
-                    <p className="m-0">{el}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-          {/* ========== ADDICTION ========== */}
-        </div>
+        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} />
       case "details":
         return <>
           <Banner character={character} setCharacter={setCharacter} />
@@ -188,6 +138,7 @@ export default function CharacterApp(props: { character: Character }) {
         </div>
       </div>
       <PageFooter active={page} setActive={setPage} />
+      <Message message={message} setMessage={setMessage} good={messageGood} />
     </div>
   )
 }

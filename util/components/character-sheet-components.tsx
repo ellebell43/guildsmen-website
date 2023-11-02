@@ -10,7 +10,7 @@ export function LabelAndLine(props: { label: string }) {
   return (
     <div className="flex gap-2">
       <p className="m-0">{props.label}:</p>
-      <div className="border-b w-full border-black" />
+      <div className="border-b w-full border-stone-800" />
     </div>
   )
 }
@@ -18,7 +18,7 @@ export function LabelAndLine(props: { label: string }) {
 // -- BUBBLE COMPONENT --
 export function Bubble(props: { filled?: boolean, red?: boolean }) {
   return (
-    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-black"} ${props.filled ? "bg-black dark:bg-stone-400" : ""}`} />
+    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-stone-600"} ${props.filled ? "bg-stone-600 dark:bg-stone-400" : ""}`} />
   )
 }
 
@@ -76,11 +76,11 @@ export function MythBar(props: { value?: addictionRange }) {
   while (i <= 8 * 3) {
     arr.push(
       i % 3 == 0 ?
-        <div key={i} className={`border w-2 h-4 border-r-2 relative ${props.value && props.value >= i ? "bg-black" : ""}`}>
-          <div className="absolute w-[3px] h-5 bg-black bottom-0 right-[-3px]" />
+        <div key={i} className={`border w-2 h-4 border-r-2 relative ${props.value && props.value >= i ? "bg-stone-600 dark:bg-stone-400" : ""}`}>
+          <div className="absolute w-[3px] h-5 bg-stone-800 dark:bg-stone-200 bottom-0 right-[-3px]" />
           <p className="relative left-1 bottom-[40px]">{i / 3}</p>
         </div>
-        : <div key={i} className={`border w-2 h-4  ${props.value && props.value >= i ? "bg-black" : ""}`} />
+        : <div key={i} className={`border w-2 h-4  ${props.value && props.value >= i ? "bg-stone-600 dark:bg-stone-400" : ""}`} />
     )
     i++
   }

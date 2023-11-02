@@ -108,7 +108,8 @@ export class Character {
   wealth: wealthRange
   luck: luckRange
   guild: guild
-  addiction: number
+  addiction: addictionRange
+  need: number
   goalsAndMotive: string
   flawsAndWeaknesses: string
   personalMorals: string
@@ -125,7 +126,7 @@ export class Character {
   public: boolean
   _id: ObjectId
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: number = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
@@ -137,6 +138,7 @@ export class Character {
     this.luck = luck
     this.guild = guild
     this.addiction = addiction
+    this.need = 0
     this.goalsAndMotive = goalsAndMotive
     this.flawsAndWeaknesses = flawsAndWeaknesses
     this.personalMorals = personalMorals
