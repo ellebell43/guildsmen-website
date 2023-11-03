@@ -26,6 +26,8 @@ export default function CharacterApp(props: { character: Character }) {
 
   useEffect(() => {
     if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
+    if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
+    if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }
   }, [character])
 
   useEffect(() => {
@@ -115,7 +117,7 @@ export default function CharacterApp(props: { character: Character }) {
      * - 
      */
     <div className="relative bottom-[30px] h-[calc(100vh-2px)]">
-      <ChangesPending pending={pendingChanges} updating={updating} />
+      <div className={`${!character.dying && character.harm != 10 ? "hidden" : ""} fixed inset-0 ${character.harm == 10 ? "from-transparent to-stone-800 dark:to-stone-300 via-transparent" : "from-transparent to-red-300 dark:to-red-800 via-transparent"} bg-gradient-radial opacity-50 transition-all`} />
       {getPage()}
       {/* -- DICE CONTAINER --   */}
       <div className={`fixed inset-0 bg-stone-500 bg-opacity-50 flex justify-center items-center ${showDice ? "" : "hidden"}`}>
@@ -139,6 +141,8 @@ export default function CharacterApp(props: { character: Character }) {
       </div>
       <PageFooter active={page} setActive={setPage} />
       <Message message={message} setMessage={setMessage} good={messageGood} />
+      {/* -- Dying Border -- */}
+      <ChangesPending pending={pendingChanges} updating={updating} />
     </div>
   )
 }
