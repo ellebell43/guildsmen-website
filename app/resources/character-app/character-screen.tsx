@@ -5,8 +5,9 @@ import { StatRow, Luck, Bubble, BubbleRow, MythBar } from "@/util/components/cha
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons";
 
-export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string }) {
-  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass } = props
+export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function }) {
+  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood } = props
+
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <Banner character={character} setCharacter={setCharacter} />
@@ -90,6 +91,10 @@ export default function CharacterScreen(props: { character: Character, setCharac
               if (character.addiction < 24) {
                 let newCharacter = { ...character }
                 newCharacter.addiction++
+                if (newCharacter.addiction == 3) {
+                  setMessage("You are now addicted to Myth.")
+                  setMessageGood(false)
+                }
                 setCharacter(newCharacter)
               }
             }}
@@ -140,6 +145,10 @@ export default function CharacterScreen(props: { character: Character, setCharac
                   let newCharacter = { ...character }
                   newCharacter.addiction++
                   newCharacter.mythUses++
+                  if (newCharacter.addiction == 3) {
+                    setMessage("You are now addicted to Myth.")
+                    setMessageGood(false)
+                  }
                   setCharacter(newCharacter)
                 } else if (character.mythUses == 6) {
                   let newCharacter = { ...character }

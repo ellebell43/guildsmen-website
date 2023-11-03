@@ -77,7 +77,7 @@ export default function CharacterApp(props: { character: Character }) {
   const getPage = () => {
     switch (page) {
       case "character":
-        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} />
+        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} />
       case "details":
         return <>
           <Banner character={character} setCharacter={setCharacter} />
