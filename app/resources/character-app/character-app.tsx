@@ -4,13 +4,12 @@ import { useState, useEffect } from "react"
 import { Character } from "@/util/types"
 import ChangesPending from "./changes-pending"
 import PageFooter from "./page-footer"
-import { LabelAndLine, StatRow, Bubble, BubbleRow, MythBar, Skill, LineColumn, Luck } from "@/util/components/character-sheet-components"
-import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper"
 import Die, { resetDie } from "@/util/components/dice/die"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faX, faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons"
+import { faX } from "@fortawesome/free-solid-svg-icons"
 import CharacterScreen from "./character-screen"
 import Message from "@/util/components/message"
+import SkillsScreen from "./skills-screen"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -80,7 +79,6 @@ export default function CharacterApp(props: { character: Character }) {
         return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} />
       case "details":
         return <>
-          <Banner character={character} setCharacter={setCharacter} />
           <p>Details</p>
         </>
       case "gear":
@@ -98,8 +96,7 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "skills":
         return <>
-          <Banner character={character} setCharacter={setCharacter} />
-          <p>Skills</p>
+          <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} />
         </>
       default:
         return <></>
@@ -116,7 +113,7 @@ export default function CharacterApp(props: { character: Character }) {
      * - == DESKTOP DISPLAY ==
      * - 
      */
-    <div className="relative bottom-[30px] h-[calc(100vh-2px)]">
+    <div className="relative bottom-[30px] min-h-[calc(100vh-2px)]">
       <div className={`${!character.dying && character.harm != 10 ? "hidden" : ""} fixed inset-0 ${character.harm == 10 ? "from-transparent to-stone-800 dark:to-stone-300 via-transparent" : "from-transparent to-red-300 dark:to-red-800 via-transparent"} bg-gradient-radial opacity-50 transition-all`} />
       {getPage()}
       {/* -- DICE CONTAINER --   */}

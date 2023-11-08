@@ -2,7 +2,7 @@ import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { rollDie } from "./die";
 
-export default function DiceRollWrapper(props: { children: React.ReactNode, mod?: number, modLabel?: string, setShowDice: Function, die1ID: string, die2ID: string, setRollMessage: Function }) {
+export default function DiceRollWrapper(props: { children: React.ReactNode, mod?: number, modLabel?: string, setShowDice: Function, die1ID: string, die2ID: string, setRollMessage: Function, absolute?: boolean }) {
 
   const getModifier = () => {
     if (props.mod != undefined) {
@@ -30,7 +30,7 @@ export default function DiceRollWrapper(props: { children: React.ReactNode, mod?
   return (
     <div className="flex justify-center items-center gap-2 relative w-fit">
       <button
-        className="self-end relative bottom-[4px] opacity-50 hover:opacity-75 transition-all"
+        className={`self-end opacity-50 hover:opacity-75 transition-all ${props.absolute ? "absolute -left-6" : "relative bottom-[4px]"}`}
         onClick={e => {
           props.setShowDice(true)
           setTimeout(() => {

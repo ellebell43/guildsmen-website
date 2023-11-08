@@ -1,4 +1,5 @@
 import { addictionRange, luckRange, modRange } from "../types"
+import DiceRollWrapper from "./dice/dice-roll-wrapper"
 
 const labelStyle = "m-0"
 const borderStyle = "border rounded-lg border-stone-400 shadow-sm p-2 pt-2 flex flex-col justify-center"
@@ -92,25 +93,82 @@ export function MythBar(props: { value?: addictionRange }) {
 }
 
 // -- SKILL COMPONENT --
-export function Skill(props: { name: string, value?: modRange, doubleCol?: boolean }) {
+export function Skill(props: { name: string, value?: modRange, doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string }) {
   return (
-    <div className={props.doubleCol ? "col-span-2" : ""}>
+    <div className={`${props.doubleCol ? "col-span-2" : ""}`}>
       <p className="m-0 italic text-center">{props.name}</p>
-      <div className="flex justify-center">
-        <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
-          <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
+      <div className="flex justify-center items-center flex-col-reverse md:flex-col">
+        <div className="flex justify-center flex-col md:flex-row items-center">
+          <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+            <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
+          </div>
+          <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+            <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
+          </div>
         </div>
-        <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
-          <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
+        <div className="mb-1">
+          <div className="flex justify-center items-center gap-[6px] pr-1">
+            {["-1", "+0", "+1", "+2", "+3"].map(
+              (el, i) => <p className={modifierStyle} key={i}>{el}</p>
+            )}
+          </div>
+          <div className="flex gap-2 justify-center items-center">
+            <BubbleRow length={5} fill={props.value != undefined ? props.value + 2 : 1} />
+          </div>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-[6px] pr-1">
-        {["-1", "+0", "+1", "+2", "+3"].map(
-          (el, i) => <p className={modifierStyle} key={i}>{el}</p>
-        )}
-      </div>
-      <div className="flex gap-2 justify-center items-center">
-        <BubbleRow length={5} fill={props.value != undefined ? props.value + 2 : 1} />
+    </div>
+  )
+}
+
+// -- ROLLABLE SKILL --
+export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, name: string, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, }) => {
+  const modifierStyle = "text-xs m-0"
+  return (
+    <div className={`${props.doubleCol ? "col-span-2" : ""}`}>
+      {/* Skill name */}
+      <p className="m-0 italic text-center">{props.name}</p>
+      <div className="flex justify-center items-center flex-col-reverse md:flex-col">
+
+        {/* Specialties */}
+
+        <div className="flex justify-center flex-col md:flex-row items-center">
+          {props.primarySpecialty ?
+            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={2 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
+              <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
+                <p className="text-[8px] text-stone-400 m-0 relative">Primary (+2):</p>
+                <p className="m-0 text-[12px] absolute top-2 left-1">{props.primarySpecialty}</p>
+              </div>
+            </DiceRollWrapper> :
+            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+              <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
+            </div>}
+          {props.secondarySpecialty ?
+            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
+              <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
+                <p className="text-[8px] text-stone-400 m-0 relative">Secondary (+1):</p>
+                <p className="m-0 text-[12px] absolute top-2 left-1">{props.secondarySpecialty}</p>
+              </div>
+            </DiceRollWrapper> :
+            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+              <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
+            </div>}
+        </div>
+
+        {/* Bubble row */}
+
+        <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={props.value} modLabel={props.name} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage}>
+          <div className="mb-1">
+            <div className="flex justify-center items-center gap-[6px] pr-1">
+              {["-1", "+0", "+1", "+2", "+3"].map(
+                (el, i) => <p className={modifierStyle} key={i}>{el}</p>
+              )}
+            </div>
+            <div className="flex gap-2 justify-center items-center">
+              <BubbleRow length={5} fill={props.value != undefined ? props.value + 2 : 1} />
+            </div>
+          </div>
+        </DiceRollWrapper>
       </div>
     </div>
   )
