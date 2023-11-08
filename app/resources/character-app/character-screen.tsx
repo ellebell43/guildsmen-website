@@ -45,7 +45,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
         <div className={`${containerClass} px-6`}>
           <div className="flex justify-center items-center gap-2">
             <button
-              className="opacity-50"
+              className="opacity-25"
               onClick={e => {
                 if (character.wealth < 4) {
                   let newCharacter = { ...character }
@@ -58,7 +58,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
             </button>
             <p className={headerClass}>Wealth</p>
             <button
-              className="opacity-50"
+              className="opacity-25"
               onClick={e => {
                 if (character.wealth > 0) {
                   let newCharacter = { ...character }
@@ -86,7 +86,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
         <div className="flex justify-center items-center gap-2">
           {/* === Addiction Meter === */}
           <button
-            className="opacity-50"
+            className="opacity-25"
             onClick={e => {
               if (character.addiction < 24) {
                 let newCharacter = { ...character }
@@ -103,7 +103,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
           </button>
           <p className="text-center m-0">Level</p>
           <button
-            className="opacity-50"
+            className="opacity-25"
             onClick={e => {
               if (character.addiction > 0) {
                 let newCharacter = { ...character }
@@ -122,7 +122,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
         </div>
         <div className="flex gap-2 justify-center items-center relative">
           <p className="m-0 text-center">Need</p>
-          <button className="opacity-50 text-sm absolute right-16" onClick={e => {
+          <button className="opacity-25 text-sm absolute right-16" onClick={e => {
             let newCharacter = { ...character }
             newCharacter.need = 0
             setCharacter(newCharacter)
@@ -139,7 +139,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
           <p className="text-xs m-0">Uses Available</p>
           <div className="flex justify-center items-center gap-2">
             <button
-              className="opacity-50 text-xs"
+              className="opacity-25 text-xs"
               onClick={e => {
                 if (character.mythUses < 6) {
                   let newCharacter = { ...character }
@@ -164,7 +164,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
               <p className="m-0 text-center">{character.mythUses}</p>
             </div>
             <button
-              className="opacity-50 text-xs"
+              className="opacity-25 text-xs"
               onClick={e => {
                 if (character.mythUses > 0) {
                   let newCharacter = { ...character }

@@ -30,7 +30,7 @@ export default function DiceRollWrapper(props: { children: React.ReactNode, mod?
   return (
     <div className="flex justify-center items-center gap-2 relative w-fit">
       <button
-        className={`self-end opacity-50 hover:opacity-75 transition-all ${props.absolute ? "absolute -left-6" : "relative bottom-[4px]"}`}
+        className={`self-end opacity-40 hover:opacity-75 transition-all ${props.absolute ? "absolute -left-6" : "relative bottom-[4px]"}`}
         onClick={e => {
           props.setShowDice(true)
           setTimeout(() => {

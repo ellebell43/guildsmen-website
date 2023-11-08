@@ -27,7 +27,7 @@ export default function Banner(props: { character: Character, setCharacter: Func
         <p className="m-0 text-center border-b border-stone-800 dark:border-stone-300 w-fit mx-auto">Harm</p>
         <div className="flex justify-center items-center gap-2">
           <button
-            className="opacity-50"
+            className="opacity-25"
             onClick={e => {
               if (character.harm < 10) {
                 let newCharacter = { ...character }
@@ -40,7 +40,7 @@ export default function Banner(props: { character: Character, setCharacter: Func
           </button>
           <p className="m-0 text-center text-2xl">{character.harm}/10</p>
           <button
-            className="opacity-50"
+            className="opacity-25"
             onClick={e => {
               if (character.harm > 0) {
                 let newCharacter = { ...character }
