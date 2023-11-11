@@ -10,6 +10,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons"
 import CharacterScreen from "./character-screen"
 import Message from "@/util/components/message"
 import SkillsScreen from "./skills-screen"
+import Settings from "./settings"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -22,6 +23,7 @@ export default function CharacterApp(props: { character: Character }) {
   const [rollMessage, setRollMessage] = useState<React.ReactNode>()
   const [message, setMessage] = useState<string>()
   const [messageGood, setMessageGood] = useState(false)
+  const [edit, setEdit] = useState(false)
 
   useEffect(() => {
     if (JSON.stringify(initCharacter) !== JSON.stringify(character)) setPendingChanges(true)
@@ -76,7 +78,7 @@ export default function CharacterApp(props: { character: Character }) {
   const getPage = () => {
     switch (page) {
       case "character":
-        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} />
+        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} />
       case "details":
         return <>
           <p>Details</p>
@@ -92,11 +94,11 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "settings":
         return <>
-          <p>Settings</p>
+          <Settings edit={edit} setEdit={setEdit} />
         </>
       case "skills":
         return <>
-          <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} />
+          <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
         </>
       default:
         return <></>

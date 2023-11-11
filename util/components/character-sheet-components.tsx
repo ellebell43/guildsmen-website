@@ -1,14 +1,14 @@
 import { useState } from "react"
-import { Character, addictionRange, craftSpecialty, investigateSpecialty, leadershipSpecialty, luckRange, medicSpecialty, modRange, mythSpecialty, natureSpecialty, performanceSpecialty, skillName, sneakySpecialty, socialSpecialty, techSpecialty, throwdownSpecialty } from "../types"
+import { Character, addictionRange, craftSpecialty, investigateSpecialty, leadershipSpecialty, luckRange, medicSpecialty, modRange, mythSpecialty, natureSpecialty, performanceSpecialty, skillName, sneakySpecialty, socialSpecialty, statName, techSpecialty, throwdownSpecialty } from "../types"
 import DiceRollWrapper from "./dice/dice-roll-wrapper"
 import PopUp from "./pop-up"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEdit } from "@fortawesome/free-solid-svg-icons"
+import { faEdit, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons"
 
-const labelStyle = "m-0"
+const labelStyle = "m-0 text-md"
 const borderStyle = "border rounded-lg border-stone-400 shadow-sm p-2 pt-2 flex flex-col justify-center"
 const headerStyle = "m-0 text-[24px]"
-const modifierStyle = "text-xs m-0"
+const modifierStyle = "text-[12px] m-0"
 
 // ========== WRITE-IN LINE WITH LABEL COMPONENT =========
 export function LabelAndLine(props: { label: string }) {
@@ -60,7 +60,7 @@ export function StatRow(props: { stat: string, top?: boolean, value?: modRange }
   } else {
     return (
       <div>
-        <div className="flex justify-end items-center gap-[6px] pr-1">
+        <div className="flex justify-end items-center gap-[10px] pr-1">
           {["-1", "+0", "+1", "+2", "+3"].map(
             (el, i) => <p className={modifierStyle} key={i}>{el}</p>
           )}
@@ -72,6 +72,52 @@ export function StatRow(props: { stat: string, top?: boolean, value?: modRange }
       </div>
     )
   }
+}
+
+// -- ROLLABLE STAT ROW COMPONENT --
+export function RollableStatRow(props: { stat: statName, top?: boolean, value: modRange, edit: boolean, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) {
+  const { stat, top, value, edit, setShowDice, setRollMessage, die1ID, die2ID, character, setCharacter } = props
+  return (
+    <div>
+      <div className="flex justify-end items-center gap-[10px] pr-1">
+        {top ? ["-1", "+0", "+1", "+2", "+3"].map(
+          (el, i) => <p className={modifierStyle} key={i}>{el}</p>
+        ) : <></>}
+      </div>
+      <DiceRollWrapper mod={value} modLabel={stat} setShowDice={setShowDice} die1ID={die1ID} die2ID={die2ID} setRollMessage={setRollMessage} >
+        <div className="flex gap-2 justify-end items-center">
+          <div className="flex justify-center items-center gap-2 text-sm">
+            {edit ? <button
+              className="opacity-25"
+              onClick={e => {
+                if (value < 3) {
+                  let newCharacter = { ...character }
+                  newCharacter.stats[stat]++
+                  setCharacter(newCharacter)
+                }
+              }}
+            >
+              <FontAwesomeIcon icon={faPlus} />
+            </button> : <></>}
+            <p className={labelStyle}>{props.stat.charAt(0).toUpperCase() + props.stat.slice(1)}:</p>
+            {edit ? <button
+              className="opacity-25"
+              onClick={e => {
+                if (value > -1) {
+                  let newCharacter = { ...character }
+                  newCharacter.stats[stat]--
+                  setCharacter(newCharacter)
+                }
+              }}
+            >
+              <FontAwesomeIcon icon={faMinus} />
+            </button> : <></>}
+          </div>
+          <BubbleRow length={5} fill={props.value != undefined ? props.value + 2 : 1} />
+        </div>
+      </DiceRollWrapper>
+    </div>
+  )
 }
 
 // -- MYTH ADDICTION BAR COMPONENT --
@@ -111,7 +157,7 @@ export function Skill(props: { name: string, value?: modRange, doubleCol?: boole
           </div>
         </div>
         <div className="mb-1">
-          <div className="flex justify-center items-center gap-[6px] pr-1">
+          <div className="flex justify-center items-center gap-[10px] pr-1">
             {["-1", "+0", "+1", "+2", "+3"].map(
               (el, i) => <p className={modifierStyle} key={i}>{el}</p>
             )}
@@ -271,12 +317,38 @@ export const AddSpecialty = (props: { type: "primary" | "secondary", skill: skil
 }
 
 // -- ROLLABLE SKILL --
-export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, name: skillName, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) => {
+export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, edit?: boolean, name: skillName, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) => {
   const modifierStyle = "text-xs m-0"
   return (
     <div className={`${props.doubleCol ? "col-span-2" : ""}`}>
       {/* Skill name */}
-      <p className="m-0 italic text-center">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</p>
+      <div className="flex justify-center items-center gap-2">
+        {props.edit ? <button
+          className="opacity-25"
+          onClick={e => {
+            if (props.value < 3) {
+              let newCharacter = { ...props.character }
+              newCharacter.skills[props.name]++
+              props.setCharacter(newCharacter)
+            }
+          }}
+        >
+          <FontAwesomeIcon icon={faPlus} />
+        </button> : <></>}
+        <p className="m-0 italic text-center">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</p>
+        {props.edit ? <button
+          className="opacity-25"
+          onClick={e => {
+            if (props.value > -1) {
+              let newCharacter = { ...props.character }
+              newCharacter.skills[props.name]--
+              props.setCharacter(newCharacter)
+            }
+          }}
+        >
+          <FontAwesomeIcon icon={faMinus} />
+        </button> : <></>}
+      </div>
       <div className="flex justify-center items-center flex-col-reverse md:flex-col">
 
         {/* Specialties */}
@@ -287,24 +359,24 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Primary (+2):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.primarySpecialty}</p>
-                <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
+                {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
               </div>
             </DiceRollWrapper> :
             <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
               <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
-              <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
+              {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
             </div>}
           {props.secondarySpecialty ?
             <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Secondary (+1):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.secondarySpecialty}</p>
-                <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
+                {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
               </div>
             </DiceRollWrapper> :
             <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
               <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
-              <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
+              {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
             </div>}
         </div>
 
@@ -312,7 +384,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
 
         <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={props.value} modLabel={props.name} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage}>
           <div className="mb-1">
-            <div className="flex justify-center items-center gap-[6px] pr-1">
+            <div className="flex justify-center items-center gap-[10px] pr-1">
               {["-1", "+0", "+1", "+2", "+3"].map(
                 (el, i) => <p className={modifierStyle} key={i}>{el}</p>
               )}

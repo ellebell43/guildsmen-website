@@ -1,12 +1,12 @@
 import { Character } from "@/util/types";
 import Banner from "./banner";
 import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper";
-import { StatRow, Luck, Bubble, BubbleRow, MythBar } from "@/util/components/character-sheet-components";
+import { StatRow, Luck, Bubble, BubbleRow, MythBar, RollableStatRow } from "@/util/components/character-sheet-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons";
 
-export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function }) {
-  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood } = props
+export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function, edit: boolean }) {
+  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood, edit } = props
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -16,18 +16,10 @@ export default function CharacterScreen(props: { character: Character, setCharac
 
       <div className={`${containerClass} flex flex-col justify-center items-end`}>
         <p className={`${headerClass} self-center`}>Stats</p>
-        <DiceRollWrapper mod={props.character.stats.tough} modLabel="Tough" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-          <StatRow stat="Tough" top={true} value={character.stats.tough} />
-        </DiceRollWrapper>
-        <DiceRollWrapper mod={character.stats.nimble} modLabel="Nimble" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-          <StatRow stat="Nimble" top={true} value={character.stats.nimble} />
-        </DiceRollWrapper>
-        <DiceRollWrapper mod={character.stats.competence} modLabel="Competence" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-          <StatRow stat="Competence" top={true} value={character.stats.competence} />
-        </DiceRollWrapper>
-        <DiceRollWrapper mod={character.stats.constitution} modLabel="Constitution" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-          <StatRow stat="Constitution" top={true} value={character.stats.constitution} />
-        </DiceRollWrapper>
+        <RollableStatRow stat={"tough"} value={character.stats.tough} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} top={true} />
+        <RollableStatRow stat={"nimble"} value={character.stats.nimble} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
+        <RollableStatRow stat={"competence"} value={character.stats.competence} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
+        <RollableStatRow stat={"constitution"} value={character.stats.constitution} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
       </div>
       <div className="flex justify-center items-center gap-4">
 
@@ -35,7 +27,35 @@ export default function CharacterScreen(props: { character: Character, setCharac
 
         <div className={containerClass}>
           <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
-            <p className={headerClass}>Luck</p>
+            <div className="flex justify-center items-center gap-2">
+              {edit ? <button
+                className="opacity-25"
+                onClick={e => {
+                  if (character.luck < 3) {
+                    let newCharacter = { ...character }
+                    newCharacter.luck++
+                    if (newCharacter.luck == 0) newCharacter.luck++
+                    setCharacter(newCharacter)
+                  }
+                }}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+              </button> : <></>}
+              <p className={headerClass}>Luck</p>
+              {edit ? <button
+                className="opacity-25"
+                onClick={e => {
+                  if (character.luck > -3) {
+                    let newCharacter = { ...character }
+                    newCharacter.luck--
+                    if (newCharacter.luck == 0) newCharacter.luck--
+                    setCharacter(newCharacter)
+                  }
+                }}
+              >
+                <FontAwesomeIcon icon={faMinus} />
+              </button> : <></>}
+            </div>
           </DiceRollWrapper>
           <Luck value={character.luck} />
         </div>
@@ -44,7 +64,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
 
         <div className={`${containerClass} px-6`}>
           <div className="flex justify-center items-center gap-2">
-            <button
+            {edit ? <button
               className="opacity-25"
               onClick={e => {
                 if (character.wealth < 4) {
@@ -55,9 +75,9 @@ export default function CharacterScreen(props: { character: Character, setCharac
               }}
             >
               <FontAwesomeIcon icon={faPlus} />
-            </button>
+            </button> : <></>}
             <p className={headerClass}>Wealth</p>
-            <button
+            {edit ? <button
               className="opacity-25"
               onClick={e => {
                 if (character.wealth > 0) {
@@ -68,7 +88,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
               }}
             >
               <FontAwesomeIcon icon={faMinus} />
-            </button>
+            </button> : <></>}
           </div>
           {["Destitute", "Poor", "Moderate", "Wealthy", "Exquisite"].map((el, i) => {
             return (
