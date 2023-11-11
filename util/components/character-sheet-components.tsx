@@ -1,5 +1,9 @@
-import { addictionRange, luckRange, modRange } from "../types"
+import { useState } from "react"
+import { Character, addictionRange, craftSpecialty, investigateSpecialty, leadershipSpecialty, luckRange, medicSpecialty, modRange, mythSpecialty, natureSpecialty, performanceSpecialty, skillName, sneakySpecialty, socialSpecialty, techSpecialty, throwdownSpecialty } from "../types"
 import DiceRollWrapper from "./dice/dice-roll-wrapper"
+import PopUp from "./pop-up"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEdit } from "@fortawesome/free-solid-svg-icons"
 
 const labelStyle = "m-0"
 const borderStyle = "border rounded-lg border-stone-400 shadow-sm p-2 pt-2 flex flex-col justify-center"
@@ -121,13 +125,158 @@ export function Skill(props: { name: string, value?: modRange, doubleCol?: boole
   )
 }
 
+// -- ADD SPECIALTY BUTTON --
+export const AddSpecialty = (props: { type: "primary" | "secondary", skill: skillName, character: Character, setCharacter: Function, className: string }) => {
+  const { type, skill, character, setCharacter, className } = props
+  let [showDialogue, setShowDialogue] = useState(false)
+
+  const setSpecialty = (specialty?: craftSpecialty | investigateSpecialty | leadershipSpecialty | medicSpecialty | mythSpecialty | natureSpecialty | performanceSpecialty | socialSpecialty | sneakySpecialty | throwdownSpecialty | techSpecialty) => {
+    let newCharacter = { ...character }
+    if (type == "primary" && specialty) {
+      newCharacter.specialties[skill].primary = specialty
+    } else if (type == "secondary" && specialty) {
+      newCharacter.specialties[skill].secondary = specialty
+    } else if (type == "primary") {
+      newCharacter.specialties[skill].primary = undefined
+    } else {
+      newCharacter.specialties[skill].secondary = undefined
+    }
+    setCharacter(newCharacter)
+  }
+
+  const SpecialtyInput = (props: { name: string }) => {
+    let disabled = type == "primary" ? character.specialties[skill].secondary == props.name : character.specialties[skill].primary == props.name
+    return (
+      <div className="flex gap-2 items-center">
+        <input type="radio" name="specialty" value={props.name} id={props.name} onClick={e => { setSpecialty(props.name) }} checked={type == "primary" ? character.specialties[skill].primary == props.name : character.specialties[skill].secondary == props.name} disabled={disabled} className="disabled:opacity-40 disabled:line-through" />
+        <label htmlFor={props.name} className={`${disabled ? "opacity-40 line-through" : ""}`}>{props.name}</label>
+      </div>
+    )
+  }
+
+  const getInputs = () => {
+    switch (skill) {
+      case "craft":
+        // clay, fabric, metal, stone, wood
+        return <>
+          <SpecialtyInput name="Clay" />
+          <SpecialtyInput name="Fabric" />
+          <SpecialtyInput name="Metal" />
+          <SpecialtyInput name="Stone" />
+          <SpecialtyInput name="Wood" />
+        </>
+      case "investigate":
+        // awareness, searching, situational, tracking
+        return <>
+          <SpecialtyInput name="Awareness" />
+          <SpecialtyInput name="Searching" />
+          <SpecialtyInput name="Situational" />
+          <SpecialtyInput name="Tracking" />
+        </>
+      case "leadership":
+        // business, government, group
+        return <>
+          <SpecialtyInput name="Business" />
+          <SpecialtyInput name="Government" />
+          <SpecialtyInput name="Group" />
+        </>
+      case "medic":
+        // beasts, people
+        return <>
+          <SpecialtyInput name="Beasts" />
+          <SpecialtyInput name="People" />
+        </>
+      case "myth":
+        // refinement, air, fire, lightning, metal, stone, water, other
+        return <>
+          <SpecialtyInput name="Refinement" />
+          <SpecialtyInput name="Air" />
+          <SpecialtyInput name="Fire" />
+          <SpecialtyInput name="Lightning" />
+          <SpecialtyInput name="Metal" />
+          <SpecialtyInput name="Stone" />
+          <SpecialtyInput name="Water" />
+        </>
+      case "nature":
+        // animals, geography, plants, survival
+        return <>
+          <SpecialtyInput name="Animals" />
+          <SpecialtyInput name="Geography" />
+          <SpecialtyInput name="Plants" />
+          <SpecialtyInput name="Survival" />
+        </>
+      case "performance":
+        // acrobatics, acting, contortion, music
+        return <>
+          <SpecialtyInput name="Acrobatics" />
+          <SpecialtyInput name="Acting" />
+          <SpecialtyInput name="Contortion" />
+          <SpecialtyInput name="Music" />
+        </>
+      case "sneaky":
+        // hiding, lock-picking, pick-pocketing, sleight-of-hand
+        return <>
+          <SpecialtyInput name="Hiding" />
+          <SpecialtyInput name="Lock-Picking" />
+          <SpecialtyInput name="Pick-Pocketing" />
+          <SpecialtyInput name="Sleight-of-Hand" />
+        </>
+      case "social":
+        // deception, intimidation, persuasion
+        return <>
+          <SpecialtyInput name="Deception" />
+          <SpecialtyInput name="Intimidation" />
+          <SpecialtyInput name="Persuasion" />
+        </>
+      case "tech":
+        // biological, personal, large, vehicle
+        return <>
+          <SpecialtyInput name="Biological" />
+          <SpecialtyInput name="Personal" />
+          <SpecialtyInput name="Large" />
+          <SpecialtyInput name="Vehicle" />
+        </>
+      case "throwdown":
+        // melee, personal, ranged
+        return <>
+          <SpecialtyInput name="Melee" />
+          <SpecialtyInput name="Personal" />
+          <SpecialtyInput name="Ranged" />
+        </>
+    }
+  }
+
+  return (
+    <>
+      <button className={className} onClick={e => setShowDialogue(true)}>
+        <FontAwesomeIcon icon={faEdit} />
+      </button>
+      {showDialogue ?
+        <PopUp>
+          <p className="text-center font-bold text-lg mt-0">{skill.charAt(0).toUpperCase() + skill.slice(1)} {type == "primary" ? "primary" : "secondary"} specialty</p>
+          <div className="flex flex-col w-fit mx-auto mb-4">
+            <div className="flex gap-2 items-center">
+              <input type="radio" name="specialty" value={undefined} id="none" checked={type == "primary" ? character.specialties[skill].primary == undefined : character.specialties[skill].secondary == undefined} onClick={e => { setSpecialty() }} />
+              <label htmlFor="none">None</label>
+            </div>
+            {getInputs()}
+          </div>
+
+          <button className="button rounded px-4 py-1" onClick={e => setShowDialogue(false)}>
+            Done
+          </button>
+        </PopUp> : <></>}
+    </>
+  )
+}
+
 // -- ROLLABLE SKILL --
-export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, name: string, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, }) => {
+export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, name: skillName, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) => {
   const modifierStyle = "text-xs m-0"
   return (
     <div className={`${props.doubleCol ? "col-span-2" : ""}`}>
       {/* Skill name */}
-      <p className="m-0 italic text-center">{props.name}</p>
+      <p className="m-0 italic text-center">{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</p>
       <div className="flex justify-center items-center flex-col-reverse md:flex-col">
 
         {/* Specialties */}
@@ -138,20 +287,24 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Primary (+2):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.primarySpecialty}</p>
+                <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
               </div>
             </DiceRollWrapper> :
-            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
               <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
+              <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
             </div>}
           {props.secondarySpecialty ?
             <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Secondary (+1):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.secondarySpecialty}</p>
+                <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
               </div>
             </DiceRollWrapper> :
-            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+            <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
               <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
+              <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="secondary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} />
             </div>}
         </div>
 
