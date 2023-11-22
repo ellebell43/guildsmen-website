@@ -1,5 +1,5 @@
 import { dbClient } from "@/util/dbClient"
-import { ObjectId, WithId, Document } from "mongodb"
+import { ObjectId } from "mongodb"
 import { NextResponse } from "next/server"
 import { cookies } from "next/dist/client/components/headers"
 import { Character } from "@/util/types"
@@ -15,8 +15,15 @@ export async function GET(req: Request) {
   const characters = client.collection("characters")
   const character = await characters.findOne({ _id: new ObjectId(id) })
   if (!character) {
-    return NextResponse.json({ error: "No character found with id provided" }, { status: 400 })
+    return NextResponse.json({ error: "No character found with id provided" }, { status: 404 })
   }
+
+  const token = cookies().get("token")?.value
+  if (!token) return NextResponse.json({ error: "No user token provided. Please sign in to continue" }, { status: 400 })
+  const users = client.collection("users")
+  const user = await users.findOne({ token })
+  if (!user) return NextResponse.json({ error: "No user found with provided token. Please sign in to continue." }, { status: 404 })
+  if (character.owner != user.username && !character.public) return NextResponse.json({ error: "You don't have access to this character." }, { status: 400 })
 
   return NextResponse.json(character)
 }
@@ -38,8 +45,10 @@ export async function PATCH(req: Request) {
   const users = client.collection("users")
   const user = await users.findOne({ token })
   if (!user) {
-    return NextResponse.json({ error: "No user found with provided authentication token" }, { status: 400 })
+    return NextResponse.json({ error: "No user found with provided authentication token" }, { status: 404 })
   }
+
+  if (user.username != character.owner) return NextResponse.json({ error: "You do not have permission to make changes to this character." })
 
   const updateObject = {
     "$set": {
@@ -74,7 +83,7 @@ export async function PATCH(req: Request) {
   const updateResult = await characters.updateOne({ _id: new ObjectId(character._id) }, updateObject)
 
   if (!updateResult.matchedCount) {
-    return NextResponse.json({ error: "No character found with id provided" }, { status: 400 })
+    return NextResponse.json({ error: "No character found with id provided. Character update failed" }, { status: 404 })
   }
 
   return NextResponse.json({ message: "Character update successful" }, { status: 200 })
