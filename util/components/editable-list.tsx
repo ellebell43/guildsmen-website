@@ -5,8 +5,9 @@ import { faTrash, faX } from "@fortawesome/free-solid-svg-icons"
 import { Reorder } from "framer-motion"
 
 export default function EditableList(props: { state: string[] | undefined, setState: Function, placeholder: string }) {
+  const { state, setState } = props
   const [newItem, setNewItem] = useState<string>("")
-  const [itemArr, setItemArr] = useState<string[]>([])
+  // const [itemArr, setItemArr] = useState<string[]>([])
   return (
     <div>
       <div className="flex gap-4 items-center justify-center relative left-2 sm:left-0">
@@ -16,10 +17,10 @@ export default function EditableList(props: { state: string[] | undefined, setSt
         <button
           className="button px-2 sm:px-5 py-1 text-sm rounded m-0"
           onClick={e => {
-            let arr = [...itemArr]
+            let arr = state ? [...state] : []
             if (newItem) arr.push(newItem.trim())
             setNewItem("")
-            setItemArr(arr)
+            setState(arr)
             document.getElementById(props.placeholder)?.focus()
           }}
         >
@@ -29,8 +30,9 @@ export default function EditableList(props: { state: string[] | undefined, setSt
 
       <p className="text-xs italic opacity-70 text-center m-0 relative bottom-2">Drag to reorder</p>
 
-      <Reorder.Group axis="y" values={itemArr} onReorder={setItemArr} className="max-w-[300px] mx-auto p-0">
-        {itemArr.map((el, i) => {
+      {/* @ts-expect-error */}
+      <Reorder.Group axis="y" values={state ? state : []} onReorder={setState} className="max-w-[300px] mx-auto p-0">
+        {state ? state.map((el, i) => {
           return (
             <Reorder.Item
               key={el}
@@ -40,8 +42,8 @@ export default function EditableList(props: { state: string[] | undefined, setSt
               {el}
               <button
                 onClick={e => {
-                  let newArr = [...itemArr.slice(0, i), ...itemArr.slice(i + 1, itemArr.length)]
-                  setItemArr(newArr)
+                  let newArr = [...state.slice(0, i), ...state.slice(i + 1, state.length)]
+                  setState(newArr)
                 }}
                 className="absolute -left-6 top-[8px] text-[16px] opacity-50"
               >
@@ -49,7 +51,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
               </button>
             </Reorder.Item>
           )
-        })}
+        }) : <></>}
       </Reorder.Group>
     </div>
   )

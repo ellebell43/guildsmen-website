@@ -10,6 +10,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons"
 import CharacterScreen from "./character-screen"
 import Message from "@/util/components/message"
 import SkillsScreen from "./skills-screen"
+import GearScreen from "./gear-screen"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -84,7 +85,7 @@ export default function CharacterApp(props: { character: Character }) {
       case "gear":
         return <>
           <Banner character={character} setCharacter={setCharacter} />
-          <p>Gear</p>
+          <GearScreen character={character} setCharacter={setCharacter} />
         </>
       case "notes":
         return <>
