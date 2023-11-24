@@ -6,7 +6,6 @@ export default function GearScreen(props: { character: Character, setCharacter: 
   const [items, setItems] = useState([...props.character.gear])
 
   useEffect(() => {
-    console.log("Items state has changed...")
     let newChar = { ...props.character }
     newChar.gear = items
     props.setCharacter(newChar)
