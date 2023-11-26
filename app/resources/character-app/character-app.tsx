@@ -12,6 +12,7 @@ import Message from "@/util/components/message"
 import SkillsScreen from "./skills-screen"
 import Settings from "./settings"
 import GearScreen from "./gear-screen"
+import DetailsScreen from "./details-screen"
 
 export default function CharacterApp(props: { character: Character }) {
   let initCharacter = props.character
@@ -82,7 +83,7 @@ export default function CharacterApp(props: { character: Character }) {
         return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} />
       case "details":
         return <>
-          <p>Details</p>
+          <DetailsScreen character={character} setCharacter={setCharacter} edit={edit} />
         </>
       case "gear":
         return <>
