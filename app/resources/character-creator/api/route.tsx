@@ -1,4 +1,5 @@
 import { dbClient } from "@/util/dbClient"
+import { ObjectId } from "mongodb"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
@@ -11,7 +12,9 @@ export async function POST(req: Request) {
   }
   const client = await dbClient()
   const characters = client.collection("characters")
-  const result = await characters.insertOne(JSON.parse(char))
+  let character = JSON.parse(char)
+  character._id = new ObjectId(character._id)
+  const result = await characters.insertOne(character)
   if (!result.insertedId) {
     res.success = false
     res.message = "Failed to insert a new document to the database. Please contact us via Discord."
