@@ -58,10 +58,13 @@ export default function CharacterApp(props: { character: Character }) {
   }, [rollMessage])
 
   const updateCharacter = () => {
+    console.log("Updating character...")
     fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
       .then(res => res.json())
       .then(data => {
-        setInitCharacter({ ...character })
+        const init = { ...character }
+        init.notes = [...init.notes]
+        setInitCharacter(init)
       })
   }
 
