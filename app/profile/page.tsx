@@ -14,6 +14,7 @@ import { EmailInput, PasswordInput } from "@/util/input-components/input-element
 import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
 import Passwords from "../passwords"
+import Link from "next/link"
 
 export default function Profile() {
   const [avatarMenu, setAvatarMenu] = useState(false)
@@ -129,6 +130,8 @@ export default function Profile() {
           </button>
         </div>
       </div>
+
+      <Link className="button py-2 px-4 rounded mb-4" href="/profile/characters">My Characters</Link>
 
       {/* === SETTINGS BUTTON === */}
 

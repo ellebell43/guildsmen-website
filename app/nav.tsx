@@ -39,7 +39,7 @@ export default function Nav() {
           <Link className={navLinkClass} href="/rules" onClick={e => setMenuVisible(false)}>Rules</Link>
           <Link className={navLinkClass} href="/lore" onClick={e => setMenuVisible(false)}>Lore</Link>
           <Link className={navLinkClass} href="/bestiary" onClick={e => setMenuVisible(false)}>Bestiary</Link>
-          {/* <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link> */}
+          <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link>
           {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
         <Link href={data?.user ? "/profile" : "/sign-in"} className="hover:scale-110 flex justify-center items-center">
