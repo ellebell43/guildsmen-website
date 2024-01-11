@@ -3,8 +3,39 @@ import { UpdateResult } from "mongodb"
 import { cookies } from "next/dist/client/components/headers"
 import { NextResponse } from "next/server"
 
+export async function GET(req: Request) {
+  const token = cookies().get("token")?.value
+  if (!token) return NextResponse.json(Error("No token provided. Please sign in"), { status: 400 })
+
+  if (req.headers.get("getAvatarUrl") === "true") {
+    try {
+      const client = await dbClient()
+      const users = client.collection("users")
+      const user = await users.findOne({ token })
+      if (user) return NextResponse.json(user.avatarUrl)
+      if (!user) return NextResponse.json(Error("User not found with provided token"), { status: 404 })
+    } catch (err) {
+      return NextResponse.json(err, { status: 500 })
+    }
+  }
+
+  if (req.headers.get("getUser") === "true") {
+    try {
+      const client = await dbClient()
+      const users = client.collection("users")
+      const user = await users.findOne({ token })
+      if (user) return NextResponse.json(user)
+      if (!user) return NextResponse.json(Error("User not found with provided token"), { status: 404 })
+    } catch (err) {
+      return NextResponse.json(err, { status: 500 })
+    }
+  }
+
+  return NextResponse.json({})
+
+}
+
 export async function PATCH(req: Request) {
-  const data = { success: true, message: "User updated successfully." }
   const token = cookies().get("token")?.value
   // === UPDATE AVATAR URL ===
   if (req.headers.get("updateAvatar") == "true" || req.headers.get("updateBio") === "true") {
@@ -23,16 +54,12 @@ export async function PATCH(req: Request) {
       }
 
       if (!result.matchedCount) {
-        data.success = false
-        data.message = "User could not be found in the database."
-        return NextResponse.json(data)
+        return NextResponse.json(new Error("User could not be found in the database"), { status: 404 })
       }
 
-      return NextResponse.json(data)
+      return NextResponse.json({})
     } catch (err) {
-      data.success = false
-      data.message = String(err)
-      return NextResponse.json(data)
+      return NextResponse.json(err, { status: 500 })
     }
   } else {
     // === UPDATE PROFILE EMAIL OR PASSWORD ===
@@ -47,46 +74,35 @@ export async function PATCH(req: Request) {
       }
 
       if (!result.matchedCount) {
-        data.success = false
-        data.message = "User could not be found in the database."
-        return NextResponse.json(data)
+        return NextResponse.json(new Error("User could not be found in the database"), { status: 404 })
       }
     } catch (err) {
-      data.success = false
-      data.message = String(err)
-      return NextResponse.json(data)
+      return NextResponse.json(err, { status: 500 })
     }
 
-    return NextResponse.json(data)
+    return NextResponse.json({})
   }
 }
 
 // === DELETE METHOD ====
 
 export async function DELETE(req: Request) {
-  const data = { success: true, message: "User deleted successfully." }
   try {
     const token = cookies().get("token")?.value
     if (!token) {
-      data.success = false
-      data.message = "No token found. Please contact support."
-      return NextResponse.json(data)
+      return NextResponse.json(new Error("No token found. Please contact support."), { status: 400 })
     }
     const client = await dbClient()
     const users = client.collection("users")
     const result = await users.deleteOne({ token })
 
     if (!result.deletedCount) {
-      data.success = false
-      data.message = "No user found with provided token."
-      return NextResponse.json(data)
+      return NextResponse.json(new Error("No user found with provided token."), { status: 400 })
     }
 
-    return NextResponse.json(data)
+    return NextResponse.json({})
 
   } catch (err) {
-    data.success = false
-    data.message = String(err)
-    return NextResponse.json(data)
+    return NextResponse.json(err, { status: 500 })
   }
 }

@@ -4,7 +4,7 @@ import getUserByToken from "../getUserByToken"
 import Spinner from "@/app/spinner"
 import { useRouter, usePathname } from "next/navigation"
 
-export default function PrivateRoute(props: { children: React.ReactNode }) {
+export default function PrivateRoute(props: { children?: React.ReactNode }) {
   const { data, isLoading, error } = getUserByToken()
   const router = useRouter()
   const path = usePathname()

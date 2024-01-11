@@ -1,18 +1,19 @@
+"use client"
+
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon, faGripLines, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import getCookieString from "@/util/getCookieString";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import getUserByToken from "@/util/getUserByToken";
 import Image from "next/image";
-import Spinner from "./spinner";
 
 
-export default function Nav() {
+export default function Nav(props: { avatarSrc: string, signedIn: boolean }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
-  const { data, isLoading, error } = getUserByToken()
+  // const { data, isLoading, error } = getUserByToken()
 
   useEffect(() => {
     if (!localStorage.getItem("isDark") || localStorage.getItem("isDark") != "true") {
@@ -42,10 +43,9 @@ export default function Nav() {
           <Link className={navLinkClass} href="/resources" onClick={e => setMenuVisible(false)}>Resources</Link>
           {/* <Link className={navLinkClass} href="/community" onClick={e => setMenuVisible(false)}>Community</Link> */}
         </nav>
-        <Link href={data?.user ? "/profile" : "/sign-in"} className="hover:scale-110 flex justify-center items-center">
-          {isLoading ? <Spinner /> :
-            data?.user?.avatarUrl ? <Image width={24} height={24} src={data.user.avatarUrl} alt="" className="rounded-full" /> :
-              <FontAwesomeIcon icon={faUserCircle} className="w-[24px] h-[24px]" />}
+        <Link href={props.signedIn ? "/profile" : "/sign-in"} className="hover:scale-110 flex justify-center items-center">
+          {props.signedIn ? <Image width={24} height={24} src={props.avatarSrc} alt="" className="rounded-full" /> :
+            <FontAwesomeIcon icon={faUserCircle} className="w-[24px] h-[24px]" />}
         </Link>
         {/* Theme Switch Button */}
         <button type="button" onClick={e => toggleDarkMode()} className="hover:scale-110 transition-all lg:mr-6 flex items-center">

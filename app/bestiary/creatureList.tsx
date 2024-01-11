@@ -15,7 +15,7 @@ export default async function CreatureList(props: { creatureType: creatureType }
   if (!Array.isArray(list)) {
     return (
       <div className="flex flex-col justify-center items-center gap-4 mt-8">
-        <p className="text-blue-500 font-bold">{list}</p>
+        <p className="text-blue-500 dark:text-blue-200 font-bold">{list}</p>
       </div>
     )
   } else {
