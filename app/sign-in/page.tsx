@@ -2,13 +2,12 @@
 
 import { PasswordInput, TextInput } from "@/util/input-components/input-elements"
 import Link from "next/link"
-import { redirect, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import crypto from "crypto"
 import ErrorMessage from "../error-message"
 import Spinner from "../spinner"
 import { useRouter } from "next/navigation"
-import { mutate } from "swr"
 
 export default function SignIn() {
   let [username, setUsername] = useState("")
@@ -37,21 +36,23 @@ export default function SignIn() {
   }, [error])
 
   // Submit username and password to API to sign the user in
-  const submit = async () => {
+  const submit = () => {
     setLoading(true)
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
-    const res = await fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
-    if (!res.ok) {
-      setError(res.statusText)
-      setLoading(false)
-    } else {
-      if (returnTo) {
-        router.push(returnTo)
-      } else {
-        router.push("/profile")
-      }
-    }
+    fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
+      .then(res => {
+        if (!res.ok) {
+          setError(res.statusText)
+          setLoading(false)
+        } else {
+          if (returnTo) {
+            router.push(returnTo)
+          } else {
+            router.push("/profile")
+          }
+        }
+      })
   }
 
   return (

@@ -3,6 +3,9 @@ import { user } from "@/util/types"
 import ProfileClient from "./profile-client"
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
+import { Metadata } from "next"
+
+export const metadata: Metadata = { title: "Guildsmen | Profile" }
 
 export default async function Profile() {
   const token = cookies().get("token")

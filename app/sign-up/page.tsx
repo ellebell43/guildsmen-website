@@ -3,8 +3,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/input-elements"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
@@ -29,7 +27,7 @@ export default function SignUp() {
     if (error) setTimeout(() => setError(""), 5000)
   }, [error])
 
-  const submit = async () => {
+  const submit = () => {
     // validate the form
     if (!termsAgree) {
       setError("You must agree to the terms and conditions")
@@ -66,17 +64,18 @@ export default function SignUp() {
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
     try {
-      let res = await fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
-
-      if (!res.ok) {
-        throw res.statusText
-      }
-
-      router.push("/sign-in?new-user=true")
+      fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
+        .then(res => {
+          if (!res.ok) {
+            setError(res.statusText)
+          } else {
+            router.push("/sign-in?new-user=true")
+          }
+          setLoading(false)
+        })
     } catch (err) {
       setError(String(err))
     }
-    setLoading(false)
   }
 
   const checkPassword = () => {

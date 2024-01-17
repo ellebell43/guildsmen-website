@@ -47,7 +47,7 @@ export default function ProfileClient(props: { user: user | null }) {
     return str
   }
 
-  const changeAvatarUrl = async (url: string) => {
+  const changeAvatarUrl = (url: string) => {
     // set newUser to current user object for mutation
     let newUser = { ...user }
     // If the user exists, set the patchLoading to true to show a loading spinner for the user
@@ -73,16 +73,18 @@ export default function ProfileClient(props: { user: user | null }) {
     }
   }
 
-  const updateBio = async () => {
+  const updateBio = () => {
     setBioLoading(true)
-    let res = await fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
-    if (!res.ok) {
-      setPatchError(res.statusText)
-    } else {
-      setBioLoading(false)
-      setEditBio(false)
-      router.refresh()
-    }
+    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
+      .then(res => {
+        if (!res.ok) {
+          setPatchError(res.statusText)
+        } else {
+          setBioLoading(false)
+          setEditBio(false)
+          router.refresh()
+        }
+      })
   }
 
   if (user == null) return <p>Something went wrong</p>
@@ -206,7 +208,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
     }
   }
 
-  const updateUser = async (field: "email" | "password") => {
+  const updateUser = (field: "email" | "password") => {
     let headers: { updateEmail?: string, email?: string, updatePassword?: string, password?: string } = {}
     // Check which field is being updated to customize headers and show the correct loading spinner
     switch (field) {
@@ -234,19 +236,21 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
     // API call to update the users
     try {
-      let res = await fetch("/profile/api", { method: "PATCH", headers })
-      if (!res.ok) {
-        throw res.statusText
-      }
-      // Otherwise display a checkmark for the field that was updated
-      if (headers.password) {
-        setPasswordSuccess(true)
-      } else {
-        setEmailSuccess(true)
-      }
-      // Clear all input fields and loading spinners, but not check marks
-      clearInputs(true)
-      setMessage("Success! Refresh page to see changes")
+      fetch("/profile/api", { method: "PATCH", headers })
+        .then(res => {
+          if (!res.ok) {
+            throw res.statusText
+          }
+          // Otherwise display a checkmark for the field that was updated
+          if (headers.password) {
+            setPasswordSuccess(true)
+          } else {
+            setEmailSuccess(true)
+          }
+          // Clear all input fields and loading spinners, but not check marks
+          clearInputs(true)
+          setMessage("Success! Refresh page to see changes")
+        })
     } catch (err) {
       props.setError(String(err))
     }
@@ -359,7 +363,10 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
                           .then(res => {
                             if (!res.ok) throw res.statusText
                           })
-                          .then(() => router.refresh())
+                          .then(() => {
+                            document.cookie = "token="
+                            router.push("/sign-in")
+                          })
                       } catch (err) {
                         props.setError(String(err))
                         setDeleteLoading(false)
