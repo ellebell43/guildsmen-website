@@ -29,7 +29,7 @@ export default function SignUp() {
     if (error) setTimeout(() => setError(""), 5000)
   }, [error])
 
-  const submit = () => {
+  const submit = async () => {
     // validate the form
     if (!termsAgree) {
       setError("You must agree to the terms and conditions")
@@ -57,7 +57,7 @@ export default function SignUp() {
     }
     // Make sure password matches minimum requirements
     if (!checkPassword()) {
-      setError("Your password does not match minimum requirements.")
+      setError("Your password does not meet the minimum requirements.")
       return
     }
 
@@ -65,17 +65,18 @@ export default function SignUp() {
     const form = document.getElementById("form")
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
-    fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          setError(data.message)
-          setLoading(false)
-        } else {
-          router.push("/sign-in?new-user=true")
-          setLoading(false)
-        }
-      })
+    try {
+      let res = await fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
+
+      if (!res.ok) {
+        throw res.statusText
+      }
+
+      router.push("/sign-in?new-user=true")
+    } catch (err) {
+      setError(String(err))
+    }
+    setLoading(false)
   }
 
   const checkPassword = () => {

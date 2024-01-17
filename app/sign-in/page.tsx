@@ -2,7 +2,7 @@
 
 import { PasswordInput, TextInput } from "@/util/input-components/input-elements"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { redirect, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import crypto from "crypto"
 import ErrorMessage from "../error-message"
@@ -37,30 +37,21 @@ export default function SignIn() {
   }, [error])
 
   // Submit username and password to API to sign the user in
-  const submit = () => {
+  const submit = async () => {
     setLoading(true)
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
-    fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          // If sign in fails, display error from API
-          setError(data.message)
-          setLoading(false)
-        } else {
-          // Otherwise, refresh the cached user data and navigate to the profile page
-          mutate("/sign-in/api")
-          setTimeout(() => {
-            if (returnTo) {
-              router.push(returnTo)
-            } else {
-              router.push("/profile")
-            }
-            setLoading(false)
-          }, 2000)
-        }
-      })
+    const res = await fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
+    if (!res.ok) {
+      setError(res.statusText)
+      setLoading(false)
+    } else {
+      if (returnTo) {
+        router.push(returnTo)
+      } else {
+        router.push("/profile")
+      }
+    }
   }
 
   return (
