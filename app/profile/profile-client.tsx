@@ -1,10 +1,8 @@
 "use client"
 
-import getUserByToken from "@/util/getUserByToken"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Spinner from "../spinner"
-import { mutate } from "swr"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faGear, faPencil, faSignOut, faSpinner, faX } from "@fortawesome/free-solid-svg-icons"
 import Image from "next/image"
@@ -15,7 +13,6 @@ import { passwordTest, submitButton } from "@/util/variables"
 import crypto from "crypto"
 import Passwords from "../passwords"
 import Link from "next/link"
-import PrivateRoute from "@/util/components/private-route"
 import { user } from "@/util/types"
 import Message from "@/util/components/message"
 
@@ -89,7 +86,6 @@ export default function ProfileClient(props: { user: user | null }) {
   }
 
   if (user == null) return <p>Something went wrong</p>
-  console.log("Hello!")
   return (
     <>
       <div className="flex flex-col justify-center items-center">
@@ -140,7 +136,7 @@ export default function ProfileClient(props: { user: user | null }) {
           className="button py-2 px-4 rounded"
           onClick={() => {
             document.cookie = "token="
-            router.refresh()
+            router.push("/sign-in")
           }}
         >
           <FontAwesomeIcon icon={faSignOut} />

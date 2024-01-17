@@ -1,20 +1,23 @@
 import getCookieString from "@/util/getCookieString"
 import { user } from "@/util/types"
 import ProfileClient from "./profile-client"
-import PrivateRoute from "@/util/components/private-route"
+import { redirect } from "next/navigation"
+import { cookies } from "next/headers"
 
 export default async function Profile() {
-  let user: user | null
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { Cookie: getCookieString(), getUser: "true" }, credentials: "include" })
-  if (!res.ok) {
-    user = null
+  const token = cookies().get("token")
+  if (!token?.value) {
+    redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/profile`)
   } else {
-    user = await res.json()
-  }
+    let user: user | null
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { Cookie: getCookieString(), getUser: "true" }, credentials: "include" })
+    if (!res.ok) {
+      console.log(token)
+      throw new Error(res.statusText)
+    } else {
+      user = await res.json()
+    }
 
-  return (
-    <PrivateRoute>
-      <ProfileClient user={user} />
-    </PrivateRoute>
-  )
+    return <ProfileClient user={user} />
+  }
 }
