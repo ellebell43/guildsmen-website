@@ -50,7 +50,7 @@ export default function ProfileClient(props: { user: user | null }) {
     return str
   }
 
-  const changeAvatarUrl = (url: string) => {
+  const changeAvatarUrl = async (url: string) => {
     // set newUser to current user object for mutation
     let newUser = { ...user }
     // If the user exists, set the patchLoading to true to show a loading spinner for the user
@@ -60,42 +60,38 @@ export default function ProfileClient(props: { user: user | null }) {
       newUser.avatarUrl = url
       // Make a PATCH call to the profile API
       fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url } })
-        .then(res => res.json())
-        .then(data => {
-          // If API call wasn't successful, display the returned error message
-          if (!data.success) {
-            setPatchError(data.message)
+        .then(res => {
+          if (!res.ok) {
+            // If API call wasn't successful, display the returned error message
+            setPatchError(res.statusText)
+          } else {
+            setPatchLoading(false)
+            // hide the loading spinner and the avatar menu
+            setAvatarMenu(false)
+            // Refresh the users data to quickly show the new avatar
+            router.refresh()
           }
-          // hide the loading spinner and the avatar menu
-          setPatchLoading(false)
-          setAvatarMenu(false)
-          // Refresh the users data to quickly show the new avatar
-          router.refresh()
         })
+
     }
   }
 
-  const updateBio = () => {
+  const updateBio = async () => {
     setBioLoading(true)
-    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          setBioLoading(false)
-          setEditBio(false)
-          setPatchError(data.message)
-        } else {
-          setBioLoading(false)
-          setEditBio(false)
-          router.refresh()
-        }
-      })
+    let res = await fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
+    if (!res.ok) {
+      setPatchError(res.statusText)
+    } else {
+      setBioLoading(false)
+      setEditBio(false)
+      router.refresh()
+    }
   }
 
-  if (user == null) return <PrivateRoute />
-
+  if (user == null) return <p>Something went wrong</p>
+  console.log("Hello!")
   return (
-    <PrivateRoute>
+    <>
       <div className="flex flex-col justify-center items-center">
         <div className="relative w-fit">
           {/* Avatar edit button */}
@@ -144,7 +140,7 @@ export default function ProfileClient(props: { user: user | null }) {
           className="button py-2 px-4 rounded"
           onClick={() => {
             document.cookie = "token="
-            mutate("/sign-in/api")
+            router.refresh()
           }}
         >
           <FontAwesomeIcon icon={faSignOut} />
@@ -177,13 +173,11 @@ export default function ProfileClient(props: { user: user | null }) {
       <Settings show={settingsMenu} setShow={setSettingsMenu} error={patchError} setError={setPatchError} user={user} />
 
       <ErrorMessage message={patchError} />
-    </PrivateRoute>
+    </>
   )
 }
 
 function Settings(props: { show: boolean, setShow: Function, error: string, setError: Function, user: user }) {
-  // const { data } = getUserByToken()
-
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPasswordConfirm] = useState("")
   const [passwordLoading, setPasswordLoading] = useState(false)
@@ -216,7 +210,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
     }
   }
 
-  const updateUser = (field: "email" | "password") => {
+  const updateUser = async (field: "email" | "password") => {
     let headers: { updateEmail?: string, email?: string, updatePassword?: string, password?: string } = {}
     // Check which field is being updated to customize headers and show the correct loading spinner
     switch (field) {
@@ -244,19 +238,19 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
     // API call to update the users
     try {
-      fetch("/profile/api", { method: "PATCH", headers })
-        .then(res => res.json())
-        .then(data => {
-          // Otherwise display a checkmark for the field that was updated
-          if (headers.password) {
-            setPasswordSuccess(true)
-          } else {
-            setEmailSuccess(true)
-          }
-          // Clear all input fields and loading spinners, but not check marks
-          clearInputs(true)
-          setMessage("Success! Refresh page to see changes")
-        })
+      let res = await fetch("/profile/api", { method: "PATCH", headers })
+      if (!res.ok) {
+        throw res.statusText
+      }
+      // Otherwise display a checkmark for the field that was updated
+      if (headers.password) {
+        setPasswordSuccess(true)
+      } else {
+        setEmailSuccess(true)
+      }
+      // Clear all input fields and loading spinners, but not check marks
+      clearInputs(true)
+      setMessage("Success! Refresh page to see changes")
     } catch (err) {
       props.setError(String(err))
     }
@@ -366,8 +360,10 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
                       setDeleteLoading(true)
                       try {
                         fetch("/profile/api", { method: "DELETE" })
-                          .then(res => res.json())
-                          .then((data) => router.refresh())
+                          .then(res => {
+                            if (!res.ok) throw res.statusText
+                          })
+                          .then(() => router.refresh())
                       } catch (err) {
                         props.setError(String(err))
                         setDeleteLoading(false)

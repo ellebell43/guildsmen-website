@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(req: Request) {
   const token = cookies().get("token")?.value
-  if (!token) return NextResponse.json(Error("No token provided. Please sign in"), { status: 400 })
+  if (!token) return NextResponse.json({}, { status: 400, statusText: "No token provided. Please sign in." })
 
   if (req.headers.get("getAvatarUrl") === "true") {
     try {
@@ -13,9 +13,9 @@ export async function GET(req: Request) {
       const users = client.collection("users")
       const user = await users.findOne({ token })
       if (user) return NextResponse.json(user.avatarUrl)
-      if (!user) return NextResponse.json(Error("User not found with provided token"), { status: 404 })
+      if (!user) return NextResponse.json({}, { status: 404, statusText: "User not found with provided token" })
     } catch (err) {
-      return NextResponse.json(err, { status: 500 })
+      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
     }
   }
 
@@ -24,10 +24,10 @@ export async function GET(req: Request) {
       const client = await dbClient()
       const users = client.collection("users")
       const user = await users.findOne({ token })
-      if (user) return NextResponse.json(user)
-      if (!user) return NextResponse.json(Error("User not found with provided token"), { status: 404 })
+      if (!user) return NextResponse.json({}, { status: 404, statusText: "User not found with provided token" })
+      return NextResponse.json(user)
     } catch (err) {
-      return NextResponse.json(err, { status: 500 })
+      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
     }
   }
 
@@ -54,12 +54,12 @@ export async function PATCH(req: Request) {
       }
 
       if (!result.matchedCount) {
-        return NextResponse.json(new Error("User could not be found in the database"), { status: 404 })
+        return NextResponse.json({}, { status: 404, statusText: "User could not be found in the database" })
       }
 
       return NextResponse.json({})
     } catch (err) {
-      return NextResponse.json(err, { status: 500 })
+      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
     }
   } else {
     // === UPDATE PROFILE EMAIL OR PASSWORD ===
@@ -74,10 +74,10 @@ export async function PATCH(req: Request) {
       }
 
       if (!result.matchedCount) {
-        return NextResponse.json(new Error("User could not be found in the database"), { status: 404 })
+        return NextResponse.json({}, { status: 404, statusText: "User could not be found in the database" })
       }
     } catch (err) {
-      return NextResponse.json(err, { status: 500 })
+      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
     }
 
     return NextResponse.json({})
@@ -90,19 +90,19 @@ export async function DELETE(req: Request) {
   try {
     const token = cookies().get("token")?.value
     if (!token) {
-      return NextResponse.json(new Error("No token found. Please contact support."), { status: 400 })
+      return NextResponse.json({}, { status: 400, statusText: "No token found. Please contact support." })
     }
     const client = await dbClient()
     const users = client.collection("users")
     const result = await users.deleteOne({ token })
 
     if (!result.deletedCount) {
-      return NextResponse.json(new Error("No user found with provided token."), { status: 400 })
+      return NextResponse.json({}, { status: 400, statusText: "No user found with provided token." })
     }
 
     return NextResponse.json({})
 
   } catch (err) {
-    return NextResponse.json(err, { status: 500 })
+    return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
   }
 }

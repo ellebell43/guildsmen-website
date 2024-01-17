@@ -1,20 +1,23 @@
-'use client'
-
-import getUserByToken from "../getUserByToken"
-import Spinner from "@/app/spinner"
-import { useRouter, usePathname } from "next/navigation"
+import PrivateRouteClient from "./private-route-client"
 
 export default function PrivateRoute(props: { children?: React.ReactNode }) {
-  const { data, isLoading, error } = getUserByToken()
-  const router = useRouter()
-  const path = usePathname()
+  let component: any
+  fetch(`${process.env.NEXT_PUBLIC_HOST}/sign-in/api`, { method: "GET", headers: { cookieSignIn: "true" } })
+    .then(res => {
+      if (!res.ok) {
+        component = (
+          <PrivateRouteClient ok={false}>
+            <p>Redirecting...</p>
+          </PrivateRouteClient>
+        )
+      } else {
+        component = (
+          <PrivateRouteClient ok={true}>
+            {props.children}
+          </PrivateRouteClient>
+        )
+      }
+    })
 
-  if (isLoading) return <Spinner />
-  if (error) return <p>Something went wrong: {String(error)}</p>
-  if (!data?.success) { router.push(`/sign-in?return=${path}`); return <></> }
-  return (
-    <>
-      {props.children}
-    </>
-  )
+  return component
 }

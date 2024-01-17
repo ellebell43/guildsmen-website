@@ -42,23 +42,17 @@ export default function SignIn() {
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
     fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          // If sign in fails, display error from API
-          setError(data.message)
+      .then(res => {
+        if (!res.ok) {
+          setError(res.statusText)
           setLoading(false)
         } else {
-          // Otherwise, refresh the cached user data and navigate to the profile page
-          mutate("/sign-in/api")
-          setTimeout(() => {
-            if (returnTo) {
-              router.push(returnTo)
-            } else {
-              router.push("/profile")
-            }
-            setLoading(false)
-          }, 2000)
+          if (returnTo) {
+            console.log(returnTo)
+            router.push(returnTo)
+          } else {
+            router.push("/profile")
+          }
         }
       })
   }

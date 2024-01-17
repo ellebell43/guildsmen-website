@@ -1,6 +1,7 @@
 import getCookieString from "@/util/getCookieString"
 import { user } from "@/util/types"
 import ProfileClient from "./profile-client"
+import PrivateRoute from "@/util/components/private-route"
 
 export default async function Profile() {
   let user: user | null
@@ -11,5 +12,9 @@ export default async function Profile() {
     user = await res.json()
   }
 
-  return <ProfileClient user={user} />
+  return (
+    <PrivateRoute>
+      <ProfileClient user={user} />
+    </PrivateRoute>
+  )
 }

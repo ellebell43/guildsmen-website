@@ -7,8 +7,7 @@ import { linkClass } from "@/util/variables";
 export default async function CreatureList(props: { creatureType: creatureType }) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/bestiary/api`, { method: "GET", headers: { "creature-type": props.creatureType } })
   if (!res.ok) {
-    const data = await res.json()
-    throw new Error(data.error)
+    throw res.statusText
   }
   const list = await res.json()
 
