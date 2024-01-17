@@ -1,5 +1,3 @@
-'use client'
-
 import { creatureType } from "@/util/types";
 import Link from "next/link";
 import { linkClass } from "@/util/variables";
