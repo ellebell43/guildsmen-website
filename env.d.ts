@@ -3,6 +3,7 @@ namespace NodeJS {
     DB_URI: string,
     TEST_DB_URI: string,
     SECRET: string,
-    EMAIL_PASS: string
+    EMAIL_PASS: string,
+    NEXT_PUBLIC_HOST: string
   }
 }

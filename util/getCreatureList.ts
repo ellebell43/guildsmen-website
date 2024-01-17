@@ -7,6 +7,6 @@ const fetcher = async (url: string, type: creatureType) => {
 }
 
 export default function getCreatureList(type: creatureType) {
-  let { data, isLoading, error } = useSWR<{ success: boolean, data: any }>(`/bestiary/api`, url => fetcher(url, type))
+  let { data, isLoading, error } = useSWR<{ success: boolean, data: any }>(`/bestiary/api`, (url: string) => fetcher(url, type))
   return { data, isLoading, error };
 }

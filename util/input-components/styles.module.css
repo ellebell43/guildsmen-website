@@ -1,5 +1,5 @@
 .inputContainer {
-  @apply relative w-fit my-4
+  @apply relative my-4
 }
 
 .inputField {
@@ -32,4 +32,12 @@
 
 .labelActive {
   @apply -top-3 -left-2 text-[8px]
+}
+
+.placeholderText {
+  @apply text-gray-600
+}
+
+.darkPlaceholderText {
+  @apply text-gray-300
 }
