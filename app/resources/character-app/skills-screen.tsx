@@ -14,7 +14,7 @@ export default function SkillsScreen(props: { character: Character, setCharacter
       {/* Experience */}
       <div>
 
-        <div className={`${containerClass}`}>
+        <div className={`${containerClass} lg:absolute left-10 top-48`}>
           <h2 className={headerClass}>Experience</h2>
           <div className="border border-black rounded-[100%] w-1/2 flex flex-col justify-center items-start h-10 my-2 mx-auto relative">
             <p className="text-[10px] text-stone-400 m-0 mt-1 text-center mx-auto">Points</p>

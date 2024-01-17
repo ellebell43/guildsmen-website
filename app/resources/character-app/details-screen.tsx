@@ -10,7 +10,7 @@ export default function DetailsScreen(props: { character: Character, setCharacte
   let [text, setText] = useState("")
 
   return (
-    <div className="grid md:grid-cols-2">
+    <div className="grid md:grid-cols-2 gap-4">
       <div className="border rounded px-4 py-2 mb-6 relative">
         <button
           className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}

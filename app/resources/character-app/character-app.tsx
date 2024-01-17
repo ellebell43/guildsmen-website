@@ -30,12 +30,17 @@ export default function CharacterApp(props: { character: Character }) {
   const [messageGood, setMessageGood] = useState(false)
   const [edit, setEdit] = useState(false)
 
+  // Update character in the database anytime a change is made to the character data
   useEffect(() => {
-    if (JSON.stringify(initCharacter) !== JSON.stringify(character)) updateCharacter()
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
+      .then(res => {
+        if (!res.ok) throw new Error(res.statusText)
+      })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
     if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }
   }, [character])
 
+  // Automatically increase addiction meter if character is addicted to myth anytime the dice are rolled
   useEffect(() => {
     if (rollMessage && character.addiction >= 3) {
       let maxNeed: number = 8 - Math.floor(character.addiction / 3) + 1
@@ -56,17 +61,6 @@ export default function CharacterApp(props: { character: Character }) {
       }
     }
   }, [rollMessage])
-
-  const updateCharacter = () => {
-    console.log("Updating character...")
-    fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
-      .then(res => res.json())
-      .then(data => {
-        const init = { ...character }
-        init.notes = [...init.notes]
-        setInitCharacter(init)
-      })
-  }
 
   const headerClass = "text-center text-xl m-0 font-bold"
   const containerClass = "w-fit border p-2 rounded border-stone-400"
@@ -102,21 +96,15 @@ export default function CharacterApp(props: { character: Character }) {
   }
 
   return (
-    /*
-     * == MOBILE DISPLAY ==
-     * - Banner with basic info across the top (name, description, guild, harm [x/10], and dying).
-     * - Banner stays the same across all views
-     * - If dying, have a red vignette around the screen and change harm text to bold and red
-     * - 5 pages: stats, wealth, and luck; skills, exp, and addiction; gear; character backstory; notes
-     * - == DESKTOP DISPLAY ==
-     * - 
-     */
-    < div className="relative bottom-[30px] min-h-[calc(100vh-2px)]" >
+    < div className="relative bottom-[30px] min-h-[calc(100vh-2px)] lg:pt-10 pt-5" >
+      {/* -- DEATH/DYING VIGNETTE -- */}
       <div className={`${!character.dying && character.harm != 10 ? "hidden" : ""} fixed inset-0 ${character.harm == 10 ? "from-transparent to-stone-800 dark:to-stone-300 via-transparent" : "from-transparent to-red-300 dark:to-red-800 via-transparent"} bg-gradient-radial opacity-50 transition-all`} />
+      {/* -- ACTIVE SCREEN -- */}
       {getPage()}
       {/* -- DICE CONTAINER --   */}
       <div className={`fixed inset-0 bg-stone-500 bg-opacity-50 flex justify-center items-center ${showDice ? "" : "hidden"}`}>
         <div className="bg-stone-100 dark:bg-stone-700 w-[325px] h-[300px] border rounded shadow-lg relative px-2">
+          {/* -- DICE CONTAINER CLOSE BUTTON */}
           <button
             className=" button rounded-full border w-9 h-9 absolute -top-4 -right-4 shadow"
             onClick={e => {
@@ -127,6 +115,7 @@ export default function CharacterApp(props: { character: Character }) {
           >
             <FontAwesomeIcon icon={faX} />
           </button>
+          {/* -- THE DICE -- */}
           <div className="flex justify-between px-10 mb-8 pt-12">
             <Die id="die1" />
             <Die id="die2" />
@@ -136,7 +125,6 @@ export default function CharacterApp(props: { character: Character }) {
       </div>
       <PageFooter active={page} setActive={setPage} />
       <Message message={message} setMessage={setMessage} good={messageGood} />
-      {/* -- Dying Border -- */}
     </div >
   )
 }

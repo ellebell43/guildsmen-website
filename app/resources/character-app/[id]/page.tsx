@@ -16,11 +16,10 @@ export default async function Page(props: Props) {
   } else {
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, Cookie: getCookieString() }, credentials: "include" })
     if (!res.ok) {
-      const data = await res.json()
-      throw new Error(data.error)
+      throw new Error(res.statusText)
+    } else {
+      const character: Character = await res.json()
+      return <CharacterApp character={character} />
     }
-    const character: Character = await res.json()
-    return <CharacterApp character={character} />
   }
-
 }
