@@ -3,7 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   if (!token) {
     return NextResponse.json({ message: "No user token provided" }, { status: 400 })
   }
@@ -21,7 +22,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   if (!token) {
     return NextResponse.json({ message: "No user token provided" }, { status: 400 })
   }

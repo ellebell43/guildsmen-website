@@ -17,7 +17,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: "No character found with provided id" }, { status: 404 })
   }
 
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   if (!token) return NextResponse.json({ message: "No user token provided. Please sign in and try again" }, { status: 400 })
   const users = client.collection("users")
   const user = await users.findOne({ token })
@@ -35,7 +36,8 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ message: "No character id provided" }, { status: 400 })
   }
 
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   if (!token) {
     return NextResponse.json({ message: "No user token provided. Please sign in and try again." }, { status: 400 })
   }

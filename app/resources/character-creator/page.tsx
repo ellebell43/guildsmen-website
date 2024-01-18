@@ -13,7 +13,7 @@ export default async function CharacterCreator() {
     redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/resources/character-creator`)
   } else {
     let user: user
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { Cookie: getCookieString(), getUser: "true" }, credentials: "include" })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { token: token.value, getUser: "true" }, credentials: "include" })
     if (!res.ok) {
       const data = await res.json()
       throw new Error(data.message)

@@ -14,7 +14,7 @@ export default async function Characters() {
     redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/profile/characters`)
   } else {
     let list: Character[]
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/characters/api`, { cache: "no-store", method: "GET", headers: { Cookie: getCookieString() }, credentials: "include" })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/characters/api`, { cache: "no-store", method: "GET", headers: { token: token.value }, credentials: "include" })
     if (!res.ok) {
       const data = await res.json()
       throw new Error(data.message)

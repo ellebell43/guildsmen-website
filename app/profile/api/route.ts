@@ -3,7 +3,8 @@ import { UpdateResult } from "mongodb"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   console.log(token)
   if (!token) return NextResponse.json({ message: "No user token provided" }, { status: 400 })
 
@@ -36,7 +37,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const token = req.cookies.get("token")?.value
+  let token: string | null | undefined = req.cookies.get("token")?.value
+  if (!token) token = req.headers.get("token")
   // === UPDATE AVATAR URL ===
   if (req.headers.get("updateAvatar") == "true" || req.headers.get("updateBio") === "true") {
     const avatarUrl = req.headers.get("avatarUrl")
