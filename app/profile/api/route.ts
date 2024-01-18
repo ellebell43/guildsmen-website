@@ -5,7 +5,6 @@ import { NextRequest, NextResponse } from "next/server"
 export async function GET(req: NextRequest) {
   let token: string | null | undefined = req.cookies.get("token")?.value
   if (!token) token = req.headers.get("token")
-  console.log(token)
   if (!token) return NextResponse.json({ message: "No user token provided" }, { status: 400 })
 
   if (req.headers.get("getAvatarUrl") === "true") {

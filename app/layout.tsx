@@ -2,7 +2,6 @@ import "./globals.css"
 import { Gentium_Plus } from "next/font/google"
 import Nav from "./nav";
 import Footer from "./footer";
-import getCookieString from "@/util/getCookieString";
 import { cookies } from "next/headers";
 
 // Import font "Gentium Plus" from google fonts
