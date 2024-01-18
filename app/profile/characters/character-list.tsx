@@ -33,7 +33,7 @@ export default function CharacterList(props: { list: Character[], private?: bool
   const deleteCharacter = () => {
     let ok = true
     setDeleteLoading(true)
-    fetch("/profile/characters/api", { method: "DELETE", headers: { id: deleteId, Cookie: getCookieString() } })
+    fetch("/profile/characters/api", { method: "DELETE", headers: { id: deleteId } })
       .then(res => {
         if (!res.ok) ok = false
         return res.json()

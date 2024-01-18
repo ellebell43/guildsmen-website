@@ -57,7 +57,7 @@ export default function ProfileClient(props: { user: user | null }) {
       // Change the users avatar url
       newUser.avatarUrl = url
       // Make a PATCH call to the profile API
-      fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url, Cookie: getCookieString() } })
+      fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url } })
         .then(res => {
           if (!res.ok) {
             // If API call wasn't successful, display the returned error message
@@ -76,7 +76,7 @@ export default function ProfileClient(props: { user: user | null }) {
 
   const updateBio = () => {
     setBioLoading(true)
-    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio, Cookie: getCookieString() } })
+    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
       .then(res => {
         if (!res.ok) {
           setPatchError(res.statusText)
@@ -237,7 +237,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
     // API call to update the users
     try {
-      fetch("/profile/api", { method: "PATCH", headers: { Cookie: getCookieString() } })
+      fetch("/profile/api", { method: "PATCH" })
         .then(res => {
           if (!res.ok) {
             throw res.statusText
@@ -360,7 +360,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
                     onClick={e => {
                       setDeleteLoading(true)
                       try {
-                        fetch("/profile/api", { method: "DELETE", headers: { Cookie: getCookieString() } })
+                        fetch("/profile/api", { method: "DELETE" })
                           .then(res => {
                             if (!res.ok) throw res.statusText
                           })
