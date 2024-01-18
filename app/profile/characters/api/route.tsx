@@ -1,10 +1,10 @@
 import { dbClient } from "@/util/dbClient";
 import { cookies } from "next/dist/client/components/headers"
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { Document, ObjectId } from "mongodb";
 
-export async function GET(req: Request) {
-  const token = cookies().get("token")?.value // Get user token from cookies for use in finding username of user
+export async function GET(req: NextRequest) {
+  const token = req.cookies.get("token")
   if (!token) {
     return NextResponse.json({ message: "No user token provided" }, { status: 400 })
   }
