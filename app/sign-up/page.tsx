@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/input-elements"
+import { TextInput, EmailInput } from "@/util/input-components/input-elements"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
@@ -17,7 +17,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("")
   const [termsAgree, setTermsAgree] = useState(false)
 
-  const [showPassReq, setShowPassReq] = useState(false)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -63,11 +62,19 @@ export default function SignUp() {
     const form = document.getElementById("form")
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    let status: number
+    let ok = true
     try {
       fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
         .then(res => {
-          if (!res.ok) {
-            setError(res.statusText)
+          if (!res.ok) ok = false
+          status = res.status
+          return res.json()
+        })
+        .then(data => {
+          if (status == 500) throw new Error(data.message)
+          if (!ok) {
+            setError(data.message)
           } else {
             router.push("/sign-in?new-user=true")
           }

@@ -8,22 +8,22 @@ export async function GET(req: Request) {
 
   const id = req.headers.get("id")
   if (!id) {
-    return NextResponse.json({}, { status: 400, statusText: "No character id provided" })
+    return NextResponse.json({ message: "No character id provided" }, { status: 400 })
   }
 
   const client = await dbClient()
   const characters = client.collection("characters")
   const character = await characters.findOne({ _id: new ObjectId(id) })
   if (!character) {
-    return NextResponse.json({}, { status: 404, statusText: "No character found with provided id." })
+    return NextResponse.json({ message: "No character found with provided id" }, { status: 404 })
   }
 
   const token = cookies().get("token")?.value
-  if (!token) return NextResponse.json({}, { status: 400, statusText: "No user token provided. Please sign in to continue" })
+  if (!token) return NextResponse.json({ message: "No user token provided. Please sign in and try again" }, { status: 400 })
   const users = client.collection("users")
   const user = await users.findOne({ token })
-  if (!user) return NextResponse.json({}, { status: 404, statusText: "No user found with provided token. Please sign in to continue." })
-  if (character.owner != user.username && !character.public) return NextResponse.json({}, { status: 400, statusText: "You don't have access to this character" })
+  if (!user) return NextResponse.json({ message: "No user found with provided toke. Please sign in and try again." }, { status: 404 })
+  if (character.owner != user.username && !character.public) return NextResponse.json({ message: "You do not have access to this character" }, { status: 400 })
 
   return NextResponse.json(character)
 }
@@ -33,22 +33,22 @@ export async function PATCH(req: Request) {
   let character: Character | undefined
   if (header) character = JSON.parse(header)
   if (!character) {
-    return NextResponse.json({}, { status: 400, statusText: "No character id provided" })
+    return NextResponse.json({ message: "No character id provided" }, { status: 400 })
   }
 
   const token = cookies().get("token")?.value // Get user token from cookies for use in finding username of user
   if (!token) {
-    return NextResponse.json({}, { status: 400, statusText: "No authentication token provided" })
+    return NextResponse.json({ message: "No user token provided. Please sign in and try again." }, { status: 400 })
   }
 
   const client = await dbClient()
   const users = client.collection("users")
   const user = await users.findOne({ token })
   if (!user) {
-    return NextResponse.json({}, { status: 404, statusText: "No user found with provided authentication token" })
+    return NextResponse.json({ message: "No user found with provided token. Please sign in and try again" }, { status: 404 })
   }
 
-  if (user.username != character.owner) return NextResponse.json({}, { status: 400, statusText: "You do not have permission to make changes to this character" })
+  if (user.username != character.owner) return NextResponse.json({ message: "You do not have permission to make changes to this character" }, { status: 400 })
 
   const updateObject = {
     "$set": {
@@ -83,8 +83,8 @@ export async function PATCH(req: Request) {
   const updateResult = await characters.updateOne({ _id: new ObjectId(character._id) }, updateObject)
 
   if (!updateResult.matchedCount) {
-    return NextResponse.json({}, { status: 404, statusText: "No character found with provided id. Character update failed." })
+    return NextResponse.json({ message: "No character found with provided id. Character update failed" }, { status: 404 })
   }
 
-  return NextResponse.json({})
+  return NextResponse.json({ message: "Character updated successfully" })
 }

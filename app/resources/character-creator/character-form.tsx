@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange } from "@/util/types";
+import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange, user } from "@/util/types";
 import ErrorMessage from "@/app/error-message";
 import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
@@ -28,7 +28,7 @@ const initSkills: skills = {
   throwdown: -1
 }
 
-export default function CharacterForm() {
+export default function CharacterForm(props: { user: user }) {
   const [page, setPage] = useState(1);
   const [validationError, setValidationError] = useState("")
   const PAGE_COUNT = 6
@@ -52,13 +52,9 @@ export default function CharacterForm() {
   const [flawsAndWeaknesses, setFlawsAndWeaknesses] = useState<string>()
   const [personalMorals, setPersonalMorals] = useState<string>()
   const [importantConnections, setImportantConnections] = useState<string>()
-  const [backstory, setBackstory] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
 
   const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
-
-  // get user data
-  const { data, isLoading, error } = getUserByToken()
 
   const [apiLoading, setApiLoading] = useState(false)
   const router = useRouter();
@@ -216,21 +212,20 @@ export default function CharacterForm() {
     updateSkills()
     // update myth addiction if chosen as a starting skill
     if (skills.myth >= 0) setAddiction(3)
-    console.log("Character addiction: ", addiction)
-    if (name && species && wealth && luck && guild && data && data.user && data.user.username) {
-      let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, data.user.username)
-      console.log("Addiction submitted to db: ", newChar.addiction)
-      // console.log(JSON.stringify(newChar))
+    if (name && species && wealth && luck && guild) {
+      let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
       setApiLoading(true)
+      let ok = true
       fetch("/resources/character-creator/api", { method: "POST", headers: { char: JSON.stringify(newChar) } })
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) ok = false
+          return res.json()
+        })
         .then(data => {
-          if (data.success) {
-            setApiLoading(false)
-            router.push("/profile/characters?message=New character created successfully!")
+          if (!ok) {
+            throw new Error(data.message)
           } else {
-            setApiLoading(false)
-            setValidationError("Something went wrong uploading the character. Please contact us on Discord.")
+            router.push("/profile/characters?message=New character created successfully!")
           }
         })
     } else {

@@ -1,28 +1,21 @@
 'use client'
 
 import Spinner from "@/app/spinner"
-import Message from "@/util/components/message"
 import PopUp from "@/util/components/pop-up"
-import getPrivateCharacterList from "@/util/getPrivateCharacterList"
-import { mutate } from "swr"
-import { projectedCharacter } from "@/util/types"
+import { Character, projectedCharacter } from "@/util/types"
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export default function CharacterList(props: { private?: boolean }) {
-  let { data, error, isLoading } = getPrivateCharacterList()
+export default function CharacterList(props: { list: Character[], private?: boolean }) {
 
   let [showConfirmation, setShowConfirmation] = useState(false)
   let [deleteId, setDeleteId] = useState("")
   let [deleteLoading, setDeleteLoading] = useState(false)
-  let [message, setMessage] = useState("")
-  let [apiError, setApiError] = useState(false)
 
-  if (isLoading) return <Spinner />
-  if (error) return <p>{String(error)}</p>
-  if (!(data && data.list)) return <p>Something went wrong!</p>
+  let router = useRouter()
 
   const getDescription = (el: projectedCharacter): string => {
     if (el.demeanor && el.physique) return `A ${el.physique}, ${el.demeanor} ${el.species}`
@@ -37,18 +30,21 @@ export default function CharacterList(props: { private?: boolean }) {
   }
 
   const deleteCharacter = () => {
+    let ok = true
     setDeleteLoading(true)
     fetch("/profile/characters/api", { method: "DELETE", headers: { id: deleteId } })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) ok = false
+        return res.json()
+      })
       .then(data => {
         setDeleteLoading(false)
-        setApiError(!data.success)
-        setMessage(data.message)
-        setShowConfirmation(false)
-        setDeleteId("")
-        mutate("/profile/characters/api")
+        if (!ok) {
+          throw new Error(data.message)
+        } else {
+          router.refresh()
+        }
       })
-    setDeleteLoading(false)
   }
 
   return (
@@ -58,7 +54,7 @@ export default function CharacterList(props: { private?: boolean }) {
           <FontAwesomeIcon icon={faPlus} className="h-[75%]" />
         </Link>
       </div>
-      {data.list.map((el, i) => {
+      {props.list.map((el, i) => {
         return (
           <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
             <Link href={`/resources/character-app/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
@@ -67,13 +63,12 @@ export default function CharacterList(props: { private?: boolean }) {
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{el.guild} Guild</p>
               <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(el)}</p>
             </Link>
-            {props.private ?
-              <button
-                className="text-xl h-[50px] w-[50px] flex justify-center items-center hover:opacity-50 transition-all"
-                onClick={e => { setShowConfirmation(true); setDeleteId(String(el._id)) }}
-              >
-                <FontAwesomeIcon icon={faTrash} />
-              </button> : <></>}
+            <button
+              className="text-xl h-[50px] w-[50px] flex justify-center items-center hover:opacity-50 transition-all"
+              onClick={e => { setShowConfirmation(true); setDeleteId(String(el._id)) }}
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
           </div>
         )
       })}
@@ -101,7 +96,6 @@ export default function CharacterList(props: { private?: boolean }) {
             </button>
           </div>
         </PopUp> : <></>}
-      <Message good={!apiError} message={message} setMessage={setMessage} />
     </div>
   )
 }

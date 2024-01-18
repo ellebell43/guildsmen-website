@@ -21,7 +21,6 @@ export default function CharacterApp(props: { character: Character }) {
   let init = { ...props.character }
   init.notes = [...init.notes]
 
-  const [initCharacter, setInitCharacter] = useState(init)
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
   const [showDice, setShowDice] = useState(false)
@@ -32,9 +31,14 @@ export default function CharacterApp(props: { character: Character }) {
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
+    let ok = true
     fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
       .then(res => {
-        if (!res.ok) throw new Error(res.statusText)
+        if (!res.ok) ok = false
+        return res.json()
+      })
+      .then(data => {
+        if (!ok) throw new Error(data.message)
       })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
     if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }

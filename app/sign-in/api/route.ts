@@ -17,14 +17,14 @@ export async function GET(req: Request) {
       const user = await users.findOne({ token: cookies().get("token")?.value })
       // If no user is found, return an error message
       if (!user) {
-        return NextResponse.json({}, { status: 404, statusText: "No user found with provided token" })
+        return NextResponse.json({ message: "No user found with provided token" }, { status: 404 })
       }
       // Otherwise, return user data and refresh the age of the token to keep the user signed in up for up to a week of inactivity
       const res = NextResponse.json({ user })
       res.cookies.set({ name: "token", value: cookies().get("token")?.value || "", maxAge: 60 * 60 * 24 * 7 })
       return res
     } catch (err) {
-      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
+      return NextResponse.json({ message: JSON.stringify(err) }, { status: 500 })
     }
 
   } else {
@@ -32,7 +32,7 @@ export async function GET(req: Request) {
 
     // If a username and password aren't provided via headers, return an error
     if (!(username && password)) {
-      return NextResponse.json({}, { status: 400, statusText: "Sign in failure. Some data was missing." })
+      return NextResponse.json({ message: "Username or password was not provided." }, { status: 400 })
     }
 
     try {
@@ -43,7 +43,7 @@ export async function GET(req: Request) {
 
       // If no username is found, return an error
       if (!user) {
-        return NextResponse.json({}, { status: 400, statusText: "Incorrect username or password" })
+        return NextResponse.json({ message: "Incorrect username or password" }, { status: 400 })
       }
 
       // otherwise, create JWT
@@ -60,7 +60,7 @@ export async function GET(req: Request) {
 
     } catch (err) {
       // If an error occurs while connected and updated the database, return the error
-      return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
+      return NextResponse.json({ message: JSON.stringify(err) }, { status: 500, statusText: JSON.stringify(err) })
     }
   }
 }

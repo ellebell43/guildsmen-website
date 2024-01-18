@@ -15,8 +15,8 @@ export default async function Profile() {
     let user: user | null
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { Cookie: getCookieString(), getUser: "true" }, credentials: "include" })
     if (!res.ok) {
-      console.log(token)
-      throw new Error(res.statusText)
+      const data = await res.json()
+      throw new Error(data.message)
     } else {
       user = await res.json()
     }

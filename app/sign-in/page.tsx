@@ -40,12 +40,22 @@ export default function SignIn() {
     setLoading(true)
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    let ok = true
+    let status: number
     fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
       .then(res => {
+        status = res.status
         if (!res.ok) {
-          setError(res.statusText)
+          ok = false
           setLoading(false)
-        } else {
+        }
+        return res.json()
+      })
+      .then(data => {
+        // If theres an internal server error, throw
+        if (!ok && status == 500) throw new Error(data.message)
+        // Otherwise it should be a 4xx error and used as a useful error message for the user
+        if (!ok) { setError(data.message) } else {
           if (returnTo) {
             router.push(returnTo)
           } else {

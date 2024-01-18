@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
   // Return failure if not all data is provided
   if (!(username && email && password)) {
-    return NextResponse.json({}, { status: 400, statusText: "API POST failure. Some data was missing." })
+    return NextResponse.json({ message: "Missing data to create new user" }, { status: 400 })
   }
 
   // Try to post a new user to the database
@@ -18,19 +18,18 @@ export async function POST(req: Request) {
     const usernameMatch = await users.findOne({ username })
     // If the username is already in use, return an error
     if (usernameMatch) {
-      return NextResponse.json({}, { status: 400, statusText: "Username already in use" })
-      // return NextResponse.json(Error("Username already in use"), { status: 400 })
+      return NextResponse.json({ message: "Username already in use" }, { status: 400 })
     }
     // If the email is already in use, return an error
     const emailMatch = await users.findOne({ email })
     if (emailMatch) {
-      return NextResponse.json({}, { status: 400, statusText: "Email already in use" })
+      return NextResponse.json({ message: "Email already in use" }, { status: 400 })
     }
     // Otherwise, post the new user to the database
     await users.insertOne({ username, email, password, created: new Date(), policyAccept: true })
   } catch (err) {
     // If something goes wrong during database communications, return the error
-    return NextResponse.json({}, { status: 500, statusText: JSON.stringify(err) })
+    return NextResponse.json({ message: JSON.stringify(err) }, { status: 500 })
   }
 
   return NextResponse.json({})

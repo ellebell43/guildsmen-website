@@ -10,6 +10,6 @@ export async function GET(req: Request) {
     if (creatureList[0]) return NextResponse.json(creatureList)
     return NextResponse.json("Nothing here yet. Check back later!")
   } catch (err) {
-    return NextResponse.json({}, { status: 404, statusText: JSON.stringify(err) })
+    return NextResponse.json({ message: JSON.stringify(err) }, { status: 500 })
   }
 }

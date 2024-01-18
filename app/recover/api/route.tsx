@@ -15,7 +15,7 @@ export async function GET(req: Request) {
     const users = client.collection("users")
     await users.updateOne({ email }, { "$set": { updateToken: token } })
   } catch (err) {
-    return NextResponse.json({ success: false, message: String(err) })
+    return NextResponse.json({ message: String(err) }, { status: 500 })
   }
 
   const transporter = nodemailer.createTransport({
@@ -38,22 +38,19 @@ export async function GET(req: Request) {
       <a href="https://guildsmen-ttrpg.com/recover?updateToken=${token}">https://guildsmen-ttrpg.com/recover?updateToken=${token}</a>
       `, // html body
     });
-    return NextResponse.json({ success: true, message: "Email sent." })
+    return NextResponse.json({ message: "Email sent successfully" })
   } catch (err) {
-    return NextResponse.json({ success: false, message: String(err) })
+    return NextResponse.json({ message: String(err) }, { status: 500 })
   }
 }
 
 // === UPDATE PASSWORD VIA UPDATE TOKEN ===
 export async function PATCH(req: Request) {
-  let data = { success: true, message: "Password updated successfully." }
   const updateToken = req.headers.get("updateToken")
   const password = req.headers.get("password")
 
   if (!(password && updateToken)) {
-    data.success = false
-    data.message = "Missing data to complete request."
-    return NextResponse.json(data)
+    return NextResponse.json({ message: "Missing data to complete request" }, { status: 400 })
   }
 
   try {
@@ -62,15 +59,11 @@ export async function PATCH(req: Request) {
     const result = await users.updateOne({ updateToken }, { "$set": { updateToken: "", password } })
 
     if (!result.matchedCount) {
-      data.success = false
-      data.message = "Invalid token provided. Please restart the recovery process."
-      return NextResponse.json(data)
+      return NextResponse.json({ message: "No user found with provided token. Please restart the recovery process." }, { status: 500 })
     }
 
-    return NextResponse.json(data)
+    return NextResponse.json({ message: "Update successful" })
   } catch (err) {
-    data.success = false
-    data.message = String(err)
-    return NextResponse.json(data)
+    return NextResponse.json({ message: String(err) }, { status: 500 })
   }
 }
