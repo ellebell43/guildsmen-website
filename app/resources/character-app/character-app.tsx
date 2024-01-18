@@ -13,6 +13,7 @@ import Settings from "./settings"
 import GearScreen from "./gear-screen"
 import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
+import getCookieString from "@/util/getCookieString"
 
 export default function CharacterApp(props: { character: Character }) {
   // I changed the initial reference array to the notes property to be a brand new object manually here since 
@@ -32,7 +33,7 @@ export default function CharacterApp(props: { character: Character }) {
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
     let ok = true
-    fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character), Cookie: getCookieString() } })
       .then(res => {
         if (!res.ok) ok = false
         return res.json()

@@ -1,10 +1,9 @@
 import { dbClient } from "@/util/dbClient";
-import { cookies } from "next/dist/client/components/headers"
 import { NextRequest, NextResponse } from "next/server";
-import { Document, ObjectId } from "mongodb";
+import { ObjectId } from "mongodb";
 
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")
+  const token = req.cookies.get("token")?.value
   if (!token) {
     return NextResponse.json({ message: "No user token provided" }, { status: 400 })
   }
@@ -21,10 +20,8 @@ export async function GET(req: NextRequest) {
   return NextResponse.json(characterList)
 }
 
-export async function DELETE(req: Request) {
-  type apiRes = { success: boolean, message: string }
-
-  const token = cookies().get("token")?.value // Get user token from cookies for use in finding username of user
+export async function DELETE(req: NextRequest) {
+  const token = req.cookies.get("token")?.value
   if (!token) {
     return NextResponse.json({ message: "No user token provided" }, { status: 400 })
   }

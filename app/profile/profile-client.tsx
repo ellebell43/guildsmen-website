@@ -15,6 +15,7 @@ import Passwords from "../passwords"
 import Link from "next/link"
 import { user } from "@/util/types"
 import Message from "@/util/components/message"
+import getCookieString from "@/util/getCookieString"
 
 export default function ProfileClient(props: { user: user | null }) {
   const user = props.user
@@ -56,7 +57,7 @@ export default function ProfileClient(props: { user: user | null }) {
       // Change the users avatar url
       newUser.avatarUrl = url
       // Make a PATCH call to the profile API
-      fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url } })
+      fetch("/profile/api", { method: "PATCH", headers: { updateAvatar: "true", avatarUrl: url, Cookie: getCookieString() } })
         .then(res => {
           if (!res.ok) {
             // If API call wasn't successful, display the returned error message
@@ -75,7 +76,7 @@ export default function ProfileClient(props: { user: user | null }) {
 
   const updateBio = () => {
     setBioLoading(true)
-    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio } })
+    fetch("/profile/api", { method: "PATCH", headers: { updateBio: "true", bio, Cookie: getCookieString() } })
       .then(res => {
         if (!res.ok) {
           setPatchError(res.statusText)
@@ -236,7 +237,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
     // API call to update the users
     try {
-      fetch("/profile/api", { method: "PATCH", headers })
+      fetch("/profile/api", { method: "PATCH", headers: { Cookie: getCookieString() } })
         .then(res => {
           if (!res.ok) {
             throw res.statusText
@@ -359,7 +360,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
                     onClick={e => {
                       setDeleteLoading(true)
                       try {
-                        fetch("/profile/api", { method: "DELETE" })
+                        fetch("/profile/api", { method: "DELETE", headers: { Cookie: getCookieString() } })
                           .then(res => {
                             if (!res.ok) throw res.statusText
                           })

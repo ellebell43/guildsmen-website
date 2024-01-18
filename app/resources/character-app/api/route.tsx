@@ -1,7 +1,6 @@
 import { dbClient } from "@/util/dbClient"
 import { ObjectId } from "mongodb"
 import { NextRequest, NextResponse } from "next/server"
-import { cookies } from "next/dist/client/components/headers"
 import { Character } from "@/util/types"
 
 export async function GET(req: NextRequest) {
@@ -18,7 +17,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: "No character found with provided id" }, { status: 404 })
   }
 
-  const token = req.cookies.get("token")
+  const token = req.cookies.get("token")?.value
   if (!token) return NextResponse.json({ message: "No user token provided. Please sign in and try again" }, { status: 400 })
   const users = client.collection("users")
   const user = await users.findOne({ token })
@@ -28,7 +27,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json(character)
 }
 
-export async function PATCH(req: Request) {
+export async function PATCH(req: NextRequest) {
   const header = req.headers.get("characterToUpdate")
   let character: Character | undefined
   if (header) character = JSON.parse(header)
@@ -36,7 +35,7 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ message: "No character id provided" }, { status: 400 })
   }
 
-  const token = cookies().get("token")?.value // Get user token from cookies for use in finding username of user
+  const token = req.cookies.get("token")?.value
   if (!token) {
     return NextResponse.json({ message: "No user token provided. Please sign in and try again." }, { status: 400 })
   }

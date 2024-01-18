@@ -1,10 +1,9 @@
 import { dbClient } from "@/util/dbClient"
 import { UpdateResult } from "mongodb"
-import { cookies } from "next/dist/client/components/headers"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")
+  const token = req.cookies.get("token")?.value
   console.log(token)
   if (!token) return NextResponse.json({ message: "No user token provided" }, { status: 400 })
 
@@ -36,8 +35,8 @@ export async function GET(req: NextRequest) {
 
 }
 
-export async function PATCH(req: Request) {
-  const token = cookies().get("token")?.value
+export async function PATCH(req: NextRequest) {
+  const token = req.cookies.get("token")?.value
   // === UPDATE AVATAR URL ===
   if (req.headers.get("updateAvatar") == "true" || req.headers.get("updateBio") === "true") {
     const avatarUrl = req.headers.get("avatarUrl")
@@ -87,9 +86,9 @@ export async function PATCH(req: Request) {
 
 // === DELETE METHOD ====
 
-export async function DELETE(req: Request) {
+export async function DELETE(req: NextRequest) {
   try {
-    const token = cookies().get("token")?.value
+    const token = req.cookies.get("token")?.value
     if (!token) {
       return NextResponse.json({ message: "No user token found" }, { status: 400 })
     }

@@ -2,6 +2,7 @@
 
 import Spinner from "@/app/spinner"
 import PopUp from "@/util/components/pop-up"
+import getCookieString from "@/util/getCookieString"
 import { Character, projectedCharacter } from "@/util/types"
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -32,7 +33,7 @@ export default function CharacterList(props: { list: Character[], private?: bool
   const deleteCharacter = () => {
     let ok = true
     setDeleteLoading(true)
-    fetch("/profile/characters/api", { method: "DELETE", headers: { id: deleteId } })
+    fetch("/profile/characters/api", { method: "DELETE", headers: { id: deleteId, Cookie: getCookieString() } })
       .then(res => {
         if (!res.ok) ok = false
         return res.json()
