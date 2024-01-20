@@ -15,7 +15,7 @@ import Passwords from "../passwords"
 import Link from "next/link"
 import { user } from "@/util/types"
 import Message from "@/util/components/message"
-import getCookieString from "@/util/getCookieString"
+import { useCookies } from "next-client-cookies"
 
 export default function ProfileClient(props: { user: user | null }) {
   const user = props.user
@@ -31,6 +31,8 @@ export default function ProfileClient(props: { user: user | null }) {
   const [bio, setBio] = useState("")
   const [bioLoading, setBioLoading] = useState(false)
   const [editBio, setEditBio] = useState(false)
+
+  const cookies = useCookies()
 
   useEffect(() => {
     const input = document.getElementById("bio-input")
@@ -138,7 +140,7 @@ export default function ProfileClient(props: { user: user | null }) {
           type="button"
           className="button py-2 px-4 rounded"
           onClick={() => {
-            document.cookie = "token="
+            cookies.remove("token")
             router.push("/sign-in")
           }}
         >
