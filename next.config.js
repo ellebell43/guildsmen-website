@@ -2,6 +2,9 @@
 const nextConfig = {}
 
 module.exports = {
+  experimental: {
+    serverActions: true,
+  },
   webpack(config) {
     config.resolve.fallback = {
 

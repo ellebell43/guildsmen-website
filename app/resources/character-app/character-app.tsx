@@ -13,7 +13,6 @@ import Settings from "./settings"
 import GearScreen from "./gear-screen"
 import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
-import getCookieString from "@/util/getCookieString"
 
 export default function CharacterApp(props: { character: Character }) {
   // I changed the initial reference array to the notes property to be a brand new object manually here since 

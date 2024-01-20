@@ -3,23 +3,30 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faGripLines, faUserAlt } from "@fortawesome/free-solid-svg-icons";
-import getCookieString from "@/util/getCookieString";
+import { faSun, faMoon, faGripLines } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import revalidateUserAvatar from "./layout-revalidate";
 
 
 export default function Nav(props: { avatarSrc: string, signedIn: boolean }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
-  // const { data, isLoading, error } = getUserByToken()
+  const path = usePathname()
 
   useEffect(() => {
     if (!localStorage.getItem("isDark") || localStorage.getItem("isDark") != "true") {
       document.getElementById("html")?.classList.remove("dark");
     }
   }, [])
+
+  useEffect(() => {
+    if (/sign-in/.test(path) || /profile/.test(path)) {
+      revalidateUserAvatar()
+    }
+  }, [path])
 
   // Toggle dark mode via html element class list
   const toggleDarkMode = () => {

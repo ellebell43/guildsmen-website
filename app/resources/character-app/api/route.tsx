@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   if (!token) return NextResponse.json({ message: "No user token provided. Please sign in and try again" }, { status: 400 })
   const users = client.collection("users")
   const user = await users.findOne({ token })
-  if (!user) return NextResponse.json({ message: "No user found with provided toke. Please sign in and try again." }, { status: 404 })
+  if (!user) return NextResponse.json({ message: "No user found with provided token. Please sign in and try again." }, { status: 404 })
   if (character.owner != user.username && !character.public) return NextResponse.json({ message: "You do not have access to this character" }, { status: 400 })
 
   return NextResponse.json(character)

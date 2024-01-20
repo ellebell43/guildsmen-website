@@ -15,11 +15,12 @@ export default async function RootLayout({
 
   const token = cookies().get("token")?.value
   let avatarSrc
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { cache: "no-store", method: "GET", headers: { Cookie: token ? token : "", getAvatarUrl: "true" }, credentials: "include" })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/profile/api`, { method: "GET", headers: { token: token ? token : "", getUser: "true" }, credentials: "include", next: { tags: ["layout"] } })
   if (!res.ok) {
     avatarSrc = ""
   } else {
-    avatarSrc = await res.json()
+    const user = await res.json()
+    avatarSrc = user.avatarUrl
   }
 
   return (

@@ -48,6 +48,15 @@ export default function Changelog() {
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
           <ChangelogEntry
+            date="01/20/2024"
+            version="v0.3.1"
+            entries={[
+              "Error pages now have a try again button",
+              "Error pages no longer give an odd generic error, and just say that something went wrong.",
+              "Fixed user avatar icon not rendering and not updating when signing in/out"
+            ]}
+          />
+          <ChangelogEntry
             date="01/17/2024"
             version="v0.3.0"
             entries={[
