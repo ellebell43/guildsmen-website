@@ -12,7 +12,7 @@ export default function Error({
   return (
     <div className="flex flex-col justify-end items-center">
       <h2>Something went wrong!</h2>
-      <p>Either this character doesn't exist, or you&apos;re not logged in to the account that owns it.</p>
+      <p>Either this character doesn&apos;t exist, or you&apos;re not logged in to the account that owns it.</p>
       <div className="flex gap-4 justify-center">
         <Link className="button rounded px-6 py-4 shadow mt-6" href="/sign-in">Sign in</Link>
         <button className="button rounded px-6 py-4 shadow mt-6" onClick={() => reset()}>Try again</button>
