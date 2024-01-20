@@ -49,6 +49,14 @@ export default function Changelog() {
         <ul>
           <ChangelogEntry
             date="01/20/2024"
+            version="v0.3.2"
+            entries={[
+              "Fixed sign out bug where the sign out button would redirect but not actually clear authentication token",
+              "Fixed bug where the confirmation pop up to delete character would not disappear when actually deleting the character."
+            ]}
+          />
+          <ChangelogEntry
+            date="01/20/2024"
             version="v0.3.1"
             entries={[
               "Error pages now have a try again button",
