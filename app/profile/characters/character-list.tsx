@@ -87,7 +87,7 @@ export default function CharacterList(props: { list: Character[], private?: bool
             </button>
             <button
               className="button w-[225px] py-2 rounded bg-red-200 text-red-800 border-red-800 dark:bg-red-800 dark:text-red-100 dark:border-red-200 hover:text-red-100 hover:bg-red-800 hover:border-red-200 dark:hover:bg-red-200 dark:hover:text-red-800 dark:hover:border-red-800 transition-all"
-              onClick={e => deleteCharacter()}
+              onClick={e => { deleteCharacter(); setShowConfirmation(false) }}
             >
               Delete my character.
               {deleteLoading ?
