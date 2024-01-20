@@ -15,11 +15,6 @@ import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
 
 export default function CharacterApp(props: { character: Character }) {
-  // I changed the initial reference array to the notes property to be a brand new object manually here since 
-  // for some reason the initial reference and the actual character object notes array reference were the same object
-  // even though init is set to a brand new object.
-  let init = { ...props.character }
-  init.notes = [...init.notes]
 
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
@@ -31,15 +26,8 @@ export default function CharacterApp(props: { character: Character }) {
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
-    let ok = true
     fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
-      .then(res => {
-        if (!res.ok) ok = false
-        return res.json()
-      })
-      .then(data => {
-        if (!ok) throw new Error(data.message)
-      })
+      .then(res => { if (!res.ok) throw new Error("Something went wrong") })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
     if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }
   }, [character])
