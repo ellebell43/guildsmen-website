@@ -26,7 +26,7 @@ export default function CharacterApp(props: { character: Character }) {
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
+    fetch(`/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
       .then(res => { if (!res.ok) throw new Error("Something went wrong") })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
     if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }
