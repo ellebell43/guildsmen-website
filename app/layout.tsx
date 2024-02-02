@@ -29,7 +29,7 @@ export default async function RootLayout({
       <CookiesProvider>
         <body className={`${gentium.className} dark:bg-stone-700 dark:text-stone-100 transition-all`}>
           <Nav signedIn={Boolean(token)} avatarSrc={avatarSrc} />
-          <main className="dark:bg-stone-700 dark:text-stone-100 transition-all max-w-5xl mx-autuo" id="main">
+          <main className="dark:bg-stone-700 dark:text-stone-100 transition-all max-w-5xl mx-auto" id="main">
             {children}
           </main>
           <Footer />
