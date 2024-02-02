@@ -48,6 +48,13 @@ export default function Changelog() {
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
           <ChangelogEntry
+            date="02/02/2024"
+            version="v0.3.3"
+            entries={[
+              "Updated layout of the character app to be more responsive and feel better on larger screens."
+            ]}
+          />
+          <ChangelogEntry
             date="01/20/2024"
             version="v0.3.2"
             entries={[

@@ -15,7 +15,7 @@ export default function Banner(props: { character: Character, setCharacter: Func
   }
 
   return (
-    <div className="flex justify-between border-b-2 pb-4 w-[95%]">
+    <div className="flex justify-between border-b-2 pb-4 w-[95%] mx-auto lg:pr-10">
       {/*  -- NAME AND DESCRIPTION -- */}
       <div>
         <p className="overflow-clip whitespace-nowrap m-0 text-xl font-bold">{character.name}</p>

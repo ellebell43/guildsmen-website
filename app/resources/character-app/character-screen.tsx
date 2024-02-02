@@ -5,12 +5,12 @@ import { StatRow, Luck, Bubble, BubbleRow, MythBar, RollableStatRow } from "@/ut
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons";
 
-export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function, edit: boolean }) {
-  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood, edit } = props
+export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function, edit: boolean, banner: boolean }) {
+  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood, edit, banner } = props
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
-      <Banner character={character} setCharacter={setCharacter} />
+    <div className="flex flex-col items-center mt-4 gap-4">
+      {banner ? <Banner character={character} setCharacter={setCharacter} /> : <></>}
 
       {/* ========== STATS ========== */}
 

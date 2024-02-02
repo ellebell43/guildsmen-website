@@ -35,7 +35,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
         {state ? state.map((el, i) => {
           return (
             <Reorder.Item
-              key={el}
+              key={`${el}`}
               value={el}
               className="relative border-b list-none left-2 sm:left-0 pt-2"
             >
