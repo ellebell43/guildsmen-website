@@ -353,7 +353,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
 
         {/* Specialties */}
 
-        <div className="flex justify-center flex-col md:flex-row items-center">
+        <div className="flex justify-center flex-col items-center">
           {props.primarySpecialty ?
             <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={2 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
@@ -367,7 +367,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
               {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
             </div>}
           {props.secondarySpecialty ?
-            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
+            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.secondarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Secondary (+1):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.secondarySpecialty}</p>

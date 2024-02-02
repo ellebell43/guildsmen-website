@@ -13,6 +13,7 @@ import Settings from "./settings"
 import GearScreen from "./gear-screen"
 import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
+import useWindowDimensions from "@/util/useWindowDimenstions"
 
 export default function CharacterApp(props: { character: Character }) {
 
@@ -23,6 +24,8 @@ export default function CharacterApp(props: { character: Character }) {
   const [message, setMessage] = useState<string>()
   const [messageGood, setMessageGood] = useState(false)
   const [edit, setEdit] = useState(false)
+
+  const { width, height } = useWindowDimensions()
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
@@ -54,13 +57,59 @@ export default function CharacterApp(props: { character: Character }) {
     }
   }, [rollMessage])
 
+  useEffect(() => {
+    document.getElementById("main")?.classList.remove("max-w-5xl", "mx-auto")
+    return () => {
+      document.getElementById("main")?.classList.add("max-w-5xl", "mx-auto")
+    }
+  }, [])
+
   const headerClass = "text-center text-xl m-0 font-bold"
   const containerClass = "w-fit border p-2 rounded border-stone-400"
 
   const getPage = () => {
+    // Determine screen size
+    let size: "sm" | "md" | "lg"
+    if (width <= 768) {
+      size = "sm"
+    } else if (width <= 1280) {
+      size = "md"
+    } else {
+      size = "lg"
+    }
+
     switch (page) {
       case "character":
-        return <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} />
+        if (size == "sm") {
+          return (
+            <>
+              <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={true} />
+            </>
+          )
+        }
+        if (size == "md") {
+          return (
+            <>
+              <Banner character={character} setCharacter={setCharacter} />
+              <div className="flex justify-center gap-10">
+                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
+                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
+              </div>
+            </>
+          )
+        }
+        if (size == "lg") {
+          return (
+            <>
+              <Banner character={character} setCharacter={setCharacter} />
+              <div className="flex justify-center gap-10">
+                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
+                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
+                <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} />
+              </div>
+            </>
+          )
+        }
       case "details":
         return <>
           <DetailsScreen character={character} setCharacter={setCharacter} edit={edit} />
@@ -68,7 +117,7 @@ export default function CharacterApp(props: { character: Character }) {
       case "gear":
         return <>
           <Banner character={character} setCharacter={setCharacter} />
-          <GearScreen character={character} setCharacter={setCharacter} />
+          <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} />
         </>
       case "notes":
         return <>

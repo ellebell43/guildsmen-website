@@ -9,12 +9,11 @@ export default function SkillsScreen(props: { character: Character, setCharacter
   const { character, setCharacter, setMessage, setMessageGood, containerClass, headerClass, setShowDice, setRollMessage, edit } = props
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
-      <Banner character={character} setCharacter={setCharacter} />
+    <div className="flex flex-col md:flex-col-reverse justify-center items-center gap-4">
       {/* Experience */}
       <div>
 
-        <div className={`${containerClass} lg:absolute left-10 top-48`}>
+        <div className={`${containerClass}`}>
           <h2 className={headerClass}>Experience</h2>
           <div className="border border-black rounded-[100%] w-1/2 flex flex-col justify-center items-start h-10 my-2 mx-auto relative">
             <p className="text-[10px] text-stone-400 m-0 mt-1 text-center mx-auto">Points</p>
