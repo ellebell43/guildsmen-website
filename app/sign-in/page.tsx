@@ -8,7 +8,6 @@ import crypto from "crypto"
 import ErrorMessage from "../error-message"
 import Spinner from "../spinner"
 import { useRouter } from "next/navigation"
-import { mutate } from "swr"
 
 export default function SignIn() {
   let [username, setUsername] = useState("")
@@ -21,6 +20,7 @@ export default function SignIn() {
   // get url query params
   const params = useSearchParams()
   const router = useRouter()
+  const returnTo = params.get("return")
 
   // if redirected from sign-up, show a success message
   useEffect(() => {
@@ -40,20 +40,27 @@ export default function SignIn() {
     setLoading(true)
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    let ok = true
+    let status: number
     fetch("/sign-in/api", { method: "GET", headers: { password: hashedPassword, username } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          // If sign in fails, display error from API
-          setError(data.message)
+      .then(res => {
+        status = res.status
+        if (!res.ok) {
+          ok = false
           setLoading(false)
-        } else {
-          // Otherwise, refresh the cached user data and navigate to the profile page
-          mutate("/sign-in/api")
-          setTimeout(() => {
+        }
+        return res.json()
+      })
+      .then(data => {
+        // If theres an internal server error, throw
+        if (!ok && status == 500) throw new Error(data.message)
+        // Otherwise it should be a 4xx error and used as a useful error message for the user
+        if (!ok) { setError(data.message) } else {
+          if (returnTo) {
+            router.push(returnTo)
+          } else {
             router.push("/profile")
-            setLoading(false)
-          }, 2000)
+          }
         }
       })
   }

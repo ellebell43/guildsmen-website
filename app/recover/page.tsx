@@ -27,16 +27,20 @@ export default function Recover() {
 
   const emailUser = () => {
     setLoading(true)
+    let ok = true
     fetch("/recover/api", { method: "GET", headers: { email } })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) ok = false
+        return res.json()
+      })
       .then(data => {
-        if (data.success) {
-          setSuccess(true)
-          setLoading(false)
-        } else {
+        if (!ok) {
+          setSuccess(false)
           setError(data.message)
-          setLoading(false)
+        } else {
+          setSuccess(true)
         }
+        setLoading(false)
       })
   }
 
@@ -58,16 +62,19 @@ export default function Recover() {
     }
 
     const hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    let ok = true
     fetch("/recover/api", { method: "PATCH", headers: { updateToken: updateToken ? updateToken : "", password: hashedPassword } })
-      .then(res => { console.log(res); return res.json() })
+      .then(res => {
+        if (!res.ok) ok = false
+        return res.json()
+      })
       .then(data => {
-        if (!data.success) {
+        if (!ok) {
           setError(data.message)
-          setPasswordLoading(false)
         } else {
-          setPasswordLoading(false)
           setPasswordSuccess(true)
         }
+        setLoading(false)
       })
   }
 

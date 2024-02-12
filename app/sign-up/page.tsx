@@ -2,9 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { PasswordInput, TextInput, EmailInput } from "@/util/input-components/input-elements"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
+import { TextInput, EmailInput } from "@/util/input-components/input-elements"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
@@ -19,7 +17,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("")
   const [termsAgree, setTermsAgree] = useState(false)
 
-  const [showPassReq, setShowPassReq] = useState(false)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -57,7 +54,7 @@ export default function SignUp() {
     }
     // Make sure password matches minimum requirements
     if (!checkPassword()) {
-      setError("Your password does not match minimum requirements.")
+      setError("Your password does not meet the minimum requirements.")
       return
     }
 
@@ -65,17 +62,27 @@ export default function SignUp() {
     const form = document.getElementById("form")
     // Hash the password before sending it to the API
     let hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
-    fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          setError(data.message)
+    let status: number
+    let ok = true
+    try {
+      fetch("sign-up/api", { method: "POST", headers: { email, password: hashedPassword, username } })
+        .then(res => {
+          if (!res.ok) ok = false
+          status = res.status
+          return res.json()
+        })
+        .then(data => {
+          if (status == 500) throw new Error(data.message)
+          if (!ok) {
+            setError(data.message)
+          } else {
+            router.push("/sign-in?new-user=true")
+          }
           setLoading(false)
-        } else {
-          router.push("/sign-in?new-user=true")
-          setLoading(false)
-        }
-      })
+        })
+    } catch (err) {
+      setError(String(err))
+    }
   }
 
   const checkPassword = () => {

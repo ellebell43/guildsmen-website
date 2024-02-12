@@ -6,6 +6,6 @@ const fetcher = async (url: string, name: string) => {
 }
 
 export default function getOfficialCreature(name: string) {
-  let { data, isLoading, error } = useSWR<{ success: boolean, data: any }>(`/bestiary/${name}/api`, url => fetcher(url, name))
+  let { data, isLoading, error } = useSWR<{ success: boolean, data: any }>(`/bestiary/${name}/api`, (url: string) => fetcher(url, name))
   return { data, isLoading, error };
 }

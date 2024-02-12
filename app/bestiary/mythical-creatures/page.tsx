@@ -17,6 +17,7 @@ export default function MythicalCreatures() {
       <p>At a certain point, Mythcial creatures will become so large, their bodies cannot be sustained. When this happens, a Mythcial creature becomes ravenous. This is when they are most dangerous. The creature will focus on eating whatever crosses it&apos;s path, because if it does not eat, it will die. So, all instinct of survival and self preservation are overridden by an insatiable hunger. When encoutering a ravenous Mythical creature, it is best to leave the area as quickly and quietly as possible, or face the hunger of a nearly unstoppable force.
       </p>
 
+      {/* @ts-expect-error */}
       <CreatureList creatureType="mythical" />
     </>
   )

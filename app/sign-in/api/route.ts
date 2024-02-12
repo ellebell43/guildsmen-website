@@ -17,26 +17,22 @@ export async function GET(req: Request) {
       const user = await users.findOne({ token: cookies().get("token")?.value })
       // If no user is found, return an error message
       if (!user) {
-        return NextResponse.json({ success: false, user, message: "No user found with provided token" })
+        return NextResponse.json({ message: "No user found with provided token" }, { status: 404 })
       }
       // Otherwise, return user data and refresh the age of the token to keep the user signed in up for up to a week of inactivity
-      const res = NextResponse.json({ success: true, user, message: "Sign in success!" })
+      const res = NextResponse.json({ user })
       res.cookies.set({ name: "token", value: cookies().get("token")?.value || "", maxAge: 60 * 60 * 24 * 7 })
       return res
     } catch (err) {
-      return NextResponse.json({ success: false, message: String(err) })
+      return NextResponse.json({ message: JSON.stringify(err) }, { status: 500 })
     }
 
   } else {
     // If signing in via username and password instead of token:
-    // Initial data object to be returned
-    let data = { success: true, message: "Sign in success!" }
 
     // If a username and password aren't provided via headers, return an error
     if (!(username && password)) {
-      data.success = false
-      data.message = "Sign in failure. Some data was missing."
-      return NextResponse.json(data)
+      return NextResponse.json({ message: "Username or password was not provided." }, { status: 400 })
     }
 
     try {
@@ -47,9 +43,7 @@ export async function GET(req: Request) {
 
       // If no username is found, return an error
       if (!user) {
-        data.success = false
-        data.message = "Incorrect username or password."
-        return NextResponse.json(data)
+        return NextResponse.json({ message: "Incorrect username or password" }, { status: 400 })
       }
 
       // otherwise, create JWT
@@ -59,16 +53,14 @@ export async function GET(req: Request) {
       users.updateOne({ username: username }, { $set: { token: token } });
 
       // Set the created token as a cookie
-      const res = NextResponse.json(data)
+      const res = NextResponse.json({})
       res.cookies.set({ name: "token", value: token, maxAge: 60 * 60 * 24 * 7 })
 
       return res
 
     } catch (err) {
       // If an error occurs while connected and updated the database, return the error
-      data.success = false
-      data.message = String(err)
-      return NextResponse.json(data)
+      return NextResponse.json({ message: JSON.stringify(err) }, { status: 500, statusText: JSON.stringify(err) })
     }
   }
 }

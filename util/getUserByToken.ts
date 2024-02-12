@@ -7,6 +7,6 @@ const fetcher = async (url: string) => {
 }
 
 export default function getUserByToken() {
-  let { data, isLoading, error } = useSWR<{ success: boolean, message: string, user?: user }>(`/sign-in/api`, url => fetcher(url))
+  let { data, isLoading, error } = useSWR<{ success: boolean, message: string, user?: user }>(`/sign-in/api`, (url: string) => fetcher(url))
   return { data, isLoading, error };
 }
