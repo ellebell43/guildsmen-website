@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NextButton from "../next-button";
 import { Metadata } from "next";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | The Market",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function TheMarket() {
   return (
     <article>
+      <Contents />
       <h1>The Market</h1>
       <p>Welcome to the Market! Here we outline how buying equipment works and some common place items that you would generally find in shopping areas. Shop till you drop!</p>
 
@@ -73,7 +75,7 @@ export default function TheMarket() {
         <p className="itemDescription">Relieves any poisoned condition on consumption.</p>
       </section>
 
-      <section>
+      <section id="devices">
         <h2>Devices</h2>
         <p className="text-center">Devices are tech items that are generally powered by Navidus Crystals.</p>
 
@@ -115,7 +117,7 @@ export default function TheMarket() {
         <p className="itemDescription">A canister that, when activated, waits 20 seconds (2 combat rounds) then fills a 20-foot by 20-foot area with smoke. All creatures taking actions within the smoke have disadvantage if the action relies on sight.</p>
       </section>
 
-      <section>
+      <section id="navidus-crystals">
         <h2>Navidus Crystals</h2>
         <p className="text-center">Navidus Crystlas are used to power tech devices.</p>
 
@@ -140,7 +142,7 @@ export default function TheMarket() {
         </div>
       </section>
 
-      <section>
+      <section id="weapons">
         <h2>Weapons</h2>
         <p className="text-center">Weapons are... well, used to kill things. Or maybe you&apos;re just eccentric.</p>
 

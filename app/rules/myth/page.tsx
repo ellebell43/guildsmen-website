@@ -1,15 +1,17 @@
 import { Metadata } from "next";
 import NextButton from "../next-button";
 import Link from "next/link";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Myth",
-  description: "Learn how magic works throug an addictive drug called Myth in Guildsmen TTRPG"
+  description: "Learn how magic works through an addictive drug called Myth in Guildsmen TTRPG"
 }
 
 export default function Myth() {
   return (
     <article>
+      <Contents />
       <h1>Myth</h1>
       <p>Magic in Guildsmen is not conventional. In this game magic comes from a drug known as Myth - a liquid that is created by refining the blood of Mythical creatures - and it is highly addictive. It is administered by syringe and can be deadly for both the user and those around them.</p>
 
