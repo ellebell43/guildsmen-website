@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = { "title": "Guildsmen | Centrifuge Technology" }
@@ -5,6 +6,7 @@ export const metadata: Metadata = { "title": "Guildsmen | Centrifuge Technology"
 export default function CentrifugeTechnology() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Centrifuge Technology</h1>
         {/* === NOTES === 

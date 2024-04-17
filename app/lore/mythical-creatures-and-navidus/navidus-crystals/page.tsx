@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Guildsmen | Navidus Crystals" }
@@ -5,6 +6,7 @@ export const metadata: Metadata = { title: "Guildsmen | Navidus Crystals" }
 export default function NavidusCrystals() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Navidus Crystals</h1>
         {/* ⦁	Parasitical energy source

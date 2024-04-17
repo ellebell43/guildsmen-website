@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,8 +8,10 @@ export const metadata: Metadata = {
 export default function GeneralWorldHistory() {
   return (
     <article>
-      <section>
+      <Contents />
+      <section id="overview">
         <h1>General World History of Thelius</h1>
+        <h2>Overview</h2>
 
         <p>The world of Thelius has a long history, but a vast majority of it has been lost to time due to a horrific and prolonged event known as The Mythic Crisis. About 700 years ago, Thelius was in it's renaissance. The world was full of new expressions of art, science, philosophy, and more. Cultures were shifting and the world was making steady progress towards an enlightenment period and an industrial revolution. The various sentient species of Thelius mingled and coexisted, some more peacefully than others, but each knew of the others and relationships were built.</p>
 

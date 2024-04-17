@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Guildsmen | Fictus Arboreus (Hunting Tree)" }
@@ -5,6 +6,7 @@ export const metadata: Metadata = { title: "Guildsmen | Fictus Arboreus (Hunting
 export default function FictusArboreus() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Fictus Arboreus (Hunting Tree)</h1>
         <p>The Fictus Arboreus, commonly known as a Hunting Tree, is the only known Mythical plant. Unlike Mythical animals, it has no inherent magical abilities due to its fundamentally different physiology and lack of need for a magical defensive system. The Navidus Crystal is located beneath the main trunk of the plant in a thick cocoon of roots. The Crystal is used to provide its energy instead of photosynthesis, while it eats other creatures to provide itself with materials for growth and reproduction.</p>

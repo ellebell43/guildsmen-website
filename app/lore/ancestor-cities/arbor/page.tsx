@@ -1,6 +1,7 @@
 // cSpell:ignore locess, couldn, guildsmen
 
 import CaptionedImg from "@/app/captioned-img"
+import Contents from "@/util/components/contents"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function Arbor() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Arbor</h1>
         <div className="md:flex gap-5 items-center justify-between">
@@ -51,10 +53,10 @@ export default function Arbor() {
           - It's very dangerous to do so because of the Mythical creatures, but it's their only way to get stone and metal
           - It's less dangerous than other options though since the Dragon Spine mountains are where dragons live and they are the only natural predators of Mythical creatures */}
       </section>
-      <section id="technological advancements">
+      <section id="technological-advancements">
         <h2>Technological Advancements</h2>
       </section>
-      <section id="civil engineering">
+      <section id="civil-engineering">
         <h2>Civil Engineering</h2>
         {/* === NOTES ===
         - Water towers at the tops of the trees

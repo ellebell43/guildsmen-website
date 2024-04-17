@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = { title: "Guildsmen | Myth and Sophont Anatomy" }
@@ -5,6 +6,7 @@ export const metadata: Metadata = { title: "Guildsmen | Myth and Sophont Anatomy
 export default function MythAndSophontAnatomy() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Myth and Sophont Anatomy</h1>
         {/* === NOTES ===
