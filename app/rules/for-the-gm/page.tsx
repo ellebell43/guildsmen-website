@@ -1,3 +1,4 @@
+import Contents from "@/util/components/contents";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function ForTheGM() {
   return (
     <article>
+      <Contents />
       <h1>For the Game Master</h1>
       <p>This game is designed to have one Game Master and three to five players. If you&apos;re reading this chapter, then you must be (or at least be interested in being) the Game Master. Welcome! You have a fun journey ahead of you. </p>
 
@@ -26,7 +28,7 @@ export default function ForTheGM() {
 
         <p>Once everyone has a character, you&apos;re ready to play.</p>
 
-        <h2>Running the First Session</h2>
+        <h3>Running the First Session</h3>
         <p>A game session is when you and your players get together and play the game for a while. These can last
           anywhere from 30 minutes to 8 or more hours. It&apos;s all up to you! </p>
 
@@ -110,7 +112,7 @@ export default function ForTheGM() {
         <p>Once that&apos;s established, the player rolls dice (2, 6-sided dice) to determine how successful the outcome of their action is. It&apos;s important that you, as the Game Master, read through the Skills chapter and understand how rolling for skills works. Also, read through the rest of the chapters, too. Trust me. It&apos;s good to know what this game is capable of before your players blindside you with magic drugs (see the <Link href="/rules/myth">Myth chapter</Link>).</p>
       </section>
 
-      <section>
+      <section id="cultivating-an-experience">
         <h2>Cultivating an Experience</h2>
         <p>We&apos;ve covered how the game is played, but how do you, as Game Master, create the story to guide the players through. Let&apos;s treat your game like a tree. All trees start from a seed, and so should your story. A seed is a general concept that has the potential to grow into something great. It&apos;s a simple sentence that describes what you want the story to start out as.</p>
 

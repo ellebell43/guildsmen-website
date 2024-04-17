@@ -3,6 +3,7 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import NextButton from "../next-button";
 import { Metadata } from "next";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Character Creation",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function CharacterCreation() {
   return (
     <article>
+      <Contents />
       <h1>Character Creation</h1>
       <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter.</p>
 

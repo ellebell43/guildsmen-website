@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NextButton from "../next-button";
 import { Metadata } from "next";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Creatures",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function Creatures() {
   return (
     <article>
+      <Contents />
       <h1>Creatures</h1>
       <p>Creatures in this game are designed with the idea that people are fragile and easily killed. For example, if a regular person ran at a bear, swinging a sword, trying to kill it, that person would most likely end up dead. When fighting creatures, the idea is to constantly be avoiding the creatures&apos; attacks, and the moment you mess up, you die. </p>
 

@@ -3,6 +3,7 @@ import NextButton from "../next-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Metadata } from "next";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guidlsmen | Establishments",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function Establishments() {
   return (
     <article>
+      <Contents />
       <h1>Establishments</h1>
       <p>Establishments are public institutions or business organizations. They can be anywhere from the size of a ent. Whatever your establishment is and what its goals are, are completely up to you. This mechanic has very little dice rolling and is based heavily in roleplay.</p>
 
@@ -51,7 +53,7 @@ export default function Establishments() {
 
         <p>The Power score is mainly used to compare your Establishment with others. The Establishment with the highest power score is in control. Being in control means that your Establishment is the top in the area. Being in control allows you to attempt to grow the size of your Establishment by absorbing your competitors.</p>
 
-        <h2>Establishment Size</h2>
+        <h3>Establishment Size</h3>
         <p>Any Establishment that would be bigger than your Establishment would have control over you. For example, the city that your Establishment is in can create laws that directly affect your Establishment.</p>
 
         <p>On the Establishment Sheet, there is a small field for your Establishment&apos;s size. This is just a simple word that lets you understand the scope of your Establishment. Some examples of sizes would be city, village, tavern, gang, guild, etc. and for most Establishments this size will never change. However, a few Establishments will dream bigger. They&apos;ll want to grow their size to gain more and more power.</p>
@@ -79,7 +81,7 @@ export default function Establishments() {
         <p>Whenever you want to consciously increase a stat, you may roleplay how you want to make that happen and then roll a lead skill check to see how well you did. Failing this skill check can cause the stat to go down instead.</p>
       </section>
 
-      <section id="events-and-competitors">
+      <section id="events-&-competitors">
         <h2>Events & Competitors</h2>
         <p>Events are happening around your Establishment all the time, and they will affect your Establishment. At any time, the Game Master may have an event happen to your Establishment. Events can be good or bad and they can impact your stats and party size in a variety of ways. For example, a famine is almost guaranteed to lower your Health score.</p>
 

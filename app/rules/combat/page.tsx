@@ -1,6 +1,7 @@
 import Link from "next/link"
 import NextButton from "../next-button"
 import { Metadata } from "next"
+import Contents from "@/util/components/contents"
 
 export const metadata: Metadata = {
   title: "Guildsmen | Combat",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function Combat() {
   return (
     <article>
+      <Contents />
       <h1>Combat</h1>
       <p>As you play, you may find yourself in a situation where you need to fight someone or something. When this
         happens, we strongly suggest you find ways of fighting other than going head on, guns blazing, swords swinging. Combat in Guildsmen is designed to be fast and deadly. An unprepared adventurer will die very, very quickly. Think outside the box and find other ways to handle tense situations other than bludgeoning your opponent to death. Also, make sure to cooperate with your party. A player who goes off alone is much more likely to die.</p>
@@ -41,7 +43,7 @@ export default function Combat() {
 
         <p>When this happens, give the creatures and players with the advantage a full combat round to themselves and then add other players to the Turn Order on the second combat round.</p>
 
-        <h2>Actions & Reactions</h2>
+        <h3>Actions & Reactions</h3>
         <p>The goal of combat is to deal Harm to your enemy until they either stand down, run away, fall unconscious, or die. Harm is caused by creating bodily harm to your enemy by performing actions.</p>
 
         <p>You get 1 action per combat round. You perform an action by rolling a relevant skill or stat check. The enemy then reacts in any way they think would negate your attack and they also roll a relevant skill or stat check. If the attacker rolls higher, then the attack is successful, and the defender takes harm. If the defender rolls higher, then the attack is unsuccessful, and no harm is dealt.</p>
