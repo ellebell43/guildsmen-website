@@ -48,6 +48,14 @@ export default function Changelog() {
         <h2 className={styles.h2}>Changelog</h2>
         <ul>
           <ChangelogEntry
+            date="06/04/2024"
+            version="v0.4.0"
+            entries={[
+              "Fixed a typo that said successful skill checks give experience. It now says that unsuccessful checks give experience.",
+              "Added a tab that opens up a table of contents that is dynamically created on the page for easier navigation"
+            ]}
+          />
+          <ChangelogEntry
             date="02/02/2024"
             version="v0.3.3"
             entries={[
