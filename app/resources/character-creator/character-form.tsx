@@ -214,6 +214,7 @@ export default function CharacterForm(props: { user: user }) {
     if (skills.myth >= 0) setAddiction(3)
     if (name && species && wealth && luck && guild) {
       let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
+      newChar.gear = gear
       setApiLoading(true)
       let ok = true
       fetch("/resources/character-creator/api", { method: "POST", headers: { char: JSON.stringify(newChar) } })

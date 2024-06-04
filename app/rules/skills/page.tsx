@@ -1,6 +1,7 @@
 import Link from "next/link"
 import NextButton from "../next-button"
 import { Metadata } from "next"
+import Contents from "@/util/components/contents"
 
 export const metadata: Metadata = {
   title: "Guildsmen | Skills",
@@ -10,12 +11,13 @@ export const metadata: Metadata = {
 export default function Skills() {
   return (
     <article>
+      <Contents />
       <h1>Skills</h1>
       <p>Skills are the fundamental mechanic underlying all of Guildsmen. Skills are used to perform most tasks, and the better your skills are, the easier it is for you to perform tasks.</p>
 
       <p>The character sheet outlines 11 distinct categories of skill, each with their own specialties. Specialties are special modifiers you gain through experience which are explained later.</p>
 
-      <section id="skill-categories">
+      <section id="skill-categories,-defined">
         <h2>Skill Categories, Defined</h2>
         <p><strong>Craft</strong> is your ability to take materials and then skillfully and artistically create items from them.</p>
 
@@ -145,7 +147,7 @@ export default function Skills() {
 
         <p><em>The Game Master doesn&apos;t have to consider the degree of success, it&apos;s completely optional.</em></p>
       </section>
-      <section id="advantage-and-disadvantage">
+      <section id="advantage-&-disadvantage">
         <h2>Advantage & Disadvantage</h2>
         <p>At times, you may find yourself in a situation where you are in a position to do something better than you normally would, due to circumstance. For example, you&apos;re trying to sneak past a guard but it&apos;s dark and the guard has their back to you, so it will be easier to sneak past than normal. In a situation like this, you would have Advantage.</p>
 
@@ -157,7 +159,7 @@ export default function Skills() {
       </section>
       <section id="experience">
         <h2>Experience</h2>
-        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you successfully roll a skill check. Whenever a skill check is successful, you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 successful skill checks) you gain 1 experience point.</p>
+        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you <em className="font-bold">unsuccessfully</em> roll a skill check. Whenever a skill check is <em>unsuccessful</em>, you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 successful skill checks) you gain 1 experience point.</p>
 
         <p><em>You only gain experience from skill checks. Not stat checks or luck checks - only skill checks.</em></p>
 

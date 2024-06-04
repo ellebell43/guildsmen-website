@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NextButton from "../next-button";
 import { Metadata } from "next";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Invention",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function Invention() {
   return (
     <article>
+      <Contents />
       <h1>Invention</h1>
 
       <p>Invention is how complex machines and devices are designed. Everything from light bulbs, to guns, to impressive architecture, to cannons, to flying vehicles and ground vehicles are all designed through invention. </p>

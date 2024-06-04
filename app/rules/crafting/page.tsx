@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import NextButton from "../next-button";
+import Contents from "@/util/components/contents";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Crafting",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function Crafting() {
   return (
     <article>
+      <Contents />
       <h1>Crafting</h1>
 
       <p>Crafting requires both the proper materials and the proper tools to work with. After all, a carpenter is
