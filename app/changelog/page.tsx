@@ -52,7 +52,8 @@ export default function Changelog() {
             version="v0.4.0"
             entries={[
               "Fixed a typo that said successful skill checks give experience. It now says that unsuccessful checks give experience.",
-              "Added a tab that opens up a table of contents that is dynamically created on the page for easier navigation"
+              "Added a tab that opens up a table of contents that is dynamically created on the page for easier navigation",
+              "Fixed an issue where gear was not added to the character after submitting the character creation form"
             ]}
           />
           <ChangelogEntry
