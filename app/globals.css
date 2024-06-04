@@ -55,7 +55,7 @@
   }
 
   main {
-    @apply min-h-[calc(100vw-52px)] px-4 text-justify mt-20;
+    @apply min-h-[calc(100vw-52px)] px-4 text-justify mt-20 mx-auto;
   }
 
   h1 {

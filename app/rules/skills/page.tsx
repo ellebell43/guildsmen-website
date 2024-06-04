@@ -159,7 +159,7 @@ export default function Skills() {
       </section>
       <section id="experience">
         <h2>Experience</h2>
-        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you successfully roll a skill check. Whenever a skill check is successful, you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 successful skill checks) you gain 1 experience point.</p>
+        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you <em className="font-bold">unsuccessfully</em> roll a skill check. Whenever a skill check is <em>unsuccessful</em>, you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 successful skill checks) you gain 1 experience point.</p>
 
         <p><em>You only gain experience from skill checks. Not stat checks or luck checks - only skill checks.</em></p>
 
