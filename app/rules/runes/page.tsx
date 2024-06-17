@@ -147,11 +147,13 @@ export default function Invention() {
       <section id="spirit-shields">
         <h2>Spirit Shields</h2>
 
-        <p>Any spell can be deflected by any person by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
+        <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
 
         <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you're Spirit stat check is less that your opponent's but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
 
         <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
+
+        <p>Spirit shields also work against attacks coming from a Myth user.</p>
       </section>
     </article>
   )

@@ -50,7 +50,7 @@ export default function CharacterCreation() {
 
         <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addiction, to exert yourself for extended periods of time, and for any other actions that require resistance or endurance.</p>
 
-        <p><strong>Spirit</strong> defines how strong and willful your character's soul is. Spirit is used to activate magical <Link href="/rules/runes">runes</Link> and to deflect <Link href="/rules/combat#spirit-shield">incoming spells</Link>.</p>
+        <p><strong>Spirit</strong> defines how strong and willful your character's soul is. Spirit is used to activate magical <Link href="/rules/runes">runes</Link> and to deflect <Link href="/rules/combat#spirit-shields">incoming spells</Link>.</p>
 
         <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles you have filled in, the better you will be when you try to do something related to that task (see the <a href="/rules/skills"><em>Skills chapter</em></a> for details).</p>
 

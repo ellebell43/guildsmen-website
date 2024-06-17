@@ -49,6 +49,15 @@ export default function Combat() {
         <p>You get 1 action per combat round. You perform an action by rolling a relevant skill or stat check. The enemy then reacts in any way they think would negate your attack and they also roll a relevant skill or stat check. If the attacker rolls higher, then the attack is successful, and the defender takes harm. If the defender rolls higher, then the attack is unsuccessful, and no harm is dealt.</p>
 
         <p>Anytime an action is performed against another creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round.</p>
+
+        <h3 id="spirit-shields">Spirit Shields</h3>
+        <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
+
+        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you're Spirit stat check is less that your opponent's but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
+
+        <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
+
+        <p>Spirit shields also work against attacks coming from a Myth user.</p>
       </section>
 
       <section id="groups-vs-individuals">
