@@ -16,7 +16,7 @@ export default function CharacterSheet() {
   }, [])
 
   return (
-    <div className="flex flex-col justify-center items-center w-[100vw]">
+    <div className="flex flex-col justify-center items-center w-fit">
       {/* First page */}
       <div className="bg-white w-[8.5in] h-[11in] mx-auto border-stone-300 border relative shadow-xl p-[.5in]">
         <h1 className="m-0 text-[48px] text-center mb-8">Guildsmen</h1>
@@ -41,6 +41,7 @@ export default function CharacterSheet() {
               <StatRow stat="Nimble" />
               <StatRow stat="Competence" />
               <StatRow stat="Constitution" />
+              <StatRow stat="Spirit" />
             </div>
           </div>
 
