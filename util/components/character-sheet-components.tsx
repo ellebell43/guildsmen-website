@@ -79,7 +79,7 @@ export function RollableStatRow(props: { stat: statName, top?: boolean, value: m
   const { stat, top, value, edit, setShowDice, setRollMessage, die1ID, die2ID, character, setCharacter } = props
   return (
     <div>
-      <div className="flex justify-end items-center gap-[10px] pr-1">
+      <div className="flex justify-end items-center gap-[8px] pr-1">
         {top ? ["-1", "+0", "+1", "+2", "+3"].map(
           (el, i) => <p className={modifierStyle} key={i}>{el}</p>
         ) : <></>}

@@ -89,11 +89,12 @@ export type stats = {
   nimble: modRange,
   tough: modRange,
   competence: modRange,
-  constitution: modRange
+  constitution: modRange,
+  spirit: modRange
 }
 
 export type guild = "Assassins" | "Mythic Hunters" | "Explorers" | "Mercenaries" | "Thieves"
-export type statName = "nimble" | "tough" | "competence" | "constitution"
+export type statName = "nimble" | "tough" | "competence" | "constitution" | "spirit"
 export type skillName = "craft" | "leadership" | "myth" | "performance" | "sneaky" | "investigate" | "medic" | "nature" | "social" | "tech" | "throwdown"
 
 export class Character {

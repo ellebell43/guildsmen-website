@@ -37,6 +37,9 @@ export default function BasicInfo(props: props) {
                 <tr>
                   <td className="bottom left right"><em>+0 Constitution</em></td>
                 </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
+                </tr>
               </tbody>
             </table>
           </>
@@ -65,6 +68,9 @@ export default function BasicInfo(props: props) {
                 </tr>
                 <tr>
                   <td className="bottom left right"><em>+0 Constitution</em></td>
+                </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
                 </tr>
               </tbody>
             </table>
@@ -95,6 +101,9 @@ export default function BasicInfo(props: props) {
                 <tr>
                   <td className="bottom left right"><em>+1 Constitution</em></td>
                 </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
+                </tr>
               </tbody>
             </table>
           </>
@@ -124,6 +133,9 @@ export default function BasicInfo(props: props) {
                 <tr>
                   <td className="bottom left right"><em>+0 Constitution</em></td>
                 </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
+                </tr>
               </tbody>
             </table>
           </>
@@ -152,6 +164,9 @@ export default function BasicInfo(props: props) {
                 </tr>
                 <tr>
                   <td className="bottom left right"><em>+1 Constitution</em></td>
+                </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
                 </tr>
               </tbody>
             </table>
@@ -183,6 +198,9 @@ export default function BasicInfo(props: props) {
                 </tr>
                 <tr>
                   <td className="bottom left right"><em>+2 Constitution</em></td>
+                </tr>
+                <tr>
+                  <td className="bottom left right"><em>-1 Spirit</em></td>
                 </tr>
               </tbody>
             </table>
