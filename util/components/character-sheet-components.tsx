@@ -384,7 +384,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
 
         <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={props.value} modLabel={props.name} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage}>
           <div className="mb-1">
-            <div className="flex justify-center items-center gap-[10px] pr-1">
+            <div className="flex justify-center items-center gap-[7px] pr-1">
               {["-1", "+0", "+1", "+2", "+3"].map(
                 (el, i) => <p className={modifierStyle} key={i}>{el}</p>
               )}
