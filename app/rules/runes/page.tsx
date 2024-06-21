@@ -141,7 +141,7 @@ export default function Invention() {
 
         <p>However, if a linked Spirit check fails, then all members of the linking takes Harm equal to the difference between the target number and the rolled number.</p>
 
-        <p>So, if a group of five has a member die and they have an item inscribed with a resurrection rune that requires a Spirit check of 18 or more to use, they can all link together. Say the four alive have a +1, +1, +2, and +3 in Spirit, then any individual in the group has a total of +7 on a Spirit check to attempt the spell. One member rolls and gets a 5. With a +7, that's a total of 12 which is 6 less that the target of 18, meaning that all members of the linking take 6 Harm.</p>
+        <p>So, if a group of five has a member die and they have an item inscribed with a resurrection rune that requires a Spirit check of 18 or more to use, they can all link together. Say the four alive have a +1, +1, +2, and +3 in Spirit, then any individual in the group has a total of +7 on a Spirit check to attempt the spell. One member rolls and gets a 5. With a +7, that&apos;s a total of 12 which is 6 less that the target of 18, meaning that all members of the linking take 6 Harm.</p>
       </section>
 
       <section id="spirit-shields">
@@ -149,7 +149,7 @@ export default function Invention() {
 
         <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
 
-        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you're Spirit stat check is less that your opponent's but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
+        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent &apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent &apos;s but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
 
         <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
 
