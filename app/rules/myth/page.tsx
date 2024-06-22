@@ -118,7 +118,7 @@ export default function Myth() {
           </tbody>
         </table>
       </section>
-      <NextButton href="/rules/crafting" />
+      <NextButton href="/rules/runes" />
     </article>
   )
 }

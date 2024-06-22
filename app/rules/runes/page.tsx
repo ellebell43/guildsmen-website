@@ -155,6 +155,8 @@ export default function Invention() {
 
         <p>Spirit shields also work against attacks coming from a Myth user.</p>
       </section>
+
+      <NextButton href="/rules/crafting" />
     </article>
   )
 }

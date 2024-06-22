@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faPersonHiking, faUserNinja, faGem, faHammer, faScrewdriverWrench, faLandmark, faDragon, faGraduationCap, faStore } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faPersonHiking, faUserNinja, faGem, faHammer, faScrewdriverWrench, faLandmark, faDragon, faGraduationCap, faStore, faHandSparkles } from "@fortawesome/free-solid-svg-icons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,29 +33,33 @@ export default function Rules() {
           <FontAwesomeIcon className={iconClass} icon={faGem} />
           Chapter 4: Myth
         </Link>
+        <Link href="/rules/runes" className={linkClass}>
+          <FontAwesomeIcon className={iconClass} icon={faHandSparkles} />
+          Chapter 5: Runes
+        </Link>
         <Link href="/rules/crafting" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faHammer} />
-          Chapter 5: Crafting
+          Chapter 6: Crafting
         </Link>
         <Link href="/rules/invention" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faScrewdriverWrench} />
-          Chapter 6: Invention
+          Chapter 7: Invention
         </Link>
         <Link href="/rules/the-market" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faStore} />
-          Chapter 7: The Market
+          Chapter 8: The Market
         </Link>
         <Link href="/rules/establishments" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faLandmark} />
-          Chapter 8: Establishemnts
+          Chapter 9: Establishemnts
         </Link>
         <Link href="/rules/creatures" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faDragon} />
-          Chapter 9: Creatures
+          Chapter 10: Creatures
         </Link>
         <Link href="/rules/for-the-gm" className={`${linkClass} text-sm py-3`}>
           <FontAwesomeIcon className={iconClass} icon={faGraduationCap} />
-          Chapter 10: For the Game Master
+          Chapter 11: For the Game Master
         </Link>
       </div>
     </>

@@ -34,24 +34,24 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft">Very Easy</td>
-              <td className="bottom right alignRight">1</td>
+              <td className="bottom left text-left">Very Easy</td>
+              <td className="bottom right text-right">1</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Easy</td>
-              <td className="bottom right alignRight">2</td>
+              <td className="bottom left text-left">Easy</td>
+              <td className="bottom right text-right">2</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Moderate</td>
-              <td className="bottom right alignRight">3</td>
+              <td className="bottom left text-left">Moderate</td>
+              <td className="bottom right text-right">3</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Difficult</td>
-              <td className="bottom right alignRight">4</td>
+              <td className="bottom left text-left">Difficult</td>
+              <td className="bottom right text-right">4</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Difficult</td>
-              <td className="bottom right alignRight">5</td>
+              <td className="bottom left text-left">Very Difficult</td>
+              <td className="bottom right text-right">5</td>
             </tr>
           </tbody>
         </table>
@@ -65,49 +65,48 @@ export default function Invention() {
 
       <section id="navidus-crystals">
         <h2>Navidus Crystals</h2>
-        <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. They are naturally occurring power sources with a lot of potential. They are used to power trains, elevators, Mechs, and other complex devices. However, they are also very dangerous.</p>
 
-        <p>If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged.</p>
+        <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. As such, they can be used to power all kinds of devices. This is done by attaching the crystal to an object with incomplete runes, then using a mechanical button or switch that completes the rune when used. This allows a rune to be charged without the need of a person using their Spirit (see the <Link href="/rules/runes">Runes chapter</Link> for details). And with some clever engineering, very complex devices can be made.</p>
 
-        <p>Since Navidus Crystals are used to power complex devices, whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design. This will allow the device to be powered but will also give it an important weakness. Any device powered by Navidus energy has a potential to explode violently, making the invention of complex and futuristic technology dangerous if handled poorly.</p>
+        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Navidus crystal you need to power the device.</p>
 
-        <p>Navidus Crystals only hold so much energy. When powering a device, all the crystals used will need to be replaced every 3 in-game days when the device is regularly used. Also, the larger a device is or the more work the device is able to perform, the larger the crystal powering it needs to be.</p>
-
-        <table>
+        <table className="raceStatTable">
           <thead>
             <tr>
-              <th colSpan={2}>Device Size to Crystal Size</th>
+              <th colSpan={2}>Spell Difficulty to Crystal Size</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft">Tiny</td>
-              <td className="bottom right alignRight">1&quot;-2&quot;</td>
+              <td className="bottom left text-left">Very Easy</td>
+              <td className="bottom right text-center">1&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Small</td>
-              <td className="bottom right alignRight">2&quot;-3&quot;</td>
+              <td className="bottom left text-left">Easy</td>
+              <td className="bottom right text-center">2&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Small</td>
-              <td className="bottom right alignRight">3&quot;-4&quot;</td>
+              <td className="bottom left text-left">Average</td>
+              <td className="bottom right text-center">3&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Medium</td>
-              <td className="bottom right alignRight">4&quot;-5&quot;</td>
+              <td className="bottom left text-left">Difficult</td>
+              <td className="bottom right text-center">4&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Large</td>
-              <td className="bottom right alignRight">5&quot;-6&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Very Large</td>
-              <td className="bottom right alignRight">6&quot;-7&quot;</td>
+              <td className="bottom left text-left">Very Difficult</td>
+              <td className="bottom right text-center">5&quot;</td>
             </tr>
           </tbody>
         </table>
 
-        <p>For exact dimensions for device sizes, see the table for Mech stats lower down.</p>
+        <p>All devices, by default have 10 uses. Every inch of extra crystal doubles the amount of uses. So, if you have a device that does very easy spells, using a 1&quot; crystal would give the item 10 uses, using a 2&quot; crystal would give the item 20 uses, using a 3&quot; crystal would give the item 40 uses, and so on. Once a crystal is depleted, it can be replaced just like a battery.</p>
+
+        <p>Whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design unless otherwise stated by the Game Master. This will allow the device to be powered but will also give it an important weakness within the game. You see, such powerful items also present a powerful hazard. If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged. Any device powered by Navidus energy has a potential to explode violently, making the invention of complex and futuristic technology dangerous if handled poorly.</p>
+
+        <p>We understand that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item on a base game level, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Navidus Crystals are a good way to regulate that, since they come with a certain amount of inherent danger. Of course, the Game Master can override this at any time.</p>
+
+        {/* ======= PICK UP FROM HERE ====== */}
 
         <p>Since Navidus Crystals can be hunted down by anyone with the resources to kill a mythical creature, black market devices are common, making a wide variety of odd and dangerous devices available to those that have the right connections.</p>
 
@@ -134,42 +133,42 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft"><strong>Class</strong></td>
+              <td className="bottom left text-left"><strong>Class</strong></td>
               <td className="bottom"><strong>Size</strong></td>
               <td className="bottom"><strong>Tough</strong></td>
               <td className="bottom"><strong>Nimble</strong></td>
               <td className="bottom right"><strong>Harm</strong></td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Small</td>
+              <td className="bottom left text-left">Very Small</td>
               <td className="bottom">4&quot;-1&apos;</td>
               <td className="bottom">+0</td>
               <td className="bottom">+5</td>
               <td className="bottom right">5</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Small</td>
+              <td className="bottom left text-left">Small</td>
               <td className="bottom">1&apos;-3&apos;</td>
               <td className="bottom">+5</td>
               <td className="bottom">+3</td>
               <td className="bottom right">10</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Medium</td>
+              <td className="bottom left text-left">Medium</td>
               <td className="bottom">3&apos;-7&apos;</td>
               <td className="bottom">+10</td>
               <td className="bottom">+1</td>
               <td className="bottom right">15</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Large</td>
+              <td className="bottom left text-left">Large</td>
               <td className="bottom">7&apos;-12&apos;</td>
               <td className="bottom">+15</td>
               <td className="bottom">-1</td>
               <td className="bottom right">20</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Large</td>
+              <td className="bottom left text-left">Very Large</td>
               <td className="bottom">12&apos;-20&apos;</td>
               <td className="bottom">+20</td>
               <td className="bottom">-1</td>
@@ -190,28 +189,28 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft">Tiny</td>
-              <td className="bottom right alignRight">1&quot;-2&quot;</td>
+              <td className="bottom left text-left">Tiny</td>
+              <td className="bottom right text-right">1&quot;-2&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Small</td>
-              <td className="bottom right alignRight">2&quot;-3&quot;</td>
+              <td className="bottom left text-left">Very Small</td>
+              <td className="bottom right text-right">2&quot;-3&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Small</td>
-              <td className="bottom right alignRight">3&quot;-4&quot;</td>
+              <td className="bottom left text-left">Small</td>
+              <td className="bottom right text-right">3&quot;-4&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Medium</td>
-              <td className="bottom right alignRight">4&quot;-5&quot;</td>
+              <td className="bottom left text-left">Medium</td>
+              <td className="bottom right text-right">4&quot;-5&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Large</td>
-              <td className="bottom right alignRight">5&quot;-6&quot;</td>
+              <td className="bottom left text-left">Large</td>
+              <td className="bottom right text-right">5&quot;-6&quot;</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Large</td>
-              <td className="bottom right alignRight">6&quot;-7&quot;</td>
+              <td className="bottom left text-left">Very Large</td>
+              <td className="bottom right text-right">6&quot;-7&quot;</td>
             </tr>
           </tbody>
         </table>
