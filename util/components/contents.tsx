@@ -1,5 +1,5 @@
 "use client"
-import { faGripLines } from "@fortawesome/free-solid-svg-icons"
+import { faGripLines, faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -25,8 +25,8 @@ export default function Contents() {
   return (
     <>
       {/* == SHOW CONTENTS TOGGLE  */}
-      <button onClick={e => setShowList(!showList)} className={`button rounded-l-full w-16 h-12 border-black border fixed ${showList ? "right-[280px]" : "-right-5"} transition-all`}>
-        <FontAwesomeIcon icon={faGripLines} className="w-7 h-7 pr-4" />
+      <button onClick={e => setShowList(!showList)} className={`button rounded-l-full w-16 h-12 pr-4 border-black border fixed ${showList ? "right-[280px]" : "-right-5"} transition-all`}>
+        <FontAwesomeIcon icon={faCaretDown} className={`w-7 h-7 ${showList ? "rotate-0" : "rotate-90"} transition-all`} />
       </button>
       {/* == CONTENTS LIST */}
       <nav onClick={e => setShowList(false)} className={`w-[300px] fixed ${showList ? "scale-x-100" : "scale-x-0"} origin-right right-0 bg-stone-200 dark:bg-stone-600 shadow border px-2 pb-4 transition-all`}>
