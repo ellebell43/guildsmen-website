@@ -23,7 +23,7 @@ export default function Changelog() {
             "Navidus crystals have more definite sizes now",
             "A new level of difficulty (Super Difficult) has been added to the Skills chapter",
             "All rules pages now have a table of contents pullout component for easier navigation",
-            ""
+            "Added character sheet and establishment sheet to the Resources page for easier access"
           ]}
         />
         <ChangelogEntry
