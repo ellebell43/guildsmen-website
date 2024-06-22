@@ -109,10 +109,11 @@ export default function ProfileClient(props: { user: user | null }) {
         {/* Bio */}
         <div className="p-2 rounded shadow border mb-6 relative min-h-[50px] min-w-[300px]">
           <p className="text-xs absolute -top-6 left-4 bg-stone-100 dark:bg-stone-700 p-1">Bio</p>
-          {user?.bio && editBio ?
+          {editBio ?
             <textarea value={bio} onChange={e => setBio(e.target.value)} className="w-[300px] h-[150px] bg-inherit text-sm mt-2" id="bio-input" /> :
             user?.bio ? <p className="text-sm italic w-[300px]">{user.bio}</p> : <></>}
           <button type="button" onClick={e => {
+            // console.log(Boolean(user.bio && editBio))
             if (!editBio) {
               setEditBio(true);
               setBio(user?.bio ? user.bio : "")
@@ -239,7 +240,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
     // API call to update the users
     try {
-      fetch("/profile/api", { method: "PATCH" })
+      fetch("/profile/api", { method: "PATCH", headers })
         .then(res => {
           if (!res.ok) {
             throw res.statusText
