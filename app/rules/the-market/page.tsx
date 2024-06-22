@@ -122,22 +122,22 @@ export default function TheMarket() {
         <p className="text-center">Navidus Crystlas are used to power tech devices.</p>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (1&quot;)</p>
+          <p className="itemName">Tiny Navidus Crystal (0.5&quot;)</p>
           <p className="itemCost">Moderate</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (2&quot;)</p>
+          <p className="itemName">Small Navidus Crystal (1&quot;)</p>
           <p className="itemCost">Wealthy</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (3&quot;)</p>
+          <p className="itemName">Medium Navidus Crystal (2&quot;)</p>
           <p className="itemCost">Exquisite</p>
         </div>
 
         <div className="item crystal">
-          <p className="itemName">Navidus Crystal (4&quot;)</p>
+          <p className="itemName">Large Navidus Crystal (3&quot;)</p>
           <p className="itemCost">Exquisite+</p>
         </div>
       </section>

@@ -68,7 +68,7 @@ export default function Invention() {
 
         <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. As such, they can be used to power all kinds of devices. This is done by attaching the crystal to an object with incomplete runes, then using a mechanical button or switch that completes the rune when used. This allows a rune to be charged without the need of a person using their Spirit (see the <Link href="/rules/runes">Runes chapter</Link> for details). And with some clever engineering, very complex devices can be made.</p>
 
-        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Navidus crystal you need to power the device.</p>
+        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Navidus crystal you need to power the device. See <Link href="/rules/the-market">The Market</Link> for pricing and specific measurements of crystals.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -79,23 +79,23 @@ export default function Invention() {
           <tbody>
             <tr>
               <td className="bottom left text-left">Very Easy</td>
-              <td className="bottom right text-center">1&quot;</td>
+              <td className="bottom right text-center">Tiny</td>
             </tr>
             <tr>
               <td className="bottom left text-left">Easy</td>
-              <td className="bottom right text-center">2&quot;</td>
+              <td className="bottom right text-center">Small</td>
             </tr>
             <tr>
               <td className="bottom left text-left">Average</td>
-              <td className="bottom right text-center">3&quot;</td>
+              <td className="bottom right text-center">Medium</td>
             </tr>
             <tr>
               <td className="bottom left text-left">Difficult</td>
-              <td className="bottom right text-center">4&quot;</td>
+              <td className="bottom right text-center">Large</td>
             </tr>
             <tr>
               <td className="bottom left text-left">Very Difficult</td>
-              <td className="bottom right text-center">5&quot;</td>
+              <td className="bottom right text-center">Very Large</td>
             </tr>
           </tbody>
         </table>
