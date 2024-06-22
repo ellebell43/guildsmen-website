@@ -86,6 +86,10 @@ export default function Skills() {
               <td className="bottom left text-left">Very Difficult</td>
               <td className="bottom right text-right">12+</td>
             </tr>
+            <tr>
+              <td className="bottom left text-left">Super Difficult</td>
+              <td className="bottom right text-right">14+</td>
+            </tr>
           </tbody>
         </table>
 
