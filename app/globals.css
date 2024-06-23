@@ -261,7 +261,7 @@
     @apply border-t-0 p-[10px] text-left;
   }
 
-  .actionHead {
+  .actions .actionHead {
     @apply max-w-[50%] text-center self-center font-bold mt-0 border-b border-b-stone-400;
   }
 
