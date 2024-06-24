@@ -25,7 +25,8 @@ export default function Changelog() {
             "All rules pages now have a table of contents pullout component for easier navigation",
             "Added character sheet and establishment sheet to the Resources page for easier access",
             "Experienced is now gained on failed skill checks rather than successful skill checks",
-            "Ungal description was modified to remove the inherent discrimination concept"
+            "Ungal description was modified to remove the inherent discrimination concept",
+            "Added a section to the creatures page about types of creatures"
           ]}
         />
         <ChangelogEntry
