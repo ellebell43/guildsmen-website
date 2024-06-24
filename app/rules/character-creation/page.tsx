@@ -15,13 +15,21 @@ export default function CharacterCreation() {
     <article>
       <Contents />
       <h1>Character Creation</h1>
-      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter.</p>
+      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter. Or, you can make an account and use our online character management tool!</p>
 
-      <div className="downloadContainer">
-        <Link className="button py-2 px-8" href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
-          Download the character sheet
-          <FontAwesomeIcon icon={faDownload} className="" />
-        </Link>
+      <div className="flex flex-col gap-4 md:flex-row items-center justify-center">
+        <div className="downloadContainer">
+          <Link className="button py-2 px-8" href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
+            Download the character sheet
+            <FontAwesomeIcon icon={faDownload} className="" />
+          </Link>
+        </div>
+
+        <div className="downloadContainer">
+          <Link className="button py-2 px-8" href="/resources/character-creator">
+            Online Character Creator
+          </Link>
+        </div>
       </div>
 
       <section id="who-are-you">
