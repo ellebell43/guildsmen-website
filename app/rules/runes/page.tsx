@@ -21,7 +21,7 @@ export default function Invention() {
 
         <p>Inscribing a rune onto an item is the safest and most common way to use magic. All items can be inscribed by carving a rune into it via a <em>craft</em> skill check that matches the difficulty of the spell. The rune can then be charged at any time to cast the designated spell by rolling a Spirit stat check that also matches the spells difficulty. So, if a spell has an Average difficulty, then you must roll 8 or more to successfully inscribe the rune and then roll an 8 or more again every time you charge the rune to cast the spell</p>
 
-        <p>An item can be inscribed with multiple runes, but when pushing your spiritual energy into the item, all the runes that are on the item will be charged at the same time, which increases the difficulty of using the item. 2 runes of the same difficulty raises the difficulty to use the item by one, rounded down. So two or three Easy spells on one item would make the item of Average difficulty to use, but 4 would raise the difficulty to Difficult.</p>
+        <p>An item can be inscribed with multiple runes, but when pushing your spiritual energy into the item, all the runes that are on the item will be charged at the same time, which increases the difficulty of using the item. Two or three runes of the same difficulty raises the difficulty to use the item by one. So two or three Easy spells on one item would make the item of Average difficulty to use, but 4 would raise the difficulty to Difficult.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -48,8 +48,6 @@ export default function Invention() {
             </tr>
           </tbody>
         </table>
-
-        <p>If the runes are big enough to touch individually, you can also select one specific rune on a device to activate by touching only one directly.</p>
 
         <p>The difficulty level of a spell is determined by the Game Master in the same way that actions using Myth are. The difficulty should reflect the complexity and power of the effect you want the spell to have. For example, a spell the simply conjures sparks would be Very Easy (requiring a 4 or more to succeed), whereas a spell that conjures a feast on a long table from the air should be Difficult, maybe even Very Difficult (requiring a 10 or a 12 or more to succeed). See the <Link href="/rules/skills#using-skills">Skills Chapter</Link> for more details on task difficulty.</p>
 
