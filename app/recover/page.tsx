@@ -82,7 +82,7 @@ export default function Recover() {
     <>
       <h1>Password Recovery</h1>
 
-      <p>Unfortunately, this service has been disabled. I don't have the user traffic the would warrant funding an automated email system for account recovery at the moment. If you need help, please email me at <Link href="mailto:guildsmen-alias.graduate149@passinbox.com">guildsmen-alias.graduate149@passinbox.com</Link>. I know it's a funky email address, but that's just to hide my actual personal email, which this will forward your email to. Sorry for the inconvenience.</p>
+      <p>Unfortunately, this service has been disabled. I don't have the user traffic the would warrant funding an automated email system for account recovery at the moment. If you need help, please email me at <Link href="mailto:support@guildsmenrpg.com">support@guildsmenrpg.com</Link>. Sorry for the inconvenience.</p>
     </>
   )
   return (
