@@ -9,6 +9,12 @@ import { useSearchParams } from "next/navigation";
 import Passwords from "../passwords";
 import crypto from "crypto"
 import Link from "next/link";
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Guildsmen | Account Recovery",
+  description: "Reset your password to recover access your Guildsmen account."
+}
 
 export default function Recover() {
   const [email, setEmail] = useState("")
