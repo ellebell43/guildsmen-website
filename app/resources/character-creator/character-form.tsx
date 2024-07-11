@@ -54,7 +54,7 @@ export default function CharacterForm(props: { user: user }) {
   const [importantConnections, setImportantConnections] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
 
-  const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
+  const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1, spirit: -1 }
 
   const [apiLoading, setApiLoading] = useState(false)
   const router = useRouter();

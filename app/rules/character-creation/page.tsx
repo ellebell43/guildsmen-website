@@ -15,13 +15,21 @@ export default function CharacterCreation() {
     <article>
       <Contents />
       <h1>Character Creation</h1>
-      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter.</p>
+      <p>Your character is a persona you take on as you play the game. This is the protagonist that will be making decisions and affecting the world around you. To begin making a character, print out a character sheet using the link below and follow along with this chapter. Or, you can make an account and use our online character management tool!</p>
 
-      <div className="downloadContainer">
-        <Link className="button py-2 px-8" href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
-          Download the character sheet
-          <FontAwesomeIcon icon={faDownload} className="" />
-        </Link>
+      <div className="flex flex-col gap-4 md:flex-row items-center justify-center">
+        <div className="downloadContainer">
+          <Link className="button py-2 px-8" href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
+            Download the character sheet
+            <FontAwesomeIcon icon={faDownload} className="" />
+          </Link>
+        </div>
+
+        <div className="downloadContainer">
+          <Link className="button py-2 px-8" href="/resources/character-creator">
+            Online Character Creator
+          </Link>
+        </div>
       </div>
 
       <section id="who-are-you">
@@ -50,6 +58,8 @@ export default function CharacterCreation() {
 
         <p><strong>Constitution</strong> defines your ability to endure stress. It us used to fend off poisons, resist disease and addiction, to exert yourself for extended periods of time, and for any other actions that require resistance or endurance.</p>
 
+        <p><strong>Spirit</strong> defines how strong and willful your character&apos;s soul is. Spirit is used to activate magical <Link href="/rules/runes">runes</Link> and to deflect <Link href="/rules/combat#spirit-shields">incoming spells</Link>.</p>
+
         <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles you have filled in, the better you will be when you try to do something related to that task (see the <a href="/rules/skills"><em>Skills chapter</em></a> for details).</p>
 
         <p>When you pick a species, you are given a modifier next to each stat. Fill in the corresponding bubbles on your character sheet to match the modifiers given.</p>
@@ -76,6 +86,9 @@ export default function CharacterCreation() {
             <tr>
               <td className="bottom left right"><em>+0 Constitution</em></td>
             </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
+            </tr>
           </tbody>
         </table>
 
@@ -100,6 +113,9 @@ export default function CharacterCreation() {
             </tr>
             <tr>
               <td className="bottom left right"><em>+1 Constitution</em></td>
+            </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
             </tr>
           </tbody>
         </table>
@@ -126,6 +142,9 @@ export default function CharacterCreation() {
             <tr>
               <td className="bottom left right"><em>+0 Constitution</em></td>
             </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
+            </tr>
           </tbody>
         </table>
 
@@ -150,6 +169,9 @@ export default function CharacterCreation() {
             </tr>
             <tr>
               <td className="bottom left right"><em>+0 Constitution</em></td>
+            </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
             </tr>
           </tbody>
         </table>
@@ -176,13 +198,14 @@ export default function CharacterCreation() {
             <tr>
               <td className="bottom left right"><em>+1 Constitution</em></td>
             </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
+            </tr>
           </tbody>
         </table>
 
         <h3>Ungal</h3>
-        <p>The Ungal (OON-gaul) are the most mysterious species. They come from deep within the World Forest, where light does not touch the forest floor. They stand no taller than 5 feet and are the least humanoid of the species. Their lower body is like the cap of an oyster mushroom flipped upside-down, the lip of which flows and ungulates to give them mobility. Their arms do not end in hands. Instead, they end in a tubular appendage that functions much like an elephants trunk to grab and manipulate objects. Their head has no face. Instead, they have a few optical stalks that register mostly heat but also some light that grow around the entire head, giving a 360 degree field of view. On the top of their head grows a crown of small oyster-mushroom-like growths, which are used as both a symbol of age and wisdom as well as sensory organs to pick up sounds within both the normal and infrasonic rages. And along their entire body are this small plate-like growths that are constantly in motion, and the underside of the plates glows with a phosphorescence. These plates are use to communicate using the sounds that they make as they move.</p>
-
-        <p>Due to their inability to speak with a mouth, they cannot make the same sounds as the other species and cannot verbalize any language other than their own. This sets them apart from the other species. This, coupled with their appearance, makes them something that most other individuals don&apos;t understand, which means the Ungal people are generally discriminated against and feared.</p>
+        <p>The Ungal (OON-gaul) are the most mysterious species. They come from deep within the World Forest, where light does not touch the forest floor. They stand no taller than 5 feet and are the least humanoid of the species. Their lower body is like the cap of an oyster mushroom flipped upside-down, the lip of which flows and ungulates to give them mobility. Their arms do not end in hands. Instead, they end in a tubular appendage that functions much like an elephants trunk to grab and manipulate objects. Their head has no face. Instead, they have a few optical stalks that register mostly heat but also some light that grow around the entire head, giving a 360 degree field of view. On the top of their head grows a crown of small oyster-mushroom-like growths, which are used as both a symbol of age and wisdom as well as sensory organs to pick up sounds within both the normal and infrasonic rages. And along their entire body are this small plate-like growths that are constantly in motion, and the underside of these plates glows with a phosphorescence.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -202,6 +225,9 @@ export default function CharacterCreation() {
             </tr>
             <tr>
               <td className="bottom left right"><em>+2 Constitution</em></td>
+            </tr>
+            <tr>
+              <td className="bottom left right"><em>-1 Spirit</em></td>
             </tr>
           </tbody>
         </table>

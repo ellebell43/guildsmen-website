@@ -13,21 +13,21 @@ export default function Footer() {
         <Link href="https://discord.gg/6zE4chEVQQ">
           <FontAwesomeIcon icon={faDiscord} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
         </Link>
-        <Link href="https://github.com/rutherfordaaron/guildsmen-website">
+        <Link href="https://github.com/ellebell43/guildsmen-website">
           <FontAwesomeIcon icon={faGithub} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
         </Link>
       </div>
 
       <div className="left lg:text-left">
-        <p>Conceptualized by Harmony Brooks<br className="break" />and written by Aaron Rutherford</p>
-        <p>&copy; 2022 Harmony Brooks and Aaron Rutherford</p>
+        <p>Conceptualized by Harmony Brooks<br className="break" />and written by Elle Brooks</p>
+        <p>&copy; Elle & Harmony Brooks</p>
         <p>Edited by Hyrum Blanchard</p>
       </div>
       <div className="right lg:text-right">
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>
-        <p>Site programming by <Link href="https://aaronrutherford.dev">Aaron Rutherford</Link></p>
+        <p>Site programming by <Link href="https://github.com/ellebell43">Elle Brooks</Link></p>
         <p><Link href="/changelog">Change log and road map</Link></p>
-        <p>v0.4.0</p>
+        <p>v0.5.0</p>
       </div>
     </footer>
   )

@@ -40,11 +40,11 @@ export default function CreatureBlock(props: { creature: creature }) {
         <p className="description">{creature.description}</p>
 
         <div className="actions">
-          <p className="actionHead" style={{ textAlign: "center" }}>Actions</p>
+          <p className="actionHead text-center">Actions</p>
 
           {mapActions(creature.actions)}
         </div>
-      </div>
+      </div >
     </>
   )
 }

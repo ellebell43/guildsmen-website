@@ -86,6 +86,10 @@ export default function Skills() {
               <td className="bottom left text-left">Very Difficult</td>
               <td className="bottom right text-right">12+</td>
             </tr>
+            <tr>
+              <td className="bottom left text-left">Super Difficult</td>
+              <td className="bottom right text-right">14+</td>
+            </tr>
           </tbody>
         </table>
 
@@ -159,9 +163,9 @@ export default function Skills() {
       </section>
       <section id="experience">
         <h2>Experience</h2>
-        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you successfully roll a skill check. Whenever a skill check is successful, you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 successful skill checks) you gain 1 experience point.</p>
+        <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you fail a skill check. Whenever a skill check is unsuccessful (this includes a mixed success), you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 unsuccessful skill checks) you gain 1 experience point.</p>
 
-        <p><em>You only gain experience from skill checks. Not stat checks or luck checks - only skill checks.</em></p>
+        <p><em>You only gain experience from failed skill checks. Not stat checks or luck checks - only skill checks.</em></p>
 
         <p>To increase a skill, you must spend Experience points equal to the modifier you want plus 2. So, if you want to increase from +1 to +2 on a skill, it will cost 4 experience points.</p>
 

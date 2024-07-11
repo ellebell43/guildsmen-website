@@ -14,7 +14,7 @@ export default function Home() {
 
       <p><em>If you&apos;ve never played a table-top roleplay game before, you&apos;re in for a treat! </em></p>
 
-      <p>A table-top roleplay game (TTRPG) is an interactive adventure that is guided by you and those you play with. Every player in the group helps narrate the story and make the decisions for their characters.</p>
+      <p>A table-top role play game (TTRPG) is an interactive adventure that is guided by you and those you play with. Every player in the group helps narrate the story and make the decisions for their characters.</p>
 
       <h3>The Players</h3>
       <p>As a player, you are the protagonist of a great adventure! You will be given a story to go through where you can explore places, talk with people, discover secrets, and become the hero. How this story plays out is completely up to you. You make the decisions, and the Guild Master narratively describes the results of your actions.</p>
@@ -35,7 +35,7 @@ export default function Home() {
         <li>Mythical creatures exist and have Navidus Crystals inside of them (see the <Link href="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
         <li>The world is somewhat technologically advanced, and Navidus Crystals are beginning to be used to power devices (see the <Link href="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
         <li>Guilds are common establishments throughout the world.</li>
-        <li>Magic exists and is performed through a drug known as Myth (see the <Link href="/rules/myth"><em>Myth chapter</em></Link>).</li>
+        <li>Magic exists and is performed through a drug known as <Link href="/rules/myth">Myth</Link> and through <Link href="/rules/runes">runes</Link>.</li>
       </ol>
 
       <p>Beyond these 4 simple rules, the time era and world you set your game in is completely up to you. If you don&apos;t know where to start, feel free to use the <Link href="/lore"><em>world of Thelius</em></Link> as your world of play.
@@ -48,8 +48,6 @@ export default function Home() {
         <li><Link href="/lore"><em>Lore</em></Link> is where all the information for the world of Thelius is, the core world of Guildsmen.</li>
         <li><Link href="/bestiary"><em>Bestiary</em></Link> is where you go to learn about all the fantastic creatures we have to offer.</li>
         <li><Link href="/resources"><em>Resources</em></Link> is where you can find all the resources you can use with this game, such as the character sheets, a quick reference guide, and an online character web app!</li>
-        <li><Link href="/community"><em>Community</em></Link> has links to all our social areas and
-          information on contributing to this game.</li>
       </ul>
 
       <p>Your next step from here will be to go to the Rules page.</p>

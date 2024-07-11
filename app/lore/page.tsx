@@ -40,7 +40,7 @@ export default function Lore() {
         <div>
           <h2>The Ancestor City-States</h2>
           <ul className={listClass}>
-            <li><Link href="/lore/ancestor-cities/arbor" className={linkClass}>Arbor - City of the Locess</Link></li>
+            <li className={inactiveLinkClass}>Arbor - City of the Locess</li>
             <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
             <li className={inactiveLinkClass}>Corden - City of the Orcs</li>
             <li className={inactiveLinkClass}>Inidom - City of the Matari</li>
