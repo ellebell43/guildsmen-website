@@ -13,7 +13,7 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
-          date="xx/xx/2024"
+          date="07/11/2024"
           version="v0.5.0"
           entries={[
             "Added a new chapter called Runes detailing another system of magic besides Myth.",
@@ -26,7 +26,8 @@ export default function Changelog() {
             "Added character sheet and establishment sheet to the Resources page for easier access",
             "Experienced is now gained on failed skill checks rather than successful skill checks",
             "Ungal description was modified to remove the inherent discrimination concept",
-            "Added a section to the creatures page about types of creatures"
+            "Added a section to the creatures page about types of creatures",
+            "Added magic items and a couple new devices to the Market and fixed some spelling mistakes"
           ]}
         />
         <ChangelogEntry
