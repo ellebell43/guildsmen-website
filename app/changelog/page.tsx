@@ -13,6 +13,11 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="07/27/2024"
+          version="v0.5.1"
+          entries={["Fixed character creation app validation error where selecting destitute for wealth would make the form invalid."]}
+        />
+        <ChangelogEntry
           date="07/11/2024"
           version="v0.5.0"
           entries={[
