@@ -48,17 +48,17 @@ export default function Combat() {
 
         <p>You get 1 action per combat round. You perform an action by rolling a relevant skill or stat check. The enemy then reacts in any way they think would negate your attack and they also roll a relevant skill or stat check. If the attacker rolls higher, then the attack is successful, and the defender takes harm. If the defender rolls higher, then the attack is unsuccessful, and no harm is dealt.</p>
 
-        <p>Anytime an action is performed against another creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round.</p>
-
-        <h3 id="spirit-shields">Spirit Shields</h3>
-        <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
-
-        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent&apos;s but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
-
-        <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
-
-        <p>Spirit shields also work against attacks coming from a Myth user.</p>
+        <p>Anytime an action is performed against another reactive creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round. However, not all characters and creatures are allowed reactions in all situations. When this happens, the rules that govern <Link href="#skill-shots">skill shots</Link> are used. There are two primary situations where this will happen: (1) if the victim is sufficiently surprised by the attacker, then the victim will not have time to react to the attack and (2) when fighting a beast, mythical creature, or other creature marked as un-reactive. In either of these situation, use the <Link href="#skill-shots ">skill shot</Link> rules to determine the outcome of an attack.</p>
       </section>
+
+      <h3 id="spirit-shields">Spirit Shields</h3>
+      <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
+
+      <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent&apos;s but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
+
+      <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
+
+      <p>Spirit shields also work against attacks coming from a Myth user when they use their Myth powers.</p>
 
       <section id="groups-vs-individuals">
         <h2>Groups vs Individuals</h2>
@@ -112,7 +112,9 @@ export default function Combat() {
 
       <section id="skill-shots">
         <h2>Skill Shots</h2>
-        <p>If you want to attack a creature in a very specific way (i.e., putting a dagger through their eye), then you may roll a difficult to very difficult skill check (10+ or 12+). If you are successful, then the Game Master will give a special outcome (such as your enemy dying immediately). When this happens, you will struggle alone, meaning you cannot get any help from an ally. Skill shots are not opposed (meaning only the person performing the action rolls). However, if you fail the roll your opponent gets to roll thier dice. If they roll higher than you did, then they can cause Harm to you and your allies cannot help to deflect it, so be careful. </p>
+        <p>If you want to attack a an opponent and they will not be able to have a reaction, then you perform a skill shot. A skill shot is an attack that is based purely on the attackers skill rather than the contested rolls of both parties. When attacking an un-reactive opponent in no particularly special way, you will roll an Average (8+) <em>throwdown</em> skill check. If successful, the Harm you deal will be equal to the difference of your roll and the target number plus the modifier of your weapon. So, if you're attacking with a light sword and you roll a 10, you will deal 3 Harm since you rolled 2 higher than the target number of 8 and your weapon has a +1. On a failure against an un-reactive opponent, you simply deal 0 Harm and you also will not be harmed.</p>
+
+        <p>If you have a very specific action in mind that would be difficult to pull off but provides a fun narrative flare to the combat (i.e., putting a dagger through the opponent's eye) then you may perform a skill shot. However, this dice roll must be of Difficult or higher difficulty (10+ or more). If you are successful, then the Game Master will give a special outcome (such as your enemy dying immediately or a specific wound that becomes part of the narrative) and you will deal Harm equal to the difference of your dice roll and the target number plus any modifiers your weapon adds. Your roll will not be opposed with a reaction from your opponent, but you will not get any help from an ally when performing a skill shot on a reactive opponent, meaning that any additional modifiers you would have gotten from your group will not be applied to this action. If you fail the skill shot roll, your opponent then gets to roll for a reaction. If your opponent rolls higher than you did, then you take Harm equal to the difference of their roll and your roll plus the modifier of their weapon. </p>
       </section>
 
       <section id="conditions">
