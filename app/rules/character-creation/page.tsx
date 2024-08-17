@@ -392,7 +392,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Explorers Guild</h3>
-        <p>Explorers desire to bring the unknown world into the light. They go beyond the borders of the map to discover lands that no race has ever experienced. They know that the wonders of the world are beyond the borders of current maps.</p>
+        <p>Explorers desire to bring the unknown world into the light and to solve the mysteries of the world. They go beyond the borders of the map to discover lands that no one has ever experienced and they know that the answers to the worlds greatest questions can be found, if you can only look in the right spot.</p>
 
         <table className="raceStatTable">
           <thead>
