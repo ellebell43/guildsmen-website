@@ -13,7 +13,7 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
-          date="??"
+          date="08/17/2024"
           version="v0.5.2"
           entries={[
             "Revised reactions to be more understandable.",
