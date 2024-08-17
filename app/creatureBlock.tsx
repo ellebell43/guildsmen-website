@@ -27,7 +27,7 @@ export default function CreatureBlock(props: { creature: creature }) {
     });
   }
 
-  let hazardWord = creature.hazardWord
+  let hazardWord: string = creature.hazardWord
   hazardWord = hazardWord[0].toUpperCase() + hazardWord.substring(1)
 
   return (
