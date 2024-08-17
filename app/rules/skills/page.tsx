@@ -161,6 +161,14 @@ export default function Skills() {
 
         <p><strong>Disadvantage</strong> is where you have the lower hand in a situation. When this happens, you <em>Roll with Disadvantage</em>. This is where you make your dice check twice and use the lower result. </p>
       </section>
+
+      <section id="helping">
+        <h2>Helping</h2>
+        <p>You will eventually run into situations where the task in front of you is too difficult to perform on your own. When this happens, your fellow players or other characters within the narrative can <strong>help</strong> you. To do this, the character needs to establish how they would help. Then they would roll a skill check that corresponds with the action they take to help you. On a success, you add a +1 bonus per person successfully helping to your roll.</p>
+
+        <p>For example, say you're trying to sneak past a few guards, but the only way to do that is through an open, well lit area and the Game Master determines that you will need to roll a 12 or higher in order to succeed, and you're not confident that you'll succeed on that roll. Your allies could help! Maybe one of them throws a tomato at the guards, then runs off to be chased and another tries to convince the rest of the guards that there's some trouble nearby and that they need to come and help. The first ally who throws the tomato would roll a Nimble stat check and the second ally would roll a <em>social</em> skill check. Both succeed their check, giving you a +2 to your roll to sneak by undetected.</p>
+      </section>
+
       <section id="experience">
         <h2>Experience</h2>
         <p>Experience is used to increase skills and stats, unlock specialties, and it is earned whenever you fail a skill check. Whenever a skill check is unsuccessful (this includes a mixed success), you fill in a bubble in the experience box. Once you fill up all of the bubbles (4 unsuccessful skill checks) you gain 1 experience point.</p>

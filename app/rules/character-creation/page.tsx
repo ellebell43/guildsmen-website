@@ -4,6 +4,7 @@ import Link from "next/link";
 import NextButton from "../next-button";
 import { Metadata } from "next";
 import Contents from "@/util/components/contents";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Guildsmen | Character Creation",
@@ -93,32 +94,37 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Mausca</h3>
-        <p>The Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep, vertical creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and deeply set with a milky-white color and an opalescent sheen.</p>
+        <p>The Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and shimmer with a milky-white color and an opalescent sheen.</p>
 
-        <table className="raceStatTable">
-          <thead>
-            <tr>
-              <th colSpan={1}>Stats</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="bottom left right"><em>+2 Nimble</em></td>
-            </tr>
-            <tr>
-              <td className="bottom left right"><em>-1 Tough</em></td>
-            </tr>
-            <tr>
-              <td className="bottom left right"><em>+0 Competence</em></td>
-            </tr>
-            <tr>
-              <td className="bottom left right"><em>+1 Constitution</em></td>
-            </tr>
-            <tr>
-              <td className="bottom left right"><em>-1 Spirit</em></td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="flex w-fit mx-auto">
+          <Image src="/reference-images/mausca_reference.png" width={175} height={175} alt="Mausca head shot concept art by Harmony Brooks" className="" />
+          <table className="raceStatTable m-0">
+            <thead>
+              <tr>
+                <th colSpan={1}>Stats</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="bottom left right"><em>+2 Nimble</em></td>
+              </tr>
+              <tr>
+                <td className="bottom left right"><em>-1 Tough</em></td>
+              </tr>
+              <tr>
+                <td className="bottom left right"><em>+0 Competence</em></td>
+              </tr>
+              <tr>
+                <td className="bottom left right"><em>+1 Constitution</em></td>
+              </tr>
+              <tr>
+                <td className="bottom left right"><em>-1 Spirit</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
 
         <h3>Orcs</h3>
         <p>The Orcs originated in the frozen tundras of the north and are large, burly people that generally stand about 6 to 7 feet tall with skin tones that come in light blues and grays. They have small tusks protruding through their skin on their jaw bone and chin. Their ears are long, pointed, and seated higher on their heads than the other species. Their hair grows only from the very top of their head and is usual black, white, or gray. Tribal tattoos generally covers their bodies, telling stories of the individuals victories hunting great beasts or telling histories of the family and tribe they come from.</p>
@@ -386,7 +392,7 @@ export default function CharacterCreation() {
         </table>
 
         <h3>Explorers Guild</h3>
-        <p>Explorers desire to bring the unknown world into the light. They go beyond the borders of the map to discover lands that no race has ever experienced. They know that the wonders of the world are beyond the borders of current maps.</p>
+        <p>Explorers desire to bring the unknown world into the light and to solve the mysteries of the world. They go beyond the borders of the map to discover lands that no one has ever experienced and they know that the answers to the worlds greatest questions can be found, if you can only look in the right spot.</p>
 
         <table className="raceStatTable">
           <thead>

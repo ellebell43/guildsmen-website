@@ -18,26 +18,26 @@ export default function Combat() {
 
       <section id="avoiding-combat">
         <h2>Avoiding Combat</h2>
-        <p>As we said before, combat is deadly. In many situations, it&apos;s best to try to end combat early, or avoid it all together. There are a few ways to do this.</p>
+        <p>As we said before, combat is deadly. In many situations, it's best to try to end combat early, or avoid it all together. There are a few ways to do this.</p>
 
-        <p>If you want to fight your enemy, but are worried about dying, the best strategy is to catch them by surprise. That can mean setting up a trap or ambush, capturing them and making them defenseless, or attacking them out of nowhere when you&apos;re within a close proximity. When you get the drop on someone, you might have the opportunity to kill them instantly. See the Skill Shots section further down for more information on how to do that.</p>
+        <p>If you want to fight your enemy, but are worried about dying, the best strategy is to catch them by surprise. That can mean setting up a trap or ambush, capturing them and making them defenseless, or attacking them out of nowhere when you're within a close proximity. When you get the drop on someone, you might have the opportunity to kill them instantly. See the Skill Shots section further down for more information on how to do that.</p>
 
-        <p>You can also try to calm down or persuade the other party to avoid the fight. If you&apos;ve angered an opponent to the point of violence, the <em>social</em> skill can come in very handy for talking them down.</p>
+        <p>You can also try to calm down or persuade the other party to avoid the fight. If you've angered an opponent to the point of violence, the <em>social</em> skill can come in very handy for talking them down.</p>
 
-        <p>Another option is to make your opponent feel like they can&apos;t win, even if they totally could. This is another situation where the <em>social</em> skill comes in handy. Any items you have at your disposal to display a false amount of power could also be helpful in demoralizing your opponent.</p>
+        <p>Another option is to make your opponent feel like they can't win, even if they totally could. This is another situation where the <em>social</em> skill comes in handy. Any items you have at your disposal to display a false amount of power could also be helpful in demoralizing your opponent.</p>
 
-        <p>A last resort would be to simply run and hide. If you&apos;re worried about getting hurt or killed, it&apos;s best to flee the situation instead of trying to come out on top. But come to this decision with the other players. Don&apos;t run off and hide while your fellows get slaughtered by a bear. Run away, together.</p>
+        <p>A last resort would be to simply run and hide. If you're worried about getting hurt or killed, it's best to flee the situation instead of trying to come out on top. But come to this decision with the other players. Don't run off and hide while your fellows get slaughtered by a bear. Run away, together.</p>
 
-        <p>Now that you know how to avoid combat, this is what you do when you <em>don&apos;t</em> avoid combat:</p>
+        <p>Now that you know how to avoid combat, this is what you do when you <em>don't</em> avoid combat:</p>
       </section>
       <section id="turn-based-combat">
         <h2>Turn-Based Combat</h2>
         <p>Combat in Guildsmen, as in similar games, is turn-based. This means that all players and NPCs are put into a turn order, and each takes a turn to perform actions. The sequence of turns creates the round, and rounds are repeated with the same turn sequence until the combat has ended.</p>
 
-        <p>In Guildsmen, each combat round lasts 10 seconds of in-game time.</p>
+        <p>In Guildsmen, each combat round lasts 10 seconds of in-game time, and the distance your character, or any other character, can move in a given round is equal to 10 times your Nimble stat modifier in feet, with a minimum of 10 feet. So, if you have a +2 Nimble stat, you have 20 feet of movement, whereas a wolf with their +6 Nimble stat, would be able to travel 60 feet in one round of combat.</p>
 
         <h3>Establishing the Turn Order</h3>
-        <p>In combat, it doesn&apos;t matter who goes first, let the narrative decide that. But do separate participants into factions (such as enemies vs allies). All the players would be considered the allies and all the creatures that they&apos;re fighting would be considered the enemies. Which faction goes first is up to the narrative and Game Master discretion.</p>
+        <p>In combat, it doesn't matter who goes first, let the narrative decide that. But do separate participants into factions (such as enemies vs allies). All the players would be considered the allies and all the creatures that they're fighting would be considered the enemies. Which faction goes first is up to the narrative and Game Master discretion.</p>
 
         <p>At times, certain players or creatures will go into combat with some sort of advantage such as being hidden from their enemy, attacking suddenly and without warning, or other scenarios that gives a party the upper hand at the beginning of combat.</p>
 
@@ -48,40 +48,28 @@ export default function Combat() {
 
         <p>You get 1 action per combat round. You perform an action by rolling a relevant skill or stat check. The enemy then reacts in any way they think would negate your attack and they also roll a relevant skill or stat check. If the attacker rolls higher, then the attack is successful, and the defender takes harm. If the defender rolls higher, then the attack is unsuccessful, and no harm is dealt.</p>
 
-        <p>Anytime an action is performed against another creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round.</p>
+        <p>Anytime an action is performed against another reactive creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round. However, not all characters and creatures are allowed reactions in all situations. When this happens, the rules that govern <Link href="#skill-shots">skill shots</Link> are used. There are two primary situations where this will happen: (1) if the victim is sufficiently surprised by the attacker, then the victim will not have time to react to the attack and (2) when fighting a beast, mythical creature, or other creature marked as un-reactive. In either of these situation, use the <Link href="#skill-shots ">skill shot</Link> rules to determine the outcome of an attack.</p>
 
-        <h3 id="spirit-shields">Spirit Shields</h3>
-        <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
+        <h3>Helping in Combat</h3>
+        <p>In the <Link href="/rules/skills#helping">skills chapter</Link>, the ability to help other players was introduced. That can also be applied to combat, however it works a bit differently. When in combat, you can (and should) establish what specific target your character has. If any other allies have the same specific target, that automatically counts as a successful help action, so you will get a +1 to your dice roll for every other person attacking the same creature as you. So, if you're in a group of 3 people, and your being attacked by 3 bandits, and all 3 member of your team attack the same specific bandit, each person would get a +2 to their roll, since 2 other people are attacking the same creature.</p>
 
-        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent&apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent&apos;s but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
-
-        <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
-
-        <p>Spirit shields also work against attacks coming from a Myth user.</p>
+        <p>When reacting, the normal rules of the help action are applied, as defined in the <Link href="/rules/skills#helping">skills chapter</Link>.</p>
       </section>
 
-      <section id="groups-vs-individuals">
-        <h2>Groups vs Individuals</h2>
-        <p>In combat there are 2 different ways to fight. You may fight as an individual or as a group. When acting as an individual, you take an action against your opponent and your opponent reacts, just as outlined above.</p>
+      <h3 id="spirit-shields">Spirit Shields</h3>
+      <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
 
-        <p>When acting as a group, all individuals in the group roll dice at the same time. They add their results together and the enemy must react to that number. So, if a group of 4 players all want to attack a bear at the same time, then each player rolls their dice and adds their numbers together. So, if the players rolled a 10, 4, 7, and 8, then the total number for the group would be 29. The bear now has to beat 29 in order to successfully react to the attack (which would make it impossible for the bear to avoid the attack).</p>
+      <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent's, then the spell is deflected completely and no effect happens. If you're Spirit stat check is less that your opponent's but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent's check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
 
-        <p><em>When acting as a group, it is important to establish before hand if the action is intended to kill, knock out, maime, or something else. That way the action is controlled enough so that the target isn&apos;t guarunteed to die.</em></p>
+      <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
 
-        <p>You can also react as a group. When reacting as a group, you must be able to justify how the group is reacting as one entity. For example, if a player was being attacked by a bear, the player being directly attacked could try to dodge and another player nearby could try to pull the other out of the way. </p>
-
-        <p>Under this circumstance, they may react as a group. The principle is the same, both of the players would roll dice and add their results together. If the total number is greater than the number that the bear rolled, than the two players reacted successfully and take no damage. </p>
-
-        <p>If the group fails to react, then the damage is dispersed between the individuals of the group in whatever way makes most sense.</p>
-
-        <p>That being said, a party can split up in whatever way they want to accomplish their needs. If you have a party of 5, 2 people could form one group and 3 could form another, or any combination of groups and individuals. Essentially, if you and some of your teammates want to do similar things, form a group. If you want to something all on your own, then don&apos;t team up for a group.</p>
-      </section>
+      <p>Spirit shields also work against attacks coming from a Myth user when they use their Myth powers.</p>
 
       <section id="dealing-harm">
         <h2>Dealing Harm</h2>
         <p>When you successfully attack another creature, you will deal Harm. The harm you deal is <strong>equal to the difference between the dice rolls plus the bonus of your weapon</strong>. Light weapons get a bonus of +1 and heavy weapons get a bonus of +2. If the victim rolls the higher number, then the attack deals no damage.</p>
 
-        <p>For example, you have +2 <em>throwdown</em>, and you attack a bandit that has +1 Nimble with a light weapon. You roll a 9 and add 2 for your modifier in the skill you used, giving you a total of 11. The bandit rolls to run away with an 8 and adds 1 for their Nimble modifier, giving them a total of 9. You have the higher number, so your attack is successful! The difference between your roll and the bandit&apos;s roll is 2 and the bonus of a light blade is 1, which means that you deal 3 Harm in total to the bandit.</p>
+        <p>For example, you have +2 <em>throwdown</em>, and you attack a bandit that has +1 Nimble with a light weapon. You roll a 9 and add 2 for your modifier in the skill you used, giving you a total of 11. The bandit rolls to run away with an 8 and adds 1 for their Nimble modifier, giving them a total of 9. You have the higher number, so your attack is successful! The difference between your roll and the bandit's roll is 2 and the bonus of a light blade is 1, which means that you deal 3 Harm in total to the bandit.</p>
 
         <p>This works the same when attacking as a group. The entire party rolls to attack and, if successful, adds their bonuses to the overall result to determine harm.</p>
 
@@ -89,12 +77,12 @@ export default function Combat() {
 
         <p>If you end up dealing more Harm than you intend to - for example, you wanted to frighten a bandit, but end up dealing enough Harm to kill - then let the Game Master know what you intended right away. At the discretion of the Game Master, you will either do what you intended, or your character accidently deals the full amount of Harm.</p>
 
-        <p>When doing combat, the mechanics work on the idea that you&apos;re going in for the kill. If that&apos;s not the case, let your Game Master know before you start rolling dice.</p>
+        <p>When doing combat, the mechanics work on the idea that you're going in for the kill. If that's not the case, let your Game Master know before you start rolling dice.</p>
       </section>
 
       <section id="recovering-from-damage">
         <h2>Recovering from Damage</h2>
-        <p>Recovering from damage can only be done through another character&apos;s <em>medic</em> skill check or by using a consumable item (see the <Link href="/rules/the-market#consumables"><em>Market chapter</em></Link>). On a relevant skill check of 10 or more, the wounded person may recover from 2 Harm. This can only be done outside of combat and only periodically.
+        <p>Recovering from damage can only be done through another character's <em>medic</em> skill check or by using a consumable item (see the <Link href="/rules/the-market#consumables"><em>Market chapter</em></Link>). On a relevant skill check of 10 or more, the wounded person may recover from 2 Harm. This can only be done outside of combat and only periodically.
         </p>
       </section>
 
@@ -112,7 +100,9 @@ export default function Combat() {
 
       <section id="skill-shots">
         <h2>Skill Shots</h2>
-        <p>If you want to attack a creature in a very specific way (i.e., putting a dagger through their eye), then you may roll a difficult to very difficult skill check (10+ or 12+). If you are successful, then the Game Master will give a special outcome (such as your enemy dying immediately). When this happens, you will struggle alone, meaning you cannot get any help from an ally. Skill shots are not opposed (meaning only the person performing the action rolls). However, if you fail the roll your opponent gets to roll thier dice. If they roll higher than you did, then they can cause Harm to you and your allies cannot help to deflect it, so be careful. </p>
+        <p>If you want to attack a an opponent and they will not be able to have a reaction, then you perform a skill shot. A skill shot is an attack that is based purely on the attackers skill rather than the contested rolls of both parties. When attacking an un-reactive opponent in no particularly special way, you will roll an Average (8+) <em>throwdown</em> skill check. If successful, the Harm you deal will be equal to the difference of your roll and the target number plus the modifier of your weapon. So, if you're attacking with a light sword and you roll a 10, you will deal 3 Harm since you rolled 2 higher than the target number of 8 and your weapon has a +1. On a failure against an un-reactive opponent, you simply deal 0 Harm and you also will not be harmed.</p>
+
+        <p>If you have a very specific action in mind that would be difficult to pull off but provides a fun narrative flare to the combat (i.e., putting a dagger through the opponent's eye) then you may perform a skill shot. However, this dice roll must be of Difficult or higher difficulty (10+ or more). If you are successful, then the Game Master will give a special outcome (such as your enemy dying immediately or a specific wound that becomes part of the narrative) and you will deal Harm equal to the difference of your dice roll and the target number plus any modifiers your weapon adds. Your roll will not be opposed with a reaction from your opponent, but you will not get any help from an ally when performing a skill shot on a reactive opponent, meaning that any additional modifiers you would have gotten from your group will not be applied to this action. If you fail the skill shot roll, your opponent then gets to roll for a reaction. If your opponent rolls higher than you did, then you take Harm equal to the difference of their roll and your roll plus the modifier of their weapon. </p>
       </section>
 
       <section id="conditions">
