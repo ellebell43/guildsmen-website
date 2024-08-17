@@ -212,7 +212,7 @@ export default function CharacterForm(props: { user: user }) {
     updateSkills()
     // update myth addiction if chosen as a starting skill
     if (skills.myth >= 0) setAddiction(3)
-    if (name && species && wealth && luck && guild) {
+    if (name && species && typeof (wealth) == "number" && luck && guild) {
       let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
       newChar.gear = gear
       setApiLoading(true)
