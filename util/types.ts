@@ -25,7 +25,8 @@ export type creature = {
     armor: number
   },
   description: string,
-  actions: action[]
+  actions: action[],
+  reactive: boolean
 }
 
 export type user = {

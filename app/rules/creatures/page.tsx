@@ -24,7 +24,7 @@ export default function Creatures() {
         <p>The creature block is how creatures&apos; stats, actions, and descriptions are outlined. They all appear like so:</p>
 
         <div className="creatureBlock">
-          <p className="title">Grizzly Bear (Deadly, +0)</p>
+          <p className="title">Grizzly Bear (Deadly, +0) | <em>Un-Reactive</em></p>
           <div className="stats">
             <p>Tough +9 | Nimble +5</p>
             <p>Competence +0 | Constitution +4</p>
@@ -43,9 +43,9 @@ export default function Creatures() {
           </div>
         </div>
 
-        <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
+        <p>At the top of the creature block is the name, hazard word, modifier of the creature, and reactivity status. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier and marked as un-reactive. Un-reactive creatures do not get reactions during combat.</p>
 
-        <p>A creature&apos;s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
+        <p>A creature&apos;s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is capable of being very dangerous to a person.</p>
 
         <p>A creature&apos;s modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn&apos;t add anything.</p>
 
