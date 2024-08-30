@@ -125,7 +125,7 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "settings":
         return <>
-          <Settings edit={edit} setEdit={setEdit} />
+          <Settings edit={edit} setEdit={setEdit} character={character} />
         </>
       case "skills":
         return <>
