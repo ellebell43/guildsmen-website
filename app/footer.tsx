@@ -28,7 +28,10 @@ export default function Footer() {
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>
         <p>Site programming by <Link href="https://github.com/ellebell43">Elle Brooks</Link></p>
         <p><Link href="/changelog">Change log and road map</Link></p>
-        <p>v0.5.2</p>
+
+        {/* ==== VERSION NUMBER ==== */}
+
+        <p>v0.5.3</p>
       </div>
     </footer>
   )

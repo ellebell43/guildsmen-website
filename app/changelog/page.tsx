@@ -13,6 +13,15 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="08/30/2024"
+          version="v0.5.3"
+          entries={[
+            "Created a print view for characters in the character app.",
+            "Fixed issue where gear tab was no visible on medium screens in character app.",
+            "Fixed paragraph wrapping and overflow issues in details tab of character app."
+          ]}
+        />
+        <ChangelogEntry
           date="08/17/2024"
           version="v0.5.2"
           entries={[
