@@ -13,6 +13,17 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="08/17/2024"
+          version="v0.5.2"
+          entries={[
+            "Revised reactions to be more understandable.",
+            "Added in un-reactive opponents to better establish when opponents get reactions.",
+            "Added reactivity statuses to creatures to indicate if a creature would normally get a reaction or not.",
+            "Updated Mausca description to be a bit less off-putting and added in a piece of concept art for the Mausca.",
+            "Small revision to the Explorer's guild description."
+          ]}
+        />
+        <ChangelogEntry
           date="07/27/2024"
           version="v0.5.1"
           entries={["Fixed character creation app validation error where selecting destitute for wealth would make the form invalid."]}

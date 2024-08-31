@@ -27,10 +27,13 @@ export default function CreatureBlock(props: { creature: creature }) {
     });
   }
 
+  let hazardWord: string = creature.hazardWord
+  hazardWord = hazardWord[0].toUpperCase() + hazardWord.substring(1)
+
   return (
     <>
       <div className="creatureBlock">
-        <h1 className="title">{creature.name} ({creature.hazardWord}, {getModifier(creature.modifier)})</h1>
+        <h1 className="title">{creature.name} ({hazardWord} ,{getModifier(creature.modifier)}) | <em>{creature.reactive ? "Reactive" : "Un-Reactive"}</em></h1>
         <div className="stats">
           <p>Tough {getModifier(creature.stats.tough)} | Nimble {getModifier(creature.stats.nimble)}</p>
           <p>Competence {getModifier(creature.stats.competence)} | Constitution {getModifier(creature.stats.constitution)}</p>

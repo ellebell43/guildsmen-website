@@ -20,6 +20,7 @@ export default function Footer() {
 
       <div className="left lg:text-left">
         <p>Conceptualized by Harmony Brooks<br className="break" />and written by Elle Brooks</p>
+        <p>Original artwork by Harmony Brooks</p>
         <p>&copy; Elle & Harmony Brooks</p>
         <p>Edited by Hyrum Blanchard</p>
       </div>
@@ -27,7 +28,7 @@ export default function Footer() {
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>
         <p>Site programming by <Link href="https://github.com/ellebell43">Elle Brooks</Link></p>
         <p><Link href="/changelog">Change log and road map</Link></p>
-        <p>v0.5.1</p>
+        <p>v0.5.2</p>
       </div>
     </footer>
   )
