@@ -7,7 +7,20 @@ import { redirect } from 'next/navigation'
 
 type Props = { params: { id: string } }
 
-export const metadata: Metadata = { title: "Guildsmen | Character App" }
+// export const metadata: Metadata = { title: "Guildsmen | Character App" }
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const token = cookies().get("token")
+  if (!token) return { title: `Guildsmen | Character Not Found` }
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: params.id, token: token.value }, credentials: "include" })
+  if (!res.ok) {
+    return { title: `Guildsmen | Character Not Found` }
+  } else {
+    const character: Character = await res.json()
+    return { title: `Guildsmen | ${character.name}` }
+  }
+}
 
 export default async function Page(props: Props) {
   const token = cookies().get("token")
