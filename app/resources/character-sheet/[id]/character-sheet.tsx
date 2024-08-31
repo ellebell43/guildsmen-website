@@ -198,7 +198,7 @@ export default function CharacterSheet(props: { character?: Character, error?: s
 
           {/* ========== IMPORTANT CONNECTIONS ========== */}
 
-          <div className={`${borderStyle} w-full border-2`}>
+          <div className={`${borderStyle} w-full border-2 relative`}>
             <h2 className={headerStyle}>Important Connections</h2>
             <LineColumn lines={10} contents={character ? character.importantConnections : undefined} />
           </div>
