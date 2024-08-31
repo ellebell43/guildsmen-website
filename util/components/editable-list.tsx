@@ -11,7 +11,7 @@ export default function EditableList(props: { state: string[] | undefined, setSt
   return (
     <div>
       <div className="flex gap-4 items-center justify-center relative left-2 sm:left-0 mr-4">
-        <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={false} state={newItem} setState={setNewItem}>
+        <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={false} state={newItem} setState={setNewItem} infoButton={false}>
           <p>Info test</p>
         </TextInputWithInfo>
         <button
