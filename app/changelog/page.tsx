@@ -14,6 +14,14 @@ export default function Changelog() {
       <ul>
         <ChangelogEntry
           date="08/30/2024"
+          version="v0.5.4"
+          entries={[
+            "Fixed redirect issues with invalid user tokens when trying to access the profile page.",
+            "Fixed spacing issues with the gear section in the character app."
+          ]}
+        />
+        <ChangelogEntry
+          date="08/30/2024"
           version="v0.5.3"
           entries={[
             "Created a print view for characters in the character app.",

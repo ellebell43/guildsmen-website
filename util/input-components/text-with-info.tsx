@@ -11,7 +11,8 @@ type props = {
   required: boolean,
   id: string,
   state: string | undefined, setState: Function,
-  readOnly?: boolean
+  readOnly?: boolean,
+  infoButton?: boolean
 }
 
 export default function TextInputWithInfo(props: props) {
@@ -21,7 +22,7 @@ export default function TextInputWithInfo(props: props) {
     <div className="relative flex justify-center items-center w-fit">
       <TextInput label={props.label} required={props.required} id={props.id} state={props.state} setState={props.setState} readOnly={props.readOnly ? props.readOnly : false} />
       {/* Show info button */}
-      <button className="absolute block text-sm left-[-25px]" onClick={e => setShowInfo(!showInfo)}>
+      <button className={`absolute block text-sm left-[-25px] ${props.infoButton !== undefined ? "hidden" : ""}`} onClick={e => setShowInfo(!showInfo)}>
         <FontAwesomeIcon icon={faInfoCircle} />
       </button>
       {/* Info Wrapper */}
