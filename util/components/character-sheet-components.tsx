@@ -11,11 +11,13 @@ const headerStyle = "m-0 text-[24px]"
 const modifierStyle = "text-[12px] m-0"
 
 // ========== WRITE-IN LINE WITH LABEL COMPONENT =========
-export function LabelAndLine(props: { label: string }) {
+export function LabelAndLine(props: { label: string, contents?: string }) {
   return (
     <div className="flex gap-2">
       <p className="m-0">{props.label}:</p>
-      <div className="border-b w-full border-stone-800" />
+      <div className="border-b w-full border-stone-800">
+        <p className="m-0 pl-4">{props.contents}</p>
+      </div>
     </div>
   )
 }
@@ -28,12 +30,12 @@ export function Bubble(props: { filled?: boolean, red?: boolean }) {
 }
 
 // -- BUBBLE ROW COMPONENT --
-export function BubbleRow(props: { length: number, fill: number, customFlex?: string }) {
+export function BubbleRow(props: { length: number, fill: number, customFlex?: string, fillOne?: boolean }) {
   const bubbleLoop = () => {
     let arr = []
     let i = 0;
     while (i < props.length) {
-      arr.push(<Bubble filled={i < props.fill} key={i} />)
+      arr.push(<Bubble filled={props.fillOne ? i === props.fill - 1 : i < props.fill} key={i} />)
       i++
     }
     return arr
@@ -151,9 +153,11 @@ export function Skill(props: { name: string, value?: modRange, doubleCol?: boole
         <div className="flex justify-center flex-col md:flex-row items-center">
           <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
             <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
+            <p className="text-[10px] m-0 relative bottom-1 pl-4">{props.primarySpecialty}</p>
           </div>
           <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
             <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
+            <p className="text-[10px] m-0 relative bottom-1 pl-4">{props.secondarySpecialty}</p>
           </div>
         </div>
         <div className="mb-1">
@@ -414,21 +418,35 @@ export function Luck(props: { value?: luckRange }) {
           (el, i) => <p key={i} className={modifierStyle}>{el}</p>
         )}
       </div>
-      <BubbleRow length={6} fill={fill ? fill : 1} />
+      <BubbleRow length={6} fill={fill ? fill : 1} fillOne={true} />
     </div>
   )
 }
 
-export function LineColumn(props: { lines: number }) {
+export function LineColumn(props: { lines: number, contents?: string | string[], gear?: boolean }) {
+  let contents: string[] | undefined
+  if (props.contents && typeof (props.contents) == "string") {
+    // @ts-ignore
+    contents = props.contents.split("\n")
+  } else {
+    // @ts-ignore
+    contents = props.contents
+  }
+
   let arr = []
   let i = 1
   while (i <= props.lines) {
-    arr.push(<div key={i} className="w-full border-b border-black h-[20px]" />)
+    arr.push(
+      <div key={i} className="w-full border-b border-black h-[20px]" />
+    )
     i++
   }
   return (
     <>
       {arr.map((el, i) => el)}
+      <div className={`absolute left-[10px] ${props.gear ? "max-h-[125px] grid grid-cols-3 gap-y-0 gap-x-4 w-full truncate" : "top-[44px] max-h-[200px] max-w-[325px] line-clamp-[10]"}`}>
+        {contents ? contents.map((el, i) => <p className={`m-0 p-0 leading-[20px] ${props.gear ? "truncate" : ""}`} key={i}>{el}</p>) : <></>}
+      </div >
     </>
   )
 }

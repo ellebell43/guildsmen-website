@@ -9,48 +9,49 @@ export default function DetailsScreen(props: { character: Character, setCharacte
   let [detailToEdit, setDetailToEdit] = useState<"flaws" | "goals" | "morals" | "connections">()
   let [text, setText] = useState("")
 
+  const Detail = (props: { type: "Goals & Motives" | "Flaws & Weaknesses" | "Personal Morals" | "Important Connections", character: Character, edit: boolean }) => {
+    let text: string
+    let editArg: "flaws" | "goals" | "morals" | "connections"
+
+    switch (props.type) {
+      case "Goals & Motives": text = props.character.goalsAndMotive; editArg = "goals"; break;
+      case "Flaws & Weaknesses": text = props.character.flawsAndWeaknesses; editArg = "flaws"; break;
+      case "Personal Morals": text = props.character.personalMorals; editArg = "morals"; break;
+      case "Important Connections": text = props.character.importantConnections; editArg = "connections"; break;
+    }
+
+    const getCharacterProp = (type: "Goals & Motives" | "Flaws & Weaknesses" | "Personal Morals" | "Important Connections") => {
+      switch (type) {
+        case "Goals & Motives": return props.character.goalsAndMotive
+        case "Flaws & Weaknesses": return props.character.flawsAndWeaknesses
+        case "Personal Morals": return props.character.personalMorals
+        case "Important Connections": return props.character.importantConnections
+      }
+    }
+
+    return (
+      <div className="border rounded px-4 py-2 mb-6 relative">
+        <button
+          className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}
+          onClick={e => { setDetailToEdit(editArg); setText(getCharacterProp(props.type)) }}
+        >
+          <FontAwesomeIcon icon={faPencil} />
+        </button>
+        <h2 className="bg-stone-100 dark:bg-stone-700 text-base px-2 py-1 absolute -top-8 left-2">{props.type}</h2>
+        <p className="whitespace-pre-wrap h-[150px] lg:h-[300px] overflow-y-scroll overflow-x-clip">{getCharacterProp(props.type)}</p>
+      </div>
+    )
+  }
+
   return (
-    <div className="grid md:grid-cols-2 gap-4">
-      <div className="border rounded px-4 py-2 mb-6 relative">
-        <button
-          className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}
-          onClick={e => { setDetailToEdit("goals"); setText(props.character.goalsAndMotive) }}
-        >
-          <FontAwesomeIcon icon={faPencil} />
-        </button>
-        <h2 className="bg-stone-100 dark:bg-stone-700 text-base px-2 py-1 absolute -top-8 left-2">Goals & Motives</h2>
-        <p>{props.character.goalsAndMotive}</p>
-      </div>
-      <div className="border rounded px-4 py-2 mb-6 relative">
-        <button
-          className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}
-          onClick={e => { setDetailToEdit("flaws"); setText(props.character.flawsAndWeaknesses) }}
-        >
-          <FontAwesomeIcon icon={faPencil} />
-        </button>
-        <h2 className="bg-stone-100 dark:bg-stone-700 text-base px-2 py-1 absolute -top-8 left-2">Flaws & Weaknesses</h2>
-        <p>{props.character.flawsAndWeaknesses}</p>
-      </div>
-      <div className="border rounded px-4 py-2 mb-6 relative">
-        <button
-          className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}
-          onClick={e => { setDetailToEdit("morals"); setText(props.character.personalMorals) }}
-        >
-          <FontAwesomeIcon icon={faPencil} />
-        </button>
-        <h2 className="bg-stone-100 dark:bg-stone-700 text-base px-2 py-1 absolute -top-8 left-2">Personal Morals</h2>
-        <p>{props.character.personalMorals}</p>
-      </div>
-      <div className="border rounded px-4 py-2 mb-6 relative">
-        <button
-          className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 ${props.edit ? "" : "hidden"}`}
-          onClick={e => { setDetailToEdit("connections"); setText(props.character.importantConnections) }}
-        >
-          <FontAwesomeIcon icon={faPencil} />
-        </button>
-        <h2 className="bg-stone-100 dark:bg-stone-700 text-base px-2 py-1 absolute -top-8 left-2">Important Connections</h2>
-        <p>{props.character.importantConnections}</p>
-      </div>
+    <div className="grid md:grid-cols-2 gap-4 pt-4">
+
+      <Detail type="Goals & Motives" character={props.character} edit={props.edit} />
+      <Detail type="Flaws & Weaknesses" character={props.character} edit={props.edit} />
+      <Detail type="Personal Morals" character={props.character} edit={props.edit} />
+      <Detail type="Important Connections" character={props.character} edit={props.edit} />
+
+      {/* == EDIT POP UP == */}
 
       {!detailToEdit ? <></> : <div className="fixed inset-0 bg-opacity-70 bg-stone-100 dark:bg-stone-600 flex justify-center items-center flex-col z-30">
         <div className="relative bg-stone-100 dark:bg-stone-700">
