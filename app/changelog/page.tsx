@@ -13,7 +13,7 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
-          date="08/30/2024"
+          date="09/26/2024"
           version="v0.6.0"
           entries={[
             "Orcs have been replaced with a new original species call Isser and included original art for the Isser.",
