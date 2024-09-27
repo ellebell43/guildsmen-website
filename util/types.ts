@@ -44,7 +44,7 @@ export type wealthRange = 0 | 1 | 2 | 3 | 4
 export type harm = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 export type addictionRange = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24
 export type experienceProgress = 0 | 1 | 2 | 3 | 4
-export type species = "Locess" | "Mausca" | "Orc" | "Matari" | "Slated" | "Ungal"
+export type species = "Locess" | "Mausca" | "Isser" | "Matari" | "Slated" | "Ungal"
 
 export type craftSpecialty = "Clay" | "Fabric" | "Metal" | "Stone" | "Wood"
 export type investigateSpecialty = "Awareness" | "Searching" | "Situational" | "Tracking"

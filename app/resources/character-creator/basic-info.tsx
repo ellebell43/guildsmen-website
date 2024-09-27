@@ -1,6 +1,7 @@
 import { species } from "@/util/types";
 import TextInputWithInfo from "@/util/input-components/text-with-info";
 import BulletDropList from "@/util/input-components/bullet-drop-list";
+import SpeciesDetails from "@/app/rules/character-creation/species-details";
 
 type props = {
   name: string | undefined, setName: Function,
@@ -12,198 +13,12 @@ type props = {
 export default function BasicInfo(props: props) {
   const getSpeciesInfo = () => {
     switch (props.species) {
-      case "Locess":
-        return (
-          <>
-            <h3>Locess</h3>
-            <p>The Locess (lo-KESS) are bug-like creatures that stand about 6 feet tall. They come from the World Forest, a forest of trees that are as large as mountains. The most prominent features of the Locess are their exoskeleton and extra arms. Their exoskeleton comes in a variety of vibrant greens, light browns, and de-saturated reds. Their exoskeleton is also tough and covers every inch of their body, making it difficult to discern emotions in their face. Their heads are very lizard-like, with wide, square jaws that comes to a point at the chin. The overall shape of the head is wide, with their eyes set far apart. Their eyes are very large, usually a dark, neutral color, and are multifaceted. They feature 4 arms and pseudo-wings that hang from their backs. These wings are non-functional and mostly give the impression of a cape and are usually a dusty-gray color.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>+2 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
-      case "Matari":
-        return (
-          <>
-            <h3>Matari</h3>
-            <p>The Matari (mah-TAR-ee) come from a massive cliff overlooking an ocean where they have a city carved into the cliff wall. Their culture is a Matriarchy that celebrates childhood, giving their young a dedicated period of time to leave home and explore the world to choose what social role they grow into. Matari communities are generally very close-knit. They are the tallest of the species, standing anywhere from 6 to 8 feet tall, and have very blunt and broad features. Their skin is a marbling of crimson and tan-brown with no hair at all.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>-1 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
-      case "Mausca":
-        return (
-          <>
-            <h3>Mausca</h3>
-            <p>The Mausca (mah-SKAH) are small people, usually no taller than 3 to 4 feet, with slight frames. They hail from the southern swamps and their physical features mirror that landscape. Their hair is incredibly thick and course with a deep, dark green color and usually grown long, giving their hair the appearance of swamp vines that hang from the trees. Their skin is generally a dark shade of cool brown and they have deep, vertical creases all along their body that makes them appear as though they are made from wood. Their most baffling feature is their eyes. Looking as though they were cut from pearls, their eyes are small and deeply set with a milky-white color and an opalescent sheen.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>+2 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
-      case "Orc":
-        return (
-          <>
-            <h3>Orcs</h3>
-            <p>The Orcs originated in the frozen tundras of the north and are large, burly people that generally stand about 6 to 7 feet tall with skin tones that come in light blues and grays. They have small tusks protruding through their skin on their jaw bone and chin. Their ears are long, pointed, and seated higher on their heads than the other species. Their hair grows only from the very top of their head and is usual black, white, or gray. Tribal tattoos generally covers their bodies, telling stories of the individuals victories hunting great beasts or telling histories of the family and tribe they come from.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>+0 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+2 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
-      case "Slated":
-        return (
-          <>
-            <h3>Slated</h3>
-            <p>The Slated (SLAY-ted) are creatures of the endless desert, and their bodies are adapted to that harsh environment. Standing no more than 6 feet tall, they have thick scales with a dull-gray color that cover their entire body. Along their back and on top of their head is a rounded shell. When crouching the down, the shell locks into a sphere shape that can keep sand out from impending sandstorms and is very durable against predators. Their eyes have two lids: a thin one for keeping out sand and a thick one for closing their eyes to light. Their culture is centered around invention and engineering. They celebrate failure and push the boundaries of what people think is possible.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>-1 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+0 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+2 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
-      case "Ungal":
-        return (
-          <>
-            <h3>Ungal</h3>
-            <p>The Ungal (OON-gaul) are the most mysterious species. They come from deep within the World Forest, where light does not touch the forest floor. They stand no taller than 5 feet and are the least humanoid of the species. Their lower body is like the cap of an oyster mushroom flipped upside-down, the lip of which flows and ungulates to give them mobility. Their arms do not end in hands. Instead, they end in a tubular appendage that functions much like an elephants trunk to grab and manipulate objects. Their head has no face. Instead, they have a few optical stalks that register mostly heat but also some light that grow around the entire head, giving a 360 degree field of view. On the top of their head grows a crown of small oyster-mushroom-like growths, which are used as both a symbol of age and wisdom as well as sensory organs to pick up sounds within both the normal and infrasonic rages. And along their entire body are this small plate-like growths that are constantly in motion, and the underside of these plates glows with a phosphorescence.</p>
-
-            <table className="raceStatTable">
-              <thead>
-                <tr>
-                  <th colSpan={1}>Stats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="bottom left right"><em>+0 Nimble</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Tough</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+1 Competence</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>+2 Constitution</em></td>
-                </tr>
-                <tr>
-                  <td className="bottom left right"><em>-1 Spirit</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        )
+      case "Locess": return <SpeciesDetails species="Locess" />
+      case "Matari": return <SpeciesDetails species="Matari" />
+      case "Mausca": return <SpeciesDetails species="Mausca" />
+      case "Isser": return <SpeciesDetails species="Isser" />
+      case "Slated": return <SpeciesDetails species="Slated" />
+      case "Ungal": return <SpeciesDetails species="Ungal" />
     }
   }
 
@@ -227,7 +42,7 @@ export default function BasicInfo(props: props) {
         </TextInputWithInfo>
       </div>
 
-      <BulletDropList entries={["Locess", "Mausca", "Orc", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species*" info={<>
+      <BulletDropList entries={["Locess", "Mausca", "Isser", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species*" info={<>
         <p>Selecting a species will determine your stats. There are four stats: Nimble, Tough, Competence, and Constitution.</p>
 
         <p><strong>Nimble</strong> defines your character&apos;s agility. Nimble is used to move quickly, jump over objects, dodge, and for any other actions that require more finesse.</p>
