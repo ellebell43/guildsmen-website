@@ -74,7 +74,7 @@ export default function SpeciesDetails(props: { species: "Mausca" | "Locess" | "
   }
 
   return (
-    <div className="my-10">
+    <div className="md:border-opacity-30 dark:md:border-opacity-30 md:border md:p-4">
       <h3>{props.species}</h3>
       <p>{getDescription()}</p>
 

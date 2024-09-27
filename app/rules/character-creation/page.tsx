@@ -66,13 +66,14 @@ export default function CharacterCreation() {
         <p>Beside each term is a row of bubbles that mark how much of that stat your character has. The more bubbles you have filled in, the better you will be when you try to do something related to that task (see the <a href="/rules/skills"><em>Skills chapter</em></a> for details).</p>
 
         <p>When you pick a species, you are given a modifier next to each stat. Fill in the corresponding bubbles on your character sheet to match the modifiers given.</p>
-
-        <SpeciesDetails species="Locess" />
-        <SpeciesDetails species="Mausca" />
-        <SpeciesDetails species="Isser" />
-        <SpeciesDetails species="Matari" />
-        <SpeciesDetails species="Slated" />
-        <SpeciesDetails species="Ungal" />
+        <div className="md:grid grid-cols-2 gap-4">
+          <SpeciesDetails species="Locess" />
+          <SpeciesDetails species="Mausca" />
+          <SpeciesDetails species="Isser" />
+          <SpeciesDetails species="Matari" />
+          <SpeciesDetails species="Slated" />
+          <SpeciesDetails species="Ungal" />
+        </div>
 
       </section>
       <section id="who-where-you">
@@ -128,7 +129,7 @@ export default function CharacterCreation() {
 
         <p>Pick an adjective and fill in the corresponding bubble in the Wealth box.</p>
 
-        <p>While you&apos;re on your adventure, you may end up buying more items than your character generally carries around. When this happens, your Wealth may go down. More details on this in <a href="rules/the-market"><em>The Market chapter</em></a>.</p>
+        <p>While you&apos;re on your adventure, you may end up buying more items than your character generally carries around. When this happens, your Wealth may go down. More details on this in <a href="/rules/the-market"><em>The Market chapter</em></a>.</p>
 
         <p>After that, you will need to determine how lucky your character is. Roll 1d6 (1, 6-sided die) and consult the table. Fill in the corresponding bubble in the Luck box on your character sheet.</p>
 
@@ -172,11 +173,11 @@ export default function CharacterCreation() {
       </section>
       <section id="where-are-you-going">
         <h2>Where are You Going?</h2>
-        <p>This final part of character creation should be done with all players present, because this decision will affect everyone.</p>
+        <p>This final part of character creation should be done with all players present, because this decision may affect everyone.</p>
 
-        <p>You now need to decide where your character is going. You and everyone else in your party are joining a guild, and from here the grand adventures the Game Master has in store for you will begin. There are five common guilds, each will train your players in a specific set of skills.</p>
+        <p>You now need to decide where your character is going. You and everyone else in your party are joining a guild, and from here the grand adventures the Game Master has in store for you will begin. There are five common guilds, each will train your players in a specific set of skills. The idea behind joining a guild during character creation is that it allows the players to understand the mechanics of their party from the get go. All the players being in a guild inherently means that they are all on the same job together. Being part of the same guild would generally mean that players are working together on a guild job. Being part of separate guilds means you're on a job that needs multiple disciplines. The guilds help establish some very basic character relationships right from the beginning.</p>
 
-        <p>Once you choose a guild, all players will increase the skills listed to +1 if those skills are not already there.</p>
+        <p>Once you choose a guild, all players will increase the skills listed under their desired guild by 1. Congratulations! You're now employed.</p>
 
         <div className="md:grid grid-cols-2 gap-4">
           <GuildDetails guild="Assassins" />
@@ -189,11 +190,11 @@ export default function CharacterCreation() {
       </section>
       <section id="going-forward">
         <h2>Going Forward</h2>
-        <p>Now that you have a character, give your character whatever items make sense due to your skills, background, and guild. Next, go on to the next chapter to learn about skills, what they are, what they can do, and how to increase them.</p>
+        <p>Now that you have a character, give your character whatever items make sense for them to have due to your skills, background, and guild. These are items you should just write in. <Link href="/rules/the-market">The Market</Link> chapter outlines a few items that are special to this world or require special rules to use. Feel free to use this list to add items to your character and also feel free to write in whatever items you can think of that would make narrative sense for your character. Next, go on to the next chapter to learn about skills, what they are, what they can do, and how to increase them.</p>
 
-        <p>We suggest you read the rest of the rules chapters in their entirety as well to get a good grasp of the game and its mechanics. It&apos;s not necessary but it might be good to see what can be accomplished.</p>
+        <p>We suggest you read the rest of the rule chapters in their entirety to get a good grasp of the game and its mechanics. It's not necessary but it might be good to see what can be accomplished.</p>
 
-        <p>There&apos;s so much you can do with the mechanics we&apos;ve created for you, and we think you&apos;ll really enjoy using them. And if you don&apos;t care about the mechanics but want some good world lore to read, go through the <a href="/rules/lore"><em>Lore</em></a> section and the <a href="/bestiary"><em>Bestiary</em></a>.</p>
+        <p>There's so much you can do with the mechanics we've created for you, and we think you'll really enjoy using them. And if you don't care about the mechanics but want some good world lore to read, go through the <a href="/lore"><em>Lore</em></a> section and the <a href="/bestiary"><em>Bestiary</em></a>.</p>
 
         <p>As you move forward through the game, we hope that you find a love for role play and enjoy the systems of the game as much as we do.</p>
 
