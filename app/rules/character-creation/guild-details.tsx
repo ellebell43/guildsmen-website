@@ -34,7 +34,7 @@ export default function GuildDetails(props: { guild: "Assassins" | "Mythic Hunte
   }
 
   return (
-    <div className={`${props.guild == "Thieves" ? "col-span-2 w-1/2 mx-auto" : ""} md:border-opacity-10 md:border md:px-4`}>
+    <div className={`${props.guild == "Thieves" ? "col-span-2 w-1/2 mx-auto" : ""} md:border-opacity-30 dark:md:border-opacity-30 md:border md:px-4`}>
       <h3>{props.guild} Guild</h3>
       <p>{getDescription()}</p>
 
