@@ -21,6 +21,7 @@ export default function SpeciesDetails(props: { species: "Mausca" | "Locess" | "
   let getImgSrc = () => {
     switch (props.species) {
       case "Mausca": return "/reference-images/mausca_reference.png"
+      case "Isser": return "/reference-images/isser_reference.png"
       default: return null
     }
   }
@@ -73,7 +74,7 @@ export default function SpeciesDetails(props: { species: "Mausca" | "Locess" | "
   }
 
   return (
-    <>
+    <div className="my-10">
       <h3>{props.species}</h3>
       <p>{getDescription()}</p>
 
@@ -106,6 +107,6 @@ export default function SpeciesDetails(props: { species: "Mausca" | "Locess" | "
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   )
 }
