@@ -14,6 +14,17 @@ export default function Changelog() {
       <ul>
         <ChangelogEntry
           date="08/30/2024"
+          version="v0.6.0"
+          entries={[
+            "Orcs have been replaced with a new original species call Isser and included original art for the Isser.",
+            "Guilds now just add 1 to the given skills rather than increasing to +1 if not there yet.",
+            "Modified how the list of Guilds and Species are displayed on larger screens to better utilize screen space.",
+            "Added some words about why players are joining guilds and now players may join separate guilds.",
+            "Added some words about adding gear to your character, including a link to The Market."
+          ]}
+        />
+        <ChangelogEntry
+          date="08/30/2024"
           version="v0.5.4"
           entries={[
             "Fixed redirect issues with invalid user tokens when trying to access the profile page.",
