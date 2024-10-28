@@ -54,7 +54,7 @@ export default function CharacterForm(props: { user: user }) {
   const [importantConnections, setImportantConnections] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
 
-  const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1 }
+  const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1, spirit: -1 }
 
   const [apiLoading, setApiLoading] = useState(false)
   const router = useRouter();
@@ -136,13 +136,13 @@ export default function CharacterForm(props: { user: user }) {
       case "Locess":
         stats.nimble = 2
         stats.tough = -1
-        stats.competence = 1
-        stats.constitution = 0
+        stats.competence = 0
+        stats.constitution = 1
         break;
       case "Matari":
         stats.nimble = -1
         stats.tough = 1
-        stats.competence = 2
+        stats.competence = 1
         stats.constitution = 0
         break;
       case "Mausca":
@@ -151,7 +151,7 @@ export default function CharacterForm(props: { user: user }) {
         stats.competence = 0
         stats.constitution = 1
         break
-      case "Orc":
+      case "Isser":
         stats.nimble = 0
         stats.tough = 2
         stats.competence = 0
@@ -173,47 +173,53 @@ export default function CharacterForm(props: { user: user }) {
   }
 
   const updateSkills = () => {
-    let newSkills = { ...skills }
+    let skillsToUpdate = { ...skills }
     switch (guild) {
       case "Assassins":
-        if (newSkills.investigate < 1) newSkills.investigate = 1
-        if (newSkills.sneaky < 1) newSkills.sneaky = 1
-        if (newSkills.social < 1) newSkills.social = 1
-        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+        skillsToUpdate.investigate++
+        skillsToUpdate.sneaky++
+        skillsToUpdate.social++
+        skillsToUpdate.throwdown++
+        break
       case "Explorers":
-        if (newSkills.craft < 1) newSkills.craft = 1
-        if (newSkills.investigate < 1) newSkills.investigate = 1
-        if (newSkills.medic < 1) newSkills.medic = 1
-        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+        skillsToUpdate.craft++
+        skillsToUpdate.investigate++
+        skillsToUpdate.medic++
+        skillsToUpdate.throwdown++
+        break
       case "Mercenaries":
-        if (newSkills.craft < 1) newSkills.craft = 1
-        if (newSkills.investigate < 1) newSkills.investigate = 1
-        if (newSkills.medic < 1) newSkills.medic = 1
-        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+        skillsToUpdate.craft++
+        skillsToUpdate.investigate++
+        skillsToUpdate.medic++
+        skillsToUpdate.throwdown++
+        break
       case "Mythic Hunters":
-        if (newSkills.investigate < 1) newSkills.investigate = 1
-        if (newSkills.medic < 1) newSkills.medic = 1
-        if (newSkills.nature < 1) newSkills.nature = 1
-        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+        skillsToUpdate.investigate++
+        skillsToUpdate.medic++
+        skillsToUpdate.nature++
+        skillsToUpdate.throwdown++
+        break
       case "Thieves":
-        if (newSkills.investigate < 1) newSkills.investigate = 1
-        if (newSkills.performance < 1) newSkills.performance = 1
-        if (newSkills.sneaky < 1) newSkills.sneaky = 1
-        if (newSkills.throwdown < 1) newSkills.throwdown = 1
+        skillsToUpdate.investigate++
+        skillsToUpdate.performance++
+        skillsToUpdate.sneaky++
+        skillsToUpdate.throwdown++
+        break
     }
 
-    setSkills(newSkills)
+    return skillsToUpdate
   }
 
   const submit = () => {
-    // update stats according to chosen species
+    // update stats
     setStats()
-    // update skills according to chosen guild
-    updateSkills()
+    // update skills
+    let updatedSkills = updateSkills()
     // update myth addiction if chosen as a starting skill
     if (skills.myth >= 0) setAddiction(3)
-    if (name && species && wealth && luck && guild) {
-      let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
+    if (name && species && typeof (wealth) == "number" && luck && guild) {
+      let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
+      newChar.gear = gear
       setApiLoading(true)
       let ok = true
       fetch("/resources/character-creator/api", { method: "POST", headers: { char: JSON.stringify(newChar) } })

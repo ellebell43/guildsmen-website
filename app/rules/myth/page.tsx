@@ -13,7 +13,7 @@ export default function Myth() {
     <article>
       <Contents />
       <h1>Myth</h1>
-      <p>Magic in Guildsmen is not conventional. In this game magic comes from a drug known as Myth - a liquid that is created by refining the blood of Mythical creatures - and it is highly addictive. It is administered by syringe and can be deadly for both the user and those around them.</p>
+      <p>Magic in Guildsmen is performed in two ways: Myth and <Link href="/rules/runes">runes</Link>. Myth - a liquid that is created by refining the blood of Mythical creatures - is a highly addictive substance that allows users to manipulate the elements around them. In Guildsmen lore, this drug is generally illegal or at least highly restricted. It is administered by syringe and can be deadly for both the user and those around them.</p>
 
       <section id="the-first-dose">
         <h2>The First Dose</h2>
@@ -118,7 +118,7 @@ export default function Myth() {
           </tbody>
         </table>
       </section>
-      <NextButton href="/rules/crafting" />
+      <NextButton href="/rules/runes" />
     </article>
   )
 }

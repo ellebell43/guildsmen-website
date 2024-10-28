@@ -1,0 +1,28 @@
+{
+  "owner": "official",
+  "type": "mythical",
+  "name": "Abminable am",
+  "hazardWord": "deadly",
+  "modifier": 0,
+  "stats": {
+    "tough": 7,
+    "nimble": 5,
+    "compentence": 0,
+    "constitution": 9,
+    "harm": 17,
+    "armor": 2
+  },
+  "description": "Abominable Rams are large, 8-foot-tall creatures that are built like a horse but have 6 legs and are covered in bright white scales. Their heads are topped with two massive ram’s horns. They are found in snowy regions where they can hide in snow drifts to ambush unwary prey. Its medium size (2 inches) Navidus Crystal is found in its belly.",
+  "actions": [
+    {
+      "name": "Ram",
+      "modifier": 5,
+      "description": "The Crocodile chopms down with jaws powerful enough to crush a person's body."
+    },
+    {
+      "name": "Drowning Drag",
+      "modifierNote": "Requires a nearby body of water",
+      "description": "The Crocodile grabs you and drags you into the water. It grapples you via an opposed Tough check. If the crocodile succeeds, then you take 3 Harm and are then dragged into the water to cause 1 Harm (ignoring armor) for every round that you are held under the water."
+    }
+  ]
+}

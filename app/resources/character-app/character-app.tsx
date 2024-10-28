@@ -72,7 +72,7 @@ export default function CharacterApp(props: { character: Character }) {
     let size: "sm" | "md" | "lg"
     if (width <= 768) {
       size = "sm"
-    } else if (width <= 1280) {
+    } else if (width < 1024) {
       size = "md"
     } else {
       size = "lg"
@@ -125,7 +125,7 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "settings":
         return <>
-          <Settings edit={edit} setEdit={setEdit} />
+          <Settings edit={edit} setEdit={setEdit} character={character} />
         </>
       case "skills":
         return <>
