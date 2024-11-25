@@ -57,7 +57,7 @@ export default function Skills() {
 
         <p><strong>Luck Checks</strong> work on the exact same concept, except they don&apos;t rely on any skill or stat. They are used when the outcome should be very uncertain, and the result should be the product of complete chance.</p>
 
-        <p>More often than not, a skill will require a roll of 8 or more in order to be successful. However, the Game Master can decide if a task will be more or less difficult than average. Each level of difficulty has its own target number to be rolled.</p>
+        <p>More often than not, a skill will require a roll of 8 or more in order to be successful. However, the Game Master can decide if a task will be more or less difficult than moderate. Each level of difficulty has its own target number to be rolled.</p>
 
         <table>
           <thead>
@@ -143,23 +143,13 @@ export default function Skills() {
 
         <p>An <strong>Extreme Success</strong> means you succeed at your task, any consequences that should happen would happen, and some other positive thing happens because of your success.</p>
 
-        <p><em>For example</em>: say you are trying to notice nearby clues to track someone, and you have +3 <em>investigate</em>. You roll 2d6 and get a 10. You add another 3 to the roll since you have +3 <em>investigate</em> and the total number become 13. The Game Master decides that this was an average difficulty skill check, and the goal was to get an 8.</p>
+        <p><em>For example</em>: say you are trying to notice nearby clues to track someone, and you have +3 <em>investigate</em>. You roll 2d6 and get a 10. You add another 3 to the roll since you have +3 <em>investigate</em> and the total number become 13. The Game Master decides that this was a moderate difficulty skill check, and the goal was to get an 8.</p>
 
         <p>Normally, you would simply be able to notice any common clues, such as footprints. However, the goal was to roll an 8, but you managed to roll a 13. The Game Master decided to take the Degree of Success into account: 13 - 8 = 5. The difference between the rolled number and the goal is 5, making this an Extreme Success.</p>
 
         <p>So, instead of just simply noticing footprints, maybe the Game Master will also let you know that there is a bystander that might know something or give you additional information on what you are trying to track that you wouldn&apos;t have gotten otherwise.</p>
 
         <p><em>The Game Master doesn&apos;t have to consider the degree of success, it&apos;s completely optional.</em></p>
-      </section>
-      <section id="advantage-&-disadvantage">
-        <h2>Advantage & Disadvantage</h2>
-        <p>At times, you may find yourself in a situation where you are in a position to do something better than you normally would, due to circumstance. For example, you&apos;re trying to sneak past a guard but it&apos;s dark and the guard has their back to you, so it will be easier to sneak past than normal. In a situation like this, you would have Advantage.</p>
-
-        <p><strong>Advantage</strong> is when you have the upper hand in a situation. When this happens, you get to <em>Roll with Advantage</em>. This is where you make your dice check twice and use the higher result. </p>
-
-        <p>But on the other hand, there may be a situation where you would do worse instead. For example, you&apos;re trying to sneak past a guard but it&apos;s broad daylight and they&apos;re looking directly at where you plan to sneak through. In a situation like this, you would have disadvantage.</p>
-
-        <p><strong>Disadvantage</strong> is where you have the lower hand in a situation. When this happens, you <em>Roll with Disadvantage</em>. This is where you make your dice check twice and use the lower result. </p>
       </section>
 
       <section id="helping">

@@ -3,7 +3,7 @@ export default function MarketItem(props: {
   cost: "Destitute" | "Poor" | "Moderate" | "Wealthy" | "Exquisite" | "Exquisite+",
   description?: string,
   crystal?: boolean,
-  spellDifficulty?: "Very Easy" | "Easy" | "Average" | "Hard" | "Very Hard"
+  spellDifficulty?: "Very Easy" | "Easy" | "Moderate" | "Hard" | "Very Hard"
 }) {
 
   let difficulty = <p className="text-xs italic opacity-50 font-bold m-0 md:mb-1">Spell difficulty: {props.spellDifficulty}</p>

@@ -13,6 +13,17 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="11/25/2024"
+          version="v0.6.1"
+          entries={[
+            "Advantage and disadvatage have been removed since degree of difficulty exists. Advantage and disadvantage seemed redundant when you could instead adjust the difficulty of the task.",
+            "Fixed typo in character creation that mentioned orcs, which were replaced with the Isser. Thank you to @GoblinQuester@dice.camp for catching that.",
+            "Fixed a typo in the description for Nightshade, changing the resistance trigger to every hour instead of every round. Thank you again to @GoblinQuester@dice.camp!",
+            "Made wording more consistent by always using moderate for skill checks rather than switching between average and moderate.",
+            "Paragraph about Navidus crystals having energy drained over time was removed from the Invention page. Lore-wise, I wanted to be able to create devices that didn't have this stipulation and since arrows/bullets aren't accounted for, neither should changing out crystals in powered devices."
+          ]}
+        />
+        <ChangelogEntry
           date="08/30/2024"
           version="v0.6.0"
           entries={[
