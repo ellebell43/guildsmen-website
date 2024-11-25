@@ -19,9 +19,9 @@ export default function Invention() {
       <section id="inscribing-runes">
         <h2>Inscribing Runes</h2>
 
-        <p>Inscribing a rune onto an item is the safest and most common way to use magic. All items can be inscribed by carving a rune into it via a <em>craft</em> skill check that matches the difficulty of the spell. The rune can then be charged at any time to cast the designated spell by rolling a Spirit stat check that also matches the spells difficulty. So, if a spell has an Average difficulty, then you must roll 8 or more to successfully inscribe the rune and then roll an 8 or more again every time you charge the rune to cast the spell</p>
+        <p>Inscribing a rune onto an item is the safest and most common way to use magic. All items can be inscribed by carving a rune into it via a <em>craft</em> skill check that matches the difficulty of the spell. The rune can then be charged at any time to cast the designated spell by rolling a Spirit stat check that also matches the spells difficulty. So, if a spell has a Moderate difficulty, then you must roll 8 or more to successfully inscribe the rune and then roll an 8 or more again every time you charge the rune to cast the spell</p>
 
-        <p>An item can be inscribed with multiple runes, but when pushing your spiritual energy into the item, all the runes that are on the item will be charged at the same time, which increases the difficulty of using the item. Two or three runes of the same difficulty raises the difficulty to use the item by one. So two or three Easy spells on one item would make the item of Average difficulty to use, but 4 would raise the difficulty to Difficult.</p>
+        <p>An item can be inscribed with multiple runes, but when pushing your spiritual energy into the item, all the runes that are on the item will be charged at the same time, which increases the difficulty of using the item. Two or three runes of the same difficulty raises the difficulty to use the item by one. So two or three Easy spells on one item would make the item of Moderate difficulty to use, but 4 would raise the difficulty to Difficult.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -31,11 +31,11 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left text-left">2 Average Runes</td>
+              <td className="bottom left text-left">2 Moderate Runes</td>
               <td className="bottom right text-right"><em>Difficult</em></td>
             </tr>
             <tr>
-              <td className="bottom left text-left">1 Average and 2 Easy Runes</td>
+              <td className="bottom left text-left">1 Moderate and 2 Easy Runes</td>
               <td className="bottom right text-right"><em>Difficult</em></td>
             </tr>
             <tr>
@@ -72,7 +72,7 @@ export default function Invention() {
             </tr>
             <tr>
               <td className="bottom left text-left">Uncommon</td>
-              <td className="bottom right text-right">Average</td>
+              <td className="bottom right text-right">Moderate</td>
             </tr>
             <tr>
               <td className="bottom left text-left">Rare</td>
@@ -112,7 +112,7 @@ export default function Invention() {
             </tr>
             <tr>
               <td className="bottom left text-center">+1</td>
-              <td className="bottom right text-right">Average</td>
+              <td className="bottom right text-right">Moderate</td>
             </tr>
             <tr>
               <td className="bottom left text-center">+2</td>
@@ -147,7 +147,7 @@ export default function Invention() {
 
         <p>If you are the target of a spell, it can be deflected by a reaction known as Spirit Shielding. This is where you push your Spirit out of yourself briefly to rebuff incoming spiritual energy, negating the effects of an incoming spell.</p>
 
-        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent &apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent &apos;s but still greater than the difficulty of the spell (i.e. 8 or more for an Average spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
+        <p>When a spell is targeted at you from another creature or individual you can roll a Spirit stat check as a reaction. If the roll is greater than your opponent &apos;s, then the spell is deflected completely and no effect happens. If you&apos;re Spirit stat check is less that your opponent &apos;s but still greater than the difficulty of the spell (i.e. 8 or more for a Moderate spell), then you take half of the effect of the spell. If less than your opponent&apos;s check and less than the difficulty of the spell, then you take the full effect of the spell.</p>
 
         <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
 
