@@ -24,7 +24,7 @@ export default function Changelog() {
           ]}
         />
         <ChangelogEntry
-          date="08/30/2024"
+          date="09/26/2024"
           version="v0.6.0"
           entries={[
             "Orcs have been replaced with a new original species call Isser and included original art for the Isser.",
