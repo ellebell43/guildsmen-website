@@ -16,8 +16,8 @@ export default function Invention() {
 
       <p>Invention is how complex machines and devices are designed. Everything from light bulbs, to guns, to impressive architecture, to cannons, to flying vehicles and ground vehicles are all designed through invention. </p>
 
-      <section id="the-power-of-invention">
-        <h2>The Power of Invention</h2>
+      <section id="the-process-of-invention">
+        <h2>The Process of Invention</h2>
         <p>Invention is a multi-step process. First, you design the item you want to make, then you need to gather the resources and manpower to create the item, and finally, you&apos;ll actually create the item - first with a prototype, then onward to a fully functioning version.</p>
 
         <p>Designing an item takes a simple <em>tech</em> skill check. This skill check will vary in difficulty based on how futuristic the invention is as well as how complex the invention is. You will then add a blueprint to your gear. You cannot attempt to make the item without that blueprint. If this blueprint is lost, you must remake the design and someone else may make your design if they find the lost blueprint.</p>
@@ -34,24 +34,24 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft">Very Easy</td>
-              <td className="bottom right alignRight">1</td>
+              <td className="bottom left text-left">Very Easy</td>
+              <td className="bottom right text-right">1</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Easy</td>
-              <td className="bottom right alignRight">2</td>
+              <td className="bottom left text-left">Easy</td>
+              <td className="bottom right text-right">2</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Moderate</td>
-              <td className="bottom right alignRight">3</td>
+              <td className="bottom left text-left">Moderate</td>
+              <td className="bottom right text-right">3</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Difficult</td>
-              <td className="bottom right alignRight">4</td>
+              <td className="bottom left text-left">Difficult</td>
+              <td className="bottom right text-right">4</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Difficult</td>
-              <td className="bottom right alignRight">5</td>
+              <td className="bottom left text-left">Very Difficult</td>
+              <td className="bottom right text-right">5</td>
             </tr>
           </tbody>
         </table>
@@ -65,66 +65,149 @@ export default function Invention() {
 
       <section id="navidus-crystals">
         <h2>Navidus Crystals</h2>
-        <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. They are naturally occurring power sources with a lot of potential. They are used to power trains, elevators, Mechs, and other complex devices. However, they are also very dangerous.</p>
 
-        <p>If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged.</p>
+        <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. As such, they can be used to power all kinds of devices. This is done by attaching the crystal to an object with incomplete runes, then using a mechanical button or switch that completes the rune when used. This allows a rune to be charged without the need of a person using their Spirit (see the <Link href="/rules/runes">Runes chapter</Link> for details). And with some clever engineering, very complex devices can be made.</p>
 
-        <p>Since Navidus Crystals are used to power complex devices, whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design. This will allow the device to be powered but will also give it an important weakness. Any device powered by Navidus energy has a potential to explode violently, making the invention of complex and futuristic technology dangerous if handled poorly.</p>
+        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Navidus crystal you need to power the device. See <Link href="/rules/the-market">The Market</Link> for pricing and specific measurements of crystals.</p>
 
-        <p>Navidus Crystals only hold so much energy. When powering a device, all the crystals used will need to be replaced every 3 in-game days when the device is regularly used. Also, the larger a device is or the more work the device is able to perform, the larger the crystal powering it needs to be.</p>
-
-        <table>
+        <table className="raceStatTable">
           <thead>
             <tr>
-              <th colSpan={2}>Device Size to Crystal Size</th>
+              <th colSpan={2}>Spell Difficulty to Crystal Size</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft">Tiny</td>
-              <td className="bottom right alignRight">1&quot;-2&quot;</td>
+              <td className="bottom left text-left">Very Easy</td>
+              <td className="bottom right text-center">Tiny</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Small</td>
-              <td className="bottom right alignRight">2&quot;-3&quot;</td>
+              <td className="bottom left text-left">Easy</td>
+              <td className="bottom right text-center">Small</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Small</td>
-              <td className="bottom right alignRight">3&quot;-4&quot;</td>
+              <td className="bottom left text-left">Average</td>
+              <td className="bottom right text-center">Medium</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Medium</td>
-              <td className="bottom right alignRight">4&quot;-5&quot;</td>
+              <td className="bottom left text-left">Difficult</td>
+              <td className="bottom right text-center">Large</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Large</td>
-              <td className="bottom right alignRight">5&quot;-6&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Very Large</td>
-              <td className="bottom right alignRight">6&quot;-7&quot;</td>
+              <td className="bottom left text-left">Very Difficult</td>
+              <td className="bottom right text-center">Very Large</td>
             </tr>
           </tbody>
         </table>
 
-        <p>For exact dimensions for device sizes, see the table for Mech stats lower down.</p>
+        <p>All devices, by default have 10 uses. Every inch of extra crystal doubles the amount of uses. So, if you have a device that does very easy spells, using a 1&quot; crystal would give the item 10 uses, using a 2&quot; crystal would give the item 20 uses, using a 3&quot; crystal would give the item 40 uses, and so on. Once a crystal is depleted, it can be replaced just like a battery.</p>
 
-        <p>Since Navidus Crystals can be hunted down by anyone with the resources to kill a mythical creature, black market devices are common, making a wide variety of odd and dangerous devices available to those that have the right connections.</p>
+        <p>Whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design unless otherwise stated by the Game Master. This will allow the device to be powered but will also give it an important weakness within the game. You see, such powerful items also present a powerful hazard. If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged. Navidus Crystals crack and break as easily as a glass jar and are fully charged when first harvested from a Mythical creature, giving any device powered by Navidus crystals the potential to explode violently.</p>
 
-        <p>Navidus Crystals crack and break as easily as a glass jar and are fully charged when first harvested from a Mythical creature.</p>
+        <p>We understand that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item on a base game level, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Navidus Crystals are a good way to regulate that, since they come with a certain amount of inherent danger. Of course, the Game Master can override this at any time.</p>
 
-        <p>We understnad that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Navidus Crystals are a good way to regulate that, since they come with a certain amount of inherent danger.</p>
-
-        <p>If you want access to inventing devices that have alternate power sources, have a discussion with your Game Master. They get the last say when it comes to inventing items outside the energy source of a Navidus Crystal.</p>
+        <p>If you want access to inventing devices that have alternate power sources, have a discussion with your Game Master. They get the last say when it comes to inventing items.</p>
       </section>
 
       <section id="mechs">
         <h2>Mechs</h2>
-        <p>Mechs are semi-autonomous metal creations that serve singular purposes and are designed to automate very specific tasks so regular people don&apos;t have to do them. They are used as civil protectors, to perform extreme labor, or to serve their creators in whatever way they deem necessary.</p>
+        <p>Mechs are essentially robots that are designed to carryout specific tasks and usually incorporate features and forms from the natural world. There are mechs for moving heavy object, for transportation, for show, for play, and much more. Creating them is difficult and complex, requiring a strong knowledge of runes. When creating a mech, you need to first establish the purpose of the mech and the tasks it will be capable. From there, you&apos;ll pick a size that fits the mech&apos;s needs.</p>
 
-        <p>Mechs are designed for any purpose their creator wishes and are generally designed with the form of a living creature in mind. Mechs can be created by anyone through the invention process as long as they have the right resources.</p>
+        <table>
+          <thead>
+            <tr>
+              <th colSpan={2}>Mech Sizes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="bottom left text-left">Very Small</td>
+              <td className="bottom right text-right">&lt;1&apos;</td>
+            </tr>
+            <tr>
+              <td className="bottom left text-left">Small</td>
+              <td className="bottom right text-right">1&apos; - 2&apos;</td>
+            </tr>
+            <tr>
+              <td className="bottom left text-left">Medium</td>
+              <td className="bottom right text-right">2&apos; - 4&apos;</td>
+            </tr>
+            <tr>
+              <td className="bottom left text-left">Large</td>
+              <td className="bottom right text-right">4&apos; - 8&apos;</td>
+            </tr>
+            <tr>
+              <td className="bottom left text-left">Very Large</td>
+              <td className="bottom right text-right">8&apos; - 12&apos;</td>
+            </tr>
+          </tbody>
+        </table>
 
-        <p>The size of the Mech will help determine your mechs physical stats.</p>
+        <p>The size of the mech determines how difficult the mech will be to invent and what it will take to power the mech. This will correspond to the skill checks needed to invent the mech as seen in <Link href="/rules/invention#the-process-of-invention">The Process of Invention</Link> section.</p>
+
+        <div className="flex justify-center gap-10">
+          <table className="mx-0">
+            <thead>
+              <tr>
+                <th colSpan={2}>Mech Size to Difficulty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="bottom left text-left">Very Small</td>
+                <td className="bottom right text-right">Easy</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Small</td>
+                <td className="bottom right text-right">Average</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Medium</td>
+                <td className="bottom right text-right">Difficult</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Large</td>
+                <td className="bottom right text-right">Very Difficult</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Very Large</td>
+                <td className="bottom right text-right">Super Difficult</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table className="mx-0">
+            <thead>
+              <tr>
+                <th colSpan={2}>Mech Size to Required Power</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="bottom left text-left">Very Small</td>
+                <td className="bottom right text-right">1 Medium Crystal</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Small</td>
+                <td className="bottom right text-right">1 Large Crystal</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Medium</td>
+                <td className="bottom right text-right">1 Very Large Crystal</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Large</td>
+                <td className="bottom right text-right">2 Very Large Crystals</td>
+              </tr>
+              <tr>
+                <td className="bottom left text-left">Very Large</td>
+                <td className="bottom right text-right">3 Very Large Crystals</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Once created, the size of the mech also determines the machine&apos;s stats, just incase the mech is used in combat or someone attempts to destroy it.</p>
 
         <table>
           <thead>
@@ -134,43 +217,43 @@ export default function Invention() {
           </thead>
           <tbody>
             <tr>
-              <td className="bottom left alignLeft"><strong>Class</strong></td>
+              <td className="bottom left text-left"><strong>Class</strong></td>
               <td className="bottom"><strong>Size</strong></td>
               <td className="bottom"><strong>Tough</strong></td>
               <td className="bottom"><strong>Nimble</strong></td>
               <td className="bottom right"><strong>Harm</strong></td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Small</td>
-              <td className="bottom">4&quot;-1&apos;</td>
+              <td className="bottom left text-left">Very Small</td>
+              <td className="bottom">&lt;1&apos;</td>
               <td className="bottom">+0</td>
               <td className="bottom">+5</td>
               <td className="bottom right">5</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Small</td>
-              <td className="bottom">1&apos;-3&apos;</td>
+              <td className="bottom left text-left">Small</td>
+              <td className="bottom">1&apos; - 2&apos;</td>
               <td className="bottom">+5</td>
               <td className="bottom">+3</td>
               <td className="bottom right">10</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Medium</td>
-              <td className="bottom">3&apos;-7&apos;</td>
+              <td className="bottom left text-left">Medium</td>
+              <td className="bottom">2&apos; - 4&apos;</td>
               <td className="bottom">+10</td>
               <td className="bottom">+1</td>
               <td className="bottom right">15</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Large</td>
-              <td className="bottom">7&apos;-12&apos;</td>
+              <td className="bottom left text-left">Large</td>
+              <td className="bottom">4&apos; - 8&apos;</td>
               <td className="bottom">+15</td>
               <td className="bottom">-1</td>
               <td className="bottom right">20</td>
             </tr>
             <tr>
-              <td className="bottom left alignLeft">Very Large</td>
-              <td className="bottom">12&apos;-20&apos;</td>
+              <td className="bottom left text-left">Very Large</td>
+              <td className="bottom">8&apos; - 12&apos;</td>
               <td className="bottom">+20</td>
               <td className="bottom">-1</td>
               <td className="bottom right">25</td>
@@ -178,60 +261,13 @@ export default function Invention() {
           </tbody>
         </table>
 
-        <p>Harm represents how much Harm your mech can take before being broken or destroyed. A Mech will not have a Competence and Constitution score, meaning they cannot use those stats.</p>
-
-        <p>All mechs are powered by Navidus Crystals. They will power a mech for 3 days before needing to be replaced.</p>
-
-        <table>
-          <thead>
-            <tr>
-              <th colSpan={2}>Mech Size to Crystal Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="bottom left alignLeft">Tiny</td>
-              <td className="bottom right alignRight">1&quot;-2&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Very Small</td>
-              <td className="bottom right alignRight">2&quot;-3&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Small</td>
-              <td className="bottom right alignRight">3&quot;-4&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Medium</td>
-              <td className="bottom right alignRight">4&quot;-5&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Large</td>
-              <td className="bottom right alignRight">5&quot;-6&quot;</td>
-            </tr>
-            <tr>
-              <td className="bottom left alignLeft">Very Large</td>
-              <td className="bottom right alignRight">6&quot;-7&quot;</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Notice that this is the same as devices, that is because devices follow the same dimensions for tiny, very small, small, etc.</p>
-
-        <p>Once a Mech takes its maximum amount of Harm, your Mech is no longer functional. Mechs cannot be healed through normal means. They must be repaired. A crafting check of 10 or more with the right materials can restore 2 Harm from the Mech. If a Mechs power source is damaged, it explodes violently.</p>
+        <p>Harm represents how much Harm your mech can take before being broken or destroyed. A Mech will not have a Competence and Constitution score, meaning they cannot use those stats. Once a Mech takes its maximum amount of Harm, your Mech is no longer functional and cannot be healed the same way as a person can. Instead, they must be repaired. A crafting check of 10 or more with the right materials can restore 2 Harm from the Mech. If a Mechs power source is damaged, it explodes violently.</p>
 
         <p>You can add as many limbs and devices to your Mech as you deem necessary. However, if you are trying to add devices to your Mech that wouldn&apos;t normally exist, you must go through a separate invention process for each device that wouldn&apos;t normally exist.</p>
 
-        <p>If your Mech is built for combat, its damage bonus will be however much its weapon would normally do as well as its Tough score. So, if you have a Large Mech that is wielding a heavy weapon, it will have a +17 Bonus in total (+2 for the heavy weapon and +15 for the Tough stat of the Mech).</p>
+        <p>If your Mech is built for combat, its damage bonus will be however much its weapon would normally do as well as its Tough score. So, if you have a Large Mech that is wielding a heavy weapon, it will have a +17 Bonus in total (+2 for the heavy weapon and +15 for the Tough stat of the Mech). The Mech does not add its Tough score if the weapon being used is a ranged weapon such as a bow or gun. The standard damage bonus is applied.</p>
 
-        <p>The Mech does not add its Tough score if the weapon being used is a ranged weapon such as a bow or gun. The standard damage bonus is applied.</p>
-
-        <p>You can control you mech either by creating a cock pit where you control it from inside the Mech or through some invented controller.</p>
-      </section>
-
-      <section id="prosthetics">
-        <h2>Prosthetics</h2>
-        <p>With the <em>tech</em> skill, you can create artificial limbs. You&apos;ll need to go through the invention process if prosthetics wouldn&apos;t normally exist. Then you can simply attach it to the injured creature. However, it will be similar to a peg leg when it comes to mobility and original functionality. But you can insert various gadgets and devices into a prosthetic for functionality, convenience, and to easily hide them.</p>
+        <p>Small mechs are generally controlled through some external device and larger mechs are usually built with a cockpit for a person to drive the mech from the inside.</p>
       </section>
       <NextButton href="/rules/the-market" />
     </article>

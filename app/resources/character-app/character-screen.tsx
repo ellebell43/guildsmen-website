@@ -20,6 +20,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
         <RollableStatRow stat={"nimble"} value={character.stats.nimble} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
         <RollableStatRow stat={"competence"} value={character.stats.competence} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
         <RollableStatRow stat={"constitution"} value={character.stats.constitution} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
+        <RollableStatRow stat={"spirit"} value={character.stats.spirit} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
       </div>
       <div className="flex justify-center items-center gap-4">
 

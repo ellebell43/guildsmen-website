@@ -24,7 +24,7 @@ export default function Creatures() {
         <p>The creature block is how creatures&apos; stats, actions, and descriptions are outlined. They all appear like so:</p>
 
         <div className="creatureBlock">
-          <p className="title">Grizzly Bear (Deadly, +0)</p>
+          <p className="title">Grizzly Bear (Deadly, +0) | <em>Un-Reactive</em></p>
           <div className="stats">
             <p>Tough +9 | Nimble +5</p>
             <p>Competence +0 | Constitution +4</p>
@@ -43,9 +43,9 @@ export default function Creatures() {
           </div>
         </div>
 
-        <p>At the top of the creature block is the name, hazard word, and modifier of the creature. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier.</p>
+        <p>At the top of the creature block is the name, hazard word, modifier of the creature, and reactivity status. In this case we have a Grizzly Bear that is classified as a deadly hazard with a +0 modifier and marked as un-reactive. Un-reactive creatures do not get reactions during combat.</p>
 
-        <p>A creature&apos;s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is cabable of being very dangerous to a person.</p>
+        <p>A creature&apos;s hazard word is an indicator of how dangerous the creature is. Regular people never go beyond moderate, unless they are well equipped, so anything above moderate is capable of being very dangerous to a person.</p>
 
         <p>A creature&apos;s modifier (in this case, +0) is the number that gets added to skill checks and actions. So, if this bear would attack you with its claws, it would roll 2d6 and add 0. If it were to investigate an area with its nose, it wouldn&apos;t add anything.</p>
 
@@ -58,6 +58,20 @@ export default function Creatures() {
         <p>The large, right box (bottom box on mobile screens) on the creature block outlines all the common actions that the creature would use. After the title of the action is a number in parenthesis. This is the Bonus to the attack that the creature has for that action. If the creature is successful when using the action, the Bonus is then added to the dice roll to determine damage.</p>
 
         <p>Creatures can perform actions outside of the listed actions. The actions outlined are all the regular, combat-oriented actions that the creature would use so that the Game Master has clear rules for how much Harm a creature could deal given a certain action.</p>
+      </section>
+
+      <section id="types-of-creatures">
+        <h2>Types of Creatures</h2>
+
+        <p>In the world of Guildsmen, there are three types of creatures: people, beasts, and Mythical. The first two are pretty obvious. People are non-player characters that are one of the playable species, and beasts are animals that are common to this world like bears and wolves. Mythical creatures, however, are integral to the lore of the world since they are the only source of Navidus Crystals.</p>
+
+        <p>The only thing that distinguishes a Mythical creature from any other kind is that they carry a Navidus Crystal of some size within their body. Generally, these creatures are hunted to procure those crystals, but doing that is very dangerous. As outlined in the <Link href="/rules/invention#navidus-crystals">Invention chapter</Link>, Navidus Crystals break as easily as glass jars and, when they do break, they explode violently. So, when battling a Mythical creature, it is crucial to keep this concept in mind. If you strike to hard in the wrong place, the creature will explode and die, possibly taking you with it.</p>
+
+        <p>It&apos;s also good to know that Mythical creatures will usually have the power to manipulate one element or another. For example, a phoenix will have the ability to manipulate fire, and since their body is always on fire, they have a large source to pull from to send blasts of fire out. The Abominable Ram has power over water and use it to manipulate the snow that permeates their natural habitat. So, when hunting or encountering a Mythical creature, be cautious and keep in mind that they do have extraordinary powers.</p>
+
+        <p>With that said, all creatures generally fight to preserve their own life and Mythical creatures usually aren&apos;t incredibly creative with their powers. While Mythical creatures are generally much more aggressive than beasts and people, their first priority will be to keep their self alive. So, the Abominable Ram might use their powers to whip up a small blizzard to obscure it while it runs away rather than doing something more damaging and aggressive.</p>
+
+        <p>So, tip for the Game Masters: people, beasts, and Mythical creatures are primarily focused on survival. While Mythical animals are very aggressive compared to the other types of creatures, they will not fight to the death if they can help it. Once things are looking more dicey for them, they will probably try to run.</p>
       </section>
 
       <section id="creating-custom-creatures">

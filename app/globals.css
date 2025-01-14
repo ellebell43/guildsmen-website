@@ -200,27 +200,6 @@
     @apply border-r border-stone-400;
   }
 
-  /* ---------- THE MARKET ---------- */
-  .item {
-    @apply flex justify-between border-b border-dotted border-stone-400;
-  }
-
-  .item p {
-    @apply m-0;
-  }
-
-  .itemName {
-    @apply font-bold text-lg;
-  }
-
-  .itemDescription {
-    @apply mt-0 p-0 opacity-50 border-none -z-10 relative
-  }
-
-  .crystal {
-    margin: 20px 0;
-  }
-
   /* ----------- CREATURE BLOCK ---------- */
   .creatureBlock {
     @apply grid gap-0 border-none mt-5 mx-auto max-w-[700px];
@@ -270,7 +249,7 @@
     @apply border-t-0 p-[10px] text-left;
   }
 
-  .actionHead {
+  .actions .actionHead {
     @apply max-w-[50%] text-center self-center font-bold mt-0 border-b border-b-stone-400;
   }
 
