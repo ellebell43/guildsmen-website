@@ -86,7 +86,7 @@ export default function Invention() {
               <td className="bottom right text-center">Small</td>
             </tr>
             <tr>
-              <td className="bottom left text-left">Average</td>
+              <td className="bottom left text-left">Moderate</td>
               <td className="bottom right text-center">Medium</td>
             </tr>
             <tr>
@@ -99,8 +99,6 @@ export default function Invention() {
             </tr>
           </tbody>
         </table>
-
-        <p>All devices, by default have 10 uses. Every inch of extra crystal doubles the amount of uses. So, if you have a device that does very easy spells, using a 1&quot; crystal would give the item 10 uses, using a 2&quot; crystal would give the item 20 uses, using a 3&quot; crystal would give the item 40 uses, and so on. Once a crystal is depleted, it can be replaced just like a battery.</p>
 
         <p>Whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design unless otherwise stated by the Game Master. This will allow the device to be powered but will also give it an important weakness within the game. You see, such powerful items also present a powerful hazard. If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged. Navidus Crystals crack and break as easily as a glass jar and are fully charged when first harvested from a Mythical creature, giving any device powered by Navidus crystals the potential to explode violently.</p>
 
@@ -159,7 +157,7 @@ export default function Invention() {
               </tr>
               <tr>
                 <td className="bottom left text-left">Small</td>
-                <td className="bottom right text-right">Average</td>
+                <td className="bottom right text-right">Moderate</td>
               </tr>
               <tr>
                 <td className="bottom left text-left">Medium</td>

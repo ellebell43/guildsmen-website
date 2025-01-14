@@ -87,7 +87,7 @@ export default function Crafting() {
 
       <section id="improvement">
         <h2>Improvement</h2>
-        <p>You can toughen your weapons and armor through a process called Improvement. Improvement will increase the Bonus of your weapon or score of your armor by 1. Improvement can be done up to 3 times to an item and requires a wealth equal to the material it&apos;s made of (i.e., a steel sword would require you to be Average to afford the common material of steel).</p>
+        <p>You can toughen your weapons and armor through a process called Improvement. Improvement will increase the Bonus of your weapon or score of your armor by 1. Improvement can be done up to 3 times to an item and requires a wealth equal to the material it&apos;s made of (i.e., a steel sword would require your wealth to be Moderate to afford the common material of steel).</p>
 
         <p>However, if you attempt to Improve your item and you fail at the <em>craft</em> skill check, you ruin your item and it becomes useless.</p>
 
