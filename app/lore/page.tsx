@@ -52,20 +52,20 @@ export default function Lore() {
         <div>
           <h2>Mythical Creatures and Navidus</h2>
           <ul className={listClass}>
-            <li className={inactiveLinkClass}>Mythical Biology</li>
+            <li className={inactiveLinkClass}>Starborne Biology</li>
             <li className={inactiveLinkClass}>Navidus</li>
-            <li className={inactiveLinkClass}>Navidus Crystals</li>
+            <li className={inactiveLinkClass}>Star Gems</li>
             <li className={inactiveLinkClass}>Navidus Energy</li>
-            <li className={inactiveLinkClass}>Myth</li>
-            <li className={inactiveLinkClass}>Myth & Sophont Anatomy</li>
+            <li className={inactiveLinkClass}>Stardew</li>
+            <li className={inactiveLinkClass}>Stardew & Sophont Anatomy</li>
             <li className={inactiveLinkClass}>Centrifuge Technology</li>
           </ul>
         </div>
 
         <div>
-          <h2>Types of Mythical Creatures</h2>
+          <h2>Types of Starborne Creatures</h2>
           <ul className={listClass}>
-            <li><Link href="/lore/types-of-mythical-creatures/fictus-arboreus" className={linkClass}>Fictus Arboreus (Hunting Tree)</Link></li>
+            <li><Link href="/lore/types-of-starborne-creatures/fictus-arboreus" className={linkClass}>Fictus Arboreus (Hunting Tree)</Link></li>
 
           </ul>
         </div>
