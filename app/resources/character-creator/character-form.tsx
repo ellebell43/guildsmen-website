@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 const initSkills: skills = {
   craft: -1,
   leadership: -1,
-  myth: -1,
+  stardew: -1,
   performance: -1,
   sneaky: -1,
   investigate: -1,
@@ -193,7 +193,7 @@ export default function CharacterForm(props: { user: user }) {
         skillsToUpdate.medic++
         skillsToUpdate.throwdown++
         break
-      case "Mythic Hunters":
+      case "Starborne Hunters":
         skillsToUpdate.investigate++
         skillsToUpdate.medic++
         skillsToUpdate.nature++
@@ -215,8 +215,8 @@ export default function CharacterForm(props: { user: user }) {
     setStats()
     // update skills
     let updatedSkills = updateSkills()
-    // update myth addiction if chosen as a starting skill
-    if (skills.myth >= 0) setAddiction(3)
+    // update stardew addiction if chosen as a starting skill
+    if (skills.stardew >= 0) setAddiction(3)
     if (name && species && typeof (wealth) == "number" && luck && guild) {
       let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
       newChar.gear = gear

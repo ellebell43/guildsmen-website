@@ -17,7 +17,7 @@ export default function GuildSelect(props: { guild: guild | undefined, setGuild:
       case "Assassins": return <GuildDetails guild="Assassins" />
       case "Explorers": return <GuildDetails guild="Explorers" />
       case "Mercenaries": return <GuildDetails guild="Mercenaries" />
-      case "Mythic Hunters": return <GuildDetails guild="Mythic Hunters" />
+      case "Starborne Hunters": return <GuildDetails guild="Starborne Hunters" />
       case "Thieves": return <GuildDetails guild="Thieves" />
       default: return <></>
     }
@@ -25,7 +25,7 @@ export default function GuildSelect(props: { guild: guild | undefined, setGuild:
   return (
     <div>
       <h2>Join a Guild</h2>
-      <BulletDropList entries={["Assassins", "Mythic Hunters", "Explorers", "Mercenaries", "Thieves"]} state={props.guild} setState={props.setGuild} placeholder="Guild" info={info} />
+      <BulletDropList entries={["Assassins", "Starborne Hunters", "Explorers", "Mercenaries", "Thieves"]} state={props.guild} setState={props.setGuild} placeholder="Guild" info={info} />
       {props.guild ?
         <div className="border shadow-lg p-4 mx-auto">
           {getGuildDetails()}

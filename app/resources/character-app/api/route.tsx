@@ -74,7 +74,7 @@ export async function PATCH(req: NextRequest) {
       experienceProgress: character.experienceProgress,
       notes: character.notes,
       backstory: character.backstory,
-      mythUses: character.mythUses,
+      stardewUses: character.stardewUses,
       specialties: character.specialties,
       public: character.public
     }

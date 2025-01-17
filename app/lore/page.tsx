@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { linkClass } from "@/util/variables";
 
 export const metadata: Metadata = {
-  title: "Guildsmen Lore",
+  title: "Guildsmen | Lore",
   description: "The starting point for exploring the lore of Thelius, the core world of Guildsmen"
 }
 
@@ -21,7 +21,7 @@ export default function Lore() {
           <h2>The World of Thelius</h2>
           <ul className={listClass}>
             <li className={inactiveLinkClass}>The Atlas of Thelius</li>
-            <li className={inactiveLinkClass}>General World History</li>
+            <li><Link href="/lore/the-world-of-thelius/general-world-history" className={linkClass}>General World Histroy</Link></li>
           </ul>
         </div>
 
@@ -52,12 +52,21 @@ export default function Lore() {
         <div>
           <h2>Mythical Creatures and Navidus</h2>
           <ul className={listClass}>
-            <li className={inactiveLinkClass}>Mythical Biology</li>
+            <li className={inactiveLinkClass}>Starborne Biology</li>
             <li className={inactiveLinkClass}>Navidus</li>
-            <li className={inactiveLinkClass}>Navidus Crystals</li>
+            <li className={inactiveLinkClass}>Star Gems</li>
             <li className={inactiveLinkClass}>Navidus Energy</li>
-            <li className={inactiveLinkClass}>Myth</li>
-            <li className={inactiveLinkClass}>Cetrifuge Technology</li>
+            <li className={inactiveLinkClass}>Stardew</li>
+            <li className={inactiveLinkClass}>Stardew & Sophont Anatomy</li>
+            <li className={inactiveLinkClass}>Centrifuge Technology</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Types of Starborne Creatures</h2>
+          <ul className={listClass}>
+            <li><Link href="/lore/types-of-starborne-creatures/fictus-arboreus" className={linkClass}>Fictus Arboreus (Hunting Tree)</Link></li>
+
           </ul>
         </div>
       </div>

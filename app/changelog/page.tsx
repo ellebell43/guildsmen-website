@@ -13,6 +13,16 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="01/16/2025"
+          version="v0.7.0"
+          entries={[
+            "Mythical creatures have been changed to Starborne creatures.",
+            "An entry has been added to the lore page detailing a brief overview of the world of Thelius outlining the Starfall, the origin of Starborne creatures, and the founding of the ancestor city-states.",
+            "Navidus Crystals are renamed to Star Gems.",
+            "Mythic Hunters have been renamed to Starborne hunters."
+          ]}
+        />
+        <ChangelogEntry
           date="11/25/2024"
           version="v0.6.1"
           entries={[

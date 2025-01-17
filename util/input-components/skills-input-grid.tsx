@@ -4,7 +4,7 @@ import { Info } from "./input-elements";
 import Link from "next/link";
 
 export default function SkillsInputGrid(props: { skills: skills, setSkills: Function, setError: Function }) {
-  const skillNames: skillName[] = ["craft", "leadership", "myth", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
+  const skillNames: skillName[] = ["craft", "leadership", "stardew", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
 
   const getSkillDescription = (skill: skillName) => {
     switch (skill) {
@@ -16,8 +16,8 @@ export default function SkillsInputGrid(props: { skills: skills, setSkills: Func
         return <p><strong>Leadership</strong> is your ability to guide groups or establishments and be a figure of authority. It is used primarily in Establishments (see the <Link href="/rules/establishments"><em>Establishments chapter</em></Link>), but can also be used to be an authority to NPCs (non-player characters)</p>
       case "medic":
         return <p><strong>Medic</strong> is your ability to heal and care for injured creatures. This is used to restore Harm and remove combat conditions (see the <a href="/rules/combat"><em>Combat chapter</em></a>).</p>
-      case "myth":
-        return <p><strong>Myth</strong> is your ability to use and control the powers that come from Myth, an addictive drug refined from the blood of magical creatures. It is also used to refined raw mythical blood into Myth (see the <a href="/rules/myth"><em>Myth chapter</em></a>).</p>
+      case "stardew":
+        return <p><strong>Stardew</strong> is your ability to use and control the powers that come from Stardew, an addictive drug refined from the blood of magical creatures. It is also used to refined raw Starborne blood into Stardew (see the <a href="/rules/stardew"><em>Stardew chapter</em></a>).</p>
       case "nature":
         return <p><strong>Nature</strong> is your knowledge of the natural world and ability to survive in the wild effectively. This can be used to track wild creatures, navigate through uncivilized areas, and to perform basic survival actions in the wild.</p>
       case "performance":
@@ -58,7 +58,7 @@ export default function SkillsInputGrid(props: { skills: skills, setSkills: Func
 }
 
 const BubbleButton = (props: { skill: skillName, value: modRange, skills: skills, setSkills: Function, setError: Function }) => {
-  const skillNames: skillName[] = ["craft", "leadership", "myth", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
+  const skillNames: skillName[] = ["craft", "leadership", "stardew", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
 
   return (
     <div className="relative">

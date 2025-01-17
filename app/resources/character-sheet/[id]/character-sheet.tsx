@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { LabelAndLine, StatRow, Bubble, BubbleRow, MythBar, Skill, LineColumn } from "@/util/components/character-sheet-components"
+import { LabelAndLine, StatRow, Bubble, BubbleRow, StardewBar, Skill, LineColumn } from "@/util/components/character-sheet-components"
 import { useSearchParams } from "next/navigation"
 import { Character } from "@/util/types"
 import ErrorMessage from "@/app/error-message"
@@ -128,9 +128,9 @@ export default function CharacterSheet(props: { character?: Character, error?: s
             {/* ========== ADDICTION ========== */}
 
             <div className={`${borderStyle} relative h-fit w-fit`}>
-              <h2 className={headerStyle}>Myth Addiction</h2>
+              <h2 className={headerStyle}>Stardew Addiction</h2>
               <p className="text-center m-0">Level</p>
-              <MythBar />
+              <StardewBar />
               <div className="mt-1 relative left-[17px] mr-4">
                 <BubbleRow length={8} fill={0} customFlex="justify-end items-center gap-[9px]" />
               </div>
@@ -156,11 +156,11 @@ export default function CharacterSheet(props: { character?: Character, error?: s
               <Skill name="Investigate" value={character ? character.skills.investigate : undefined} primarySpecialty={character ? character.specialties.investigate.primary : undefined} secondarySpecialty={character ? character.specialties.investigate.secondary : undefined} />
               <Skill name="Leadership" value={character ? character.skills.leadership : undefined} primarySpecialty={character ? character.specialties.leadership.primary : undefined} secondarySpecialty={character ? character.specialties.leadership.secondary : undefined} />
               <Skill name="Medic" value={character ? character.skills.medic : undefined} primarySpecialty={character ? character.specialties.medic.primary : undefined} secondarySpecialty={character ? character.specialties.medic.secondary : undefined} />
-              <Skill name="Myth" value={character ? character.skills.myth : undefined} primarySpecialty={character ? character.specialties.myth.primary : undefined} secondarySpecialty={character ? character.specialties.myth.secondary : undefined} />
               <Skill name="Nature" value={character ? character.skills.nature : undefined} primarySpecialty={character ? character.specialties.nature.primary : undefined} secondarySpecialty={character ? character.specialties.nature.secondary : undefined} />
               <Skill name="Performance" value={character ? character.skills.performance : undefined} primarySpecialty={character ? character.specialties.performance.primary : undefined} secondarySpecialty={character ? character.specialties.performance.secondary : undefined} />
               <Skill name="Social" value={character ? character.skills.social : undefined} primarySpecialty={character ? character.specialties.social.primary : undefined} secondarySpecialty={character ? character.specialties.social.secondary : undefined} />
               <Skill name="Sneaky" value={character ? character.skills.sneaky : undefined} primarySpecialty={character ? character.specialties.sneaky.primary : undefined} secondarySpecialty={character ? character.specialties.sneaky.secondary : undefined} />
+              <Skill name="Stardew" value={character ? character.skills.stardew : undefined} primarySpecialty={character ? character.specialties.stardew.primary : undefined} secondarySpecialty={character ? character.specialties.stardew.secondary : undefined} />
               <Skill name="Tech" value={character ? character.skills.tech : undefined} primarySpecialty={character ? character.specialties.tech.primary : undefined} secondarySpecialty={character ? character.specialties.tech.secondary : undefined} />
               <Skill name="Throwdown" value={character ? character.skills.throwdown : undefined} primarySpecialty={character ? character.specialties.throwdown.primary : undefined} secondarySpecialty={character ? character.specialties.throwdown.secondary : undefined} doubleCol={true} />
             </div>

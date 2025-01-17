@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Character, addictionRange, craftSpecialty, investigateSpecialty, leadershipSpecialty, luckRange, medicSpecialty, modRange, mythSpecialty, natureSpecialty, performanceSpecialty, skillName, sneakySpecialty, socialSpecialty, statName, techSpecialty, throwdownSpecialty } from "../types"
+import { Character, addictionRange, craftSpecialty, investigateSpecialty, leadershipSpecialty, luckRange, medicSpecialty, modRange, stardewSpecialty, natureSpecialty, performanceSpecialty, skillName, sneakySpecialty, socialSpecialty, statName, techSpecialty, throwdownSpecialty } from "../types"
 import DiceRollWrapper from "./dice/dice-roll-wrapper"
 import PopUp from "./pop-up"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -122,8 +122,8 @@ export function RollableStatRow(props: { stat: statName, top?: boolean, value: m
   )
 }
 
-// -- MYTH ADDICTION BAR COMPONENT --
-export function MythBar(props: { value?: addictionRange }) {
+// -- Stardew ADDICTION BAR COMPONENT --
+export function StardewBar(props: { value?: addictionRange }) {
   let arr = []
   let i = 1
   while (i <= 8 * 3) {
@@ -180,7 +180,7 @@ export const AddSpecialty = (props: { type: "primary" | "secondary", skill: skil
   const { type, skill, character, setCharacter, className } = props
   let [showDialogue, setShowDialogue] = useState(false)
 
-  const setSpecialty = (specialty?: craftSpecialty | investigateSpecialty | leadershipSpecialty | medicSpecialty | mythSpecialty | natureSpecialty | performanceSpecialty | socialSpecialty | sneakySpecialty | throwdownSpecialty | techSpecialty) => {
+  const setSpecialty = (specialty?: craftSpecialty | investigateSpecialty | leadershipSpecialty | medicSpecialty | stardewSpecialty | natureSpecialty | performanceSpecialty | socialSpecialty | sneakySpecialty | throwdownSpecialty | techSpecialty) => {
     let newCharacter = { ...character }
     if (type == "primary" && specialty) {
       newCharacter.specialties[skill].primary = specialty
@@ -236,7 +236,7 @@ export const AddSpecialty = (props: { type: "primary" | "secondary", skill: skil
           <SpecialtyInput name="Beasts" />
           <SpecialtyInput name="People" />
         </>
-      case "myth":
+      case "stardew":
         // refinement, air, fire, lightning, metal, stone, water, other
         return <>
           <SpecialtyInput name="Refinement" />

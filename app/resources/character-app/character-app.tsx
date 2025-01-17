@@ -35,7 +35,7 @@ export default function CharacterApp(props: { character: Character }) {
     if (character.harm == 10) { setMessage("You have died..."); setMessageGood(false) }
   }, [character])
 
-  // Automatically increase addiction meter if character is addicted to myth anytime the dice are rolled
+  // Automatically increase addiction meter if character is addicted to stardew anytime the dice are rolled
   useEffect(() => {
     if (rollMessage && character.addiction >= 3) {
       let maxNeed: number = 8 - Math.floor(character.addiction / 3) + 1
@@ -51,7 +51,7 @@ export default function CharacterApp(props: { character: Character }) {
         // @ts-expect-error
         setCharacter(newCharacter)
       } else if (character.need >= maxNeed) {
-        setMessage("Maximum addiction need exceeded. Please see the Myth chapter for details.")
+        setMessage("Maximum addiction need exceeded. Please see the Stardew chapter for details.")
         setMessageGood(false)
       }
     }

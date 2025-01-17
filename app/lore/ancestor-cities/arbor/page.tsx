@@ -1,6 +1,7 @@
 // cSpell:ignore locess, couldn, guildsmen
 
 import CaptionedImg from "@/app/captioned-img"
+import Contents from "@/util/components/contents"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,11 +12,12 @@ export const metadata: Metadata = {
 export default function Arbor() {
   return (
     <article>
+      <Contents />
       <section>
         <h1>Arbor</h1>
         <div className="md:flex gap-5 items-center justify-between">
           <div>
-            <p>Arbor is built in the boughs of the great trees that make up the World Forest. These trees (known as World Trees) are incredibly massive. They can grow up to about one mile tall and their branches stretch out roughly two miles from the trunks. The structure of these trees is like an old, gnarled oak tree with incredibly long branches. On a full-grown World Tree, their longest and strongest branches begin about a half a mile off the ground, but have a tendency to dip down and hover only a quarter mile off the ground. Because of how high up these branches are, Arbor has a natural protection against the various Mythical creatures that roam the forest floor, but they still have to defend themselves against tree-dwelling Mythical creatures.</p>
+            <p>Arbor is the ancestral city-state of the Locess. It is built in the boughs of the great trees that make up the World Forest. These trees (known as World Trees) are incredibly massive. They can grow up to about one mile tall and their branches stretch out roughly two miles from the trunks. The structure of these trees is like an old, gnarled oak tree with incredibly long branches. On a full-grown World Tree, their longest and strongest branches begin about a half a mile off the ground, but have a tendency to dip down and hover only a quarter mile off the ground. Because of how high up these branches are, Arbor has a natural protection against the various Mythical creatures that roam the forest floor, but they still have to defend themselves against tree-dwelling Mythical creatures.</p>
 
             <p>The World Forest is a rain forest at the base of a mountain range known as the Dragon Spine. It receives nearly perpetual rainfall that varies in intensity from a drizzle to a deluge. It&apos;s common knowledge that the branches of Arbor are never dry.</p>
           </div>
@@ -45,15 +47,35 @@ export default function Arbor() {
       </section>
       <section id="natural-resources">
         <h2>Natural Resources</h2>
+
+        {/* === NOTES ===
+        - Metal for devices and structures is extracted from the Dragon Spine mountains
+          - It's very dangerous to do so because of the Mythical creatures, but it's their only way to get stone and metal
+          - It's less dangerous than other options though since the Dragon Spine mountains are where dragons live and they are the only natural predators of Mythical creatures */}
       </section>
-      <section id="technological advancements">
+      <section id="technological-advancements">
         <h2>Technological Advancements</h2>
       </section>
-      <section id="civil engineering">
+      <section id="civil-engineering">
         <h2>Civil Engineering</h2>
+        {/* === NOTES ===
+        - Water towers at the tops of the trees
+          - Grooves are cut into the branches to collect rainfall in cisterns
+          - Cisterns are created by hollowing out sections of trunk
+          - Arbor has indoor plumbing
+        - Public transportation
+          - Steam powered trolleys for navigating the city */}
       </section>
       <section id="architecture">
         <h2>Architecture</h2>
+        {/* === NOTES ===
+        - Buildings are built in a variety of ways:
+          - Carved directly into the tree
+          - On top of the branches
+          - On platforms that extend off and across branches
+          - Hanging???
+        - World tree leaves are very big and thick, making them useful as a cloth-like material for canopies and clothing
+        - Buildings are made with metal, stone, wood, and tree leaves. */}
       </section>
       <section id="family-units">
         <h2>Family Unites</h2>
