@@ -31,7 +31,7 @@ export default function Footer() {
 
         {/* ==== VERSION NUMBER ==== */}
 
-        <p>v0.6.1</p>
+        <p>v0.7.0</p>
       </div>
     </footer>
   )
