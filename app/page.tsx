@@ -32,10 +32,10 @@ export default function Home() {
       <p>The world of Guildsmen is known as Thelius. This is a world of many races, wild places, and great invention. However, the story you weave can take place in any world you want. But there are a few rules that must remain constant in order for the rules in this book to work.</p>
 
       <ol className="max-w-[700px] mx-auto">
-        <li>Mythical creatures exist and have Navidus Crystals inside of them (see the <Link href="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
-        <li>The world is somewhat technologically advanced, and Navidus Crystals are beginning to be used to power devices (see the <Link href="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
+        <li>Stormborne creatures exist and have Star Gems inside of them (see the <Link href="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
+        <li>The world is somewhat technologically advanced, and Star Gems are beginning to be used to power devices (see the <Link href="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
         <li>Guilds are common establishments throughout the world.</li>
-        <li>Magic exists and is performed through a drug known as <Link href="/rules/myth">Myth</Link> and through <Link href="/rules/runes">runes</Link>.</li>
+        <li>Magic exists and is performed through a drug known as <Link href="/rules/stardew">Stardew</Link> and through <Link href="/rules/runes">runes</Link>.</li>
       </ol>
 
       <p>Beyond these 4 simple rules, the time era and world you set your game in is completely up to you. If you don&apos;t know where to start, feel free to use the <Link href="/lore"><em>world of Thelius</em></Link> as your world of play.

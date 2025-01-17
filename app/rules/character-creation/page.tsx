@@ -96,7 +96,7 @@ export default function CharacterCreation() {
 
         <p>From here, you need to give your character some skills. Fill in 4 bubbles on the skills chart. Each bubble represents your level of skill for that particular skill. All skills start at -1, meaning your character has no experience with that skill. Starting from the -1 mark, you my increase your skills 4 times. You can increase 4 skills once (up to +0), you can condense them into just a couple skills (2 skills at +1), or any combination of that kind, as long as you only increase your skills 4 times. However, you cannot increase any skill past +2 at this time.</p>
 
-        <p><em>Do not start with the myth skill before reading through the <a href="/rules/myth">Myth chapter</a></em></p>
+        <p><em>Do not start with the Stardew skill before reading through the <a href="/rules/Stardew">Stardew chapter</a></em></p>
 
         <p>If you&apos;ve made a backstory, try to consider what skills would make sense for your backstory. If you haven&apos;t made a backstory, feel free to pick whatever skills you think would work for your character.</p>
 
@@ -181,7 +181,7 @@ export default function CharacterCreation() {
 
         <div className="md:grid grid-cols-2 gap-4">
           <GuildDetails guild="Assassins" />
-          <GuildDetails guild="Mythic Hunters" />
+          <GuildDetails guild="Starborne Hunters" />
           <GuildDetails guild="Explorers" />
           <GuildDetails guild="Mercenaries" />
           <GuildDetails guild="Thieves" />

@@ -27,7 +27,7 @@ export default function Skills() {
 
         <p><strong>Medic</strong> is your ability to heal and care for injured creatures. This is used to restore Harm and remove combat conditions (see the <a href="/rules/combat"><em>Combat chapter</em></a>).</p>
 
-        <p><strong>Myth</strong> is your ability to use and control the powers that come from Myth, an addictive drug refined from the blood of magical creatures. It is also used to refined raw mythical blood into Myth (see the <a href="/rules/myth"><em>Myth chapter</em></a>).</p>
+        <p><strong>Stardew</strong> is your ability to use and control the powers that come from Stardew, an addictive drug refined from the blood of magical creatures. It is also used to refined raw Starborne blood into Stardew (see the <a href="/rules/stardew"><em>Stardew chapter</em></a>).</p>
 
         <p><strong>Nature</strong> is your knowledge of the natural world and ability to survive in the wild effectively. This can be used to track wild creatures, navigate through uncivilized areas, and to perform basic survival actions in the wild.</p>
 
@@ -207,10 +207,10 @@ export default function Skills() {
 
         <p><strong>People</strong> - You specialize in healing people. You know about the anatomy and physiology of all the various races and how best to help them when injured or sick.</p>
 
-        <h3>Myth Specialties</h3>
-        <p><strong>Refinement</strong> - You specialize in the actual refinement of Myth: taking raw blood from magical creatures and refining it into the drug.</p>
+        <h3>Stardew Specialties</h3>
+        <p><strong>Refinement</strong> - You specialize in the actual refinement of Stardew: taking raw blood from magical creatures and refining it into the drug.</p>
 
-        <p><strong>Types</strong> - In the <a href="/rules/myth"><em>Myth chapter</em></a>, the various types of Myth are outlined. You can specialize in any of those types.</p>
+        <p><strong>Types</strong> - In the <a href="/rules/stardew"><em>Stardew chapter</em></a>, the various types of Stardew are outlined. You can specialize in any of those types.</p>
 
         <h3>Nature Specialties</h3>
         <p><strong>Animals</strong> - You specialize in knowing the creatures that roam the wilds, how they behave, and how to find them. You are skilled at tracking animals, as well as interacting with them.</p>

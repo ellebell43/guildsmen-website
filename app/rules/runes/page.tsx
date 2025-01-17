@@ -14,7 +14,7 @@ export default function Invention() {
       <Contents />
       <h1>Runes</h1>
 
-      <p>Beyond using Myth to perform magic, all creatures also have a Spirit stat that allows them to cast spells via runes. Runes are mystical symbols that are inscribed onto items that define a spell. When holding an inscribed object, you can push your spiritual energy into the item and any runes on the item are activated and their spells are cast. Anyone can attempt to use any rune that they are touching or is on and item that is on their person. Using runes requires a Spirit stat check to determine success. On a failure, nothing happens - the caster simply failed to push enough Spirit through the rune to make the spell work</p>
+      <p>Beyond using Stardew to perform magic, all creatures also have a Spirit stat that allows them to cast spells via runes. Runes are mystical symbols that are inscribed onto items that define a spell. When holding an inscribed object, you can push your spiritual energy into the item and any runes on the item are activated and their spells are cast. Anyone can attempt to use any rune that they are touching or is on and item that is on their person. Using runes requires a Spirit stat check to determine success. On a failure, nothing happens - the caster simply failed to push enough Spirit through the rune to make the spell work</p>
 
       <section id="inscribing-runes">
         <h2>Inscribing Runes</h2>
@@ -49,7 +49,7 @@ export default function Invention() {
           </tbody>
         </table>
 
-        <p>The difficulty level of a spell is determined by the Game Master in the same way that actions using Myth are. The difficulty should reflect the complexity and power of the effect you want the spell to have. For example, a spell the simply conjures sparks would be Very Easy (requiring a 4 or more to succeed), whereas a spell that conjures a feast on a long table from the air should be Difficult, maybe even Very Difficult (requiring a 10 or a 12 or more to succeed). See the <Link href="/rules/skills#using-skills">Skills Chapter</Link> for more details on task difficulty.</p>
+        <p>The difficulty level of a spell is determined by the Game Master in the same way that actions using Stardew are. The difficulty should reflect the complexity and power of the effect you want the spell to have. For example, a spell the simply conjures sparks would be Very Easy (requiring a 4 or more to succeed), whereas a spell that conjures a feast on a long table from the air should be Difficult, maybe even Very Difficult (requiring a 10 or a 12 or more to succeed). See the <Link href="/rules/skills#using-skills">Skills Chapter</Link> for more details on task difficulty.</p>
 
         <p>The difficulty to inscribe the spell and the difficulty to cast the spell are generally the same.</p>
       </section>
@@ -151,7 +151,7 @@ export default function Invention() {
 
         <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
 
-        <p>Spirit shields also work against attacks coming from a Myth user.</p>
+        <p>Spirit shields also work against attacks coming from a Stardew user.</p>
       </section>
 
       <NextButton href="/rules/crafting" />

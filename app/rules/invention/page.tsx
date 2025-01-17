@@ -63,12 +63,12 @@ export default function Invention() {
         <p>If you want to reverse engineer an item, you will have to do the same process, just backwards.</p>
       </section>
 
-      <section id="navidus-crystals">
-        <h2>Navidus Crystals</h2>
+      <section id="star-gems">
+        <h2>Star Gems</h2>
 
-        <p>Navidus Crystals are a powerful material that are only found inside of Mythical creatures. As such, they can be used to power all kinds of devices. This is done by attaching the crystal to an object with incomplete runes, then using a mechanical button or switch that completes the rune when used. This allows a rune to be charged without the need of a person using their Spirit (see the <Link href="/rules/runes">Runes chapter</Link> for details). And with some clever engineering, very complex devices can be made.</p>
+        <p>Star Gems are a powerful material that are only found inside of Starborne creatures. As such, they can be used to power all kinds of devices. This is done by attaching the crystal to an object with incomplete runes, then using a mechanical button or switch that completes the rune when used. This allows a rune to be charged without the need of a person using their Spirit (see the <Link href="/rules/runes">Runes chapter</Link> for details). And with some clever engineering, very complex devices can be made.</p>
 
-        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Navidus crystal you need to power the device. See <Link href="/rules/the-market">The Market</Link> for pricing and specific measurements of crystals.</p>
+        <p>When creating a magical device, you must follow all the rules of inscription found in the <Link href="/rules/runes">Runes chapter</Link> to inscribe all the spells you want your device to do. When creating devices, the difficulty of the spell determines what size of Star Gem you need to power the device. See <Link href="/rules/the-market">The Market</Link> for pricing and specific measurements of crystals.</p>
 
         <table className="raceStatTable">
           <thead>
@@ -100,9 +100,9 @@ export default function Invention() {
           </tbody>
         </table>
 
-        <p>Whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Navidus Crystal in the design unless otherwise stated by the Game Master. This will allow the device to be powered but will also give it an important weakness within the game. You see, such powerful items also present a powerful hazard. If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged. Navidus Crystals crack and break as easily as a glass jar and are fully charged when first harvested from a Mythical creature, giving any device powered by Navidus crystals the potential to explode violently.</p>
+        <p>Whenever you invent something that requires a source of power (such as a light bulb, a motor, etc.) you must use a Star Gem in the design unless otherwise stated by the Game Master. This will allow the device to be powered but will also give it an important weakness within the game. You see, such powerful items also present a powerful hazard. If a Crystal cracks or breaks in any way, the energy stored inside the Crystal will release explosively. This causes Harm equal to 3 times the size of the Crystal in a radius also equal to 3 times the size of the Crystal measured in feet. So, a crystal of 3 inches could explode to deal 9 Harm to everything within 9 feet if damaged. Star Gems crack and break as easily as a glass jar and are fully charged when first harvested from a Starborne creature, giving any device powered by Star Gems the potential to explode violently.</p>
 
-        <p>We understand that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item on a base game level, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Navidus Crystals are a good way to regulate that, since they come with a certain amount of inherent danger. Of course, the Game Master can override this at any time.</p>
+        <p>We understand that there are other possible types of power for devices in the world such as steam, electricity, gas, and so on. These sources of power will probably exist within your game world. We decided not to allow those power sources when players invent an item on a base game level, due to the fact that it would be extremely easy for persistent players to create items that would derail the game by giving them too much power within the world. Star Gems are a good way to regulate that, since they come with a certain amount of inherent danger. Of course, the Game Master can override this at any time.</p>
 
         <p>If you want access to inventing devices that have alternate power sources, have a discussion with your Game Master. They get the last say when it comes to inventing items.</p>
       </section>

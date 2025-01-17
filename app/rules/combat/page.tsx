@@ -48,7 +48,7 @@ export default function Combat() {
 
         <p>You get 1 action per combat round. You perform an action by rolling a relevant skill or stat check. The enemy then reacts in any way they think would negate your attack and they also roll a relevant skill or stat check. If the attacker rolls higher, then the attack is successful, and the defender takes harm. If the defender rolls higher, then the attack is unsuccessful, and no harm is dealt.</p>
 
-        <p>Anytime an action is performed against another reactive creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round. However, not all characters and creatures are allowed reactions in all situations. When this happens, the rules that govern <Link href="#skill-shots">skill shots</Link> are used. There are two primary situations where this will happen: (1) if the victim is sufficiently surprised by the attacker, then the victim will not have time to react to the attack and (2) when fighting a beast, mythical creature, or other creature marked as un-reactive. In either of these situation, use the <Link href="#skill-shots ">skill shot</Link> rules to determine the outcome of an attack.</p>
+        <p>Anytime an action is performed against another reactive creature, they may react against the action. There is not a limit to the number of reactions you can make in a combat round. However, not all characters and creatures are allowed reactions in all situations. When this happens, the rules that govern <Link href="#skill-shots">skill shots</Link> are used. There are two primary situations where this will happen: (1) if the victim is sufficiently surprised by the attacker, then the victim will not have time to react to the attack and (2) when fighting a beast, Starborne creature, or other creature marked as un-reactive. In either of these situation, use the <Link href="#skill-shots ">skill shot</Link> rules to determine the outcome of an attack.</p>
 
         <h3>Helping in Combat</h3>
         <p>In the <Link href="/rules/skills#helping">skills chapter</Link>, the ability to help other players was introduced. That can also be applied to combat, however it works a bit differently. When in combat, you can (and should) establish what specific target your character has. If any other allies have the same specific target, that automatically counts as a successful help action, so you will get a +1 to your dice roll for every other person attacking the same creature as you. So, if you're in a group of 3 people, and your being attacked by 3 bandits, and all 3 member of your team attack the same specific bandit, each person would get a +2 to their roll, since 2 other people are attacking the same creature.</p>
@@ -63,7 +63,7 @@ export default function Combat() {
 
       <p>If the spell is triggered by a device and no roll is used to cast the spell, you can still react to the spell with a Spirit Shield. The target number to successfully react will be the difficulty of the spell. On a mixed success (1 less than the target number), only half the effect of the spell happens.</p>
 
-      <p>Spirit shields also work against attacks coming from a Myth user when they use their Myth powers.</p>
+      <p>Spirit shields also work against attacks coming from a Stardew user when they use their Stardew powers.</p>
 
       <section id="dealing-harm">
         <h2>Dealing Harm</h2>
@@ -150,7 +150,7 @@ export default function Combat() {
           <li><strong>Weakened</strong>: All physical attack effects are halved for a length of time. A Tough check of 12 or more may end the condition early.</li>
         </ul>
       </section>
-      <NextButton href="/rules/myth" />
+      <NextButton href="/rules/Stardew" />
     </article>
   )
 }

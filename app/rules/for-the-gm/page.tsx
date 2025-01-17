@@ -109,7 +109,7 @@ export default function ForTheGM() {
 
         <p>The first step is to identify what their trying to do and see what skill that would fall under. If they&apos;re trying to persuade someone, they would be using their character&apos;s social skill. If they&apos;re trying to craft a horseshoe, they would be using their character&apos;s craft skill.</p>
 
-        <p>Once that&apos;s established, the player rolls dice (2, 6-sided dice) to determine how successful the outcome of their action is. It&apos;s important that you, as the Game Master, read through the Skills chapter and understand how rolling for skills works. Also, read through the rest of the chapters, too. Trust me. It&apos;s good to know what this game is capable of before your players blindside you with magic drugs (see the <Link href="/rules/myth">Myth chapter</Link>).</p>
+        <p>Once that&apos;s established, the player rolls dice (2, 6-sided dice) to determine how successful the outcome of their action is. It&apos;s important that you, as the Game Master, read through the Skills chapter and understand how rolling for skills works. Also, read through the rest of the chapters, too. Trust me. It&apos;s good to know what this game is capable of before your players blindside you with magic drugs (see the <Link href="/rules/stardew">Stardew chapter</Link>).</p>
       </section>
 
       <section id="cultivating-an-experience">

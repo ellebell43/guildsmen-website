@@ -48,28 +48,28 @@ export default function TheMarket() {
 
       <section id="devices">
         <h2>Devices</h2>
-        <p className="text-center">Devices are tech items that are generally powered by Navidus Crystals.</p>
+        <p className="text-center">Devices are tech items that are generally powered by Star Gems.</p>
 
-        <MarketItem name="Beam Light" cost="Moderate" description="A device that magnifies the light from a 1” Navidus Crystal to create a beam of light to illuminate dark spaces. Doesn't run out of charge, since the light is just magnified from the Crystal" />
+        <MarketItem name="Beam Light" cost="Moderate" description="A device that magnifies the light from a 1” Star Gem to create a beam of light to illuminate dark spaces. Doesn't run out of charge, since the light is just magnified from the Crystal" />
         <MarketItem name="Camera" cost="Wealthy" description="Used to capture images. This stores the images on a film canister that must be developed before the pictures can be seen. Images come out as black and white." />
-        <MarketItem name="Courier" cost="Wealthy" description="A small bird Mech that can send and bring back telegram-like messages. A round-trip flight takes one large Navidus Crystal and a one-way flight takes one medium Navidus Crystal. It must be pre-programmed with one specific location that it will have the ability to deliver messages to, then it will return to the spot it was sent from." />
+        <MarketItem name="Courier" cost="Wealthy" description="A small bird Mech that can send and bring back telegram-like messages. A round-trip flight takes one large Star Gem and a one-way flight takes one medium Star Gem. It must be pre-programmed with one specific location that it will have the ability to deliver messages to, then it will return to the spot it was sent from." />
         <MarketItem name="Foam Wall" cost="Wealthy" description="A canister that, when thrown, creates a sudden barrier that measures 10 feet wide, 5 feet tall, and 1 foot thick. It can take up to 3 Harm before being destroyed and turning to powder." />
         <MarketItem name="Gas Mask" cost="Moderate" description="Used to negate the effects of noxious gases." />
-        <MarketItem name="Recorder" cost="Wealthy" description="A device that can store and replay up to 10 minutes of audio. Can record or play audio 10 time before needing a new small Navidus Crystal." />
+        <MarketItem name="Recorder" cost="Wealthy" description="A device that can store and replay up to 10 minutes of audio. Can record or play audio 10 time before needing a new small Star Gem." />
         <MarketItem name="Smoker" cost="Wealthy" description="A canister that, when activated, waits 20 seconds (2 combat rounds) then fill a 20-foot by 20-foot radius with smoke. All creatures taking actions within or through the smoke have disadvantage if the action relies on sight." />
         <MarketItem name="Sticky Bomb" cost="Wealthy" description="A small orb that when thrown will release a sticky substance in a 1 foot radius around the impact spot. Anything that touches the stickiness will become Entangled. The stickiness lasts for 10 minutes. After that, the sticky substance hardens and anything that was stuck remains stuck and nothing new can become stuck to it." />
       </section>
 
-      {/* ====== NAVIDUS CRYSTALS ====== */}
+      {/* ====== Star GemS ====== */}
 
-      <section id="navidus-crystals">
-        <h2>Navidus Crystals</h2>
-        <p className="text-center">Navidus Crystals are used to power tech devices.</p>
+      <section id="star-gems">
+        <h2>Star Gems</h2>
+        <p className="text-center">Star Gems are used to power tech devices.</p>
 
-        <MarketItem name='Tiny Navidus Crystal (0.5")' cost="Moderate" crystal={true} />
-        <MarketItem name='Small Navidus Crystal (1")' cost="Wealthy" crystal={true} />
-        <MarketItem name='Medium Navidus Crystal (2")' cost="Exquisite" crystal={true} />
-        <MarketItem name='Large Navidus Crystal (3")' cost="Exquisite+" crystal={true} />
+        <MarketItem name='Tiny Star Gem (0.5")' cost="Moderate" crystal={true} />
+        <MarketItem name='Small Star Gem (1")' cost="Wealthy" crystal={true} />
+        <MarketItem name='Medium Star Gem (2")' cost="Exquisite" crystal={true} />
+        <MarketItem name='Large Star Gem (3")' cost="Exquisite+" crystal={true} />
       </section>
 
       {/* ====== MAGIC ITEMS ====== */}
@@ -96,7 +96,7 @@ export default function TheMarket() {
         <p className="text-center">Weapons are... well, used to kill things. Or maybe you&apos;re just eccentric.</p>
 
         <MarketItem name="Fumation" cost="Exquisite" description="A toxic gas held within a canister. When activated, it waits 20 seconds (2 combat rounds) then it fills a 20-foot by 20-foot area with toxic gas. Any creatures standing in the area will take 2 Harm every combat round (10 seconds), until they leave the area. A gas mask can negate the effects." />
-        <MarketItem name="Shock Rod" cost="Wealthy" description="A light, melee weapon that causes 1 additional Harm of electric damage upon a successful hit and has 10 uses before it needs a new tiny Navidus Crystal. Also causes any affected creature to be stunned for 10 seconds (1 combat round). This can be used on conductive surfaces to stun for 10 seconds and deal 2 Harm to anything touching the conductive surface." />
+        <MarketItem name="Shock Rod" cost="Wealthy" description="A light, melee weapon that causes 1 additional Harm of electric damage upon a successful hit and has 10 uses before it needs a new tiny Star Gem. Also causes any affected creature to be stunned for 10 seconds (1 combat round). This can be used on conductive surfaces to stun for 10 seconds and deal 2 Harm to anything touching the conductive surface." />
       </section>
       <NextButton href="/rules/establishments" />
     </article>

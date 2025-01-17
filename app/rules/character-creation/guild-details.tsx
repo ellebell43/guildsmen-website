@@ -1,10 +1,10 @@
-export default function GuildDetails(props: { guild: "Assassins" | "Mythic Hunters" | "Explorers" | "Mercenaries" | "Thieves" }) {
+export default function GuildDetails(props: { guild: "Assassins" | "Starborne Hunters" | "Explorers" | "Mercenaries" | "Thieves" }) {
   let getDescription = () => {
     switch (props.guild) {
       case "Assassins":
         return "Assassins are those that believe anyone is worthy of death… for the right price. Assassins lurk in the dark and strike when least expected. They are efficient killers and know how to get in, spill blood, and get out as quickly as possible."
-      case "Mythic Hunters":
-        return "Mythic Hunters are those that thrill in hunting the most dangerous beasts of the wilds. Their main goal is to kill Mythical creatures, harvest Navidus Crystals from them, and bring the crystals back to the guild. Occasionally, they will get hired to kill Mythical creatures that are causing a nuisance, or to help defend smaller towns from Mythical creature attacks."
+      case "Starborne Hunters":
+        return "Starborne Hunters are those that thrill in hunting the most dangerous beasts of the wilds. Their main goal is to kill Starborne creatures, harvest Navidus Crystals from them, and bring the crystals back to the guild. Occasionally, they will get hired to kill Starborne creatures that are causing a nuisance, or to help defend smaller towns from Starborne creature attacks."
       case "Explorers":
         return "Explorers desire to bring the unknown world into the light and to solve the mysteries of the world. They go beyond the borders of the map to discover lands that no one has ever experienced and they know that the answers to the worlds greatest questions can be found, if you can only look in the right spot."
       case "Mercenaries":
@@ -19,7 +19,7 @@ export default function GuildDetails(props: { guild: "Assassins" | "Mythic Hunte
     case "Assassins":
       skills = ["Investigate", "Sneaky", "Social", "Throwdown"]
       break;
-    case "Mythic Hunters":
+    case "Starborne Hunters":
       skills = ["Investigate", "Medic", "Nature", "Throwdown"]
       break;
     case "Explorers":
