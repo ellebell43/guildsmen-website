@@ -29,9 +29,9 @@ export default function Rules() {
           <FontAwesomeIcon className={iconClass} icon={faUserNinja} />
           Chapter 3: Combat
         </Link>
-        <Link href="/rules/myth" className={linkClass}>
+        <Link href="/rules/stardew" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faGem} />
-          Chapter 4: Myth
+          Chapter 4: Stardew
         </Link>
         <Link href="/rules/runes" className={linkClass}>
           <FontAwesomeIcon className={iconClass} icon={faHandSparkles} />
