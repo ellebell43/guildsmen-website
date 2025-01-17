@@ -7,7 +7,7 @@ export type action = {
   description: string
 }
 
-export type creatureType = "person" | "beast" | "mythical"
+export type creatureType = "person" | "beast" | "starborne"
 
 export type creature = {
   owner: string,
@@ -50,7 +50,7 @@ export type craftSpecialty = "Clay" | "Fabric" | "Metal" | "Stone" | "Wood"
 export type investigateSpecialty = "Awareness" | "Searching" | "Situational" | "Tracking"
 export type leadershipSpecialty = "Business" | "Government" | "Group"
 export type medicSpecialty = "Beasts" | "People"
-export type mythSpecialty = "Refinement" | "Air" | "Fire" | "Lightning" | "Metal" | "Stone" | "Water" | string
+export type stardewSpecialty = "Refinement" | "Air" | "Fire" | "Lightning" | "Metal" | "Stone" | "Water" | string
 export type natureSpecialty = "Animals" | "Geography" | "Plants" | "Survival"
 export type performanceSpecialty = "Acrobatics" | "Acting" | "Contortion" | "Music"
 export type socialSpecialty = "Deception" | "Intimidation" | "Persuasion"
@@ -63,7 +63,7 @@ export type specialties = {
   investigate: { primary: investigateSpecialty | undefined, secondary: investigateSpecialty | undefined },
   leadership: { primary: leadershipSpecialty | undefined, secondary: leadershipSpecialty | undefined },
   medic: { primary: medicSpecialty | undefined, secondary: medicSpecialty | undefined },
-  myth: { primary: mythSpecialty | undefined, secondary: mythSpecialty | undefined },
+  stardew: { primary: stardewSpecialty | undefined, secondary: stardewSpecialty | undefined },
   nature: { primary: natureSpecialty | undefined, secondary: natureSpecialty | undefined },
   performance: { primary: performanceSpecialty | undefined, secondary: performanceSpecialty | undefined },
   social: { primary: socialSpecialty | undefined, secondary: socialSpecialty | undefined },
@@ -75,7 +75,7 @@ export type specialties = {
 export type skills = {
   craft: modRange,
   leadership: modRange,
-  myth: modRange,
+  stardew: modRange,
   performance: modRange,
   sneaky: modRange,
   investigate: modRange,
@@ -94,9 +94,9 @@ export type stats = {
   spirit: modRange
 }
 
-export type guild = "Assassins" | "Mythic Hunters" | "Explorers" | "Mercenaries" | "Thieves"
+export type guild = "Assassins" | "Starborne Hunters" | "Explorers" | "Mercenaries" | "Thieves"
 export type statName = "nimble" | "tough" | "competence" | "constitution" | "spirit"
-export type skillName = "craft" | "leadership" | "myth" | "performance" | "sneaky" | "investigate" | "medic" | "nature" | "social" | "tech" | "throwdown"
+export type skillName = "craft" | "leadership" | "stardew" | "performance" | "sneaky" | "investigate" | "medic" | "nature" | "social" | "tech" | "throwdown"
 
 export class Character {
   name: string
@@ -105,7 +105,7 @@ export class Character {
   physique: string
   skills: skills
   specialties: specialties
-  mythUses: number
+  stardewUses: number
   stats: stats
   wealth: wealthRange
   luck: luckRange
@@ -152,12 +152,12 @@ export class Character {
     this.experienceProgress = 0
     this.notes = []
     this.backstory = ""
-    this.mythUses = 0
+    this.stardewUses = 0
     this.owner = owner
     this.specialties = {
       craft: { primary: undefined, secondary: undefined },
       leadership: { primary: undefined, secondary: undefined },
-      myth: { primary: undefined, secondary: undefined },
+      stardew: { primary: undefined, secondary: undefined },
       performance: { primary: undefined, secondary: undefined },
       sneaky: { primary: undefined, secondary: undefined },
       investigate: { primary: undefined, secondary: undefined },

@@ -1,7 +1,7 @@
 import { Character } from "@/util/types";
 import Banner from "./banner";
 import DiceRollWrapper from "@/util/components/dice/dice-roll-wrapper";
-import { StatRow, Luck, Bubble, BubbleRow, MythBar, RollableStatRow } from "@/util/components/character-sheet-components";
+import { StatRow, Luck, Bubble, BubbleRow, StardewBar, RollableStatRow } from "@/util/components/character-sheet-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons";
 
@@ -103,7 +103,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
       </div>
       {/* ========== ADDICTION ========== */}
       <div className={`${containerClass} relative h-fit w-fit`}>
-        <h2 className={headerClass}>Myth Addiction</h2>
+        <h2 className={headerClass}>Stardew Addiction</h2>
         <div className="flex justify-center items-center gap-2">
           {/* === Addiction Meter === */}
           <button
@@ -113,7 +113,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
                 let newCharacter = { ...character }
                 newCharacter.addiction++
                 if (newCharacter.addiction == 3) {
-                  setMessage("You are now addicted to Myth.")
+                  setMessage("You are now addicted to stardew.")
                   setMessageGood(false)
                 }
                 setCharacter(newCharacter)
@@ -136,7 +136,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
             <FontAwesomeIcon icon={faMinus} />
           </button>
         </div>
-        <MythBar value={character.addiction} />
+        <StardewBar value={character.addiction} />
         {/* === Need Meter === */}
         <div className="mt-1 relative left-[17px] mr-4">
           <BubbleRow length={8} fill={character.need ? character.need : 0} customFlex="justify-end items-center gap-[9px] flex-row-reverse  " />
@@ -162,16 +162,16 @@ export default function CharacterScreen(props: { character: Character, setCharac
             <button
               className="opacity-25 text-xs"
               onClick={e => {
-                if (character.mythUses < 6) {
+                if (character.stardewUses < 6) {
                   let newCharacter = { ...character }
                   newCharacter.addiction++
-                  newCharacter.mythUses++
+                  newCharacter.stardewUses++
                   if (newCharacter.addiction == 3) {
-                    setMessage("You are now addicted to Myth.")
+                    setMessage("You are now addicted to Stardew.")
                     setMessageGood(false)
                   }
                   setCharacter(newCharacter)
-                } else if (character.mythUses == 6) {
+                } else if (character.stardewUses == 6) {
                   let newCharacter = { ...character }
                   newCharacter.harm = 10
                   newCharacter.dying = true
@@ -182,14 +182,14 @@ export default function CharacterScreen(props: { character: Character, setCharac
               <FontAwesomeIcon icon={faPlus} />
             </button>
             <div className="border w-[30px] h-[25px] flex justify-center items-center" >
-              <p className="m-0 text-center">{character.mythUses}</p>
+              <p className="m-0 text-center">{character.stardewUses}</p>
             </div>
             <button
               className="opacity-25 text-xs"
               onClick={e => {
-                if (character.mythUses > 0) {
+                if (character.stardewUses > 0) {
                   let newCharacter = { ...character }
-                  newCharacter.mythUses--
+                  newCharacter.stardewUses--
                   setCharacter(newCharacter)
                 }
               }}
