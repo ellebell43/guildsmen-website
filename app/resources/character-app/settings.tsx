@@ -1,17 +1,22 @@
 import { Character } from "@/util/types";
 import Link from "next/link";
 
+const Switch = (props: { attribute: boolean, setAttribute: Function, message: string, infoMessage?: string }) => {
+  return (
+    <div className="flex gap-2 items-center justify-between">
+      <p className="w-fit m-0 text-lg">{props.message}</p>
+      <button className={`button border m-0 relative w-[60px] h-[25px] rounded-full shadow-inner ${props.attribute ? "bg-green-200 hover:bg-green-300 dark:bg-green-800 dark:hover:bg-green-700" : "bg-stone-200 hover:bg-stone-300"}`} onClick={e => props.setAttribute(!props.attribute)}>
+        <div className={`rounded-full w-[20px] h-[20px] absolute transition-all shadow ${props.attribute ? "right-[2px] bg-stone-400 border dark:border-none" : "right-[37px] bg-stone-700 dark:bg-stone-400"}`} />
+      </button>
+    </div>
+  )
+}
+
 export default function Settings(props: { setEdit: Function, edit: boolean, character: Character }) {
   return (
     <div className="flex justify-center flex-col w-fit gap-y-4 mx-auto">
-      <div className="flex gap-2 items-center justify-between">
-        <p className="w-fit m-0 text-lg">Edit mode</p>
-        <button className={`button border m-0 relative w-[60px] h-[25px] rounded-full shadow-inner ${props.edit ? "bg-green-200 hover:bg-green-300 dark:bg-green-800 dark:hover:bg-green-700" : "bg-stone-200 hover:bg-stone-300"}`} onClick={e => props.setEdit(!props.edit)}>
-          <div className={`rounded-full w-[20px] h-[20px] absolute transition-all shadow ${props.edit ? "right-[2px] bg-stone-400 border dark:border-none" : "right-[37px] bg-stone-700 dark:bg-stone-400"}`} />
-        </button>
-      </div>
+      <Switch attribute={props.edit} setAttribute={props.setEdit} message="Edit Mode" />
       <Link href={`/resources/character-sheet/${props.character._id}`} className="button px-6 py-2">Print View</Link>
-
     </div>
   )
 }
