@@ -90,7 +90,7 @@ export default function CharacterApp(props: { character: Character }) {
         if (size == "md") {
           return (
             <>
-              <Banner character={character} setCharacter={setCharacter} />
+              <Banner character={character} setCharacter={setCharacter} edit={edit} />
               <div className="flex justify-center gap-10">
                 <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
                 <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
@@ -101,7 +101,7 @@ export default function CharacterApp(props: { character: Character }) {
         if (size == "lg") {
           return (
             <>
-              <Banner character={character} setCharacter={setCharacter} />
+              <Banner character={character} setCharacter={setCharacter} edit={edit} />
               <div className="flex justify-center gap-10">
                 <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
                 <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
@@ -116,7 +116,7 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "gear":
         return <>
-          <Banner character={character} setCharacter={setCharacter} />
+          <Banner character={character} setCharacter={setCharacter} edit={edit} />
           <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} />
         </>
       case "notes":

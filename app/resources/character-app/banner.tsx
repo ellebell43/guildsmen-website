@@ -3,25 +3,15 @@
 import { Character } from "@/util/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import CharacterAppName from "@/util/components/character-app-name";
 
-export default function Banner(props: { character: Character, setCharacter: Function }) {
+export default function Banner(props: { character: Character, setCharacter: Function, edit: boolean }) {
   const { character } = props
-
-  const getDescription = (el: Character): string => {
-    if (el.demeanor && el.physique) return `A ${el.physique}, ${el.demeanor} ${el.species}`
-    if (el.demeanor) return `A ${el.demeanor} ${el.species}`
-    if (el.physique) return `A ${el.physique} ${el.species}`
-    return el.species
-  }
 
   return (
     <div className="flex justify-between border-b-2 pb-4 w-[95%] mx-auto lg:pr-10">
       {/*  -- NAME AND DESCRIPTION -- */}
-      <div>
-        <p className="overflow-clip whitespace-nowrap m-0 text-xl font-bold">{character.name}</p>
-        <p className="overflow-clip whitespace-nowrap m-0 text-xs opacity-75 italic">{getDescription(character)}</p>
-        <p className="overflow-clip whitespace-nowrap m-0 text-xs opacity-60">{character.guild} Guild</p>
-      </div>
+      <CharacterAppName character={character} setCharacter={props.setCharacter} edit={props.edit} />
       <div className="pr-4 relative">
         {/* -- HARM TRACKER -- */}
         <p className="m-0 text-center border-b border-stone-800 dark:border-stone-300 w-fit mx-auto">Harm</p>

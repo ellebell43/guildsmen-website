@@ -10,7 +10,7 @@ export default function CharacterScreen(props: { character: Character, setCharac
 
   return (
     <div className="flex flex-col items-center mt-4 gap-4">
-      {banner ? <Banner character={character} setCharacter={setCharacter} /> : <></>}
+      {banner ? <Banner character={character} setCharacter={setCharacter} edit={props.edit} /> : <></>}
 
       {/* ========== STATS ========== */}
 
