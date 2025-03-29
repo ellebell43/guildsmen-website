@@ -33,7 +33,19 @@ export default function GeneralWorldHistory() {
 
         <p>The world continued to get bigger as new methods of communication were invented such as long distance radio, allowing rapid communication between the far flung cty-states and the new settlements that began to spring up with the realization that the Starborne populations had declined immensely. Airships allowed for trade and transportation to the various Ancestor City-States allowing the exchange of goods, knowledge, and labor. Guilds became a standard business practice for groups of skilled workers to join together to create groups of protected labor, and for 50 more years the world grew and prospered.</p>
 
-        <p>As the world currently stands: industry and engineering is picking up; Starborne creatures are being studied and understood, but also hunted for their Star Gems; the great Starborne-ologist, Heinris Navidus, has discovered ways to utilize the power of Star Gems as an energy source; The drug known as Stardew is growing in popularity even though it is a crime to use or possess it in most places; Centrifuge Technology is just beginning to emerge; and there is still so much wilderness to be explored, and so much knowledge about the times before the Starfall to be discovered.</p>
+        <p>As the world currently stands: industry and engineering is picking up; Starborne creatures are being studied and understood, but also hunted for their Star Gems; the great Starborne-ologist, Heinris Navidus{/*<<====RENAME THIS MF====*/}, has discovered ways to utilize the power of Star Gems as an energy source; The drug known as Stardew is growing in popularity even though it is a crime to use or possess it in most places; Centrifuge Technology is just beginning to emerge; and there is still so much wilderness to be explored, and so much knowledge about the times before the Starfall to be discovered.</p>
+      </section>
+
+      <section id="the-prequel-to-thelius">
+        <h2>The Prequel to Thelius</h2>
+
+        <p><em>The following is an account of how the world of Thelius came to be. This knowledge is completely unknown to nearly everyone on Thelius.</em></p>
+
+        <p>The beginning of Thelius and the space it occupies actually begins in another universe, in a place known as Rim'as. Rim'as was a planet that was dying, and all of its people had lost all hope of their planet surviving much longer, all except one. A scientist called Rim'as had dedicated their life to finding a way out of their predicament. Leaving the planet and going to a new one wasn't feasible for the people of Rim'as through rockets and interstellar travel, so Sid'el was exploring another avenue: alternate dimensions. Eventually, they made a breakthrough and found a reliable way to create a doorway from one reality to another.</p>
+
+        <p>At first, most of the realities they tuned to opened out to waste lands or other spaces that wouldn't help their cause. Eventually, after years of searching, they stumbled upon a frequency that opened up into a lush and verdant land, abundant in strange creatures, natural resources, and - most importantly - liveable spaces with welcoming air to breathe and a star that hadn't baked the world into oblivion. They called it Veraden.</p>
+
+        <p>However, the excitement of this monumentous achievement was quickly stamped down. The first expedition party that Sid'el lead through the doorway quickly discovered that this world had some things that their reality had no reference for: Gods and magic. </p>
       </section>
 
       {/* <section id="the-world-before-starfall">
