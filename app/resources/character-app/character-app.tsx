@@ -129,7 +129,7 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
         </>
       case "settings":
         return <>
-          <Settings edit={edit} setEdit={setEdit} character={character} />
+          <Settings edit={edit} setEdit={setEdit} character={character} setCharacter={setCharacter} isOwner={props.isOwner} />
         </>
       case "skills":
         return <>
