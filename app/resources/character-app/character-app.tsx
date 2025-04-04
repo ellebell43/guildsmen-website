@@ -15,7 +15,7 @@ import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
 import useWindowDimensions from "@/util/useWindowDimenstions"
 
-export default function CharacterApp(props: { character: Character }) {
+export default function CharacterApp(props: { character: Character, isOwner: boolean }) {
 
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
@@ -29,6 +29,9 @@ export default function CharacterApp(props: { character: Character }) {
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
+    // Do not update if you don't own the character
+    if (!props.isOwner) { setMessage("No changes will save. This account does not own this character."); return }
+
     fetch(`/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
       .then(res => { if (!res.ok) throw new Error("Something went wrong") })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
@@ -77,6 +80,7 @@ export default function CharacterApp(props: { character: Character }) {
     } else {
       size = "lg"
     }
+
 
     switch (page) {
       case "character":

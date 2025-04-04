@@ -6,6 +6,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 type Props = { params: { id: string } }
+type ApiResponse = { character: Character, isOwner: boolean }
 
 // export const metadata: Metadata = { title: "Guildsmen | Character App" }
 
@@ -17,22 +18,25 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   if (!res.ok) {
     return { title: `Guildsmen | Character Not Found` }
   } else {
-    const character: Character = await res.json()
+    const response: ApiResponse = await res.json()
+    const character = response.character
     return { title: `Guildsmen | ${character.name}` }
   }
 }
 
 export default async function Page(props: Props) {
   const token = cookies().get("token")
-  if (!token?.value) {
-    redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/resources/character-app/${props.params.id}`)
+  // if (!token?.value) {
+  //   redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/resources/character-app/${props.params.id}`)
+  // } else {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token ? token.value : "" }, credentials: "include" })
+  if (!res.ok) {
+    throw new Error(res.statusText)
   } else {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token.value }, credentials: "include" })
-    if (!res.ok) {
-      throw new Error(res.statusText)
-    } else {
-      const character: Character = await res.json()
-      return <CharacterApp character={character} />
-    }
+    const response: ApiResponse = await res.json()
+    const character = response.character
+    const isOwner = response.isOwner
+    return <CharacterApp character={character} isOwner={isOwner} />
   }
+  // }
 }

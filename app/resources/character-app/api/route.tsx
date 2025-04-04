@@ -19,13 +19,13 @@ export async function GET(req: NextRequest) {
 
   let token: string | null | undefined = req.cookies.get("token")?.value
   if (!token) token = req.headers.get("token")
-  if (!token) return NextResponse.json({ message: "No user token provided. Please sign in and try again" }, { status: 400 })
+  if (!token) return NextResponse.json({ character, isOwner: character.owner == false })
   const users = client.collection("users")
   const user = await users.findOne({ token })
   if (!user) return NextResponse.json({ message: "No user found with provided token. Please sign in and try again." }, { status: 404 })
-  if (character.owner != user.username && !character.public) return NextResponse.json({ message: "You do not have access to this character" }, { status: 400 })
+  // if (character.owner != user.username && !character.public) return NextResponse.json({ message: "You do not have access to this character" }, { status: 400 })
 
-  return NextResponse.json(character)
+  return NextResponse.json({ character, isOwner: character.owner == user.username })
 }
 
 export async function PATCH(req: NextRequest) {
