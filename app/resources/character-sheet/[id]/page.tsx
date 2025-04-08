@@ -9,10 +9,7 @@ type Props = { params: { id: string } }
 type ApiResponse = { character: Character, isOwner: boolean }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const token = cookies().get("token")
-  if (!token) return { title: `Character Sheet | Not Found` }
-
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: params.id, token: token.value }, credentials: "include" })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: params.id }, credentials: "include" })
   if (!res.ok) {
     return { title: `Character Sheet | Not Found` }
   } else {
@@ -24,16 +21,12 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
 export default async function Page(props: Props) {
   const token = cookies().get("token")
-  if (!token?.value) {
-    redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/resources/character-app/${props.params.id}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token ? token.value : "" }, credentials: "include" })
+  if (!res.ok) {
+    return <CharacterSheet error="Character not found" />
   } else {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token.value }, credentials: "include" })
-    if (!res.ok) {
-      return <CharacterSheet error="Character not found" />
-    } else {
-      const response: ApiResponse = await res.json()
-      const character = response.character
-      return <CharacterSheet character={character} />
-    }
+    const response: ApiResponse = await res.json()
+    const character = response.character
+    return <CharacterSheet character={character} />
   }
 }
