@@ -6,6 +6,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 type Props = { params: { id: string } }
+type ApiResponse = { character: Character, isOwner: boolean }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const token = cookies().get("token")
@@ -15,7 +16,8 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   if (!res.ok) {
     return { title: `Character Sheet | Not Found` }
   } else {
-    const character: Character = await res.json()
+    const response: ApiResponse = await res.json()
+    const character = response.character
     return { title: `Character Sheet | ${character.name}` }
   }
 }
@@ -29,7 +31,8 @@ export default async function Page(props: Props) {
     if (!res.ok) {
       return <CharacterSheet error="Character not found" />
     } else {
-      const character: Character = await res.json()
+      const response: ApiResponse = await res.json()
+      const character = response.character
       return <CharacterSheet character={character} />
     }
   }
