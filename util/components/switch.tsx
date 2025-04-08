@@ -25,7 +25,7 @@ const Switch = (props: { attribute: boolean, setAttribute: Function, label: stri
   }
 
   return (
-    <div className="flex gap-2 items-center justify-between">
+    <div className="flex gap-2 items-center justify-between w-full">
       {/* switch label */}
       <p className="w-fit m-0 text-lg">{label}</p>
       {/* Visual switch, call update on click */}

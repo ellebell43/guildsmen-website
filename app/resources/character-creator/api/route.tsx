@@ -1,8 +1,8 @@
 import { dbClient } from "@/util/dbClient"
 import { ObjectId } from "mongodb"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   let char = req.headers.get("char")
   if (!char) {
     return NextResponse.json({ message: "No character data provided." }, { status: 400 })
