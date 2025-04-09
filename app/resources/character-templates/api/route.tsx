@@ -18,5 +18,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Failed to insert template to database. Please try again." }, { status: 500 })
   }
   return NextResponse.json({ message: "Template created successfully" })
+}
 
+export async function GET(req: NextRequest) {
+  const client = await dbClient()
+  const collection = client.collection("templates")
+
+  // Check for templates created from a specific character
+  if (req.headers.get("reference")) {
+    //@ts-expect-error
+    let id = new ObjectId(req.headers.get("reference"))
+    const result = await collection.findOne({ reference: id })
+    if (!result) return NextResponse.json({ template: false })
+    return NextResponse.json({ template: true })
+  }
 }
