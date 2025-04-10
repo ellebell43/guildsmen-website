@@ -195,7 +195,7 @@ export type characterTemplate = {
   _id: ObjectId,
   reference: ObjectId,
   referenceOwner: string,
-  created: Date,
+  dateCreated: Date,
   public: boolean,
   owner: string,
   character: Character

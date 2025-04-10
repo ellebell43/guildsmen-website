@@ -1,5 +1,5 @@
 import Message from "@/util/components/message"
-import CharacterList from "./character-list"
+import CharacterList from "../../../util/components/character-list"
 import { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
