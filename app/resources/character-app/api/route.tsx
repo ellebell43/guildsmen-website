@@ -28,6 +28,8 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ character, isOwner: character.owner == user.username })
 }
 
+// ========= PATCH ==========
+
 export async function PATCH(req: NextRequest) {
   const header = req.headers.get("characterToUpdate")
   let character: Character | undefined

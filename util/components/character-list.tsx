@@ -88,7 +88,7 @@ export default function CharacterList(props: { list: Character[] | characterTemp
         // Template list map
         return (
           <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
-            <Link href={`/resources/templates/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
+            <Link href={`/resources/character-templates/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
               {/* @ts-expect-error */}
               <p className="text-xl font-bold m-0 overflow-clip whitespace-nowrap">{el.character.name}</p>
               {/* @ts-expect-error */}

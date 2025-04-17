@@ -21,6 +21,7 @@ export default function Footer() {
       <div className="left lg:text-left">
         <p>Created and written by Elle Brooks</p>
         <p>Original artwork by Harmony Brooks</p>
+        <p>Contribution and testing from Harmony Brooks</p>
         <p>&copy; Elle Brooks</p>
       </div>
       <div className="right lg:text-right">

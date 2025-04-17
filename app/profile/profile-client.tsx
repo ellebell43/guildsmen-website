@@ -127,6 +127,7 @@ export default function ProfileClient(props: { user: user | null }) {
       </div>
 
       <Link className="button py-2 px-4 rounded mb-4" href="/profile/characters">My Characters</Link>
+      <Link className="button py-2 px-4 rounded mb-4" href="/profile/templates">My Templates</Link>
 
       {/* === SETTINGS BUTTON === */}
 

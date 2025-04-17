@@ -8,8 +8,8 @@ import Link from "next/link";
 import { useState } from "react";
 import PopUp from "@/util/components/pop-up";
 
-export default function Settings(props: { setEdit: Function, edit: boolean, character: Character, setCharacter: Function, isOwner: boolean }) {
-  let { setEdit, edit, character, setCharacter, isOwner } = props
+export default function Settings(props: { setEdit: Function, edit: boolean, character: Character, setCharacter: Function, isOwner: boolean, isTemplate?: boolean }) {
+  let { setEdit, edit, character, setCharacter, isOwner, isTemplate } = props
   const [error, setError] = useState("")
   const [showConfirmation, setShowConfirmation] = useState(false)
   const router = useRouter()
@@ -81,19 +81,20 @@ export default function Settings(props: { setEdit: Function, edit: boolean, char
       {/* Switches - only show if owner */}
       {!isOwner ? <></> : <>
         <div className="relative flex items-center">
-          <Info><p>Toggling this on allows you to adjust all the details of your character: name, skill levels, wealth, etc.</p></Info>
+          <Info><p>Toggling this on allows you to adjust all the details of your {isTemplate ? "template" : "character"}: name, skill levels, wealth, etc.</p></Info>
           <Switch attribute={edit} setAttribute={setEdit} label="Edit Mode" />
         </div>
         <div className="relative flex items-center">
-          <Info><p>Toggling this on allows other players to view your character (but not change it) if they have a link to it.</p></Info>
+          <Info><p>Toggling this on allows other players to view your {isTemplate ? "template" : "character"} (but not change it) if they have a link to it.</p></Info>
           <Switch attribute={character.public} setAttribute={setCharacter} attributeIsForObject={true} object={character} attributeTag="public" label="Public" />
         </div>
       </>}
       {/* Create template button */}
-      <div className="relative flex items-center">
-        <Info><p>This will add this character as a template on your profile where you can edit the template and spin it off as your own character.</p></Info>
-        <button className="button w-[160px] py-2" onClick={() => createTemplate()}>Create Template</button>
-      </div>
+      {isTemplate ? <></> :
+        <div className="relative flex items-center">
+          <Info><p>This will add this character as a template on your profile where you can edit the template and spin it off as your own character.</p></Info>
+          <button className="button w-[160px] py-2" onClick={() => createTemplate()}>Create Template</button>
+        </div>}
       {/* Print view button */}
       <Link href={`/resources/character-sheet/${character._id}`} target="_blank" className="button w-[160px] py-2">Print View</Link>
       {/* Template copy confirmation popup */}

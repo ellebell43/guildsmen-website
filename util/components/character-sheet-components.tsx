@@ -77,18 +77,20 @@ export function StatRow(props: { stat: string, top?: boolean, value?: modRange }
 }
 
 // -- ROLLABLE STAT ROW COMPONENT --
-export function RollableStatRow(props: { stat: statName, top?: boolean, value: modRange, edit: boolean, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) {
-  const { stat, top, value, edit, setShowDice, setRollMessage, die1ID, die2ID, character, setCharacter } = props
+export function RollableStatRow(props: { stat: statName, top?: boolean, value: modRange, edit: boolean, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function, isTemplate?: boolean }) {
+  const { stat, top, value, edit, setShowDice, setRollMessage, die1ID, die2ID, character, setCharacter, isTemplate } = props
   return (
     <div>
+      {/* Modifier labels */}
       <div className="flex justify-end items-center gap-[8px] pr-1">
         {top ? ["-1", "+0", "+1", "+2", "+3"].map(
           (el, i) => <p className={modifierStyle} key={i}>{el}</p>
         ) : <></>}
       </div>
-      <DiceRollWrapper mod={value} modLabel={stat} setShowDice={setShowDice} die1ID={die1ID} die2ID={die2ID} setRollMessage={setRollMessage} >
+      <DiceRollWrapper mod={value} modLabel={stat} setShowDice={setShowDice} die1ID={die1ID} die2ID={die2ID} setRollMessage={setRollMessage} isTemplate={isTemplate} >
         <div className="flex gap-2 justify-end items-center">
           <div className="flex justify-center items-center gap-2 text-sm">
+            {/* Increase button for edit mode */}
             {edit ? <button
               className="opacity-25"
               onClick={e => {
@@ -101,7 +103,9 @@ export function RollableStatRow(props: { stat: statName, top?: boolean, value: m
             >
               <FontAwesomeIcon icon={faPlus} />
             </button> : <></>}
+            {/* Stat label */}
             <p className={labelStyle}>{props.stat.charAt(0).toUpperCase() + props.stat.slice(1)}:</p>
+            {/* Decrease button for edit mode */}
             {edit ? <button
               className="opacity-25"
               onClick={e => {
@@ -321,7 +325,7 @@ export const AddSpecialty = (props: { type: "primary" | "secondary", skill: skil
 }
 
 // -- ROLLABLE SKILL --
-export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, edit?: boolean, name: skillName, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function }) => {
+export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: string, secondarySpecialty?: string, edit?: boolean, name: skillName, value: number, setShowDice: Function, setRollMessage: Function, die1ID: string, die2ID: string, character: Character, setCharacter: Function, isTemplate?: boolean }) => {
   const modifierStyle = "text-xs m-0"
   return (
     <div className={`${props.doubleCol ? "col-span-2" : ""}`}>
@@ -359,7 +363,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
 
         <div className="flex justify-center flex-col items-center">
           {props.primarySpecialty ?
-            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={2 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
+            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={2 + props.value} modLabel={`${props.name} and ${props.primarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true} isTemplate={props.isTemplate}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Primary (+2):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.primarySpecialty}</p>
@@ -371,7 +375,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
               {props.edit ? <AddSpecialty character={props.character} setCharacter={props.setCharacter} type="primary" className="absolute right-1 opacity-30 bottom-0" skill={props.name} /> : <></>}
             </div>}
           {props.secondarySpecialty ?
-            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.secondarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true}>
+            <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={1 + props.value} modLabel={`${props.name} and ${props.secondarySpecialty}`} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} absolute={true} isTemplate={props.isTemplate}>
               <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px] relative">
                 <p className="text-[8px] text-stone-400 m-0 relative">Secondary (+1):</p>
                 <p className="m-0 text-[12px] absolute top-2 left-1">{props.secondarySpecialty}</p>
@@ -386,7 +390,7 @@ export const RollableSkill = (props: { doubleCol?: boolean, primarySpecialty?: s
 
         {/* Bubble row */}
 
-        <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={props.value} modLabel={props.name} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage}>
+        <DiceRollWrapper die1ID={props.die1ID} die2ID={props.die2ID} mod={props.value} modLabel={props.name} setShowDice={props.setShowDice} setRollMessage={props.setRollMessage} isTemplate={props.isTemplate}>
           <div className="mb-1">
             <div className="flex justify-center items-center gap-[7px] pr-1">
               {["-1", "+0", "+1", "+2", "+3"].map(
