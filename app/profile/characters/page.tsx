@@ -1,10 +1,11 @@
 import Message from "@/util/components/message"
-import CharacterList from "./character-list"
+import CharacterList from "../../../util/components/character-list"
 import { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
 import { Character } from "@/util/types"
-import getCookieString from "@/util/getCookieString"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faStar } from "@fortawesome/free-solid-svg-icons"
 
 export const metadata: Metadata = { title: "Guildsmen | My Characters" }
 
@@ -25,6 +26,7 @@ export default async function Characters() {
           <h1>My Characters</h1>
           <Message good={true} />
           <CharacterList list={list} />
+          <p><FontAwesomeIcon className="text-xs" icon={faStar} /> - Character was created from a template</p>
         </>
       )
     }

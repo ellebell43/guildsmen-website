@@ -5,29 +5,34 @@ import { StatRow, Luck, Bubble, BubbleRow, StardewBar, RollableStatRow } from "@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons";
 
-export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function, edit: boolean, banner: boolean }) {
-  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood, edit, banner } = props
+export default function CharacterScreen(props: { character: Character, setCharacter: Function, setRollMessage: Function, rollMessage: React.ReactNode, setShowDice: Function, headerClass: string, containerClass: string, setMessage: Function, setMessageGood: Function, edit: boolean, banner: boolean, isTemplate?: boolean }) {
+  const { character, setCharacter, setRollMessage, rollMessage, setShowDice, headerClass, containerClass, setMessage, setMessageGood, edit, banner, isTemplate } = props
 
   return (
     <div className="flex flex-col items-center mt-4 gap-4">
-      {banner ? <Banner character={character} setCharacter={setCharacter} /> : <></>}
+      {banner ? <Banner character={character} setCharacter={setCharacter} edit={props.edit} /> : <></>}
 
       {/* ========== STATS ========== */}
 
       <div className={`${containerClass} flex flex-col justify-center items-end`}>
         <p className={`${headerClass} self-center`}>Stats</p>
-        <RollableStatRow stat={"tough"} value={character.stats.tough} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} top={true} />
-        <RollableStatRow stat={"nimble"} value={character.stats.nimble} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
-        <RollableStatRow stat={"competence"} value={character.stats.competence} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
-        <RollableStatRow stat={"constitution"} value={character.stats.constitution} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
-        <RollableStatRow stat={"spirit"} value={character.stats.spirit} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} />
+        {/* Tough */}
+        <RollableStatRow stat={"tough"} value={character.stats.tough} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} top={true} isTemplate={isTemplate} />
+        {/* Nimble */}
+        <RollableStatRow stat={"nimble"} value={character.stats.nimble} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} isTemplate={isTemplate} />
+        {/* Competence */}
+        <RollableStatRow stat={"competence"} value={character.stats.competence} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} isTemplate={isTemplate} />
+        {/* Constitution */}
+        <RollableStatRow stat={"constitution"} value={character.stats.constitution} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} isTemplate={isTemplate} />
+        {/* Spirit */}
+        <RollableStatRow stat={"spirit"} value={character.stats.spirit} edit={edit} setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID={"die1"} die2ID={"die2"} character={character} setCharacter={setCharacter} isTemplate={isTemplate} />
       </div>
       <div className="flex justify-center items-center gap-4">
 
         {/* ========== LUCK ========== */}
 
         <div className={containerClass}>
-          <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2">
+          <DiceRollWrapper mod={character.luck} modLabel="Luck" setShowDice={setShowDice} setRollMessage={setRollMessage} die1ID="die1" die2ID="die2" isTemplate={isTemplate}>
             <div className="flex justify-center items-center gap-2">
               {edit ? <button
                 className="opacity-25"
@@ -106,35 +111,39 @@ export default function CharacterScreen(props: { character: Character, setCharac
         <h2 className={headerClass}>Stardew Addiction</h2>
         <div className="flex justify-center items-center gap-2">
           {/* === Addiction Meter === */}
-          <button
-            className="opacity-25"
-            onClick={e => {
-              if (character.addiction < 24) {
-                let newCharacter = { ...character }
-                newCharacter.addiction++
-                if (newCharacter.addiction == 3) {
-                  setMessage("You are now addicted to stardew.")
-                  setMessageGood(false)
+          {/* Increase addiction level button */}
+          {isTemplate && !edit ? <></> :
+            <button
+              className="opacity-25"
+              onClick={e => {
+                if (character.addiction < 24) {
+                  let newCharacter = { ...character }
+                  newCharacter.addiction++
+                  if (newCharacter.addiction == 3 && !isTemplate) {
+                    setMessage("You are now addicted to stardew.")
+                    setMessageGood(false)
+                  }
+                  setCharacter(newCharacter)
                 }
-                setCharacter(newCharacter)
-              }
-            }}
-          >
-            <FontAwesomeIcon icon={faPlus} />
-          </button>
+              }}
+            >
+              <FontAwesomeIcon icon={faPlus} />
+            </button>}
           <p className="text-center m-0">Level</p>
-          <button
-            className="opacity-25"
-            onClick={e => {
-              if (character.addiction > 0) {
-                let newCharacter = { ...character }
-                newCharacter.addiction--
-                setCharacter(newCharacter)
-              }
-            }}
-          >
-            <FontAwesomeIcon icon={faMinus} />
-          </button>
+          {/* Decrease addiction level button */}
+          {isTemplate && !edit ? <></> :
+            <button
+              className="opacity-25"
+              onClick={e => {
+                if (character.addiction > 0) {
+                  let newCharacter = { ...character }
+                  newCharacter.addiction--
+                  setCharacter(newCharacter)
+                }
+              }}
+            >
+              <FontAwesomeIcon icon={faMinus} />
+            </button>}
         </div>
         <StardewBar value={character.addiction} />
         {/* === Need Meter === */}
@@ -143,13 +152,15 @@ export default function CharacterScreen(props: { character: Character, setCharac
         </div>
         <div className="flex gap-2 justify-center items-center relative">
           <p className="m-0 text-center">Need</p>
-          <button className="opacity-25 text-sm absolute right-16" onClick={e => {
-            let newCharacter = { ...character }
-            newCharacter.need = 0
-            setCharacter(newCharacter)
-          }}>
-            <FontAwesomeIcon icon={faArrowLeftRotate} />
-          </button>
+          {/* Need reset button */}
+          {isTemplate && !edit ? <></> :
+            <button className="opacity-25 text-sm absolute right-16" onClick={e => {
+              let newCharacter = { ...character }
+              newCharacter.need = 0
+              setCharacter(newCharacter)
+            }}>
+              <FontAwesomeIcon icon={faArrowLeftRotate} />
+            </button>}
         </div>
         <div className="absolute bottom-[35px] right-[4px]">
           <p className="text-center text-xs m-0">&#x25B2;</p>
@@ -159,43 +170,47 @@ export default function CharacterScreen(props: { character: Character, setCharac
         <div className="flex gap-2 items-center justify-center mt-2">
           <p className="text-xs m-0">Uses Available</p>
           <div className="flex justify-center items-center gap-2">
-            <button
-              className="opacity-25 text-xs"
-              onClick={e => {
-                if (character.stardewUses < 6) {
-                  let newCharacter = { ...character }
-                  newCharacter.addiction++
-                  newCharacter.stardewUses++
-                  if (newCharacter.addiction == 3) {
-                    setMessage("You are now addicted to Stardew.")
-                    setMessageGood(false)
+            {/* Increase uses button */}
+            {isTemplate && !edit ? <></> :
+              <button
+                className="opacity-25 text-xs"
+                onClick={e => {
+                  if (character.stardewUses < 6) {
+                    let newCharacter = { ...character }
+                    if (!isTemplate) newCharacter.addiction++
+                    newCharacter.stardewUses++
+                    if (newCharacter.addiction == 3 && !isTemplate) {
+                      setMessage("You are now addicted to Stardew.")
+                      setMessageGood(false)
+                    }
+                    setCharacter(newCharacter)
+                  } else if (character.stardewUses == 6 && !isTemplate) {
+                    let newCharacter = { ...character }
+                    newCharacter.harm = 10
+                    newCharacter.dying = true
+                    setCharacter(newCharacter)
                   }
-                  setCharacter(newCharacter)
-                } else if (character.stardewUses == 6) {
-                  let newCharacter = { ...character }
-                  newCharacter.harm = 10
-                  newCharacter.dying = true
-                  setCharacter(newCharacter)
-                }
-              }}
-            >
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
+                }}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+              </button>}
             <div className="border w-[30px] h-[25px] flex justify-center items-center" >
               <p className="m-0 text-center">{character.stardewUses}</p>
             </div>
-            <button
-              className="opacity-25 text-xs"
-              onClick={e => {
-                if (character.stardewUses > 0) {
-                  let newCharacter = { ...character }
-                  newCharacter.stardewUses--
-                  setCharacter(newCharacter)
-                }
-              }}
-            >
-              <FontAwesomeIcon icon={faMinus} />
-            </button>
+            {/* Decrease uses button */}
+            {isTemplate && !edit ? <></> :
+              <button
+                className="opacity-25 text-xs"
+                onClick={e => {
+                  if (character.stardewUses > 0) {
+                    let newCharacter = { ...character }
+                    newCharacter.stardewUses--
+                    setCharacter(newCharacter)
+                  }
+                }}
+              >
+                <FontAwesomeIcon icon={faMinus} />
+              </button>}
           </div>
         </div>
       </div>

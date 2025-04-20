@@ -22,6 +22,7 @@ const avatarArray: string[] = [
   "/avatars/sea.svg",
   "/avatars/village.svg",
   "/avatars/windmill.svg",
+  "/avatars/transgender-flag.svg"
 ]
 
 export default avatarArray

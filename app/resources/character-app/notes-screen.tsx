@@ -4,13 +4,13 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-export default function NotesScreen(props: { character: Character, setCharacter: Function }) {
+export default function NotesScreen(props: { character: Character, setCharacter: Function, isTemplate?: boolean, edit?: boolean }) {
   const [showNewNoteForm, setShowNewNoteForm] = useState(false)
   const [newNote, setNewNote] = useState("")
   const [edit, setEdit] = useState(false)
   const [index, setIndex] = useState(0)
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-2 gap-2 max-w-[1000px] mx-auto">
       {/* Notes grid */}
       {props.character.notes.length > 0 ? props.character.notes.map((el, i) =>
         <button
@@ -28,13 +28,13 @@ export default function NotesScreen(props: { character: Character, setCharacter:
       {/* Add note button */}
       <button
         onClick={e => setShowNewNoteForm(true)}
-        className="button border-2 border-stone-700 dark:border-stone-400 rounded-full shadow-lg w-[60px] h-[60px] flex justify-center items-center fixed bottom-20 right-6"
+        className={`button border-2 border-stone-700 dark:border-stone-400 rounded-full shadow-lg w-[60px] h-[60px] flex justify-center items-center fixed bottom-20 right-6 ${props.isTemplate && !props.edit ? "hidden" : ""}`}
       >
         <FontAwesomeIcon icon={faPlus} className="text-[32px]" />
       </button>
       {/* New note form */}
       {!showNewNoteForm ? <></> :
-        <div className="fixed inset-0 bg-stone-200 dark:bg-stone-700 bg-opacity-75 flex justify-center items-center">
+        <div className="fixed inset-0 bg-stone-200 dark:bg-stone-700 bg-opacity-75 dark:bg-opacity-75 flex justify-center items-center">
           <div className="bg-stone-200 dark:bg-stone-700 border rounded shadow p-4 pt-6">
             <TextAreaInput label={"New note"} required={false} id={"new note"} setState={setNewNote} state={newNote} />
             <div className="flex justify-center items-center gap-4 mt-4">

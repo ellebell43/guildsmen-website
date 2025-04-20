@@ -17,6 +17,9 @@ export default function Page() {
         <Link className={linkClass} href="/resources/character-creator">
           Character Creator
         </Link>
+        <Link className={linkClass} href="/resources/community-templates">
+          Community Templates
+        </Link>
         <Link className={linkClass} href="/cs-sheet.pdf" download="guildsmen-character-sheet" target="_blank">
           Character Sheet
           <FontAwesomeIcon icon={faDownload} className="" />

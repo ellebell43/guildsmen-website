@@ -6,7 +6,6 @@ import { TextInput, EmailInput } from "@/util/input-components/input-elements"
 import ErrorMessage from "../error-message"
 import crypto from "crypto"
 import Spinner from "../spinner"
-import { badWords } from "@/util/bad-words"
 import { useRouter } from "next/navigation"
 import Passwords from "../passwords"
 
@@ -35,11 +34,6 @@ export default function SignUp() {
     // Check to see if all fields are have been filled
     if (!username || !password || !passwordConfirm || !email) {
       setError("Please fill out all fields")
-      return
-    }
-    // Check for profanity in username
-    if (badWords.test(username)) {
-      setError("Username contains prohibited language")
       return
     }
     // Check for valid email

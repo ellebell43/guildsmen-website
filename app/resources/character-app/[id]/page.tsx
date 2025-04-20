@@ -6,33 +6,30 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 type Props = { params: { id: string } }
+type ApiResponse = { character: Character, isOwner: boolean }
 
-// export const metadata: Metadata = { title: "Guildsmen | Character App" }
-
+// Fetch character name to use dynamically as page title
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const token = cookies().get("token")
-  if (!token) return { title: `Guildsmen | Character Not Found` }
-
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: params.id, token: token.value }, credentials: "include" })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: params.id }, credentials: "include" })
   if (!res.ok) {
     return { title: `Guildsmen | Character Not Found` }
   } else {
-    const character: Character = await res.json()
+    const response: ApiResponse = await res.json()
+    const character = response.character
     return { title: `Guildsmen | ${character.name}` }
   }
 }
 
 export default async function Page(props: Props) {
+  // Get the character and ownership status and pass to character app
   const token = cookies().get("token")
-  if (!token?.value) {
-    redirect(`${process.env.NEXT_PUBLIC_HOST}/sign-in?return=/resources/character-app/${props.params.id}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token ? token.value : "" }, credentials: "include" })
+  if (!res.ok) {
+    return <p>This item couldn't be found! This could be a technical difficulty or it may have been deleted. Try refreshing the page.</p>
   } else {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token.value }, credentials: "include" })
-    if (!res.ok) {
-      throw new Error(res.statusText)
-    } else {
-      const character: Character = await res.json()
-      return <CharacterApp character={character} />
-    }
+    const response: ApiResponse = await res.json()
+    const character = response.character
+    const isOwner = response.isOwner
+    return <CharacterApp character={character} isOwner={isOwner} />
   }
 }
