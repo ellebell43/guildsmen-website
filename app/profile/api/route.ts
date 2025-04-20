@@ -95,11 +95,17 @@ export async function DELETE(req: NextRequest) {
     }
     const client = await dbClient()
     const users = client.collection("users")
-    const result = await users.deleteOne({ token })
-
-    if (!result.deletedCount) {
-      return NextResponse.json({ message: "No user found with provided token" }, { status: 400 })
-    }
+    const user = await users.findOne({ token })
+    // Make sure user was found
+    if (!user) return NextResponse.json({ message: "No user found with provided token" }, { status: 400 })
+    // delete user
+    users.deleteOne({ token })
+    // delete owned characters
+    const characters = client.collection("characters")
+    await characters.deleteMany({ owner: user.username })
+    //delete templates
+    const templates = client.collection("templates")
+    await templates.deleteMany({ owner: user.username })
 
     return NextResponse.json({})
 

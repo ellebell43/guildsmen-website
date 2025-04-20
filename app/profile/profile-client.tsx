@@ -276,7 +276,7 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
   if (!props.show) return <></>
   return (
-    <div className={`fixed inset-0 z-50 flex justify-center items-center bg-stone-100 bg-opacity-50`}>
+    <div className={`fixed inset-0 z-50 flex justify-center items-center bg-stone-100 dark:bg-stone-400 dark:bg-opacity-50 bg-opacity-50`}>
       <div className="bg-stone-100 max-h-[90vh] dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col gap-1 items-center">
 
         <h2>User Settings</h2>
@@ -355,9 +355,9 @@ function Settings(props: { show: boolean, setShow: Function, error: string, setE
 
             {/* === DELETE CONFIRMATION === */}
 
-            <div className={`fixed inset-0 bg-stone-100 bg-opacity-70 z-50 flex justify-center items-center ${deleteConfirmation ? "" : "hidden"}`}>
+            <div className={`fixed inset-0 bg-stone-100 dark:bg-stone-600 bg-opacity-70 dark:bg-opacity-70 z-50 flex justify-center items-center ${deleteConfirmation ? "" : "hidden"}`}>
               <div className="bg-stone-100 max-w-[300px] overflow-y-scroll dark:bg-stone-600 border h-fit relative rounded shadow-xl p-4 flex flex-col items-center justify-center">
-                <p>Are you sure you want to delete your profile? This will permanently remove all user data including custom any custom made characters, creatures, and items associated with this profile. This cannot be undone.</p>
+                <p>Are you sure you want to delete your profile? This will permanently remove all user data including characters, templates, and other items associated with this profile. This cannot be undone.</p>
                 <div className="flex justify-center items-center gap-4 w-full mb-2">
                   {/* Yes button */}
                   <button
