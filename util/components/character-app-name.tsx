@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Character, guild } from "../types";
+import { Character, guild, species } from "../types";
 import { faCheck, faPencil, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { TextInput } from "../input-components/input-elements";
@@ -27,6 +27,7 @@ export default function CharacterAppName(props: { character: Character, setChara
     let [demeanorInput, setDemeanorInput] = useState(character.demeanor)
     let [physiqueInput, setPhysiqueInput] = useState(character.physique)
     let [guildInput, setGuildInput] = useState<guild>(character.guild)
+    let [speciesInput, setSpeciesInput] = useState<species>(character.species)
     let [error, setError] = useState("")
 
     // Clear inputs from the edit box
@@ -53,6 +54,7 @@ export default function CharacterAppName(props: { character: Character, setChara
           <TextInput label="Demeanor" required={false} id="demeanorInput" setState={setDemeanorInput} state={demeanorInput} />
           <TextInput label="Physique" required={false} id="physiqueInput" setState={setPhysiqueInput} state={physiqueInput} />
           <BulletDropList entries={["Assassins", "Starborne Hunters", "Explorers", "Mercenaries", "Thieves"]} state={guildInput} setState={setGuildInput} placeholder="Guild" />
+          <BulletDropList entries={["Locess", "Mausca", "Isser", "Matari", "Slated", "Ungal"]} state={speciesInput} setState={setSpeciesInput} placeholder="Species" />
           {/* Confirm Button, hide edit and push inputs */}
           <button
             className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 z-30`}
@@ -70,6 +72,7 @@ export default function CharacterAppName(props: { character: Character, setChara
               newCharacter.demeanor = demeanorInput
               newCharacter.physique = physiqueInput
               newCharacter.guild = guildInput
+              newCharacter.species = speciesInput
 
               setCharacter(newCharacter)
               setShowEditBox(false)
