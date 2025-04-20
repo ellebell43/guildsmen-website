@@ -25,7 +25,7 @@ export default async function Page(props: Props) {
   const token = cookies().get("token")
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/character-app/api`, { cache: "no-store", method: "GET", headers: { id: props.params.id, token: token ? token.value : "" }, credentials: "include" })
   if (!res.ok) {
-    throw new Error(res.statusText)
+    return <p>This item couldn't be found! This could be a technical difficulty or it may have been deleted. Try refreshing the page.</p>
   } else {
     const response: ApiResponse = await res.json()
     const character = response.character
