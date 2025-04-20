@@ -27,9 +27,8 @@ export default function CharacterList(props: { list: Character[] | characterTemp
   }
 
   // Parse date
-  const getDate = (el: projectedCharacter): string => {
-    const date = new Date(el.dateCreated)
-    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+  const getDate = (date: Date): string => {
+    return date.toDateString()
   }
 
   // delete character/template
@@ -64,7 +63,9 @@ export default function CharacterList(props: { list: Character[] | characterTemp
         </div> : <></>}
       {/* Map over list */}
       {props.list.map((el, i) => {
-        // Character list map
+
+        // ================== CHARACTER LIST MAP ======================
+
         if (!isTemplate) return (
           <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
             <Link href={`/resources/character-app/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
@@ -74,8 +75,7 @@ export default function CharacterList(props: { list: Character[] | characterTemp
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{getDescription(el)}</p>
               {/* @ts-expect-error */}
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{el.guild} Guild</p>
-              {/* @ts-expect-error */}
-              <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(el)}</p>
+              <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(new Date(el.dateCreated))}</p>
             </Link>
             <button
               className="text-xl h-[50px] w-[50px] flex justify-center items-center hover:opacity-50 transition-all"
@@ -85,7 +85,9 @@ export default function CharacterList(props: { list: Character[] | characterTemp
             </button>
           </div>
         )
-        // Template list map
+
+        // ================== TEMPLATES LIST MAP ======================
+
         return (
           <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
             <Link href={`/resources/character-templates/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
@@ -93,11 +95,10 @@ export default function CharacterList(props: { list: Character[] | characterTemp
               <p className="text-xl font-bold m-0 overflow-clip whitespace-nowrap">{el.character.name}</p>
               {/* @ts-expect-error */}
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{getDescription(el.character)}</p>
-              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Template owned by <em>{el.owner}</em></p>
+              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Published by <em>{el.owner}</em></p>
               {/* @ts-expect-error */}
-              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Original character by <em>{el.referenceOwner}</em></p>
-              {/* @ts-expect-error */}
-              <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(el)}</p>
+              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Character originally by <em>{el.referenceOwner}</em></p>
+              <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(new Date(el.dateCreated))}</p>
             </Link>
             {/* Delete button */}
             {props.public ? <></> :
@@ -110,6 +111,8 @@ export default function CharacterList(props: { list: Character[] | characterTemp
           </div>
         )
       })}
+
+      {/* ====================== DELETION CONFIRMATION POPUP =========================== */}
 
       {showConfirmation ?
         <PopUp>

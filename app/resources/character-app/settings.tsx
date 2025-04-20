@@ -80,10 +80,12 @@ export default function Settings(props: { setEdit: Function, edit: boolean, char
     <div className="flex justify-center flex-col w-fit gap-y-4 mx-auto">
       {/* Switches - only show if owner */}
       {!isOwner ? <></> : <>
+        {/* Edit mode switch */}
         <div className="relative flex items-center">
           <Info><p>Toggling this on allows you to adjust all the details of your {isTemplate ? "template" : "character"}: name, skill levels, wealth, etc.</p></Info>
           <Switch attribute={edit} setAttribute={setEdit} label="Edit Mode" />
         </div>
+        {/* Public switch */}
         <div className="relative flex items-center">
           <Info><p>Toggling this on allows other players to view your {isTemplate ? "template" : "character"} (but not change it) if they have a link to it.</p></Info>
           <Switch attribute={character.public} setAttribute={setCharacter} attributeIsForObject={true} object={character} attributeTag="public" label="Public" />

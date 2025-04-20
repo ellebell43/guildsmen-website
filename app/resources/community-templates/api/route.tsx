@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const client = await dbClient()
   const collection = client.collection("templates")
 
-  let list = await collection.find({ "character.public": true }).toArray()
+  let list = await collection.find({ "character.public": true }, { sort: { "dateCreated": -1 } }).toArray()
 
   return NextResponse.json(list)
 }

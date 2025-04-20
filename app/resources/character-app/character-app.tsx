@@ -185,6 +185,10 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
       </div>
       <PageFooter active={page} setActive={setPage} />
       <Message message={message} setMessage={setMessage} good={messageGood} />
+      {!isTemplate ? <></> :
+        <div className="fixed bottom-10 right-10 bg-stone-100 dark:bg-stone-600 border px-10">
+          <p>Template View</p>
+        </div>}
     </div >
   )
 }
