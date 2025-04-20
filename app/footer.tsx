@@ -22,7 +22,7 @@ export default function Footer() {
         <p>Created and written by Elle Brooks</p>
         <p>Original artwork by Harmony Brooks</p>
         <p>Contribution and testing from Harmony Brooks</p>
-        <p>&copy; Elle Brooks</p>
+        <p>&copy; Elle Brooks 2025</p>
       </div>
       <div className="right lg:text-right">
         <p>License - <Link href="https://opensource.org/licenses/GPL-3.0">GPL-3.0</Link></p>

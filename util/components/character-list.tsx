@@ -9,7 +9,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export default function CharacterList(props: { list: Character[] | characterTemplate[], private?: boolean, isTemplate?: boolean }) {
+export default function CharacterList(props: { list: Character[] | characterTemplate[], private?: boolean, isTemplate?: boolean, public?: boolean }) {
   // state variables
   let [showConfirmation, setShowConfirmation] = useState(false)
   let [deleteId, setDeleteId] = useState("")
@@ -93,17 +93,20 @@ export default function CharacterList(props: { list: Character[] | characterTemp
               <p className="text-xl font-bold m-0 overflow-clip whitespace-nowrap">{el.character.name}</p>
               {/* @ts-expect-error */}
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">{getDescription(el.character)}</p>
+              <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Template owned by <em>{el.owner}</em></p>
               {/* @ts-expect-error */}
               <p className="m-0 text-sm opacity-60 overflow-clip whitespace-nowrap">Original character by <em>{el.referenceOwner}</em></p>
               {/* @ts-expect-error */}
               <p className="m-0 text-xs opacity-40 overflow-clip whitespace-nowrap">Created: {getDate(el)}</p>
             </Link>
-            <button
-              className="text-xl h-[50px] w-[50px] flex justify-center items-center hover:opacity-50 transition-all"
-              onClick={e => { setShowConfirmation(true); setDeleteId(String(el._id)) }}
-            >
-              <FontAwesomeIcon icon={faTrash} />
-            </button>
+            {/* Delete button */}
+            {props.public ? <></> :
+              <button
+                className="text-xl h-[50px] w-[50px] flex justify-center items-center hover:opacity-50 transition-all"
+                onClick={e => { setShowConfirmation(true); setDeleteId(String(el._id)) }}
+              >
+                <FontAwesomeIcon icon={faTrash} />
+              </button>}
           </div>
         )
       })}
