@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
   }
 
   const characters = client.collection("characters")
-  let characterList = await characters.find({ owner: user.username }).project({ name: 1, demeanor: 1, physique: 1, species: 1, dateCreated: 1, guild: 1 }).toArray()
+  let characterList = await characters.find({ owner: user.username }).toArray()
   return NextResponse.json(characterList)
 }
 

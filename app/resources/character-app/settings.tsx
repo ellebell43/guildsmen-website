@@ -7,12 +7,15 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import PopUp from "@/util/components/pop-up";
+import getTokenFromCookie from "@/util/getTokenFromCookie";
+import { usePathname } from "next/navigation";
 
 export default function Settings(props: { setEdit: Function, edit: boolean, character: Character, setCharacter: Function, isOwner: boolean, isTemplate?: boolean }) {
   let { setEdit, edit, character, setCharacter, isOwner, isTemplate } = props
   const [error, setError] = useState("")
   const [showConfirmation, setShowConfirmation] = useState(false)
   const router = useRouter()
+  const path = usePathname()
 
   // parse cookies into an object
   const cookieArr = document.cookie.split('; ');
@@ -76,29 +79,59 @@ export default function Settings(props: { setEdit: Function, edit: boolean, char
     }
   }
 
+  const createCharacter = async () => {
+    let token = getTokenFromCookie(document.cookie)
+    if (!token) {
+      router.push(`/sign-in?return=${path}`)
+      return
+    }
+    const res = await fetch(`/resources/character-creator/api`, { method: "POST", headers: { fromTemplate: "true", token: token, char: JSON.stringify(character) } })
+    if (!res.ok) {
+      setError("Failed to create new character. Please try again later.")
+      throw (error)
+    } else {
+      router.push("/profile/characters?message=New character created successfully!")
+    }
+  }
+
   return (
-    <div className="flex justify-center flex-col w-fit gap-y-4 mx-auto">
-      {/* Switches - only show if owner */}
-      {!isOwner ? <></> : <>
-        {/* Edit mode switch */}
-        <div className="relative flex items-center">
-          <Info><p>Toggling this on allows you to adjust all the details of your {isTemplate ? "template" : "character"}: name, skill levels, wealth, etc.</p></Info>
-          <Switch attribute={edit} setAttribute={setEdit} label="Edit Mode" />
-        </div>
-        {/* Public switch */}
-        <div className="relative flex items-center">
-          <Info><p>Toggling this on allows other players to view your {isTemplate ? "template" : "character"} (but not change it) if they have a link to it.</p></Info>
-          <Switch attribute={character.public} setAttribute={setCharacter} attributeIsForObject={true} object={character} attributeTag="public" label="Public" />
-        </div>
-      </>}
-      {/* Create template button */}
-      {isTemplate ? <></> :
-        <div className="relative flex items-center">
-          <Info><p>This will add this character as a template on your profile where you can edit the template and spin it off as your own character.</p></Info>
-          <button className="button w-[160px] py-2" onClick={() => createTemplate()}>Create Template</button>
+    <div>
+      <div className="flex justify-center flex-col w-fit gap-y-4 mx-auto">
+        {/* Switches - only show if owner */}
+        {!isOwner ? <></> : <>
+          {/* Edit mode switch */}
+          <div className="relative flex items-center">
+            <Info><p>Toggling this on allows you to adjust all the details of your {isTemplate ? "template" : "character"}: name, skill levels, wealth, etc.</p></Info>
+            <Switch attribute={edit} setAttribute={setEdit} label="Edit Mode" />
+          </div>
+          {/* Public switch */}
+          <div className="relative flex items-center">
+            <Info><p>Toggling this on allows other players to view your {isTemplate ? "template" : "character"} (but not change it) if they have a link to it. {!isTemplate ? "Other users will also be able to create a template from this character if this is toggled on." : "Other users will also be able to create characters from this template if this is toggled on."}</p></Info>
+            <Switch attribute={character.public} setAttribute={setCharacter} attributeIsForObject={true} object={character} attributeTag="public" label="Public" />
+          </div>
+        </>}
+        {isTemplate ?
+          // Create character from template button
+          <div className="relative flex items-center">
+            <Info><p>This will create a new character from this template.</p></Info>
+            <button className="button w-[160px] py-2" onClick={() => createCharacter()}>Create Character</button>
+          </div> :
+          // Create Template from character Button
+          <div className="relative flex items-center">
+            <Info><p>This will add this character as a template on your profile where you can edit the template and spin it off as your own character.</p></Info>
+            <button className="button w-[160px] py-2" onClick={() => createTemplate()}>Create Template</button>
+          </div>}
+        {/* Print view button */}
+        <Link href={`/resources/character-sheet/${character._id}`} target="_blank" className="button w-[160px] py-2">Print View</Link>
+      </div>
+
+      {/* From Template info */}
+      {isTemplate || !character.refOwner ? <></> :
+        <div className="mt-10">
+          <p className="text-center text-lg">This character was created from a template</p>
+          <p className="text-center text-sm opacity-70"><em><Link href={`/resources/character-app/${character.templateRef}`}>Original Character</Link> created by {character.refOwner}</em></p>
         </div>}
-      {/* Print view button */}
-      <Link href={`/resources/character-sheet/${character._id}`} target="_blank" className="button w-[160px] py-2">Print View</Link>
+
       {/* Template copy confirmation popup */}
       {!showConfirmation ? <></> :
         <PopUp show={showConfirmation} setShow={setShowConfirmation}>

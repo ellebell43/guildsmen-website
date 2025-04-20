@@ -3,13 +3,14 @@
 import Spinner from "@/app/spinner"
 import PopUp from "@/util/components/pop-up"
 import { Character, characterTemplate, projectedCharacter } from "@/util/types"
-import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faStar, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function CharacterList(props: { list: Character[] | characterTemplate[], private?: boolean, isTemplate?: boolean, public?: boolean }) {
+  console.log(props.list)
   // state variables
   let [showConfirmation, setShowConfirmation] = useState(false)
   let [deleteId, setDeleteId] = useState("")
@@ -67,7 +68,9 @@ export default function CharacterList(props: { list: Character[] | characterTemp
         // ================== CHARACTER LIST MAP ======================
 
         if (!isTemplate) return (
-          <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all">
+          <div key={i} className="border p-4 h-[118px] shadow-lg w-full flex justify-between items-center hover:bg-stone-200 dark:hover:bg-stone-600 transition-all relative">
+            {/* @ts-expect-error */}
+            {!el.refOwner ? <></> : <FontAwesomeIcon className="absolute bottom-1 left-1 text-xs" icon={faStar} />}
             <Link href={`/resources/character-app/${el._id}`} className="not-italic no-underline hover:text-stone-800 dark:hover:text-stone-100 w-full">
               {/* @ts-expect-error */}
               <p className="text-xl font-bold m-0 overflow-clip whitespace-nowrap">{el.name}</p>

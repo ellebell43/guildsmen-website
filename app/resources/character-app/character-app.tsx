@@ -16,6 +16,8 @@ import NotesScreen from "./notes-screen"
 import useWindowDimensions from "@/util/useWindowDimenstions"
 
 export default function CharacterApp(props: { character: Character, isOwner: boolean, template?: characterTemplate }) {
+  if (!props.isOwner && !props.character.public) return <p>This {props.template ? "template" : "character"} is set to private and cannot be viewed by other users.</p>
+
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
   const [showDice, setShowDice] = useState(false)
