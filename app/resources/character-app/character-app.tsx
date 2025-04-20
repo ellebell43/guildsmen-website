@@ -23,9 +23,6 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
   const [message, setMessage] = useState<string>()
   const [messageGood, setMessageGood] = useState(false)
   const [edit, setEdit] = useState(false)
-
-  if (!props.isOwner && !props.character.public) return <p>This {props.template ? "template" : "character"} is set to private and cannot be viewed by other users.</p>
-
   const { width, height } = useWindowDimensions()
 
   const isTemplate = Boolean(props.template)
@@ -156,6 +153,7 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
         return <></>
     }
   }
+  if (!props.isOwner && !props.character.public) return <p>This {props.template ? "template" : "character"} is set to private and cannot be viewed by other users.</p>
 
   return (
     < div className="relative bottom-[30px] min-h-screen lg:pt-10 pt-5" >
