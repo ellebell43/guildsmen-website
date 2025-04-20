@@ -34,7 +34,7 @@ export default function NotesScreen(props: { character: Character, setCharacter:
       </button>
       {/* New note form */}
       {!showNewNoteForm ? <></> :
-        <div className="fixed inset-0 bg-stone-200 dark:bg-stone-700 bg-opacity-75 flex justify-center items-center">
+        <div className="fixed inset-0 bg-stone-200 dark:bg-stone-700 bg-opacity-75 dark:bg-opacity-75 flex justify-center items-center">
           <div className="bg-stone-200 dark:bg-stone-700 border rounded shadow p-4 pt-6">
             <TextAreaInput label={"New note"} required={false} id={"new note"} setState={setNewNote} state={newNote} />
             <div className="flex justify-center items-center gap-4 mt-4">

@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function CharacterList(props: { list: Character[] | characterTemplate[], private?: boolean, isTemplate?: boolean, public?: boolean }) {
-  console.log(props.list)
   // state variables
   let [showConfirmation, setShowConfirmation] = useState(false)
   let [deleteId, setDeleteId] = useState("")

@@ -11,6 +11,7 @@ export default function CharacterAppName(props: { character: Character, setChara
 
   // global state variables
   let [showEditBox, setShowEditBox] = useState(false)
+  let [message, setMessage] = useState<string>()
 
   // Construct description string
   const getDescription = (el: Character): string => {
@@ -60,22 +61,20 @@ export default function CharacterAppName(props: { character: Character, setChara
             className={`button border rounded-full shadow w-[20px] h-[20px] p-4 flex justify-center items-center absolute -bottom-4 -right-4 bg-stone-100 dark:bg-stone-700 z-30`}
             onClick={e => {
               // Check for blank names
-              if (!Boolean(nameInput.trim())) { setError("Your character must have a name."); return }
+              if (!Boolean(nameInput.trim())) {
+                setError("Your character must have a name.")
+              } else {
+                let newCharacter = { ...character }
 
+                newCharacter.name = nameInput
+                newCharacter.demeanor = demeanorInput
+                newCharacter.physique = physiqueInput
+                newCharacter.guild = guildInput
+                newCharacter.species = speciesInput
 
-              // ---=== TODO: CHECK FOR INAPPROPRIATE WORDS. SEE USERNAME DICTIONARY ===---
-
-
-              let newCharacter = { ...character }
-
-              newCharacter.name = nameInput
-              newCharacter.demeanor = demeanorInput
-              newCharacter.physique = physiqueInput
-              newCharacter.guild = guildInput
-              newCharacter.species = speciesInput
-
-              setCharacter(newCharacter)
-              setShowEditBox(false)
+                setCharacter(newCharacter)
+                setShowEditBox(false)
+              }
             }}
           >
             <FontAwesomeIcon icon={faCheck} />
