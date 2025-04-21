@@ -110,6 +110,9 @@ export default function SignIn() {
 
       {/* === ERROR MESSAGE === */}
       <ErrorMessage message={error} />
+
+      {/* === MUST SIGN IN MESSAGE === */}
+      {returnTo ? <ErrorMessage message="Please sign in to view this page." /> : <></>}
     </div>
   )
 }

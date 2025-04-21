@@ -90,7 +90,7 @@ export default function Combat() {
         <h2>Weapons</h2>
         <p>All weapons have a bonus that is added to your roll when an attack is successful. There are 2 types of weapons, Heavy and Light. Light weapons give a +1 bonus and heavy weapons give a +2 bonus. However, <strong>heavy weapons require a Tough stat of +2</strong> or more in order for you to use them. </p>
 
-        <p>If you are <strong><em>using a bow</em></strong>, you have disadvantage to attack when at close range, but get twice the bonus when an attack is successful (+2 for a light bow, +4 for a heavy bow). If you are <strong><em>using a gun</em></strong>, you have disadvantage at long range and always have triple the normal bonus when an attack is successful (+3 for light guns, +6 for heavy guns).</p>
+        <p>If you are <strong><em>using a bow</em></strong>, you have an additional -2 modifier to attack when at close range, but get twice the damage bonus when an attack is successful (+2 for a light bow, +4 for a heavy bow). If you are <strong><em>using a gun</em></strong>, you have -4 at long range and always have triple the normal damage bonus when an attack is successful (+3 for light guns, +6 for heavy guns).</p>
       </section>
 
       <section id="armor">
@@ -119,7 +119,7 @@ export default function Combat() {
         <p>As a player, you can cause any of these conditions to another creature so long as you have the means.</p>
 
         <ul>
-          <li><strong>Blinded</strong>: You are unable to see for a length of time. When blinded, any skill checks that rely on vision are done with disadvantage. This cannot be ended early.</li>
+          <li><strong>Blinded</strong>: You are unable to see for a length of time. When blinded, any skill checks that rely on vision are done with a -2 in addition to your regular modifiers. This cannot be ended early.</li>
 
           <li><strong>Burning</strong>: You are on fire. Take 1 harm every combat round until the fire is put out.</li>
 
@@ -129,19 +129,19 @@ export default function Combat() {
 
           <li><strong>Entangled</strong>: You are bound and cannot move for a length of time. A Tough stat check of 10 or more may end the condition early.</li>
 
-          <li><strong>Exhausted</strong>: You have disadvantage to all skill and stat checks that require physical movement for a length of time. Resting may end the condition early.</li>
+          <li><strong>Exhausted</strong>: You have a -2 in addition to your regular modifiers to all skill and stat checks that require physical movement for a length of time. Resting may end the condition early.</li>
 
           <li><strong>Frenzied</strong>: You will uncontrollably attack all creatures nearby for a length of time. A Competence check of 12 or more may end the condition early.</li>
 
-          <li><strong>Frightened</strong>: You have disadvantage to all skill and stat checks that require mental exertion for a length of time. A Competence check of 10 or more may end the effect early.</li>
+          <li><strong>Frightened</strong>: You have a -2 in addition to your regular modifiers to all skill and stat checks that require mental exertion for a length of time. A Competence check of 10 or more may end the effect early.</li>
 
-          <li><strong>Frozen</strong>: All physical movement is done with disadvantage for a length of time. A Tough check of 12 or more may end the condition early.</li>
+          <li><strong>Frozen</strong>: All physical movement is done with a -2 in addition to your regular modifiers for a length of time. A Tough check of 12 or more may end the condition early.</li>
 
           <li><strong>Grappled</strong>: Both the victim and the attacker can no longer move. The victim may attempt to end the grapple via an opposed Tough check. On the next turn, if the grapple is still in effect, the attacker may knock the victim down or back, disarm the victim, make an attack with a small weapon such as a knife, or continue the grapple to prevent the victim from being able to move.</li>
 
           <li><strong>Knocked Back</strong>: you are pushed backward a distance specified by the Game Master. A Tough check of 10 or more may half the effect (done as a reaction).</li>
 
-          <li><strong>Knocked Down</strong>: you are pushed to the ground and now have disadvantage to all reactions until you get up.</li>
+          <li><strong>Knocked Down</strong>: you are pushed to the ground and now have a -2 in addition to your regular modifiers to all reactions until you get up.</li>
 
           <li><strong>Poisoned</strong>: you take an amount of Harm specified by the Game Master every combat round (for quick poisons) or every in-game hour (for slow poisons) until cured. You may make a Constitution check of 10 or more every combat round or hour to prevent the damage from happening for that round or hour. Whiteroot (see the Market chapter) may cure poison.</li>
 

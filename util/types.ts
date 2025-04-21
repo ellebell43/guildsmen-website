@@ -127,8 +127,11 @@ export class Character {
   dateCreated: Date
   public: boolean
   _id: ObjectId
+  fromTemplate?: boolean
+  templateRef?: ObjectId
+  refOwner?: string
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
@@ -169,6 +172,9 @@ export class Character {
     }
     this.dateCreated = new Date()
     this.public = false
+    this.fromTemplate = fromTemplate
+    this.templateRef = templateRef
+    this.refOwner = refOwner
   }
 
   dieRoll() {
@@ -184,3 +190,13 @@ export type projectedCharacter = { _id: ObjectId, name: string, demeanor?: strin
 
 
 export type projectedCharacterList = projectedCharacter[]
+
+export type characterTemplate = {
+  _id: ObjectId,
+  reference: ObjectId,
+  referenceOwner: string,
+  dateCreated: Date,
+  public: boolean,
+  owner: string,
+  character: Character
+}

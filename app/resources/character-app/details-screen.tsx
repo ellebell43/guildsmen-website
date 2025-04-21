@@ -44,7 +44,7 @@ export default function DetailsScreen(props: { character: Character, setCharacte
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 pt-4">
+    <div className="grid md:grid-cols-2 gap-4 pt-4 max-w-[1000px] mx-auto">
 
       <Detail type="Goals & Motives" character={props.character} edit={props.edit} />
       <Detail type="Flaws & Weaknesses" character={props.character} edit={props.edit} />

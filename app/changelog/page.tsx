@@ -13,6 +13,18 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="04/20/2025"
+          version="v0.8.0"
+          entries={[
+            "Characters can be made into templates for other users to use and make characters from",
+            "Characters/templates can be marked as public to determine if other users can access them",
+            "Account deletion also deletes owned characters and templates",
+            "New resource page with community (public) templates",
+            "All references to disadvantage in the Combat rules have been replaced with a -2 modifier since advantage/disadvantage were removed a couple updates back.",
+            "Error message if redirected to sign in saying you need to sign in to view the page when attempting to access a restricted URL."
+          ]}
+        />
+        <ChangelogEntry
           date="01/16/2025"
           version="v0.7.0"
           entries={[

@@ -1,7 +1,7 @@
 "use client"
 import Banner from "./banner"
 import { useState, useEffect } from "react"
-import { Character } from "@/util/types"
+import { Character, characterTemplate } from "@/util/types"
 import PageFooter from "./page-footer"
 import Die, { resetDie } from "@/util/components/dice/die"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -15,8 +15,7 @@ import DetailsScreen from "./details-screen"
 import NotesScreen from "./notes-screen"
 import useWindowDimensions from "@/util/useWindowDimenstions"
 
-export default function CharacterApp(props: { character: Character }) {
-
+export default function CharacterApp(props: { character: Character, isOwner: boolean, template?: characterTemplate }) {
   const [character, setCharacter] = useState<Character>(props.character)
   const [page, setPage] = useState<"character" | "skills" | "gear" | "details" | "notes" | "settings">("character")
   const [showDice, setShowDice] = useState(false)
@@ -24,11 +23,28 @@ export default function CharacterApp(props: { character: Character }) {
   const [message, setMessage] = useState<string>()
   const [messageGood, setMessageGood] = useState(false)
   const [edit, setEdit] = useState(false)
-
   const { width, height } = useWindowDimensions()
+
+  const isTemplate = Boolean(props.template)
 
   // Update character in the database anytime a change is made to the character data
   useEffect(() => {
+    // Do not update if you don't own the character
+    if (!props.isOwner) { setMessage(`No changes will save. This account does not own this ${isTemplate ? "template" : "character"}.`); return }
+
+
+    // ---=== TODO: IF TEMPLATE, PATCH TO TEMPLATE API ===---
+
+
+    if (isTemplate) {
+      let template = { ...props.template }
+      //@ts-expect-error
+      template.character = { ...character }
+      fetch(`/resources/character-templates/api`, { method: "PATCH", headers: { templateToUpdate: JSON.stringify(template) } })
+        .then(res => { if (!res.ok) throw new Error("Something went wrong!") })
+      return
+    }
+
     fetch(`/resources/character-app/api`, { method: "PATCH", headers: { characterToUpdate: JSON.stringify(character) } })
       .then(res => { if (!res.ok) throw new Error("Something went wrong") })
     if (character.dying) { setMessage("You are dying!"); setMessageGood(false) }
@@ -37,6 +53,7 @@ export default function CharacterApp(props: { character: Character }) {
 
   // Automatically increase addiction meter if character is addicted to stardew anytime the dice are rolled
   useEffect(() => {
+    if (isTemplate) return
     if (rollMessage && character.addiction >= 3) {
       let maxNeed: number = 8 - Math.floor(character.addiction / 3) + 1
       let newCharacter = { ...character }
@@ -78,22 +95,23 @@ export default function CharacterApp(props: { character: Character }) {
       size = "lg"
     }
 
+
     switch (page) {
       case "character":
         if (size == "sm") {
           return (
             <>
-              <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={true} />
+              <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={true} isTemplate={isTemplate} />
             </>
           )
         }
         if (size == "md") {
           return (
             <>
-              <Banner character={character} setCharacter={setCharacter} />
+              <Banner character={character} setCharacter={setCharacter} edit={edit} isTemplate={isTemplate} />
               <div className="flex justify-center gap-10">
-                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
-                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
+                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} isTemplate={isTemplate} />
+                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} isTemplate={isTemplate} />
               </div>
             </>
           )
@@ -101,11 +119,11 @@ export default function CharacterApp(props: { character: Character }) {
         if (size == "lg") {
           return (
             <>
-              <Banner character={character} setCharacter={setCharacter} />
+              <Banner character={character} setCharacter={setCharacter} edit={edit} isTemplate={isTemplate} />
               <div className="flex justify-center gap-10">
-                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} />
-                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
-                <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} />
+                <CharacterScreen setCharacter={setCharacter} character={character} setRollMessage={setRollMessage} rollMessage={rollMessage} setShowDice={setShowDice} headerClass={headerClass} containerClass={containerClass} setMessage={setMessage} setMessageGood={setMessageGood} edit={edit} banner={false} isTemplate={isTemplate} />
+                <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} isTemplate={isTemplate} />
+                <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} isTemplate={isTemplate} edit={edit} />
               </div>
             </>
           )
@@ -116,28 +134,29 @@ export default function CharacterApp(props: { character: Character }) {
         </>
       case "gear":
         return <>
-          <Banner character={character} setCharacter={setCharacter} />
-          <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} />
+          <Banner character={character} setCharacter={setCharacter} edit={edit} isTemplate={isTemplate} />
+          <GearScreen headerClass={headerClass} character={character} setCharacter={setCharacter} containerClass={containerClass} isTemplate={isTemplate} edit={edit} />
         </>
       case "notes":
         return <>
-          <NotesScreen character={character} setCharacter={setCharacter} />
+          <NotesScreen character={character} setCharacter={setCharacter} isTemplate={isTemplate} edit={edit} />
         </>
       case "settings":
         return <>
-          <Settings edit={edit} setEdit={setEdit} character={character} />
+          <Settings edit={edit} setEdit={setEdit} character={character} setCharacter={setCharacter} isOwner={props.isOwner} isTemplate={isTemplate} />
         </>
       case "skills":
         return <>
-          <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} />
+          <SkillsScreen character={character} setCharacter={setCharacter} setMessage={setMessage} setMessageGood={setMessageGood} containerClass={containerClass} headerClass={headerClass} setShowDice={setShowDice} setRollMessage={setRollMessage} edit={edit} isTemplate={isTemplate} />
         </>
       default:
         return <></>
     }
   }
+  if (!props.isOwner && !props.character.public) return <p>This {props.template ? "template" : "character"} is set to private and cannot be viewed by other users.</p>
 
   return (
-    < div className="relative bottom-[30px] min-h-[calc(100vh-2px)] lg:pt-10 pt-5" >
+    < div className="relative bottom-[30px] min-h-screen lg:pt-10 pt-5" >
       {/* -- DEATH/DYING VIGNETTE -- */}
       <div className={`${!character.dying && character.harm != 10 ? "hidden" : ""} fixed inset-0 ${character.harm == 10 ? "from-transparent to-stone-800 dark:to-stone-300 via-transparent" : "from-transparent to-red-300 dark:to-red-800 via-transparent"} bg-gradient-radial opacity-50 transition-all`} />
       {/* -- ACTIVE SCREEN -- */}
@@ -166,6 +185,10 @@ export default function CharacterApp(props: { character: Character }) {
       </div>
       <PageFooter active={page} setActive={setPage} />
       <Message message={message} setMessage={setMessage} good={messageGood} />
+      {!isTemplate ? <></> :
+        <div className="fixed bottom-10 right-10 bg-stone-100 dark:bg-stone-600 border px-10">
+          <p>Template View</p>
+        </div>}
     </div >
   )
 }

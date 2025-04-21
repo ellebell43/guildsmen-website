@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faX } from "@fortawesome/free-solid-svg-icons"
 import { Reorder } from "framer-motion"
 
-export default function EditableList(props: { state: string[] | undefined, setState: Function, placeholder: string }) {
+export default function EditableList(props: { state: string[] | undefined, setState: Function, placeholder: string, isTemplate?: boolean, edit?: boolean }) {
   const { state, setState } = props
   const [newItem, setNewItem] = useState<string>("")
   // const [itemArr, setItemArr] = useState<string[]>([])
@@ -40,15 +40,17 @@ export default function EditableList(props: { state: string[] | undefined, setSt
               className="relative border-b list-none left-2 sm:left-0 pt-2"
             >
               {el}
-              <button
-                onClick={e => {
-                  let newArr = [...state.slice(0, i), ...state.slice(i + 1, state.length)]
-                  setState(newArr)
-                }}
-                className="absolute -left-6 top-[8px] text-[16px] opacity-50"
-              >
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
+              {/* Delete Button */}
+              {props.isTemplate && !props.edit ? <></> :
+                <button
+                  onClick={e => {
+                    let newArr = [...state.slice(0, i), ...state.slice(i + 1, state.length)]
+                    setState(newArr)
+                  }}
+                  className={`absolute -left-6 top-[8px] text-[16px] opacity-50`}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>}
             </Reorder.Item>
           )
         }) : <></>}

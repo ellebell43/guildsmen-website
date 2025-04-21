@@ -192,7 +192,7 @@ export function Info(props: { children: React.ReactNode, textArea?: boolean }) {
         <FontAwesomeIcon icon={faInfoCircle} />
       </button>
       {/* Info Wrapper */}
-      <div className={`${showInfo ? "" : "hidden"} fixed inset-0 bg-opacity-70 bg-stone-100 dark:bg-stone-600 flex justify-center items-center flex-col z-30`}>
+      <div className={`${showInfo ? "" : "hidden"} fixed inset-0 bg-opacity-70 dark:bg-opacity-70 bg-stone-100 dark:bg-stone-600 flex justify-center items-center flex-col z-30`}>
         {/* Close info button */}
         <button onClick={e => setShowInfo(false)} className="z-50 button text-xs relative rounded-full border w-8 h-8 right-[-150px] md:right-[-300px] top-[-20px]" >
           <FontAwesomeIcon icon={faX} />
