@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CommunityTemplatesClient from "./client";
 import { characterTemplate } from "@/util/types";
 
+export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: "Guildsmen | Community Templates" }
 
 export default async function Page() {
