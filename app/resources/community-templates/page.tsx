@@ -10,7 +10,7 @@ export default async function Page() {
   const res = await fetch(apiRoute, { cache: "no-store", method: "GET" })
   if (!res.ok) return <p>Error: something went wrong communicating with the server. Please refresh and try again.</p>
   list = await res.json()
-  console.log(`list: ${list}`)
+  console.warn(`list: ${JSON.stringify(list)}`)
 
   return (
     <>
