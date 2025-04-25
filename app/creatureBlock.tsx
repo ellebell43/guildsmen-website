@@ -4,7 +4,7 @@ export default function CreatureBlock(props: { creature: creature }) {
   const creature = props.creature;
 
   const getModifier = (num: number) => {
-    return num < 0 ? `-${num}` : `+${num}`
+    return num < 0 ? `${num}` : `+${num}`
   }
 
   const getAction = (action: action, i: number) => {
@@ -33,9 +33,12 @@ export default function CreatureBlock(props: { creature: creature }) {
   return (
     <>
       <div className="creatureBlock">
-        <h1 className="title">{creature.name} ({hazardWord} ,{getModifier(creature.modifier)}) | <em>{creature.reactive ? "Reactive" : "Un-Reactive"}</em></h1>
+        <div>
+          <h1 className="title mb-0 pb-0">{creature.name} ({hazardWord}, {getModifier(creature.modifier)})</h1>
+          <p className="mt-0 pt-0"><em>{creature.reactive ? "Reactive" : "Un-Reactive"}</em></p>
+        </div>
         <div className="stats">
-          <p>Tough {getModifier(creature.stats.tough)} | Nimble {getModifier(creature.stats.nimble)}</p>
+          <p>Tough {getModifier(creature.stats.tough)} | Nimble {getModifier(creature.stats.nimble)} | Spirit {getModifier(creature.stats.spirit)}</p>
           <p>Competence {getModifier(creature.stats.competence)} | Constitution {getModifier(creature.stats.constitution)}</p>
           <p>Harm {creature.stats.harm} | Armor {creature.stats.armor}</p>
         </div>
