@@ -40,6 +40,7 @@ export default function Lore() {
         <div>
           <h2>The City-States</h2>
           <ul className={listClass}>
+            <li className={inactiveLinkClass}>Avidal - City of Progress</li>
             <li className={inactiveLinkClass}>Arbor - City of the Locess</li>
             <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
             <li className={inactiveLinkClass}>Corden - City of the Orcs</li>
