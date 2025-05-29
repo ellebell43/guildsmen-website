@@ -21,6 +21,7 @@ export type creature = {
     nimble: number,
     competence: number,
     constitution: number,
+    spirit: number,
     harm: number,
     armor: number
   },

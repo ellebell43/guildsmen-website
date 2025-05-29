@@ -32,10 +32,6 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
     // Do not update if you don't own the character
     if (!props.isOwner) { setMessage(`No changes will save. This account does not own this ${isTemplate ? "template" : "character"}.`); return }
 
-
-    // ---=== TODO: IF TEMPLATE, PATCH TO TEMPLATE API ===---
-
-
     if (isTemplate) {
       let template = { ...props.template }
       //@ts-expect-error
@@ -186,7 +182,7 @@ export default function CharacterApp(props: { character: Character, isOwner: boo
       <PageFooter active={page} setActive={setPage} />
       <Message message={message} setMessage={setMessage} good={messageGood} />
       {!isTemplate ? <></> :
-        <div className="fixed bottom-10 right-10 bg-stone-100 dark:bg-stone-600 border px-10">
+        <div className="fixed bottom-16 right-2 bg-stone-100 dark:bg-stone-600 border px-10">
           <p>Template View</p>
         </div>}
     </div >
