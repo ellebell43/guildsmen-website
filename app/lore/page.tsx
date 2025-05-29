@@ -21,7 +21,7 @@ export default function Lore() {
           <h2>The World of Thelius</h2>
           <ul className={listClass}>
             <li className={inactiveLinkClass}>The Atlas of Thelius</li>
-            <li><Link href="/lore/the-world-of-thelius/general-world-history" className={linkClass}>General World Histroy</Link></li>
+            <li><Link href="/lore/the-world-of-thelius/general-world-history" className={linkClass}>General World History</Link></li>
           </ul>
         </div>
 
@@ -38,7 +38,7 @@ export default function Lore() {
         </div>
 
         <div>
-          <h2>The Ancestor City-States</h2>
+          <h2>The City-States</h2>
           <ul className={listClass}>
             <li className={inactiveLinkClass}>Arbor - City of the Locess</li>
             <li className={inactiveLinkClass}>Aquina - City of the Mausca</li>
