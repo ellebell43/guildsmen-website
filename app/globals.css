@@ -74,6 +74,10 @@
     @apply text-2xl mt-4 border-b border-b-stone-700 max-w-[400px] text-center mx-auto font-bold;
   }
 
+  h4 {
+    @apply text-xl font-bold my-4
+  }
+
   p {
     @apply my-3;
   }
