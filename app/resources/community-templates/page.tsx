@@ -4,17 +4,19 @@ import { characterTemplate } from "@/util/types";
 
 export const metadata: Metadata = { title: "Guildsmen | Community Templates" }
 
+export const dynamic = "force-dynamic"
+
 export default async function Page() {
   let list: characterTemplate[]
-  const apiRoute = `${process.env.NEXT_PUBLIC_HOST}/resources/community-templates/api`
-  const res = await fetch(apiRoute, { cache: "no-store", method: "GET" })
-  if (!res.ok) return <p>Error: something went wrong communicating with the server. Please refresh and try again.</p>
-  list = await res.json()
-  console.warn(`list: ${JSON.stringify(list)}`)
-
-  return (
-    <>
-      <CommunityTemplatesClient list={list} />
-    </>
-  )
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/resources/community-templates/api`, { cache: "no-store", method: "GET" })
+  if (!res.ok) {
+    return <p>Error: something went wrong communicating with the server. Please refresh and try again.</p>
+  } else {
+    list = await res.json()
+    return (
+      <>
+        <CommunityTemplatesClient list={list} />
+      </>
+    )
+  }
 }

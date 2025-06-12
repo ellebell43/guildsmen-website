@@ -1,6 +1,8 @@
 import { dbClient } from "@/util/dbClient";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic"
+
 export async function GET(req: NextRequest) {
   const client = await dbClient()
   const collection = client.collection("templates")
