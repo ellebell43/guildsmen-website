@@ -7,7 +7,8 @@ export type action = {
   description: string
 }
 
-export type equipment = { name: String, modifier: number }
+export type equipment = { name: string, modifier: equipmentModifier }
+export type equipmentModifier = "+1" | "+2" | "-2/+2" | "-2/+4" | "+3/-4" | "+6/-4"
 
 export type creatureType = "person" | "beast" | "starborne"
 
