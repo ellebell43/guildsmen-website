@@ -59,6 +59,8 @@ export type sneakySpecialty = "Hiding" | "Lock-Picking" | "Pocket-Picking" | "Sl
 export type throwdownSpecialty = "Melee" | "Personal" | "Ranged"
 export type techSpecialty = "Biological" | "Large" | "Personal" | "Vehicles"
 
+export type condition = "Blinded" | "Burning" | "Calmed" | "Charmed" | "Entangled" | "Exhausted" | "Frenzied" | "Frightened" | "Frozen" | "Grappled" | "Knocked Back" | "Knocked Down" | "Poisoned" | "Stunned" | "Weakened"
+
 export type specialties = {
   craft: { primary: craftSpecialty | undefined, secondary: craftSpecialty | undefined },
   investigate: { primary: investigateSpecialty | undefined, secondary: investigateSpecialty | undefined },
@@ -120,6 +122,8 @@ export class Character {
   owner: string
   harm: harm
   dying: boolean
+  weapons: { weapon: String, damageModifier: number }[] | undefined
+  armor: { armor: String, modifier: number } | undefined
   gear: string[]
   experience: number
   experienceProgress: experienceProgress
@@ -128,11 +132,13 @@ export class Character {
   dateCreated: Date
   public: boolean
   _id: ObjectId
+  description: string
   fromTemplate?: boolean
   templateRef?: ObjectId
   refOwner?: string
+  conditions?: condition[]
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: { weapon: String, damageModifier: number }[] | undefined = undefined, armor: { armor: String, modifier: number } | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
@@ -176,6 +182,9 @@ export class Character {
     this.fromTemplate = fromTemplate
     this.templateRef = templateRef
     this.refOwner = refOwner
+    this.description = description
+    this.weapons = weapons
+    this.armor = armor
   }
 
   dieRoll() {
