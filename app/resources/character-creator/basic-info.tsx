@@ -2,12 +2,14 @@ import { species } from "@/util/types";
 import TextInputWithInfo from "@/util/input-components/text-with-info";
 import BulletDropList from "@/util/input-components/bullet-drop-list";
 import SpeciesDetails from "@/app/rules/character-creation/species-details";
+import { TextAreaWithInfo } from "@/util/input-components/input-elements";
 
 type props = {
   name: string | undefined, setName: Function,
   species: species | undefined, setSpecies: Function,
   demeanor: string | undefined, setDemeanor: Function,
-  physique: string | undefined, setPhysique: Function
+  physique: string | undefined, setPhysique: Function,
+  description: string | undefined, setDescription: Function
 }
 
 export default function BasicInfo(props: props) {
@@ -28,18 +30,24 @@ export default function BasicInfo(props: props) {
 
       <p>To begin making your character, let&apos;s decide on the most basic information: name, demeanor, physique, and species. Click the info buttons to learn more.</p>
 
-      <div className="flex flex-col justify-center items-center">
-        <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
-          <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
-        </TextInputWithInfo>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12">
+        <div className="flex flex-col justify-center items-center">
+          <TextInputWithInfo label="Name*" id="name" required={true} state={props.name} setState={props.setName}>
+            <p><strong>Name</strong> is your character&apos;s name. This is what other players will call you during the game. It can be anything, but make sure it sounds epic. Like Bob. Bob is always a great name for a character.</p>
+          </TextInputWithInfo>
 
-        <TextInputWithInfo label="Demeanor" id="demeanor" required={true} state={props.demeanor} setState={props.setDemeanor}>
-          <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
-        </TextInputWithInfo>
+          <TextInputWithInfo label="Demeanor" id="demeanor" required={true} state={props.demeanor} setState={props.setDemeanor}>
+            <p><strong>Demeanor</strong> is how your character presents their self in most situations. Write in an adjective like cocky, excitable, confident, etc. This adjective is a tool to help you act as your character would.</p>
+          </TextInputWithInfo>
 
-        <TextInputWithInfo label="Physique" id="physique" required={true} state={props.physique} setState={props.setPhysique}>
-          <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
-        </TextInputWithInfo>
+          <TextInputWithInfo label="Physique" id="physique" required={true} state={props.physique} setState={props.setPhysique}>
+            <p><strong>Physique</strong> is how your character is built physically. Write in an adjective like fat, thin, lean, strong, etc. This adjective is a tool to help guide what other characters in the world would see at a glance.</p>
+          </TextInputWithInfo>
+
+        </div>
+        <TextAreaWithInfo label="Description" id="description" required={false} state={props.description} setState={props.setDescription}>
+          <p>This area is for writing out a description of what your character looks like.</p>
+        </TextAreaWithInfo>
       </div>
 
       <BulletDropList entries={["Locess", "Mausca", "Isser", "Matari", "Slated", "Ungal"]} state={props.species} setState={props.setSpecies} placeholder="Species*" info={<>

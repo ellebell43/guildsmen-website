@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange, user } from "@/util/types";
+import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange, user, equipment } from "@/util/types";
 import ErrorMessage from "@/app/error-message";
-import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
 import BackgroundInfo from "./background-info";
 import StartingSkills from "./starting-skills";
@@ -43,6 +42,7 @@ export default function CharacterForm(props: { user: user }) {
   const [species, setSpecies] = useState<species>()
   const [demeanor, setDemeanor] = useState<string>()
   const [physique, setPhysique] = useState<string>()
+  const [description, setDescription] = useState<string>()
   const [skills, setSkills] = useState<skills>(initSkills)
   const [wealth, setWealth] = useState<wealthRange>()
   const [luck, setLuck] = useState<luckRange>()
@@ -53,6 +53,8 @@ export default function CharacterForm(props: { user: user }) {
   const [personalMorals, setPersonalMorals] = useState<string>()
   const [importantConnections, setImportantConnections] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
+  const [weapons, setWeapons] = useState<equipment[]>([])
+  const [armor, setArmor] = useState<equipment | undefined>()
 
   const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1, spirit: -1 }
 
@@ -62,7 +64,7 @@ export default function CharacterForm(props: { user: user }) {
   const getPage = () => {
     switch (page) {
       case 1:
-        return <BasicInfo name={name} setName={setName} species={species} setSpecies={setSpecies} demeanor={demeanor} setDemeanor={setDemeanor} physique={physique} setPhysique={setPhysique} />
+        return <BasicInfo name={name} setName={setName} species={species} setSpecies={setSpecies} demeanor={demeanor} setDemeanor={setDemeanor} physique={physique} setPhysique={setPhysique} description={description} setDescription={setDescription} />
       case 2:
         return <BackgroundInfo flawsAndWeaknesses={flawsAndWeaknesses} setFlawsAndWeaknesses={setFlawsAndWeaknesses} personalMorals={personalMorals} setPersonalMorals={setPersonalMorals} importantConnections={importantConnections} setImportantConnections={setImportantConnections} goalsAndMotives={goalsAndMotives} setGoalsAndMotives={setGoalsAndMotives} />
       case 3:
@@ -72,7 +74,7 @@ export default function CharacterForm(props: { user: user }) {
       case 5:
         return <GuildSelect guild={guild} setGuild={setGuild} />
       case 6:
-        return <GearList gear={gear} setGear={setGear} />
+        return <GearList gear={gear} setGear={setGear} armor={armor} setArmor={setArmor} weapons={weapons} setWeapons={setWeapons} />
     }
   }
 
@@ -218,7 +220,9 @@ export default function CharacterForm(props: { user: user }) {
     // update stardew addiction if chosen as a starting skill
     if (skills.stardew >= 0) setAddiction(3)
     if (name && species && typeof (wealth) == "number" && luck && guild) {
-      let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
+      // @ts-expect-error
+      if (!armor.name) setArmor(undefined)
+      let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username, description, weapons, armor)
       newChar.gear = gear
       setApiLoading(true)
       let ok = true

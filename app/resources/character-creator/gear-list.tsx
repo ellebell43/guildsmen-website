@@ -1,7 +1,16 @@
-import EditableList from "@/util/components/editable-list";
+import EditableList, { WeaponList } from "@/util/components/editable-list";
+import { EquipmentObjectInput } from "@/util/input-components/input-elements";
+import { equipment } from "@/util/types";
 import Link from "next/link";
 
-export default function GearList(props: { gear: string[] | undefined, setGear: Function }) {
+type props = {
+  gear: string[] | undefined, setGear: Function,
+  armor: equipment | undefined, setArmor: Function,
+  weapons: equipment[] | undefined, setWeapons: Function
+}
+
+export default function GearList(props: props) {
+
   return (
     <div>
       <h2>Gear</h2>
@@ -10,7 +19,18 @@ export default function GearList(props: { gear: string[] | undefined, setGear: F
 
       <p>We suggest you read the rest of the rules chapters in their entirety as well to get a good grasp of the game and its mechanics. It&apos;s not necessary but it might be good to see what can be accomplished.</p>
 
-      <EditableList state={props.gear} setState={props.setGear} placeholder="New Gear Item" />
+      <h3 className="border-none">Armor</h3>
+      <EquipmentObjectInput state={props.armor ? props.armor : { name: "", modifier: "+1" }} setState={props.setArmor} entries={["+1", "+2"]} placeholder="Armor" />
+      <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-4">
+        <div>
+          <h3 className="border-none">Weapons</h3>
+          <WeaponList state={props.weapons} setState={props.setWeapons} placeholder="New Weapon Item" />
+        </div>
+        <div>
+          <h3 className="border-none">Gear</h3>
+          <EditableList state={props.gear} setState={props.setGear} placeholder="New Gear Item" />
+        </div>
+      </div>
     </div>
   )
 }
