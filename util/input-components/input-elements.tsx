@@ -2,10 +2,12 @@ import styles from "./styles.module.css"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye, faEyeSlash, faX, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
+import { equipment, equipmentModifier } from "../types"
+import BulletDropList from "./bullet-drop-list"
 
 // ====== TEXT INPUT ======
 
-export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined, readOnly?: boolean }) {
+export function TextInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined, readOnly?: boolean, small?: boolean }) {
   let { label, required, id, setState, state } = props
 
   const MAX_USERNAME_LENGTH = 12
@@ -27,7 +29,7 @@ export function TextInput(props: { label: string, required: boolean, id: string,
     <div className={styles.inputContainer}>
       <label htmlFor={id} className={`${styles.label}  ${active ? styles.labelActive : ""}`}>{label}</label>
       <input
-        className={`${styles.inputField} ${dark ? styles.darkInputField : styles.lightInputField}`}
+        className={`${props.small ? styles.smallInputField : styles.inputField} ${dark ? styles.darkInputField : styles.lightInputField}`}
         type="text"
         id={id}
         name={id}
@@ -52,6 +54,28 @@ export function TextInput(props: { label: string, required: boolean, id: string,
           onInputChange(e.target.value)
         }}
       />
+    </div>
+  )
+}
+
+// ====== EQUIPMENT OBJECT INPUT ======
+export function EquipmentObjectInput(props: { state: equipment | undefined, setState: Function, entries: string[], placeholder: string }) {
+  const setModifier = (mod: equipmentModifier) => {
+    const newObj = { ...props.state }
+    newObj.modifier = mod
+    props.setState(newObj)
+  }
+
+  const setName = (name: string) => {
+    const newObj = { ...props.state }
+    newObj.name = name
+    props.setState(newObj)
+  }
+
+  return (
+    <div className="flex gap-2 justify-center items-center">
+      <TextInput state={props.state?.name} setState={setName} required={true} id={props.placeholder} label={props.placeholder} />
+      <BulletDropList entries={props.entries} state={props.state?.modifier} setState={setModifier} placeholder="Mod" small={true} />
     </div>
   )
 }

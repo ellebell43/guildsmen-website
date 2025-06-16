@@ -6,6 +6,10 @@
   @apply bg-inherit border-b border-b-[var(--text-color)] w-[240px] relative
 }
 
+.smallInputField {
+  @apply bg-inherit border-b border-b-[var(--text-color)] w-[75px] relative
+}
+
 .passInputField {
   @apply bg-inherit border-b border-b-[var(--text-color)] w-[240px] pr-[20px] relative
 }
