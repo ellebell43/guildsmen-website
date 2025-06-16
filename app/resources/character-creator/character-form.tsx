@@ -220,8 +220,7 @@ export default function CharacterForm(props: { user: user }) {
     // update stardew addiction if chosen as a starting skill
     if (skills.stardew >= 0) setAddiction(3)
     if (name && species && typeof (wealth) == "number" && luck && guild) {
-      // @ts-expect-error
-      if (!armor.name) setArmor(undefined)
+      if (!armor?.name) setArmor(undefined)
       let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username, description, weapons, armor)
       newChar.gear = gear
       setApiLoading(true)
