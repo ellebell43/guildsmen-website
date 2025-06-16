@@ -7,6 +7,8 @@ export type action = {
   description: string
 }
 
+export type equipment = { name: String, modifier: number }
+
 export type creatureType = "person" | "beast" | "starborne"
 
 export type creature = {
@@ -122,8 +124,8 @@ export class Character {
   owner: string
   harm: harm
   dying: boolean
-  weapons: { weapon: String, damageModifier: number }[] | undefined
-  armor: { armor: String, modifier: number } | undefined
+  weapons: equipment[] | undefined
+  armor: equipment | undefined
   gear: string[]
   experience: number
   experienceProgress: experienceProgress
@@ -138,7 +140,7 @@ export class Character {
   refOwner?: string
   conditions?: condition[]
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: { weapon: String, damageModifier: number }[] | undefined = undefined, armor: { armor: String, modifier: number } | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: equipment[] | undefined = undefined, armor: equipment | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
