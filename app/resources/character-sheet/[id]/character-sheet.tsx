@@ -7,7 +7,7 @@ import { Character } from "@/util/types"
 import ErrorMessage from "@/app/error-message"
 
 const labelStyle = "m-0"
-const borderStyle = "border rounded-lg border-stone-400 shadow-sm p-2 pt-2 flex flex-col justify-center"
+const borderStyle = "border rounded-lg border-black shadow-sm p-2 pt-2 flex flex-col justify-center"
 const headerStyle = "m-0 text-[24px]"
 const modifierStyle = "text-xs m-0"
 
@@ -27,7 +27,7 @@ export default function CharacterSheet(props: { character?: Character, error?: s
       {props.error ? <ErrorMessage message={props.error} /> : <></>}
 
       {/* First page */}
-      <div className="bg-white w-[8.5in] h-[11in] mx-auto border-stone-300 border relative shadow-xl p-[.5in]">
+      <div className="bg-white w-[8.5in] h-[11in] mx-auto border-stone-300 border relative shadow-xl px-[.5in] pt-6">
         <h1 className="m-0 text-[48px] text-center mb-8">Guildsmen</h1>
 
         <div className="flex justify-center gap-4 mb-4">
@@ -39,6 +39,7 @@ export default function CharacterSheet(props: { character?: Character, error?: s
             <LabelAndLine label="Species" contents={character ? character.species : ""} />
             <LabelAndLine label="Physique" contents={character ? character.physique : ""} />
             <LabelAndLine label="Demeanor" contents={character ? character.demeanor : ""} />
+            <LabelAndLine label="Guild" contents={character ? character.guild : ""} />
           </div>
 
           {/* ========== STATS ========== */}
@@ -84,25 +85,13 @@ export default function CharacterSheet(props: { character?: Character, error?: s
         <div className="flex flex-row-reverse gap-4 justify-center">
           <div className="flex flex-col gap-4 items-center">
             <div className="flex flex-row-reverse justify-center items-center gap-4">
-              {/* ========== HARM ========== */}
-
-              <div className={`${borderStyle} flex flex-col justify-center items-center gap-2 h-fit`}>
-                <h2 className={headerStyle}>Harm</h2>
-                <BubbleRow length={5} fill={0} />
-                <BubbleRow length={5} fill={0} />
-                <div className="flex gap-2 justify-center items-center">
-                  <p className="text-xs text-red-600 m-0">Dying</p>
-                  <Bubble red={true} />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4" >
                 {/* ========== LUCK ========== */}
 
                 <div className={` ${borderStyle}`}>
                   <h2 className={headerStyle}>Luck</h2>
                   <div>
-                    <div className="flex justify-between items-center px-1">
+                    <div className="flex justify-between items-center gap-[10px] w-fit mx-auto">
                       {["-3", "-2", "-1", "+1", "+2", "+3"].map(
                         (el, i) => <p key={i} className={modifierStyle}>{el}</p>
                       )}
@@ -111,6 +100,27 @@ export default function CharacterSheet(props: { character?: Character, error?: s
                       fillOne={true} />
                   </div>
                 </div>
+
+
+                {/* ========== CONDITIONS ========== */}
+                <div className={`${borderStyle} flex flex-col justify-center items-center h-fit`}>
+                  <h2 className={headerStyle}>Conditions</h2>
+                  <LineColumn lines={4} />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                {/* ========== HARM ========== */}
+                <div className={`${borderStyle} flex flex-col justify-center items-center gap-2 h-fit`}>
+                  <h2 className={headerStyle}>Harm</h2>
+                  <BubbleRow length={5} fill={0} />
+                  <BubbleRow length={5} fill={0} />
+                  <div className="flex gap-2 justify-center items-center">
+                    <p className="text-xs text-red-600 m-0">Dying</p>
+                    <Bubble red={true} />
+                  </div>
+                </div>
+
 
                 {/* ========== EXPERIENCE ========== */}
 
@@ -125,9 +135,37 @@ export default function CharacterSheet(props: { character?: Character, error?: s
               </div>
             </div>
 
+            <div className={`relative flex gap-4 w-full`}>
+              {/* ========== ARMOR ========== */}
+              <div className={`border rounded-lg border-black shadow-sm p-2 pt-2 flex flex-col justify-start w-1/2`}>
+                <h2 className={`${headerStyle} relative`}>Armor</h2>
+                <div className="flex flex-col justify-between h-full">
+                  <div className="border border-black rounded-[100%] w-1/2 flex justify-center items-start h-10 mb-2 mx-auto">
+                    <p className="text-[10px] text-stone-400 m-0 mt-1 absolute">Modifier</p>
+                    <p className="text-lg">{character?.armor?.modifier}</p>
+                  </div>
+                  <p className="m-0 text-lg text-center border-b border-black w-full">{character?.armor?.name}</p>
+                </div>
+              </div>
+
+              {/* ========== WEAPONS ========== */}
+              <div className={`relative w-1/2 ${borderStyle}`}>
+                <h2 className={headerStyle}>Weapons</h2>
+                <LineColumn lines={4} />
+                {character?.weapons ?
+                  <div className="w-full absolute">
+                    {character.weapons.map((el, i) => {
+                      return (
+                        <p className="text-sm m-0">{el.name} ({el.modifier})</p>
+                      )
+                    })}
+                  </div> : <></>}
+              </div>
+            </div>
+
             {/* ========== ADDICTION ========== */}
 
-            <div className={`${borderStyle} relative h-fit w-fit`}>
+            <div className={`${borderStyle} relative h-fit w-[220px]`}>
               <h2 className={headerStyle}>Stardew Addiction</h2>
               <p className="text-center m-0">Level</p>
               <StardewBar />
@@ -144,6 +182,8 @@ export default function CharacterSheet(props: { character?: Character, error?: s
                 <div className="border w-[30px] h-[25px]" />
               </div>
             </div>
+
+
           </div>
 
           {/* ========== SKILLS ========== */}
@@ -151,7 +191,7 @@ export default function CharacterSheet(props: { character?: Character, error?: s
           <div className={`${borderStyle} pb-6`}>
             <h2 className={headerStyle}>Skills</h2>
 
-            <div className="grid grid-cols-2 gap-x-2 gap-y-6">
+            <div className="grid grid-cols-2 gap-x-2 gap-y-5">
               <Skill name="Craft" value={character ? character.skills.craft : undefined} primarySpecialty={character ? character.specialties.craft.primary : undefined} secondarySpecialty={character ? character.specialties.craft.secondary : undefined} />
               <Skill name="Investigate" value={character ? character.skills.investigate : undefined} primarySpecialty={character ? character.specialties.investigate.primary : undefined} secondarySpecialty={character ? character.specialties.investigate.secondary : undefined} />
               <Skill name="Leadership" value={character ? character.skills.leadership : undefined} primarySpecialty={character ? character.specialties.leadership.primary : undefined} secondarySpecialty={character ? character.specialties.leadership.secondary : undefined} />
@@ -174,14 +214,14 @@ export default function CharacterSheet(props: { character?: Character, error?: s
         <div className="flex gap-4 justify-center">
           {/* ========== GOALS & MOTIVES ========== */}
 
-          <div className={`${borderStyle} w-full border-2 relative`}>
+          <div className={`${borderStyle} w-full relative`}>
             <h2 className={headerStyle}>Goals and Motives</h2>
             <LineColumn lines={10} contents={character ? character.goalsAndMotive : undefined} />
           </div>
 
           {/* ========== FLAWS & WEAKNESSES ========== */}
 
-          <div className={`${borderStyle} w-full border-2 relative`}>
+          <div className={`${borderStyle} w-full relative`}>
             <h2 className={headerStyle}>Flaws and Weaknesses</h2>
             <LineColumn lines={10} contents={character ? character.flawsAndWeaknesses : undefined} />
           </div>
@@ -191,14 +231,14 @@ export default function CharacterSheet(props: { character?: Character, error?: s
 
           {/* ========== PERSONAL MORALS ========== */}
 
-          <div className={`${borderStyle} w-full border-2 relative`}>
+          <div className={`${borderStyle} w-full relative`}>
             <h2 className={headerStyle}>Personal Morals</h2>
             <LineColumn lines={10} contents={character ? character.personalMorals : undefined} />
           </div>
 
           {/* ========== IMPORTANT CONNECTIONS ========== */}
 
-          <div className={`${borderStyle} w-full border-2 relative`}>
+          <div className={`${borderStyle} w-full relative`}>
             <h2 className={headerStyle}>Important Connections</h2>
             <LineColumn lines={10} contents={character ? character.importantConnections : undefined} />
           </div>
@@ -206,18 +246,28 @@ export default function CharacterSheet(props: { character?: Character, error?: s
 
         {/* ========== GEAR ========== */}
 
-        <div className={`mt-8 ${borderStyle} relative`}>
-          <h2 className={headerStyle}>Gear</h2>
-          <div className="grid grid-cols-3 gap-x-4">
-            <LineColumn lines={18} contents={character ? character.gear : undefined} gear={true} />
+        <div className="flex justify-center items-center gap-4">
+          <div className={`mt-8 ${borderStyle} relative h-[416px] w-[351px]`}>
+            <h2 className={headerStyle}>Gear</h2>
+            <div className="grid grid-cols-3 gap-x-4 h-full ">
+              <LineColumn lines={18 * 3} contents={character ? character.gear : undefined} gear={true} />
+            </div>
+          </div>
+          <div className={`mt-8 ${borderStyle} relative h-[416px] w-[351px]`}>
+            <h2 className={headerStyle}>Character Notes</h2>
+            <LineColumn lines={18} contents={character ? character.description : undefined} />
           </div>
         </div>
 
+
+      </div>
+
+      <div className="bg-white w-[8.5in] h-[11in] p-[.5in] mx-auto border-stone-300 border relative shadow-xl">
         {/* ========== NOTES ========== */}
         <div className={`${borderStyle} w-full mt-4`}>
           <h2 className={headerStyle}>Notes</h2>
           <div className="grid grid-cols-2 gap-x-4">
-            <LineColumn lines={16} />
+            <LineColumn lines={90} />
           </div>
         </div>
       </div>

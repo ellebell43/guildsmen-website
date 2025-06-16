@@ -25,7 +25,7 @@ export function LabelAndLine(props: { label: string, contents?: string }) {
 // -- BUBBLE COMPONENT --
 export function Bubble(props: { filled?: boolean, red?: boolean }) {
   return (
-    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-stone-600"} ${props.filled ? "bg-stone-600 dark:bg-stone-400" : ""}`} />
+    <div className={`border rounded-full w-[15px] h-[15px] ${props.red ? "border-red-600" : "border-black"} ${props.filled ? "bg-black dark:bg-stone-400" : ""}`} />
   )
 }
 
@@ -155,11 +155,11 @@ export function Skill(props: { name: string, value?: modRange, doubleCol?: boole
       <p className="m-0 italic text-center">{props.name}</p>
       <div className="flex justify-center items-center flex-col-reverse md:flex-col">
         <div className="flex justify-center flex-col md:flex-row items-center">
-          <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+          <div className="border border-black w-[100px] h-[25px] pt-[1px] pl-[2px]">
             <p className="text-[8px] text-stone-400 m-0">Primary (+2):</p>
             <p className="text-[10px] m-0 relative bottom-1 pl-4">{props.primarySpecialty}</p>
           </div>
-          <div className="border border-stone-400 w-[100px] h-[25px] pt-[1px] pl-[2px]">
+          <div className="border border-black w-[100px] h-[25px] pt-[1px] pl-[2px]">
             <p className="text-[8px] text-stone-400 m-0">Secondary (+1):</p>
             <p className="text-[10px] m-0 relative bottom-1 pl-4">{props.secondarySpecialty}</p>
           </div>
