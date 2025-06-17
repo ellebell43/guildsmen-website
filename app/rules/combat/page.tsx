@@ -82,8 +82,10 @@ export default function Combat() {
 
       <section id="recovering-from-damage">
         <h2>Recovering from Damage</h2>
-        <p>Recovering from damage can only be done through another character's <em>medic</em> skill check or by using a consumable item (see the <Link href="/rules/the-market#consumables"><em>Market chapter</em></Link>). On a relevant skill check of 10 or more, the wounded person may recover from 2 Harm. This can only be done outside of combat and only periodically.
+        <p>Recovering from damage is generally done through another character's <em>medic</em> skill check or by using a consumable item (see the <Link href="/rules/the-market#consumables"><em>Market chapter</em></Link>). On a relevant skill check of 10 or more, the wounded person may recover from 2 Harm. This can only be done outside of combat and only periodically.
         </p>
+
+        <p>Healing can be done through runes, but it requires a bespoke rune that is a minimum of Very Difficult to make. Every time you heal someone, you'll have to create a new rune for it, too, as the injury and person is always going to be different in some way. However, healing through runes will completely restore Harm to 0.</p>
       </section>
 
       <section id="weapons">
@@ -123,21 +125,21 @@ export default function Combat() {
 
           <li><strong>Burning</strong>: You are on fire. Take 1 harm every combat round until the fire is put out.</li>
 
-          <li><strong>Calmed</strong>: You can do nothing violent for a length of time. A Competence check of 12 or more may end the condition early.</li>
+          <li><strong>Calmed</strong>: You can do nothing violent for a length of time. A Competence check of 10 or more may end the condition early.</li>
 
-          <li><strong>Charmed</strong>: You cannot attempt to harm the charmer in any way, and you must be friendly toward the charmer for a time. A Competence score of 12 or more may end the condition early.</li>
+          <li><strong>Charmed</strong>: You cannot attempt to harm the charmer in any way, and you must be friendly toward the charmer for a time. A Competence score of 10 or more may end the condition early.</li>
 
           <li><strong>Entangled</strong>: You are bound and cannot move for a length of time. A Tough stat check of 10 or more may end the condition early.</li>
 
-          <li><strong>Exhausted</strong>: You have a -2 in addition to your regular modifiers to all skill and stat checks that require physical movement for a length of time. Resting may end the condition early.</li>
+          <li><strong>Exhausted</strong>: You have a -2 in addition to your regular modifiers to all skill and stat checks that require physical movement for a length of time. A Constitution check of 10 or more may end the condition early.</li>
 
-          <li><strong>Frenzied</strong>: You will uncontrollably attack all creatures nearby for a length of time. A Competence check of 12 or more may end the condition early.</li>
+          <li><strong>Frenzied</strong>: You will uncontrollably attack all creatures nearby for a length of time. A Competence check of 10 or more may end the condition early.</li>
 
           <li><strong>Frightened</strong>: You have a -2 in addition to your regular modifiers to all skill and stat checks that require mental exertion for a length of time. A Competence check of 10 or more may end the effect early.</li>
 
-          <li><strong>Frozen</strong>: All physical movement is done with a -2 in addition to your regular modifiers for a length of time. A Tough check of 12 or more may end the condition early.</li>
+          <li><strong>Frozen</strong>: All physical movement is done with a -2 in addition to your regular modifiers for a length of time. A Constitution check of 10 or more may end the condition early.</li>
 
-          <li><strong>Grappled</strong>: Both the victim and the attacker can no longer move. The victim may attempt to end the grapple via an opposed Tough check. On the next turn, if the grapple is still in effect, the attacker may knock the victim down or back, disarm the victim, make an attack with a small weapon such as a knife, or continue the grapple to prevent the victim from being able to move.</li>
+          <li><strong>Grappled</strong>: Both the victim and the attacker can no longer move. The victim may attempt to end the grapple via an opposed Tough check. On the next turn, if the grapple is still in effect, the attacker may knock the victim down or back, disarm the victim, make an attack with a small weapon such as a knife and get a +1 to it, or continue the grapple to prevent the victim from being able to move.</li>
 
           <li><strong>Knocked Back</strong>: you are pushed backward a distance specified by the Game Master. A Tough check of 10 or more may half the effect (done as a reaction).</li>
 
@@ -145,12 +147,12 @@ export default function Combat() {
 
           <li><strong>Poisoned</strong>: you take an amount of Harm specified by the Game Master every combat round (for quick poisons) or every in-game hour (for slow poisons) until cured. You may make a Constitution check of 10 or more every combat round or hour to prevent the damage from happening for that round or hour. Whiteroot (see the Market chapter) may cure poison.</li>
 
-          <li><strong>Stunned</strong>: you are unable to move or act for a length of time. A Competence check of 12 or more may end the effect early.</li>
+          <li><strong>Stunned</strong>: you are unable to move or act for a length of time. A Constitution check of 10 or more may end the effect early.</li>
 
-          <li><strong>Weakened</strong>: All physical attack effects are halved for a length of time. A Tough check of 12 or more may end the condition early.</li>
+          <li><strong>Weakened</strong>: All physical attack effects are halved for a length of time. A Constitution check of 10 or more may end the condition early.</li>
         </ul>
       </section>
-      <NextButton href="/rules/Stardew" />
+      <NextButton href="/rules/stardew" />
     </article>
   )
 }

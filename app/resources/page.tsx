@@ -28,6 +28,10 @@ export default function Page() {
           Establishment Sheet
           <FontAwesomeIcon icon={faDownload} className="" />
         </Link>
+        <Link className={linkClass} href="/quick-reference.pdf" download="guildsmen-reference-sheet" target="_blank">
+          Quick Reference Sheet
+          <FontAwesomeIcon icon={faDownload} className="" />
+        </Link>
       </div>
     </>
   )
