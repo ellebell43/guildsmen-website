@@ -156,7 +156,7 @@ export default function CharacterSheet(props: { character?: Character, error?: s
                   <div className="w-full absolute">
                     {character.weapons.map((el, i) => {
                       return (
-                        <p className="text-sm m-0">{el.name} ({el.modifier})</p>
+                        <p className="text-sm m-0" key={i}>{el.name} ({el.modifier})</p>
                       )
                     })}
                   </div> : <></>}
