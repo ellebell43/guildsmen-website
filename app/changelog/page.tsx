@@ -13,6 +13,14 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="xx/xx/2026"
+          version="v0.x.x"
+          entries={[
+            "Character note tiles now support mark down test. Notes also now stay maximized when you complete creating/editing the note and show the parsed markdown instead of closing out.",
+            "Deleting notes is only possible when in edit mode for the note or in edit mode for the character."
+          ]}
+        />
+        <ChangelogEntry
           date="04/20/2025"
           version="v0.8.0"
           entries={[
