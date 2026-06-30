@@ -19,18 +19,8 @@ export default function GearList(props: props) {
 
       <p>To understand what the Armor and Weapon modifiers are for, see the <Link href="/combat" target="_blank">Combat Chapter</Link></p>
 
-      <h3 className="border-none">Armor</h3>
-      <EquipmentObjectInput state={props.armor ? props.armor : { name: "", modifier: "+1" }} setState={props.setArmor} entries={["+1", "+2"]} placeholder="Armor" />
-      <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-4">
-        <div>
-          <h3 className="border-none">Weapons</h3>
-          <WeaponList state={props.weapons} setState={props.setWeapons} placeholder="New Weapon Item" />
-        </div>
-        <div>
-          <h3 className="border-none">Gear</h3>
-          <EditableList state={props.gear} setState={props.setGear} placeholder="New Gear Item" />
-        </div>
-      </div>
+      <h3 className="border-none">Gear</h3>
+      <EditableList state={props.gear} setState={props.setGear} placeholder="New Gear Item" />
     </div>
   )
 }

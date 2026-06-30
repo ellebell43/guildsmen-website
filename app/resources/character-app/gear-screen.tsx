@@ -18,7 +18,6 @@ export default function GearScreen(props: { character: Character, setCharacter: 
   return (
     <div className={`${props.containerClass} flex flex-col pl-8 mt-4 h-[700px] m-auto lg:mx-0 overflow-y-scroll`}>
       <h2 className={`${props.headerClass} ${width >= 1280 ? "" : "hidden"}`}>Gear</h2>
-      <WeaponList state={weapons} setState={setWeapons} placeholder="New Weapon" />
       <EditableList state={items} setState={setItems} placeholder="New Item" isTemplate={props.isTemplate} edit={props.edit} />
     </div>
   )
