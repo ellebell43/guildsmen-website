@@ -20,7 +20,8 @@ export default function Changelog() {
             "Deleting notes is only possible when in edit mode for the note or in edit mode for the character.",
             "Reworked character creation to be more organized with more headers and have joining a guild at the top instead of at the bottom. Also added some context and fixed some typos here and there.",
             "Fixed dead discord invite link in the footer",
-            "Self-service account recovery has been re-enabled! And an official email has been set up (hello@guildsmenrpg.com)"
+            "Self-service account recovery has been re-enabled! And an official email has been set up (hello@guildsmenrpg.com)",
+            "The Character Creation form has been updated to match the new structure of the Chapter, and all links in the form open in a new tab to avoid losing progress",
           ]}
         />
         <ChangelogEntry
