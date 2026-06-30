@@ -68,7 +68,7 @@ export function WeaponList(props: { state: equipment[] | undefined, setState: Fu
     <div>
       <div className="flex gap-4 items-center justify-center relative left-2 sm:left-0 mr-4">
         <TextInput label={props.placeholder} id={props.placeholder} required={false} state={name} setState={setName} />
-        <BulletDropList entries={["+1", "+2", "-2/+2", "-2/+4", "+3/-4", "+6/-4"]} state={modifier} setState={setModifier} placeholder="Mod." small={true} />
+        <BulletDropList entries={["+1", "+2", "-2/+2", "-2/+4", "+3/-4", "+6/-4"]} state={modifier} setState={setModifier} placeholder="Mod." small={true} wFit={true} />
         <button
           className="button px-2 sm:px-5 py-1 text-sm rounded m-0"
           onClick={e => {

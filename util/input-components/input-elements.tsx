@@ -75,7 +75,7 @@ export function EquipmentObjectInput(props: { state: equipment | undefined, setS
   return (
     <div className="flex gap-2 justify-center items-center">
       <TextInput state={props.state?.name} setState={setName} required={true} id={props.placeholder} label={props.placeholder} />
-      <BulletDropList entries={props.entries} state={props.state?.modifier} setState={setModifier} placeholder="Mod" small={true} />
+      <BulletDropList entries={props.entries} state={props.state?.modifier} setState={setModifier} placeholder="Mod" small={true} wFit={true} />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { faPlay, faInfoCircle, faX } from "@fortawesome/free-solid-svg-icons"
 import TextInputWithInfo from "./text-with-info"
 import { TextInput } from "./input-elements"
 
-export default function BulletDropList(props: { entries: string[], state: string | undefined, setState: Function, placeholder: string, info?: React.ReactNode, small?: boolean }) {
+export default function BulletDropList(props: { entries: string[], state: string | undefined, setState: Function, placeholder: string, info?: React.ReactNode, small?: boolean, wFit?: boolean }) {
   const [dark, setDark] = useState(false)
   const [active, setActive] = useState(false)
   const [showInfo, setShowInfo] = useState(false)
@@ -25,9 +25,14 @@ export default function BulletDropList(props: { entries: string[], state: string
         </button>
 
         {/* If info prop, use read only input with info button, otherwise use normal text input */}
-        <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true} infoButton={props.info != undefined ? undefined : true}>
+        {props.info ? <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true}>
           {props.info}
-        </TextInputWithInfo>
+        </TextInputWithInfo> : props.wFit ?
+          <TextInput label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true} small={true} />
+          : <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true} infoButton={false}>
+            <></>
+          </TextInputWithInfo>
+        }
       </div>
 
       <div
