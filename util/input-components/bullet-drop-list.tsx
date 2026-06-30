@@ -25,10 +25,9 @@ export default function BulletDropList(props: { entries: string[], state: string
         </button>
 
         {/* If info prop, use read only input with info button, otherwise use normal text input */}
-        {props.info ? <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true}>
+        <TextInputWithInfo label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true} infoButton={props.info != undefined ? undefined : true}>
           {props.info}
-        </TextInputWithInfo> :
-          <TextInput label={props.placeholder} id={props.placeholder} required={true} state={props.state} setState={props.setState} readOnly={true} small={true} />}
+        </TextInputWithInfo>
       </div>
 
       <div
