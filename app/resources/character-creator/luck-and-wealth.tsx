@@ -39,7 +39,9 @@ export default function LuckAndWealth(props: { luck: luckRange | undefined, setL
     <>
       <h2>Luck & Wealth</h2>
 
-      <p>Next, you need to determine your character&apos;s luck and wealth. You&apos;re luck will determine a situations outcome when the result should rely on pure chance. Wealth describes how much money your character generally has to spend.</p>
+      <p>As a final step, you need to decide how wealthy your character is and how lucky they are. Wealth describes how wealthy your character is on average and is a general descriptive term. In Guildsmen, you will not be keeping track of your specific amount of currency. Instead, your character gets a wealth adjective that describes their overall ability to by goods and services. If you wrote in some character details or a backstory, go with whatever makes the most sense for what you wrote. Otherwise, it's generally suggested to with Moderate</p>
+
+      <p>Whenever you do something or want something to happen that would rely on luck, you will roll 2d6 (2, 6-sided dice) and add the number that is in your luck box. The higher the total number, the better the outcome. This same principle is how skills work (see the <a href="/rules/skills"><em>Skills chapter</em></a> for details).</p>
 
       {!props.luck ?
         <div className="relative w-fit h-fit mx-auto flex justify-center items-center">

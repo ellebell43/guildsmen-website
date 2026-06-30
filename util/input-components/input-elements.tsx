@@ -75,7 +75,7 @@ export function EquipmentObjectInput(props: { state: equipment | undefined, setS
   return (
     <div className="flex gap-2 justify-center items-center">
       <TextInput state={props.state?.name} setState={setName} required={true} id={props.placeholder} label={props.placeholder} />
-      <BulletDropList entries={props.entries} state={props.state?.modifier} setState={setModifier} placeholder="Mod" small={true} />
+      <BulletDropList entries={props.entries} state={props.state?.modifier} setState={setModifier} placeholder="Mod" small={true} wFit={true} />
     </div>
   )
 }
@@ -158,8 +158,8 @@ export function EmailInput(props: { label: string, required: boolean, id: string
 
 // ====== TEXT AREA INPUT ======
 
-export function TextAreaInput(props: { label: string, required: boolean, id: string, setState: Function, state: string | undefined }) {
-  let { label, required, id, setState, state } = props
+export function TextAreaInput(props: { label: string, required: boolean, id: string, setState: Function, maximized?: boolean, state?: string }) {
+  let { label, required, id, setState, maximized, state } = props
 
   const [dark, setDark] = useState(false)
   const [active, setActive] = useState(false)
@@ -178,10 +178,10 @@ export function TextAreaInput(props: { label: string, required: boolean, id: str
   const activeLabelClass = "top-[-20px] left-[-10px] text-[10px]"
 
   return (
-    <div className="relative w-fit place-self-center">
+    <div className={`relative w-fit place-self-center ${maximized ? "w-full h-full" : "w-fit"}`}>
       <label htmlFor={id} className={`${labelClass}  ${active ? activeLabelClass : ""}`}>{label}</label>
       <textarea
-        className="border text-inherit bg-inherit shadow-sm rounded w-[280px] md:w-[300px] h-[150px] p-2"
+        className={`border text-inherit bg-inherit shadow-sm rounded ${maximized ? "w-full h-full" : "w-[280px] md:w-[300px] h-[150px]"} p-2`}
         id={id}
         name={id}
         required={required}

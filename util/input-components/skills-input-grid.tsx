@@ -3,7 +3,7 @@ import { skillName } from "../types";
 import { Info } from "./input-elements";
 import Link from "next/link";
 
-export default function SkillsInputGrid(props: { skills: skills, setSkills: Function, setError: Function }) {
+export default function SkillsInputGrid(props: { skills: skills, setSkills: Function, setError: Function, unmutableSkills: skills }) {
   const skillNames: skillName[] = ["craft", "leadership", "stardew", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
 
   const getSkillDescription = (skill: skillName) => {
@@ -45,10 +45,10 @@ export default function SkillsInputGrid(props: { skills: skills, setSkills: Func
             </div>
             <p className="m-0 relative top-1 text-right w-[125px] md:w-full">{el[0].toUpperCase() + el.slice(1)}</p>
             <div className="flex gap-2">
-              <BubbleButton skill={el} value={-1} skills={props.skills} setSkills={props.setSkills} setError={props.setError} />
-              <BubbleButton skill={el} value={0} skills={props.skills} setSkills={props.setSkills} setError={props.setError} />
-              <BubbleButton skill={el} value={1} skills={props.skills} setSkills={props.setSkills} setError={props.setError} />
-              <BubbleButton skill={el} value={2} skills={props.skills} setSkills={props.setSkills} setError={props.setError} />
+              <BubbleButton skill={el} value={-1} skills={props.skills} setSkills={props.setSkills} setError={props.setError} initValue={props.unmutableSkills[el]} />
+              <BubbleButton skill={el} value={0} skills={props.skills} setSkills={props.setSkills} setError={props.setError} initValue={props.unmutableSkills[el]} />
+              <BubbleButton skill={el} value={1} skills={props.skills} setSkills={props.setSkills} setError={props.setError} initValue={props.unmutableSkills[el]} />
+              <BubbleButton skill={el} value={2} skills={props.skills} setSkills={props.setSkills} setError={props.setError} initValue={props.unmutableSkills[el]} />
             </div>
           </div>
         )
@@ -57,16 +57,21 @@ export default function SkillsInputGrid(props: { skills: skills, setSkills: Func
   )
 }
 
-const BubbleButton = (props: { skill: skillName, value: modRange, skills: skills, setSkills: Function, setError: Function }) => {
+const BubbleButton = (props: { skill: skillName, value: modRange, skills: skills, setSkills: Function, setError: Function, initValue: modRange }) => {
   const skillNames: skillName[] = ["craft", "leadership", "stardew", "performance", "sneaky", "investigate", "medic", "nature", "social", "tech", "throwdown"]
 
   return (
     <div className="relative">
-      <p className={`text-xs text-center absolute -top-4 ${props.value != -1 ? "left-[6px]" : "left-[2px]"}`}>{props.value}</p>
+      <p className={`text-xs text-center absolute -top-6 ${props.value != -1 ? "left-[6px]" : "left-[2px]"}`}>{props.value}</p>
       <button
-        className={`rounded-full w-4 h-4 border cursor-pointer transition-all ${props.skills[props.skill] >= props.value ? "bg-stone-400" : "bg-stone-200"}`}
+        className={`rounded-full w-4 h-4 border cursor-pointer transition-all ${props.value <= props.initValue ? "bg-black" : props.skills[props.skill] >= props.value ? "bg-stone-400" : "bg-stone-200"}`}
         onClick={() => {
           const tempSkills = { ...props.skills }
+          if (props.initValue > props.value) {
+            props.setError(`Cannot change ${props.skill} to ${props.value} due to it being a Guild Skill. ${props.initValue}`)
+            return
+          }
+
           tempSkills[props.skill] = props.value
 
           let total = 0
@@ -75,7 +80,7 @@ const BubbleButton = (props: { skill: skillName, value: modRange, skills: skills
             //@ts-ignore
             total += tempSkills[element]
           });
-          if (total > -7) {
+          if (total > -3) {
             props.setError("You cannot fill in more than four other bubbles.")
           } else {
             props.setSkills(tempSkills)

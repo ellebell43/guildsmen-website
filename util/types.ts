@@ -125,7 +125,7 @@ export class Character {
   owner: string
   harm: harm
   dying: boolean
-  weapons: equipment[] | undefined
+  weapons: equipment[]
   armor: equipment | undefined
   gear: string[]
   experience: number
@@ -141,7 +141,7 @@ export class Character {
   refOwner?: string
   conditions?: condition[]
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: equipment[] | undefined = undefined, armor: equipment | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: equipment[] = [], armor: equipment | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
