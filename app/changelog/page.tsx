@@ -16,9 +16,10 @@ export default function Changelog() {
           date="xx/xx/2026"
           version="v0.x.x"
           entries={[
-            "Character note tiles now support mark down test. Notes also now stay maximized when you complete creating/editing the note and show the parsed markdown instead of closing out.",
+            "Character note tiles now support mark down text. Notes also now stay maximized when you complete creating/editing the note and show the parsed markdown instead of closing out.",
             "Deleting notes is only possible when in edit mode for the note or in edit mode for the character.",
-            "Reworked character creation to be more organized with more headers and have joining a guild at the top instead of at the bottom. Also added some context and fixed some typos here and there."
+            "Reworked character creation to be more organized with more headers and have joining a guild at the top instead of at the bottom. Also added some context and fixed some typos here and there.",
+            "Fixed dead discord invite link in the footer"
           ]}
         />
         <ChangelogEntry

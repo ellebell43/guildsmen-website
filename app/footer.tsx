@@ -10,7 +10,7 @@ export default function Footer() {
         {/* <Link href="https://www.reddit.com/r/Guildsmen/">
           <FontAwesomeIcon icon={faReddit} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
         </Link> */}
-        <Link href="https://discord.gg/3BzAYr9SRk">
+        <Link href="https://discord.gg/QpjwW9ZrKg">
           <FontAwesomeIcon icon={faDiscord} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
         </Link>
         <Link href="https://github.com/ellebell43/guildsmen-website">
