@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReddit, faGithub, faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   const socialLinkClass = "h-8 w-8"
@@ -15,6 +16,9 @@ export default function Footer() {
         </Link>
         <Link href="https://github.com/ellebell43/guildsmen-website">
           <FontAwesomeIcon icon={faGithub} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
+        </Link>
+        <Link href="mailto:hello@guildsmenrpg.com">
+          <FontAwesomeIcon icon={faEnvelope} className="w-10 h-10 hover:text-stone-600 dark:hover:text-stone-300 text-[48px]" />
         </Link>
       </div>
 

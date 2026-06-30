@@ -19,23 +19,23 @@ export async function GET(req: Request) {
   }
 
   const transporter = nodemailer.createTransport({
-    host: "smtp.ionos.com",
-    port: 587,
+    host: "smtp.hostinger.com",
+    port: 465,
     auth: {
-      user: "no-reply@guildsmen-ttrpg.com",
+      user: "hello@guildsmenrpg.com",
       pass: process.env.EMAIL_PASS
     }
   })
 
   try {
     await transporter.sendMail({
-      from: '"Guildsmen | Account Recovery" <no-reply@guildsmen-ttrpg.com>', // sender address
+      from: '"Guildsmen RPG" <hello@guildsmenrpg.com>', // sender address
       to: email, // list of receivers
       subject: "Password Recovery", // Subject line
-      text: `We received a request to reset your password. To continue, click the link below. https://guildsmen-ttrpg.com/recover?updateToken=${token}`, // plain text body
+      text: `We received a request to reset your password. To continue, click the link below. https://guildsmenrpg.com/recover?updateToken=${token}`, // plain text body
       html: `
       <p>We received a request to reset your password. To continue, click the link below.</p>
-      <a href="https://guildsmen-ttrpg.com/recover?updateToken=${token}">https://guildsmen-ttrpg.com/recover?updateToken=${token}</a>
+      <a href="${process.env.NEXT_PUBLIC_HOST}/recover?updateToken=${token}">Recover account</a>
       `, // html body
     });
     return NextResponse.json({ message: "Email sent successfully" })
