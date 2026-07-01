@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange, user } from "@/util/types";
+import { Character, species, skills, stats, wealthRange, luckRange, guild, modRange, addictionRange, user, equipment } from "@/util/types";
 import ErrorMessage from "@/app/error-message";
-import getUserByToken from "@/util/getUserByToken";
 import BasicInfo from "./basic-info";
 import BackgroundInfo from "./background-info";
 import StartingSkills from "./starting-skills";
@@ -43,7 +42,9 @@ export default function CharacterForm(props: { user: user }) {
   const [species, setSpecies] = useState<species>()
   const [demeanor, setDemeanor] = useState<string>()
   const [physique, setPhysique] = useState<string>()
+  const [description, setDescription] = useState<string>()
   const [skills, setSkills] = useState<skills>(initSkills)
+  const [unmutableSkills, setUnmutableSkills] = useState<skills>(initSkills)
   const [wealth, setWealth] = useState<wealthRange>()
   const [luck, setLuck] = useState<luckRange>()
   const [guild, setGuild] = useState<guild>()
@@ -53,6 +54,8 @@ export default function CharacterForm(props: { user: user }) {
   const [personalMorals, setPersonalMorals] = useState<string>()
   const [importantConnections, setImportantConnections] = useState<string>()
   const [gear, setGear] = useState<string[]>([])
+  const [weapons, setWeapons] = useState<equipment[]>([])
+  const [armor, setArmor] = useState<equipment | undefined>()
 
   const stats: stats = { tough: -1, nimble: -1, competence: -1, constitution: -1, spirit: -1 }
 
@@ -61,51 +64,54 @@ export default function CharacterForm(props: { user: user }) {
 
   const getPage = () => {
     switch (page) {
-      case 1:
-        return <BasicInfo name={name} setName={setName} species={species} setSpecies={setSpecies} demeanor={demeanor} setDemeanor={setDemeanor} physique={physique} setPhysique={setPhysique} />
       case 2:
-        return <BackgroundInfo flawsAndWeaknesses={flawsAndWeaknesses} setFlawsAndWeaknesses={setFlawsAndWeaknesses} personalMorals={personalMorals} setPersonalMorals={setPersonalMorals} importantConnections={importantConnections} setImportantConnections={setImportantConnections} goalsAndMotives={goalsAndMotives} setGoalsAndMotives={setGoalsAndMotives} />
+        return <BasicInfo name={name} setName={setName} species={species} setSpecies={setSpecies} demeanor={demeanor} setDemeanor={setDemeanor} physique={physique} setPhysique={setPhysique} description={description} setDescription={setDescription} />
       case 3:
-        return <StartingSkills skills={skills} setSkills={setSkills} setError={setValidationError} />
+        return <BackgroundInfo flawsAndWeaknesses={flawsAndWeaknesses} setFlawsAndWeaknesses={setFlawsAndWeaknesses} personalMorals={personalMorals} setPersonalMorals={setPersonalMorals} importantConnections={importantConnections} setImportantConnections={setImportantConnections} goalsAndMotives={goalsAndMotives} setGoalsAndMotives={setGoalsAndMotives} />
       case 4:
-        return <LuckAndWealth luck={luck} setLuck={setLuck} wealth={wealth} setWealth={setWealth} />
+        return <StartingSkills skills={skills} setSkills={setSkills} setError={setValidationError} unmutableSkills={unmutableSkills} />
       case 5:
+        return <LuckAndWealth luck={luck} setLuck={setLuck} wealth={wealth} setWealth={setWealth} />
+      case 1:
         return <GuildSelect guild={guild} setGuild={setGuild} />
       case 6:
-        return <GearList gear={gear} setGear={setGear} />
+        return <GearList gear={gear} setGear={setGear} armor={armor} setArmor={setArmor} weapons={weapons} setWeapons={setWeapons} />
     }
   }
 
   const validate = () => {
     switch (page) {
-      case 1:
+      case 2:
         if (!name || !species) {
           setValidationError("Your character must have a name and species.")
           return false
         }
-        return true
-      case 2:
-        // No validation needed on this page as all fields are completely optional
+        var newSkills = updateSkills()
+        setSkills(newSkills)
+        setUnmutableSkills(newSkills)
         return true
       case 3:
+        // No validation needed on this page as all fields are completely optional
+        return true
+      case 4:
         let total = 0
         let keys = Object.keys(skills)
         keys.forEach(element => {
           //@ts-ignore
           total += skills[element]
         });
-        if (total !== -7) {
-          setValidationError("You must fill in a total of four bubbles to continue.")
+        if (total !== -3) {
+          setValidationError("You must fill a total of four bubbles to continue.")
           return false
         }
         return true
-      case 4:
+      case 5:
         if (!luck || wealth == undefined) {
           setValidationError("You must select your wealth and determine your luck to continue.")
           return false
         }
         return true
-      case 5:
+      case 1:
         if (!guild) {
           setValidationError("You must select a guild before continuing.")
           return false
@@ -173,7 +179,7 @@ export default function CharacterForm(props: { user: user }) {
   }
 
   const updateSkills = () => {
-    let skillsToUpdate = { ...skills }
+    let skillsToUpdate = { ...initSkills }
     switch (guild) {
       case "Assassins":
         skillsToUpdate.investigate++
@@ -214,11 +220,12 @@ export default function CharacterForm(props: { user: user }) {
     // update stats
     setStats()
     // update skills
-    let updatedSkills = updateSkills()
+    // let updatedSkills = updateSkills()
     // update stardew addiction if chosen as a starting skill
     if (skills.stardew >= 0) setAddiction(3)
     if (name && species && typeof (wealth) == "number" && luck && guild) {
-      let newChar = new Character(name, species, demeanor, physique, updatedSkills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username)
+      if (!armor?.name) setArmor(undefined)
+      let newChar = new Character(name, species, demeanor, physique, skills, stats, wealth, luck, guild, addiction, goalsAndMotives, flawsAndWeaknesses, personalMorals, importantConnections, props.user.username, description, weapons, armor)
       newChar.gear = gear
       setApiLoading(true)
       let ok = true
@@ -235,7 +242,7 @@ export default function CharacterForm(props: { user: user }) {
           }
         })
     } else {
-      setValidationError("Some went wrong during form validation! Please contact us via discord.")
+      setValidationError("Some went wrong during form validation! Please contact us via discord or email hello@guildsmenrpg.com.")
     }
   }
 

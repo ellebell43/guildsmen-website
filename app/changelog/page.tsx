@@ -13,6 +13,18 @@ export default function Changelog() {
       <h1 className={styles.h2}>Changelog</h1>
       <ul>
         <ChangelogEntry
+          date="06/30/2026"
+          version="v0.9.0"
+          entries={[
+            "Character note tiles now support mark down text. Notes also now stay maximized when you complete creating/editing the note and show the parsed markdown instead of closing out.",
+            "Deleting notes is only possible when in edit mode for the note or in edit mode for the character.",
+            "Reworked character creation to be more organized with more headers and have joining a guild at the top instead of at the bottom. Also added some context and fixed some typos here and there.",
+            "Fixed dead discord invite link in the footer",
+            "Self-service account recovery has been re-enabled! And an official email has been set up (hello@guildsmenrpg.com)",
+            "The Character Creation form has been updated to match the new structure of the Chapter, and all links in the form open in a new tab to avoid losing progress",
+          ]}
+        />
+        <ChangelogEntry
           date="04/20/2025"
           version="v0.8.0"
           entries={[

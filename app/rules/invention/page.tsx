@@ -24,7 +24,7 @@ export default function Invention() {
 
         <p>After the design has been made, you must gather the proper resources and manpower to create the invention. This will vary greatly depending on the thing you&apos;re creating and will generally require a fair amount of wealth and role play (see Sponsers in the <Link href="/rules/crafting"><em>Crafting chapter</em></Link>).</p>
 
-        <p>Once you&apos;ve done all of that, you&apos;ll need to craft a prototype. The harder the item is to create, the more <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail any of these skill checks, then your prototype fails, and you must restart the invention process, but you&apos;ll get to roll with advantage to create the new blueprint.</p>
+        <p>Once you&apos;ve done all of that, you&apos;ll need to craft a prototype. The harder the item is to create, the more <em>craft</em> skill checks it will take in order to successfully create the first prototype. If you fail any of these skill checks, then your prototype fails, and you must restart the invention process, but you&apos;ll get to roll with an additional +1 to tech and craft checks for the next blueprint and prototype process. The additional +1 carries over, so you get +1 per failed prototype to keep attempting to invent the item.</p>
 
         <table>
           <thead>
@@ -109,6 +109,8 @@ export default function Invention() {
 
       <section id="mechs">
         <h2>Mechs</h2>
+        <p className="text-center"><em>All larger devices, robots, or vehicles should use the following rules to be created:</em></p>
+
         <p>Mechs are essentially robots that are designed to carryout specific tasks and usually incorporate features and forms from the natural world. There are mechs for moving heavy object, for transportation, for show, for play, and much more. Creating them is difficult and complex, requiring a strong knowledge of runes. When creating a mech, you need to first establish the purpose of the mech and the tasks it will be capable. From there, you&apos;ll pick a size that fits the mech&apos;s needs.</p>
 
         <table>

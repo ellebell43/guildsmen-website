@@ -1,10 +1,11 @@
-import EditableList from "@/util/components/editable-list";
+import EditableList, { WeaponList } from "@/util/components/editable-list";
 import { Character } from "@/util/types";
 import useWindowDimensions from "@/util/useWindowDimenstions";
 import { useEffect, useState } from "react";
 
 export default function GearScreen(props: { character: Character, setCharacter: Function, headerClass: string, containerClass: string, isTemplate?: boolean, edit?: boolean }) {
   const [items, setItems] = useState([...props.character.gear])
+  const [weapons, setWeapons] = useState([...props.character.weapons])
 
   const { width, height } = useWindowDimensions()
 

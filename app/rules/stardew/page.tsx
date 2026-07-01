@@ -76,7 +76,7 @@ export default function Stardew() {
 
       <section id="using-stardew">
         <h2>Using Stardew</h2>
-        <p>Once injected, you have a number of uses that can be used to manipulate the element of your Stardew. To manipulate the element, you simply roll a <em>Stardew</em> skill. The Game Master will decide how difficult the skill check will be based on the effect you&apos;re trying to achieve.</p>
+        <p>Once injected, you have a number of uses that can be used to manipulate the element of your Stardew. To manipulate the element, you simply roll a <em>Stardew</em> skill. The Game Master will decide how difficult the skill check will be based on the effect you&apos;re trying to achieve. A Stardew use is consumed only on a successful skill check.</p>
 
         <p>For example: trying to cause sparks or make a candle flame sway in a specific way would be very easy but trying to spontaneously cause your opponent to combust or redirect a wildfire would be very difficult.</p>
       </section>

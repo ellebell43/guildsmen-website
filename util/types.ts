@@ -7,6 +7,9 @@ export type action = {
   description: string
 }
 
+export type equipment = { name: string, modifier: equipmentModifier }
+export type equipmentModifier = "+1" | "+2" | "-2/+2" | "-2/+4" | "+3/-4" | "+6/-4"
+
 export type creatureType = "person" | "beast" | "starborne"
 
 export type creature = {
@@ -58,6 +61,8 @@ export type socialSpecialty = "Deception" | "Intimidation" | "Persuasion"
 export type sneakySpecialty = "Hiding" | "Lock-Picking" | "Pocket-Picking" | "Sleight-of-Hand"
 export type throwdownSpecialty = "Melee" | "Personal" | "Ranged"
 export type techSpecialty = "Biological" | "Large" | "Personal" | "Vehicles"
+
+export type condition = "Blinded" | "Burning" | "Calmed" | "Charmed" | "Entangled" | "Exhausted" | "Frenzied" | "Frightened" | "Frozen" | "Grappled" | "Knocked Back" | "Knocked Down" | "Poisoned" | "Stunned" | "Weakened"
 
 export type specialties = {
   craft: { primary: craftSpecialty | undefined, secondary: craftSpecialty | undefined },
@@ -120,6 +125,8 @@ export class Character {
   owner: string
   harm: harm
   dying: boolean
+  weapons: equipment[]
+  armor: equipment | undefined
   gear: string[]
   experience: number
   experienceProgress: experienceProgress
@@ -128,11 +135,13 @@ export class Character {
   dateCreated: Date
   public: boolean
   _id: ObjectId
+  description: string
   fromTemplate?: boolean
   templateRef?: ObjectId
   refOwner?: string
+  conditions?: condition[]
 
-  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
+  constructor(name: string, species: species, demeanor: string = "", physique: string = "", skills: skills, stats: stats, wealth: wealthRange, luck: luckRange, guild: guild, addiction: addictionRange = 0, goalsAndMotive: string = "", flawsAndWeaknesses: string = "", personalMorals: string = "", importantConnections: string = "", owner: string, description: string = "", weapons: equipment[] = [], armor: equipment | undefined = undefined, fromTemplate?: boolean, templateRef?: ObjectId, refOwner?: string) {
     this._id = new ObjectId
     this.name = name
     this.species = species
@@ -176,6 +185,9 @@ export class Character {
     this.fromTemplate = fromTemplate
     this.templateRef = templateRef
     this.refOwner = refOwner
+    this.description = description
+    this.weapons = weapons
+    this.armor = armor
   }
 
   dieRoll() {
