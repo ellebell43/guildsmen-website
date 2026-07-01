@@ -32,7 +32,7 @@ export default function Home() {
       <p>The world of Guildsmen is known as Thelius. This is a world of many races, wild places, and great invention. However, the story you weave can take place in any world you want. But there are a few rules that must remain constant in order for the rules in this book to work.</p>
 
       <ol className="max-w-[700px] mx-auto">
-        <li>Stormborne creatures exist and have Star Gems inside of them (see the <Link href="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
+        <li>Starborne creatures exist and have Star Gems inside of them (see the <Link href="/rules/creatures"><em>Creatures chapter</em></Link>).</li>
         <li>The world is somewhat technologically advanced, and Star Gems are beginning to be used to power devices (see the <Link href="/rules/invention"><em>Invention chapter</em></Link> for details).</li>
         <li>Guilds are common establishments throughout the world.</li>
         <li>Magic exists and is performed through a drug known as <Link href="/rules/stardew">Stardew</Link> and through <Link href="/rules/runes">runes</Link>.</li>
@@ -42,7 +42,7 @@ export default function Home() {
       </p>
 
       <h2>Using This Website</h2>
-      <p>This website is separated into 5 pages: Rules, Lore, Bestiary, Resources, and Community.</p>
+      <p>This website is separated into 4 pages: Rules, Lore, Bestiary, and Resources.</p>
       <ul className="max-w-[700px] mx-auto">
         <li><Link href="/rules"><em>Rules</em></Link> outlines all the core rules of the TTRPG and is organized into chapters.</li>
         <li><Link href="/lore"><em>Lore</em></Link> is where all the information for the world of Thelius is, the core world of Guildsmen.</li>
